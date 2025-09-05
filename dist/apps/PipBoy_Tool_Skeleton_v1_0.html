@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pip‑Boy Tool Skeleton v1.0</title>
+<style>
+  :root{--bg:#0b0c06;--grid:#1a2b1a;--text:#b4ffb4;--glow:#39ff14;--accent:#9ae89a;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:ui-monospace,Consolas,monospace}
+  .wrap{padding:12px}
+  .badge{float:right;border:1px solid var(--grid);padding:2px 8px;border-radius:999px}
+  .btn{display:inline-block;border:1px solid var(--grid);padding:8px 12px;border-radius:8px;color:var(--text);background:#101a10;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="badge" id="version">Tool v1.0.0</span>
+  <h1>New Pip‑Boy Tool</h1>
+  <a class="btn" id="send-status">Send Status</a>
+  <a class="btn" id="send-capture">Send Test Capture</a>
+</div>
+<script>
+const TOOL_KEY = "tool_skeleton";
+const TOOL_VERSION = "1.0.0";
+
+function post(type, payload){ parent.postMessage({type:"DH_TOOL_EVENT", toolKey:TOOL_KEY, event:type, payload, version:TOOL_VERSION}, "*"); }
+function onReady(){ post("ready", {versionLabel: "Tool v"+TOOL_VERSION}); }
+document.getElementById("send-status").onclick = ()=> post("status", {ok:true, notes:"alive"});
+document.getElementById("send-capture").onclick = ()=> post("capture", {
+  schema:"eh1003006.capture.v1",
+  when:new Date().toISOString(),
+  site:"parcel",
+  parcelId:"EH1003006",
+  tag:"skeleton-demo",
+  geo:{lat:46.0201, lon:-122.5488, acc_m:5},
+  sensors:{},
+  media:[],
+  device:{ua:navigator.userAgent, platform:navigator.platform},
+  app:{name:"tool_skeleton", version:TOOL_VERSION}
+});
+window.addEventListener("DOMContentLoaded", onReady);
+</script>
+</body>
+</html>
