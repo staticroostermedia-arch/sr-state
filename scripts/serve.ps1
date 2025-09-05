@@ -1,8 +1,4 @@
-param(
-  [int]$Port = 8000
-)
-$PSScriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
-$Root = Resolve-Path (Join-Path $PSScriptRoot "..")
-Write-Host "Serving $Root at http://localhost:$Port"
-Set-Location $Root
-python -m http.server $Port
+param([int]$Port=8000)
+$dist = Join-Path $PSScriptRoot '..' | Join-Path 'dist'
+Start-Process powershell -ArgumentList "-NoExit","-Command","cd `"$dist`"; python -m http.server $Port"
+Start-Process "http://localhost:$Port/index.html"

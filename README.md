@@ -1,48 +1,27 @@
-# Static Rooster — Pip‑Boy EH1003006 Bundle v1.0
+# Static Rooster — Beta Payload v1.0
 
-This is a single‑file friendly bundle of your Pip‑Boy tools + parcel rasters.
+This archive contains the Pip-Boy DecisionHub and tool HTML files plus configs and helper scripts.
 
-## Contents
-- `apps/` — DecisionHub + planners + intake/PDR tools
-- `data/` — GeoTIFF rasters for EH1003006
-- `docs/` — UI kit, feature contract, and PDFs
-- `config/` — Config schema
-- `scripts/` — Build, serve, and GitHub init helpers
-- `index.html` — Landing page with quick links
-
-## Quick Start (Local)
+## Quick start
 ```bash
-cd StaticRooster_PipBoy_EH1003006_v1_0
-bash scripts/serve.sh 8000
-# in your browser: http://localhost:8000/
-# open: http://localhost:8000/apps/EH1003006_DecisionHub_index_v3_2_1.html
-```
+# unzip at the root of your repo clone
+unzip StaticRooster_Beta_Payload_v1_0.zip -d .
 
-Windows (PowerShell):
-```powershell
-cd StaticRooster_PipBoy_EH1003006_v1_0
-powershell -ExecutionPolicy Bypass -File scripts\serve.ps1 -Port 8000
-# then open http://localhost:8000/
-```
-
-> The HTML tools attempt to load rasters from `../data/…`. Serving this folder at its root ensures those paths resolve.
-
-## Build (static copy to `dist/`)
-```bash
+# build and serve locally
 bash scripts/build.sh
-# outputs to dist/
+bash scripts/serve.sh 8000  # then open http://localhost:8000
 ```
 
-## Initialize Git & Push to GitHub
-Create an empty repo on GitHub, then:
+## Commit to your repo
 ```bash
-bash scripts/init_github.sh git@github.com:YOURUSER/YOURREPO.git
-# or https://github.com/YOURUSER/YOURREPO.git (with a credential helper)
+git add apps docs config scripts dist/index.html
+git commit -m "Add beta payload (hub + tools + configs)"
+git push
 ```
 
-## Filenames normalized
-To avoid 'file stream' and quoting issues, spaces/parentheses were removed:
-- (none)
-
-## Notes
-- This bundle is versioned (v1.0). Future changes should bump the suffix and keep old builds intact per your Regression Protocol.
+## Files
+- apps/: EH1003006_DecisionHub_index_*.html and tool HTMLs
+- config/: DecisionHubConfig_Schema_v1_0.json, Feature_Contract
+- docs/: UI Kit and PDFs
+- scripts/: build.sh, serve.sh, serve.ps1
+- static-rooster.service.example: optional systemd user unit

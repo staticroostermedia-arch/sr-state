@@ -1,0 +1,12 @@
+[Unit]
+Description=Static Rooster (Pip-Boy) local server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/static-rooster/dist
+ExecStart=/usr/bin/env python3 -m http.server 8000
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
