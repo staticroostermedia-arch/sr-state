@@ -1,7 +1,11 @@
 {
   "schema": "sr.receipts.index.v0_1",
-  "generated_at": "2025-09-08T21:22:23Z",
+  "generated_at": "2025-09-08T22:03:36Z",
   "items": [
+    {
+      "name": "sr.done_receipt_1757369016_v0_1.json",
+      "url": "/receipts/sr.done_receipt_1757369016_v0_1.json"
+    },
     {
       "name": "sr.done_receipt_1757365204_v0_1.json",
       "url": "/receipts/sr.done_receipt_1757365204_v0_1.json"

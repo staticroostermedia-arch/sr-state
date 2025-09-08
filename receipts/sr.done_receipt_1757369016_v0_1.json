@@ -1,0 +1,8 @@
+{
+  "schema": "sr.receipt.v0_1",
+  "kind": "reply_apply",
+  "generated_at": "2025-09-08T22:03:36Z",
+  "source_zip": "reply_smoke_1757369015.zip",
+  "sanitized": "reply_smoke_1757369015_sanitized_v0_1.zip",
+  "foedus": "intactum"
+}
