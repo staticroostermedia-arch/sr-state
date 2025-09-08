@@ -1,7 +1,6 @@
 .venv/
 __pycache__/
 *.pyc
-*.pyo
 /mnt/
 /tmp/
 /logs/
@@ -10,3 +9,6 @@ __pycache__/
 *.tif
 *.tiff
 *.zip
+*.tgz
+ark/secrets/**
+secrets/**
