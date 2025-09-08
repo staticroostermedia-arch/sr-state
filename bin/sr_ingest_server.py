@@ -39,4 +39,4 @@ class H(BaseHTTPRequestHandler):
         self.wfile.write(PAGE.replace(b"{msg}", msg or b"ok"))
 
 if __name__ == "__main__":
-    HTTPServer(('127.0.0.1', 8890), H).serve_forever()
+    HTTPServer(('127.0.0.1', int(__import__('os').environ.get('SR_INGEST_PORT','8891'))), H).serve_forever()

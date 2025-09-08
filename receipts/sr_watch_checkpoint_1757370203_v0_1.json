@@ -1,0 +1,19 @@
+{
+  "schema": "sr.watch_checkpoint.v0_1",
+  "ts": "2025-09-08T22:23:23Z",
+  "config_sha256": "56e3dfb46ee4a5d0b14113024096bda6ff40ed558c86dc852e03a6785ed73168",
+  "tool_versions": [],
+  "diff_files_since_last_commit": 6,
+  "last_snapshot": "/home/a/static-rooster/snapshots/sr_snapshot_20250908_150020.tgz",
+  "receipts": {
+    "count": 7,
+    "latest": "done_01_v0_1.json"
+  },
+  "filename_compliance": {
+    "count": 1,
+    "sample": [
+      "decisionhub/DecisionHub_Shell_v0_1_2.html"
+    ]
+  },
+  "report": "penitential_rite_required"
+}
