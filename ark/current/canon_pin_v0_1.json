@@ -1,0 +1,20 @@
+{
+  "schema": "sr.canon_pin.v0_1",
+  "generatedAt": "2025-09-07T20:02:28.537596+00:00",
+  "baseline": {
+    "version": "1.1.2",
+    "file": "Missal_of_Static_Rooster_v1_1_2_Complete.pdf",
+    "sha256": "e06b35516fba6b590264e99752454902e01f6b45c7e9a600f41941a352f85bc1",
+    "size": 19534
+  },
+  "illuminated": {
+    "version": "1.1.3",
+    "file": "Missal_of_Static_Rooster_v1_1_3_Illuminated_FULL.pdf",
+    "sha256": "c18ade2a5f10d5ecd7c7e2e3a74d9bddab905245308966691dd2299a9c53c59d",
+    "size": 14266
+  },
+  "act_of_seal": {
+    "parity_proof_required": true,
+    "steward_gate": true
+  }
+}

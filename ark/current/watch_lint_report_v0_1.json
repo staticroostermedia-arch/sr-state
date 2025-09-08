@@ -1,0 +1,11 @@
+{
+  "schema": "sr.watch_lint_report.v0_1",
+  "generatedAt": "2025-09-07T19:43:20.062802+00:00",
+  "reports": [
+    {
+      "zip": "sr_dossier_20250907_193458_v0_1.zip",
+      "lint": [],
+      "lint_count": 0
+    }
+  ]
+}

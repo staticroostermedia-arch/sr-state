@@ -1,0 +1,29 @@
+{
+  "schema": "sr.limits.v0_1",
+  "generatedAt": "2025-09-07T19:07:58.552202+00:00",
+  "background": false,
+  "cannot": [
+    "Run code when not explicitly asked in the current response",
+    "Keep long-term hidden state outside provided artifacts",
+    "Access device folders without user action",
+    "Bypass browser/OS permissions"
+  ],
+  "must": [
+    "Deliver a concrete artifact every drop (zip with manifest)",
+    "Keep filenames versioned & lowercase",
+    "Prefer small, composable increments"
+  ],
+  "drop_contract": {
+    "window_minutes": 120,
+    "min_contents": [
+      "dossier.json",
+      "manifest.json",
+      "limits.json",
+      "anchors.json",
+      "next_plan.json",
+      "versions.md",
+      "checklist.md"
+    ],
+    "seal_rule": "foedus intactum if filenames lint passes and schema set present"
+  }
+}

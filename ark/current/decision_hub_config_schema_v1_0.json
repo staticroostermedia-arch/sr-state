@@ -1,0 +1,96 @@
+{
+  "schema": "eh1003006.dh.config.v1",
+  "required": [
+    "version",
+    "parcelId",
+    "sites",
+    "rasters",
+    "tools"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "parcelId": {
+      "type": "string"
+    },
+    "sites": {
+      "type": "object",
+      "properties": {
+        "parcel": {
+          "type": "object",
+          "properties": {
+            "coords": [
+              46.0201,
+              -122.5488
+            ]
+          }
+        },
+        "canby": {
+          "type": "object",
+          "properties": {
+            "address": "1736 N Locust St, Canby, OR"
+          }
+        }
+      }
+    },
+    "rasters": {
+      "type": "object",
+      "properties": {
+        "dtm": {
+          "type": "string"
+        },
+        "aspect": {
+          "type": "string"
+        },
+        "slope": {
+          "type": "string"
+        },
+        "chm": {
+          "type": "string"
+        },
+        "combined": {
+          "type": "string"
+        }
+      }
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/tool"
+      }
+    },
+    "$defs": {
+      "tool": {
+        "type": "object",
+        "required": [
+          "key",
+          "name",
+          "href",
+          "badge",
+          "enabled"
+        ],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          },
+          "badge": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

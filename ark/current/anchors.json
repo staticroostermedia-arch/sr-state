@@ -1,0 +1,66 @@
+{
+  "schema": "sr.anchors.v0_1",
+  "generatedAt": "2025-09-07T19:07:58.552202+00:00",
+  "parcel": {
+    "id": "EH1003006",
+    "coords_wgs84": {
+      "lat": 46.0201,
+      "lon": -122.5488
+    },
+    "rights": "grandfathered residential, agricultural, silvicultural, utility siting"
+  },
+  "cadence": {
+    "interval_minutes": 120,
+    "rule": "Drop a dossier every interval even if incomplete; include Debt notes."
+  },
+  "identity": {
+    "project": "Static Rooster / Farm Research",
+    "canon_refs": [
+      "invocation.md (optional)",
+      "parable_last_day.md (optional)"
+    ]
+  },
+  "compute": {
+    "constraints": {
+      "background": false,
+      "max_context_note": "Use concise summaries and manifests; avoid huge payloads.",
+      "requires_human": [
+        "start_scheduler",
+        "pick_folders",
+        "attach_dossier"
+      ]
+    },
+    "envs": [
+      {
+        "name": "Pixel/Parcel (today)",
+        "mode": "offline-first, Chrome"
+      },
+      {
+        "name": "Lines machine (tomorrow 10:00 local)",
+        "mode": "primary metronome"
+      }
+    ]
+  },
+  "file_naming": {
+    "rule": "snakecase_with_version_suffix e.g., toolname_v0_1_2.html; no spaces; lowercase; site-tag if needed",
+    "site_tag": "parcel"
+  },
+  "toolchain": {
+    "forge": "sr_forge_v0_1_3.html",
+    "bug_reporter": "sr_bug_reporter_v0_1_0.html",
+    "self_test": "sr_self_test_v0_1_0.html",
+    "dossier_timer": "sr_dossier_timer_v0_1_0.html",
+    "field_post": "sr_turkey_castle_field_post_v0_1_2.html",
+    "env_probe": "sr_env_probe_v0_1_0.html"
+  },
+  "schemas": {
+    "dossier": "sr.dossier.v0_1",
+    "manifest": "sr.manifest.v0_1",
+    "bug": "sr.bug.v0_1",
+    "field_post": "sr.field_post.v0_1",
+    "done_receipt": "sr.done_receipt.v0_1 (draft)"
+  },
+  "runner": {
+    "done_receipt_plan": "Each step emits a receipt with inputs, outputs, sha256, and timing. Stored under artifacts/receipts/."
+  }
+}

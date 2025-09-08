@@ -1,0 +1,12 @@
+{
+  "schema": "eh1003006.static_rooster.config.patch.v1",
+  "generatedAt": "2025-09-07T16:13:45.120506Z",
+  "add_tool": {
+    "key": "watchlight_012",
+    "name": "Watchlight",
+    "href": "sr_watchlight_v0_1_2.html",
+    "badge": "v0.1.2",
+    "category": "ops",
+    "enabled": true
+  }
+}

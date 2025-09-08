@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watch Bundle Linter — v0.1.0</title>
+<style>
+:root{ --bg:#0b0c06; --grid:#1a2b1a; --text:#b4ffb4; --ok:#39ff14; --bad:#ff6b6b; --warn:#ffd166 }
+html,body{margin:0;background:#0b0c06;color:#b4ffb4;font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:1000px;margin:0 auto;padding:12px}
+.card{border:1px solid var(--grid);border-radius:12px;background:#0f140f;padding:12px;margin-top:10px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+input,button,label{border:1px solid var(--grid);background:#0a0f0a;color:#b4ffb4;border-radius:8px;padding:8px}
+button{cursor:pointer}
+.small{font-size:12px;color:#9ae89a}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.35}
+.ok{color:var(--ok)} .bad{color:var(--bad)} .warn{color:var(--warn)}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px} th,td{border-bottom:1px solid var(--grid);padding:6px;vertical-align:top}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="small">Static Rooster • Watch Bundle Linter v0.1.0</div>
+  <div class="card">
+    <div class="row">
+      <input type="file" id="zip" accept=".zip">
+      <button id="btnRun">Lint Bundle</button>
+    </div>
+    <div class="small">Checks: manifest presence & hashes, filename rules (lowercase, no spaces, version suffix for .html/.json), duplicate arcs, checkpoint seal presence.</div>
+  </div>
+  <div class="card">
+    <div class="small">Summary</div>
+    <pre id="sum">—</pre>
+    <div class="small">Issues</div>
+    <table id="tbl"><thead><tr><th>Path</th><th>Issue</th><th>Detail</th></tr></thead><tbody></tbody></table>
+  </div>
+</div>
+<script>
+function byId(id){ return document.getElementById(id); }
+async function sha256(buf){ const h=await crypto.subtle.digest('SHA-256', buf); return Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join(''); }
+function ruleCheck(name){
+  let issues=[]; if(name!==name.toLowerCase()) issues.push(['uppercase','must be lowercase']);
+  if(/\s/.test(name)) issues.push(['spaces','no spaces allowed']);
+  if(/[.](html|json)$/.test(name) && !/[_-]v\d/.test(name)) issues.push(['missing_version_suffix','add _vX before extension']);
+  return issues;
+}
+document.getElementById('btnRun').onclick = async ()=>{
+  const f = byId('zip').files[0]; if(!f) return alert('Choose a zip');
+  const zip = await JSZip.loadAsync(f);
+  const manEntry = zip.file('manifest.json'); const issues=[]; let ok=0, bad=0, missing=0, dup=0;
+  const seen = new Set();
+  if(!manEntry){ issues.push({path:'(root)', issue:'manifest_missing', detail:'No manifest.json'}); }
+  const man = manEntry ? JSON.parse(await manEntry.async('string')) : {files:[]};
+  const rows = man.files||[];
+  for(const r of rows){
+    if(seen.has(r.path)){ issues.push({path:r.path, issue:'duplicate_in_manifest', detail:'Duplicate path'}); dup++; continue; }
+    seen.add(r.path);
+    if(!zip.file(r.path)){ missing++; issues.push({path:r.path, issue:'missing_in_zip', detail:'File listed in manifest but not present'}); continue; }
+    const buf=await zip.file(r.path).async('uint8array'); const sha=await sha256(buf);
+    if(sha===r.sha256) ok++; else { bad++; issues.push({path:r.path, issue:'hash_mismatch', detail:'SHA-256 mismatch'}); }
+    for(const [code,detail] of ruleCheck(r.path)){ issues.push({path:r.path, issue:code, detail}); }
+  }
+  // Find a checkpoint drop
+  const chk = Object.keys(zip.files).find(p=>/drop_.*checkpoint_emit.*\.json$/i.test(p));
+  if(!chk){ issues.push({path:'(search)', issue:'checkpoint_missing', detail:'No checkpoint_emit drop found'}); }
+  // Render
+  byId('sum').textContent = `Manifest rows: ${rows.length}. ✅ ${ok} ok • ❌ ${bad} mismatched • ⛔ ${missing} missing • 🔁 ${dup} duplicates. Issues found: ${issues.length}.`;
+  const tb = document.querySelector('#tbl tbody'); tb.innerHTML=''; issues.forEach(x=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${x.path}</td><td>${x.issue}</td><td>${x.detail}</td>`; tb.appendChild(tr); });
+};
+</script>
+</body></html>

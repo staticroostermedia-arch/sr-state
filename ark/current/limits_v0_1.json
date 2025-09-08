@@ -1,0 +1,9 @@
+{
+  "schema": "sr.limits.v0_1",
+  "generatedAt": "2025-09-07T19:15:07.034367+00:00",
+  "background": false,
+  "must": [
+    "deliver artifact every drop",
+    "versioned names"
+  ]
+}

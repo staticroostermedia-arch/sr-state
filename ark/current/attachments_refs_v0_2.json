@@ -1,0 +1,66 @@
+{
+  "schema": "sr.attachments_refs.v0_2",
+  "generatedAt": "2025-09-07T20:02:28.537596+00:00",
+  "items": [
+    {
+      "label": "missal_baseline_v1_1_2",
+      "path": "/mnt/data/Missal_of_Static_Rooster_v1_1_2_Complete.pdf",
+      "sha256": "e06b35516fba6b590264e99752454902e01f6b45c7e9a600f41941a352f85bc1",
+      "size": 19534
+    },
+    {
+      "label": "missal_illuminated_v1_1_3",
+      "path": "/mnt/data/Missal_of_Static_Rooster_v1_1_3_Illuminated_FULL.pdf",
+      "sha256": "c18ade2a5f10d5ecd7c7e2e3a74d9bddab905245308966691dd2299a9c53c59d",
+      "size": 14266
+    },
+    {
+      "label": "missal_unspecified",
+      "path": "/mnt/data/Missal_of_Static_Rooster.pdf",
+      "sha256": "a30dea37c63b1132e83d4c57c500675154d34ffaec10e98cca004822e7383643",
+      "size": 11843
+    },
+    {
+      "label": "canon_maintenance_kit_v1_1_to_v1_1_8",
+      "path": "/mnt/data/Canon_Maintenance_Kit_v1.1_to_v1.1.8.zip",
+      "sha256": "bf7d3efc74bbd08662d56d16d0f88b41dad4ab72d3dc16794fad783549e73143",
+      "size": 495975
+    },
+    {
+      "label": "parcel_docs_pack_v1_1",
+      "path": "/mnt/data/EH1003006_All_PDFs_v1_1.pdf",
+      "sha256": "b4d571f74939362ccddc62defab8e9b63c045006dc56ce8a5ea8492dd3e09b3a",
+      "size": 10575145
+    },
+    {
+      "label": "raster",
+      "path": "/mnt/data/eh1003006_dtm_clip.tif",
+      "sha256": "fc6642e8f760c79f417556233373552e34d0d398049effc64be9540b62978f7b",
+      "size": 2006184
+    },
+    {
+      "label": "raster",
+      "path": "/mnt/data/eh1003006_slope_pct.tif",
+      "sha256": "874632889a2a7a0495e7c820502d5ce8e3cd1223d9d45f4acb806f31b51600a7",
+      "size": 2377312
+    },
+    {
+      "label": "raster",
+      "path": "/mnt/data/eh1003006_aspect_deg.tif",
+      "sha256": "d6898fa2e68c47dd7c0045df0a6eceec7ddd8e290bc677ae51e6da2a5030c309",
+      "size": 2301551
+    },
+    {
+      "label": "raster",
+      "path": "/mnt/data/eh1003006_chm.tif",
+      "sha256": "fb95de065f643a5f168cdc47066d6621fc91967cccda56f0b42583f103f7d662",
+      "size": 7480419
+    },
+    {
+      "label": "raster",
+      "path": "/mnt/data/eh1003006_combined_bands_v1_0.tif",
+      "sha256": "a1060953ec240d14073c35598140b073e7abe5948aa7ee6e6b004083c6e544bc",
+      "size": 8499018
+    }
+  ]
+}

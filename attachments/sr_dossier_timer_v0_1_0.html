@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Static Rooster — Dossier Timer v0.1.0</title>
+<style>
+:root{ --bg:#0b0c06; --ink:#b4ffb4; --grid:#1a2b1a; --ok:#39ff14; --warn:#ffd166; --bad:#ff6b6b }
+html,body{background:var(--bg);color:var(--ink);margin:0;font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:900px;margin:0 auto;padding:14px}
+.card{border:1px solid var(--grid);border-radius:12px;background:#0f140f;padding:12px;margin:10px 0}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input,button{border:1px solid var(--grid);background:#0a0f0a;color:var(--ink);border-radius:10px;padding:8px}
+button{cursor:pointer}
+.badge{display:inline-block;border:1px solid var(--grid);border-radius:999px;padding:3px 10px;margin-right:6px}
+.ok{color:var(--ok);border-color:var(--ok)} .warn{color:var(--warn);border-color:var(--warn)} .bad{color:var(--bad);border-color:var(--bad)}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.35;max-height:260px;overflow:auto}
+.big{font-size:22px}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <h3>Static Rooster — Dossier Timer <span class="badge">v0.1.0</span></h3>
+
+  <div class="card">
+    <div class="row">
+      <input type="file" id="zip" accept=".zip">
+      <label>Interval (min) <input id="mins" type="number" value="120" min="15" style="width:100px"></label>
+      <button id="useNow">Use Now as last drop</button>
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+    </div>
+    <div>Last drop: <span id="last">—</span></div>
+    <div>Next due: <span id="next">—</span></div>
+    <div class="big">Time remaining: <span id="remain">—</span></div>
+  </div>
+
+  <div class="card">
+    <div class="row"><b>How to use</b></div>
+    <ol>
+      <li>Click “Choose file” and pick your <code>sr_dossier_*.zip</code> from the output folder (the most recent one).</li>
+      <li>Adjust interval minutes if needed (default 120).</li>
+      <li>Click <b>Start</b> — the countdown will run and update every second.</li>
+    </ol>
+    <small>If you don’t have a zip handy, click “Use Now as last drop” to start a fresh 2-hour timer.</small>
+  </div>
+</div>
+
+<script>
+let lastTs = null, timer = null;
+const fmt = (d)=> d? new Date(d).toLocaleString() : '—';
+
+function setTimes(){
+  const mins = parseInt(document.getElementById('mins').value||'120',10);
+  let next = null;
+  if(lastTs){ next = new Date(lastTs + mins*60*1000).getTime(); }
+  document.getElementById('last').textContent = fmt(lastTs);
+  document.getElementById('next').textContent = fmt(next);
+}
+
+function tick(){
+  const mins = parseInt(document.getElementById('mins').value||'120',10);
+  if(!lastTs){ document.getElementById('remain').textContent='—'; return; }
+  const now = Date.now();
+  const due = lastTs + mins*60*1000;
+  let diff = due - now;
+  const late = diff < 0;
+  if(late) diff = -diff;
+  const hh = Math.floor(diff/3600000);
+  const mm = Math.floor((diff%3600000)/60000);
+  const ss = Math.floor((diff%60000)/1000);
+  const s = (hh? hh+':':'') + String(mm).padStart(2,'0') + ':' + String(ss).padStart(2,'0') + (late? ' (late)' : '');
+  document.getElementById('remain').textContent = s;
+}
+
+document.getElementById('useNow').onclick = ()=>{
+  lastTs = Date.now();
+  setTimes(); tick();
+};
+
+document.getElementById('start').onclick = ()=>{
+  if(timer) clearInterval(timer);
+  setTimes(); tick();
+  timer = setInterval(tick, 1000);
+};
+
+document.getElementById('stop').onclick = ()=>{
+  if(timer) clearInterval(timer); timer = null;
+};
+
+document.getElementById('zip').addEventListener('change', async (e)=>{
+  const f = e.target.files[0]; if(!f) return;
+  try{
+    const ab = await f.arrayBuffer();
+    const zip = await JSZip.loadAsync(ab);
+    if(zip.files['dossier.json']){
+      const txt = await zip.files['dossier.json'].async('text');
+      const obj = JSON.parse(txt);
+      const ts = Date.parse(obj.generatedAt);
+      if(!isNaN(ts)){ lastTs = ts; setTimes(); tick(); return; }
+    }
+    // fallback: parse from filename sr_dossier_<epoch>_v0_1.zip
+    const m = f.name.match(/sr_dossier_(\d+)_v/);
+    if(m){
+      lastTs = parseInt(m[1],10);
+      setTimes(); tick(); return;
+    }
+    alert('Could not read time from dossier.json or filename.');
+  }catch(err){
+    alert('ZIP read failed: '+err.message);
+  }
+});
+</script>
+</body>
+</html>

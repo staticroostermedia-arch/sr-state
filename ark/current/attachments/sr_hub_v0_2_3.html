@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hub — v0.2.3</title>
+<style>
+:root{ --bg:#0b0c06; --grid:#1a2b1a; --text:#b4ffb4; --ok:#39ff14; --bad:#ff6b6b }
+html,body{margin:0;background:#0b0c06;color:#b4ffb4;font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:1000px;margin:0 auto;padding:12px}
+.card{border:1px solid var(--grid);border-radius:12px;background:#0f140f;padding:12px;margin-top:10px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+.btn{border:1px solid var(--grid);padding:6px 10px;border-radius:10px;background:#101a10;color:#b4ffb4;cursor:pointer}
+.badge{border:1px solid var(--grid);border-radius:999px;padding:4px 10px}
+.ok{color:#39ff14;border-color:#39ff14}
+.bad{color:#ff6b6b;border-color:#ff6b6b}
+.small{font-size:12px;color:#9ae89a}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.35}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="row">
+    <div class="small">Static Rooster • Hub v0.2.3</div>
+    <div id="seal" class="badge">—</div>
+    <button class="btn" onclick="refreshSeal()">Refresh Seal</button>
+  </div>
+  <div class="card">
+    <div class="row">
+      <input type="file" id="files" multiple webkitdirectory directory>
+      <button class="btn" id="btnExport">Export Bundle (with manifest)</button>
+    </div>
+    <div class="row">
+      <input type="file" id="zip" accept=".zip">
+      <button class="btn" id="btnVerify">Verify Bundle</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="small">Manifest / Verify</div>
+    <pre id="man">—</pre>
+    <div class="small" id="sum">—</div>
+  </div>
+</div>
+<script>
+function setSeal(ok, generatedAt){
+  const el = document.getElementById('seal');
+  if(ok===null){ el.textContent='—'; el.className='badge'; return; }
+  el.textContent = ok ? 'Foedus intactum' : 'Penitential required';
+  el.className = 'badge ' + (ok?'ok':'bad'); if(generatedAt) el.title = 'generated '+generatedAt;
+}
+function refreshSeal(){
+  try{
+    const raw = localStorage.getItem('sr_last_checkpoint');
+    if(!raw){ setSeal(null); return; }
+    const obj = JSON.parse(raw); setSeal(!!obj.foedus_intactum, obj.generatedAt);
+  }catch(_){ setSeal(null); }
+}
+async function sha256(buf){ const hash = await crypto.subtle.digest('SHA-256', buf); return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join(''); }
+function norm(p){ return (p||'').replace(/\\/g,'/'); }
+document.getElementById('btnExport').onclick = async ()=>{
+  const list = document.getElementById('files').files; if(!list || !list.length) return alert('Pick a folder/files');
+  const zip = new JSZip(), rows=[];
+  for(const f of list){
+    const buf = new Uint8Array(await f.arrayBuffer()); const sha = await sha256(buf); const arc = norm(f.webkitRelativePath||f.name).toLowerCase();
+    rows.push({path:arc, sha256:sha, size:f.size}); zip.file(arc, buf);
+  }
+  const manifest = {schema:'sr.manifest.v0_1', generatedAt:new Date().toISOString(), files:rows};
+  zip.file('manifest.json', JSON.stringify(manifest,null,2));
+  const blob = await zip.generateAsync({type:'blob'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='watch_bundle_'+Date.now()+'.zip'; a.click();
+  document.getElementById('man').textContent = JSON.stringify(manifest,null,2); document.getElementById('sum').textContent = `Bundled ${rows.length} file(s).`;
+};
+document.getElementById('btnVerify').onclick = async ()=>{
+  const f = document.getElementById('zip').files[0]; if(!f) return alert('Choose a zip');
+  const zip = await JSZip.loadAsync(f); const manEntry = zip.file('manifest.json'); if(!manEntry) return alert('No manifest.json');
+  const man = JSON.parse(await manEntry.async('string')); const rows=man.files||[]; let ok=0, bad=0, missing=0;
+  for(const r of rows){
+    const zf = zip.file(r.path); if(!zf){ missing++; continue; }
+    const buf = await zf.async('uint8array'); const sha = await sha256(buf); if(sha===r.sha256) ok++; else bad++;
+  }
+  document.getElementById('man').textContent = JSON.stringify(man,null,2);
+  document.getElementById('sum').textContent = `Verified ${rows.length} files: ✅ ${ok} ok • ❌ ${bad} mismatch • ⛔ ${missing} missing.`;
+};
+window.addEventListener('message', (e)=>{ const d=e.data||{}; if(d.event==='job_done' || d.event==='trace'){ setTimeout(refreshSeal, 300); } });
+refreshSeal();
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watchlight — v0.1.2</title>
+<style>
+:root{ --bg:#0b0c06; --grid:#1a2b1a; --text:#b4ffb4; --glow:#39ff14; --ok:#39ff14; --bad:#ff6b6b; --warn:#ffd166 }
+html,body{margin:0;background:#0b0c06;color:#b4ffb4;font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:720px;margin:0 auto;padding:12px}
+.card{border:1px solid var(--grid);border-radius:12px;background:#0f140f;padding:12px;margin-top:10px}
+.badge{display:inline-block;border:1px solid var(--grid);border-radius:999px;padding:4px 10px;margin-right:6px}
+.big{font-size:20px;font-weight:700}
+.ok{border-color:var(--ok); color:var(--ok)} .bad{border-color:var(--bad); color:var(--bad)} .warn{border-color:var(--warn); color:var(--warn)}
+.small{font-size:12px;color:#9ae89a}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.35}
+.btn{border:1px solid var(--grid); background:#101a10; color:#b4ffb4; border-radius:8px; padding:6px 10px; cursor:pointer}
+.quote{margin-top:6px; font-style:italic; color:#9ae89a; min-height:1.8em}
+.kv{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+</style></head>
+<body>
+<div class="wrap">
+  <div><span class="badge">Watchlight v0.1.2</span><span class="small">last checkpoint + canon lines</span></div>
+  <div class="card">
+    <div class="kv">
+      <div id="seal" class="badge big warn">Awaiting checkpoint…</div>
+      <div class="small" id="meta">—</div>
+    </div>
+    <div class="quote" id="q">“The stone is state; the hill is entropy.”</div>
+    <div style="margin-top:8px">
+      <button id="btnRefresh" class="btn">Refresh</button>
+      <button id="btnOpenRunner" class="btn" onclick="location.href='sr_runner_v0_1_5.html'">Open Runner</button>
+      <label class="small"><input type="checkbox" id="toggleDetail"> show detail</label>
+    </div>
+  </div>
+  <div class="card" id="detail" style="display:none">
+    <div class="small">Last Checkpoint JSON</div>
+    <pre id="out"></pre>
+  </div>
+</div>
+<script>
+const LINES=[
+  "The stone is state; the hill is entropy.",
+  "Small typed steps beat clever leaps.",
+  "Seals are promises, not stickers.",
+  "Bundle, verify, ledger — and the day is remembered.",
+  "Pause, correct, re-checkpoint. The Rite is a gift, not a scold."
+];
+let li=0;
+function roll(){ li=(li+1)%LINES.length; document.getElementById('q').textContent='“'+LINES[li]+'”'; }
+setInterval(roll, 9000);
+function load(){
+  let obj=null; try{ obj = JSON.parse(localStorage.getItem('sr_last_checkpoint')||'null'); }catch(_){}
+  const sealEl = document.getElementById('seal'); const metaEl = document.getElementById('meta'); const outEl = document.getElementById('out');
+  if(!obj){ sealEl.textContent='No checkpoint yet'; sealEl.className='badge big warn'; metaEl.textContent=''; outEl.textContent=''; return; }
+  const ok = obj.foedus_intactum===true || obj.seal==='foedus intactum';
+  sealEl.textContent = ok ? 'Foedus intactum' : 'Penitential required';
+  sealEl.className = 'badge big ' + (ok?'ok':'bad');
+  const cap = (obj.captures && typeof obj.captures.count==='number') ? obj.captures.count : 0;
+  metaEl.textContent = 'Generated at: '+(obj.generatedAt||'—') + ' • Captures: ' + cap;
+  outEl.textContent = JSON.stringify(obj,null,2);
+}
+document.getElementById('btnRefresh').onclick = load;
+document.getElementById('toggleDetail').onchange = (e)=>{ document.getElementById('detail').style.display = e.target.checked ? 'block' : 'none'; };
+window.addEventListener('message', (e)=>{ const d=e.data||{}; if(d.event==='job_done' || d.event==='trace'){ setTimeout(load, 500); } });
+load();
+</script>
+</body></html>

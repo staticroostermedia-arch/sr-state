@@ -1,0 +1,37 @@
+<!doctype html><meta charset="utf-8"><title>DecisionHub Shell v0.1.1</title>
+<body style="font-family:system-ui,Segoe UI,Inter;background:#0a0c10;color:#eaf2ff;margin:0">
+<div style="padding:12px;border-bottom:1px solid #162131;background:#0e1420">
+  <b>DecisionHub Shell</b> <small>v0.1.1</small> · <span style="color:#9db3d1">Static Rooster</span>
+  <div><input type=file id=cfg accept=".json"> <button id=load>Load config</button></div>
+</div>
+<div style="display:grid;grid-template-columns:320px 1fr;gap:12px;padding:12px">
+<aside style="background:#10141b;border:1px solid #162131;border-radius:10px;padding:12px">
+  <div id=meta>—</div><hr style="border-color:#182335">
+  <ul id=nav style="list-style:none;padding:0;margin:0"></ul>
+</aside>
+<section style="background:#10141b;border:1px solid #162131;border-radius:10px;padding:12px">
+  <iframe id=panel style="width:100%;height:72vh;border:1px solid #182335;border-radius:8px;background:#0b111a"></iframe>
+  <pre id=raw style="background:#0b111a;border:1px solid #182335;border-radius:8px;padding:8px;overflow:auto;margin-top:8px;font-size:12px"></pre>
+</section>
+</div>
+<script>
+let CFG=null; const $=s=>document.querySelector(s);
+function routeTo(href){ const p=$("#panel"); p.src=href; }
+function render(){
+  const meta=$("#meta"); const nav=$("#nav"); const raw=$("#raw"); nav.innerHTML='';
+  meta.textContent = (CFG.meta?.name||'DecisionHub') + ' · Features: ' + (CFG.features||[]).length;
+  for(const f of (CFG.features||[])){
+    const li=document.createElement('li'); li.style.padding='6px 8px'; li.style.borderRadius='8px';
+    li.innerHTML = `<a href="#/feature/${f.key}" style="color:#7cc6ff;text-decoration:none">${f.title||f.key}</a> <small style="color:#9db3d1">${f.version||''}</small>`;
+    li.onclick = ()=>{ if(f.route){ routeTo(f.route); } };
+    nav.appendChild(li);
+  }
+  raw.textContent = JSON.stringify(CFG,null,2);
+}
+$("#load").onclick = async()=>{
+  const f=$("#cfg").files[0]; if(!f){alert('Pick a config .json'); return;}
+  try{ CFG=JSON.parse(await f.text()); }catch(e){ alert('Bad JSON'); return; }
+  render();
+};
+</script>
+</body>

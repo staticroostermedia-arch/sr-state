@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pip - Boy: Static Rooster v3.2.1</title>
+<style>
+:root{
+  --bg:#0b0c06; --grid:#1a2b1a; --text:#b4ffb4; --glow:#39ff14; --accent:#9ae89a;
+  --warn:#ffd166; --danger:#ff6b6b; --rooster:#ff504a;
+  --fs-title: clamp(15px, 1.9vw, 18px);
+  --fs-small: clamp(10px, 1.7vw, 13px);
+  --fs-chip: clamp(11px, 2vw, 15px);
+  --fs-tile: clamp(13px, 2.1vw, 16px);
+  --pad-tiles: clamp(8px, 1.6vw, 12px);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-monospace,Consolas,monospace}
+
+/* Header: single narrow row */
+.header{position:sticky;top:0;z-index:30;background:#0b0c06;border-bottom:1px solid var(--grid)}
+.header-inner{max-width:820px;margin:0 auto;padding:10px 12px}
+.hrow1{display:flex;align-items:center;gap:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hrow1 .dot{opacity:.6}
+.title{color:var(--glow);font-weight:700;margin:0;font-size:var(--fs-title)}
+.brand{color:var(--rooster);margin:0;font-size:var(--fs-title)}
+.meta{color:var(--accent);font-size:var(--fs-title)}
+.hbadge{border:1px solid var(--grid);padding:2px 8px;border-radius:999px;background:#0f140f;color:var(--text);font-size:var(--fs-small)}
+
+/* Container */
+.wrap{max-width:820px;margin:0 auto;padding:12px}
+
+/* Sites */
+.sitebar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;transition:max-height .25s ease, opacity .25s ease}
+.chip{border:1px solid var(--grid);padding:8px 12px;border-radius:999px;background:#0f140f;color:var(--text);cursor:pointer;font-size:var(--fs-chip)}
+.chip.active{border-color:var(--glow);box-shadow:0 0 8px rgba(57,255,20,.2) inset}
+.sitebar.min{max-height:0;opacity:0;overflow:hidden}
+
+/* Viewer */
+.viewer-wrap{position:relative;border:1px solid var(--grid);border-radius:12px;overflow:hidden;margin:8px 0}
+#viewer{width:100%;height:60svh;background:#000}
+.viewer-wrap.max{border-color:#2a3d2a}
+
+/* Active site pill (top-left) */
+.site-pill{position:absolute;top:8px;left:8px;z-index:6;display:inline-flex;align-items:center;gap:6px;
+  border:1px solid var(--grid);background:#0f140f;color:var(--text);padding:4px 10px;border-radius:999px;font-size:var(--fs-small)}
+.led{height:8px;width:8px;border-radius:50%;background:#555;box-shadow:0 0 8px rgba(0,0,0,.3)}
+.led.ok{background:#39ff14} .led.err{background:#ff6b6b}
+
+/* Viewer controls (top-right) */
+.viewer-controls{position:absolute;top:8px;right:8px;display:flex;gap:8px;z-index:6}
+.vchip{border:1px solid var(--grid);background:#0f140f;color:var(--text);padding:6px 10px;border-radius:999px;font-size:var(--fs-small)}
+.vchip:active{transform:translateY(1px)}
+.vchip .mini{opacity:.9}
+
+/* Live clock (bottom-left) */
+.clock-chip{position:absolute;left:8px;bottom:8px;z-index:6;border:1px solid var(--grid);background:#0f140f;color:var(--glow);
+  padding:6px 10px;border-radius:999px;font-size:var(--fs-chip)}
+
+/* Context overlay (top-center) */
+.context{position:absolute;left:50%;top:8px;transform:translateX(-50%);z-index:6;
+  border:1px solid var(--grid);background:#0f140f;color:#9ae89a;
+  padding:4px 10px;border-radius:999px;font-size:var(--fs-small);opacity:.95}
+
+/* Sections/Tools */
+.section{position:relative;margin:12px 0;border:1px solid var(--grid);border-radius:12px;background:#0f130f}
+.section summary{cursor:pointer;list-style:none;padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
+.section summary::-webkit-details-marker{display:none}
+.section h2{margin:0;color:var(--glow);font-size:var(--fs-tile)}
+.badge{border:1px solid var(--grid);padding:2px 8px;border-radius:999px;font-size:var(--fs-small);color:var(--accent)}
+.tools{display:grid;gap:8px;grid-template-columns:1fr}
+.tool{display:flex;justify-content:space-between;gap:8px;align-items:center;border:1px solid var(--grid);border-radius:10px;padding:var(--pad-tiles);background:#0f140f}
+.tool .meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+.tool .name{font-size:var(--fs-tile);color:var(--glow);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tool .href{font-size:var(--fs-small);color:var(--accent);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.actions{display:flex;gap:8px;flex-shrink:0}
+.btn{border:1px solid var(--grid);padding:8px 10px;border-radius:8px;background:#101a10;color:var(--text);text-decoration:none;font-size:var(--fs-chip)}
+.btn:active{transform:translateY(1px)}
+.btn:hover{border-color:var(--glow);box-shadow:0 0 8px rgba(57,255,20,.2) inset}
+
+/* FULLSCREEN MODE */
+body.fs .header{display:none}
+body.fs .wrap{max-width:none;padding:0}
+body.fs #sitebar, body.fs .section{display:none}
+body.fs .viewer-wrap{border-radius:0;border-left:none;border-right:none}
+body.fs #viewer{height:100svh}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <div class="hrow1">
+      <h1 class="title">Pip - Boy</h1>
+      <span class="dot">•</span>
+      <h2 class="brand">Static Rooster</h2>
+      <span class="dot">•</span>
+      <span class="meta" id="metaDay">---</span>
+      <span id="metaDate" class="meta">---</span>
+      <span class="dot">•</span>
+      <span class="hbadge" id="version">v3.2.1</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- sitebar exists but starts hidden/minimized; revealed only by long-press on site pill -->
+  <div id="sitebar" class="sitebar min">
+    <button class="chip" data-site="parcel">Parcel EH1003006</button>
+    <button class="chip" data-site="canby">Home Base (Canby)</button>
+  </div>
+
+  <div id="viewerWrap" class="viewer-wrap max">
+    <span id="sitePill" class="site-pill" title="Long-press to switch site">
+      <span id="led" class="led"></span><span id="sitePillText">—</span>
+    </span>
+    <div class="context" id="context">—</div>
+    <div class="viewer-controls">
+      <button id="vcView" class="vchip"><span id="vcViewLabel">Maximize</span></button>
+      <!-- Removed explicit Site toggle -->
+    </div>
+    <div class="clock-chip" id="clock">--:--:--</div>
+    <iframe id="viewer" title="Live Tool"></iframe>
+  </div>
+
+  <details class="section" open>
+    <summary><h2>Tools</h2><span class="badge" id="toolCount">0</span></summary>
+    <div class="wrap" style="padding:10px 12px">
+      <div class="tools" id="toolList"></div>
+    </div>
+  </details>
+
+  <details class="section">
+    <summary><h2>Diagnostics</h2><span class="badge">hidden by default</span></summary>
+    <div class="wrap" style="padding:10px 12px">
+      <div class="row" style="display:flex;gap:8px;margin-bottom:8px">
+        <a class="btn" id="btnQuick">Run QuickCheck</a>
+        <a class="btn" id="btnReport">Download Bug Report</a>
+        <a class="btn" id="btnExportCfg">Export Config</a>
+        <a class="btn" id="btnLoadCfg">Load Config</a><input id="cfgFile" type="file" accept=".json" style="display:none">
+      </div>
+      <div class="meta" id="diagOut">Ready.</div>
+    </div>
+  </details>
+</div>
+
+<script>
+let DecisionHubConfig = {
+  "version":"3.2.1",
+  "sites":{"parcel":{"coords":[46.0201,-122.5488]},"canby":{"address":"1736 N Locust St, Canby, OR"}},
+  "defaultViewerBySite":{"parcel":"planner_527","canby":"planner_527"},
+  "tools":[
+    {"key":"planner_527","name":"Online Planner","href":"eh1003006_online_planner_v5_2_7.html","badge":"v5.2.7","enabled":true},
+    {"key":"planner_528","name":"Online Planner (Newer)","href":"eh1003006_online_planner_v5_2_8 (4).html","badge":"v5.2.8","enabled":true},
+    {"key":"intake_529","name":"Intake","href":"online_planner_v5_2_9_intake.html","badge":"v5.2.9","enabled":true},
+    {"key":"fieldintake_133","name":"Field Intake","href":"EH1003006_FieldIntake_v1_3_3 (1).html","badge":"v1.3.3","enabled":true},
+    {"key":"pdr_032","name":"PDR Navigator","href":"EH1003006_PDRNavigator_v0_3_2 (1).html","badge":"v0.3.2","enabled":true},
+    {"key":"pdfs_all","name":"All PDFs","href":"EH1003006_All_PDFs_v1_1.pdf","badge":"PDFs","enabled":true},
+    {"key":"tricorder","name":"Tricorder (Safe Mode)","href":"EH1003006_Tricorder_v0_1.html","badge":"v0.1","enabled":true}
+  ]
+};
+window.DecisionHubConfig = DecisionHubConfig;
+
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const out = $("#diagOut");
+const sitebar = $("#sitebar");
+const viewer = $("#viewer");
+const viewerWrap = $("#viewerWrap");
+const led = $("#led");
+const sitePill = $("#sitePill");
+const sitePillText = $("#sitePillText");
+const vcView = $("#vcView");
+const vcViewLabel = $("#vcViewLabel");
+const metaDay = $("#metaDay");
+const metaDate = $("#metaDate");
+const clock = $("#clock");
+const context = $("#context");
+
+let toolsEnabled = [];
+let currentToolIndex = 0;
+let viewState = 'max'; // 'min' | 'max' | 'fs'
+
+function log(msg){ out.textContent = typeof msg==='string'? msg : JSON.stringify(msg,null,2); }
+function enc(href){ try{return encodeURI(href)}catch{return href} }
+function setSite(s){ localStorage.setItem('dh_active_site', s); }
+function getSite(){ return localStorage.getItem('dh_active_site')||'parcel'; }
+function siteName(key){ return key==='parcel' ? 'Parcel' : 'Canby'; }
+
+function renderSites(){
+  const active = getSite();
+  $$("#sitebar .chip").forEach(ch=> ch.classList.toggle('active', ch.dataset.site===active));
+  sitePillText.textContent = siteName(active);
+  updateContext();
+}
+
+function renderTools(){
+  const list = $("#toolList"); list.innerHTML = "";
+  toolsEnabled = DecisionHubConfig.tools.filter(t=>t.enabled!==false);
+  $("#toolCount").textContent = toolsEnabled.length;
+  toolsEnabled.forEach((t,i)=>{
+    const div = document.createElement('div'); div.className='tool';
+    div.innerHTML = `
+      <div class="meta">
+        <div class="name">${t.name} <span class="meta">• ${t.badge}</span></div>
+        <div class="href">${t.href}</div>
+      </div>
+      <div class="actions">
+        <a class="btn" data-view="${i}">View</a>
+        <a class="btn" data-open="${i}">Open</a>
+      </div>`;
+    list.appendChild(div);
+  });
+  list.querySelectorAll('[data-view]').forEach(btn => btn.addEventListener('click', (e)=>{
+    const i = Number(e.currentTarget.getAttribute('data-view'));
+    currentToolIndex = i; loadTool(toolsEnabled[i]?.href);
+  }));
+  list.querySelectorAll('[data-open]').forEach(btn => btn.addEventListener('click', (e)=>{
+    const i = Number(e.currentTarget.getAttribute('data-open'));
+    const tool = toolsEnabled[i]; window.open(enc(tool.href), '_blank');
+  }));
+}
+
+function updateContext(){
+  const site = siteName(getSite());
+  const t = toolsEnabled[currentToolIndex];
+  context.textContent = t ? `${site} • ${t.name}` : `${site} • —`;
+}
+
+function loadTool(href){
+  if(!href) return;
+  led.classList.remove('ok','err');
+  viewer.src = enc(href);
+  updateContext();
+}
+
+function loadDefaultForSite(){
+  const site = getSite();
+  const key = DecisionHubConfig.defaultViewerBySite?.[site] || toolsEnabled[0]?.key;
+  let idx = toolsEnabled.findIndex(x=>x.key===key);
+  if (idx<0) idx = 0;
+  currentToolIndex = idx;
+  loadTool(toolsEnabled[idx] && toolsEnabled[idx].href);
+  sitebar.classList.add('min');
+}
+
+/* View state cycle */
+function applyView(){
+  if (viewState==='max'){
+    document.body.classList.remove('fs');
+    viewerWrap.classList.add('max'); sitebar.classList.add('min');
+    vcViewLabel.textContent = 'Fullscreen';
+  } else if (viewState==='fs'){
+    document.body.classList.add('fs');
+    viewerWrap.classList.add('max');
+    vcViewLabel.textContent = 'Restore';
+  } else { // 'min'
+    document.body.classList.remove('fs');
+    viewerWrap.classList.remove('max'); sitebar.classList.remove('min');
+    vcViewLabel.textContent = 'Maximize';
+  }
+}
+vcView.addEventListener('click', ()=>{
+  viewState = (viewState==='min') ? 'max' : (viewState==='max' ? 'fs' : 'min');
+  applyView();
+});
+
+/* Reveal sitebar on long-press of site pill */
+let longPressTimer = null;
+sitePill.addEventListener('touchstart', ()=>{
+  longPressTimer = setTimeout(()=>{ sitebar.classList.toggle('min'); }, 500);
+},{passive:true});
+sitePill.addEventListener('touchend', ()=>{ if(longPressTimer){ clearTimeout(longPressTimer); longPressTimer=null; } }, {passive:true});
+sitePill.addEventListener('mousedown', ()=>{ longPressTimer = setTimeout(()=>{ sitebar.classList.toggle('min'); }, 500); });
+sitePill.addEventListener('mouseup', ()=>{ if(longPressTimer){ clearTimeout(longPressTimer); longPressTimer=null; } });
+
+/* Sitebar click for actual switch */
+sitebar.addEventListener('click', (e)=>{
+  const btn = e.target.closest('.chip'); if(!btn) return;
+  setSite(btn.dataset.site); renderSites(); loadDefaultForSite();
+  sitebar.classList.add('min');
+});
+
+/* Iframe health LED */
+viewer.addEventListener('load', ()=>{ led.classList.add('ok'); updateContext(); });
+viewer.addEventListener('error', ()=>{ led.classList.add('err'); });
+
+/* Live clock + day/date meta */
+function tick(){
+  try{
+    const now = new Date();
+    const hh = String(now.getHours()).padStart(2,'0');
+    const mm = String(now.getMinutes()).padStart(2,'0');
+    const ss = String(now.getSeconds()).padStart(2,'0');
+    clock.textContent = `${hh}:${mm}:${ss}`;
+    const day = now.toLocaleDateString(undefined,{weekday:'long'});
+    const date = now.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'2-digit'});
+    metaDay.textContent = day; metaDate.textContent = date;
+  }catch{}
+}
+setInterval(tick, 1000); tick();
+
+/* Swipe to change tools */
+let touchX = null, touchY = null;
+viewerWrap.addEventListener('touchstart', (e)=>{
+  const t = e.changedTouches[0]; touchX = t.clientX; touchY = t.clientY;
+},{passive:true});
+viewerWrap.addEventListener('touchend', (e)=>{
+  if(touchX===null) return;
+  const t = e.changedTouches[0]; const dx = t.clientX - touchX; const dy = t.clientY - touchY;
+  const ax = Math.abs(dx), ay = Math.abs(dy);
+  touchX = touchY = null;
+  if (ax>50 && ax>ay){
+    if (dx<0 && currentToolIndex < toolsEnabled.length-1){ currentToolIndex++; loadTool(toolsEnabled[currentToolIndex].href); }
+    else if (dx>0 && currentToolIndex > 0){ currentToolIndex--; loadTool(toolsEnabled[currentToolIndex].href); }
+  }
+},{passive:true});
+
+/* Init */
+renderTools(); renderSites(); loadDefaultForSite(); applyView(); log('Ready.');
+</script>
+</body>
+</html>

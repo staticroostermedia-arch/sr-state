@@ -1,0 +1,41 @@
+{
+  "schema": "sr.attachments_refs.v0_1",
+  "generatedAt": "2025-09-07T19:24:56.789389+00:00",
+  "items": [
+    {
+      "path": "/mnt/data/eh1003006_dtm_clip.tif",
+      "sha256": "fc6642e8f760c79f417556233373552e34d0d398049effc64be9540b62978f7b",
+      "size": 2006184,
+      "kind": "raster",
+      "parcelId": "EH1003006"
+    },
+    {
+      "path": "/mnt/data/eh1003006_slope_pct.tif",
+      "sha256": "874632889a2a7a0495e7c820502d5ce8e3cd1223d9d45f4acb806f31b51600a7",
+      "size": 2377312,
+      "kind": "raster",
+      "parcelId": "EH1003006"
+    },
+    {
+      "path": "/mnt/data/eh1003006_aspect_deg.tif",
+      "sha256": "d6898fa2e68c47dd7c0045df0a6eceec7ddd8e290bc677ae51e6da2a5030c309",
+      "size": 2301551,
+      "kind": "raster",
+      "parcelId": "EH1003006"
+    },
+    {
+      "path": "/mnt/data/eh1003006_chm.tif",
+      "sha256": "fb95de065f643a5f168cdc47066d6621fc91967cccda56f0b42583f103f7d662",
+      "size": 7480419,
+      "kind": "raster",
+      "parcelId": "EH1003006"
+    },
+    {
+      "path": "/mnt/data/eh1003006_combined_bands_v1_0.tif",
+      "sha256": "a1060953ec240d14073c35598140b073e7abe5948aa7ee6e6b004083c6e544bc",
+      "size": 8499018,
+      "kind": "raster",
+      "parcelId": "EH1003006"
+    }
+  ]
+}

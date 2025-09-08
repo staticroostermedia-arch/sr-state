@@ -1,0 +1,132 @@
+# Week-in-Review v0.1
+
+Generated: 2025-09-07T19:43:20.062802+00:00
+
+## Deliverables (detected under /mnt/data, last 7 days)
+
+- sr_runner_v0_1_4.html  ·  11857 bytes  ·  2025-09-07T15:09:11.749391+00:00
+- sr_checkpoint_v0_1_0.html  ·  1665 bytes  ·  2025-09-07T15:09:11.749956+00:00
+- sr_counter_v0_1_0.html  ·  1740 bytes  ·  2025-09-07T15:21:09.327233+00:00
+- sr_config_patch_add_counter_v0_1.json  ·  280 bytes  ·  2025-09-07T15:21:09.328401+00:00
+- sr_manifest_verify_v0_1_0.html  ·  4442 bytes  ·  2025-09-07T15:28:14.618484+00:00
+- sr_config_merger_v0_1_0.html  ·  3917 bytes  ·  2025-09-07T15:28:14.619081+00:00
+- sr_tool_template_v0_1.html  ·  925 bytes  ·  2025-09-07T15:34:16.952115+00:00
+- Runner_015_Readme.md  ·  714 bytes  ·  2025-09-07T15:34:16.952508+00:00
+- sr_runner_v0_1_5.html  ·  14842 bytes  ·  2025-09-07T15:34:38.591916+00:00
+- sr_name_forge_v0_1_0.html  ·  3343 bytes  ·  2025-09-07T15:39:40.423639+00:00
+- sr_drop_inspector_v0_1_0.html  ·  3314 bytes  ·  2025-09-07T15:39:40.424506+00:00
+- sr_plan_composer_v0_1_0.html  ·  3633 bytes  ·  2025-09-07T15:39:40.424940+00:00
+- StaticRooster_Operator_Playbook_v0_1.md  ·  1226 bytes  ·  2025-09-07T15:39:40.425352+00:00
+- sr_watchlight_v0_1_0.html  ·  2699 bytes  ·  2025-09-07T15:43:33.030691+00:00
+- sr_drop_zipper_v0_1_0.html  ·  3943 bytes  ·  2025-09-07T15:43:33.031371+00:00
+- sr_config_v0_1.json  ·  2234 bytes  ·  2025-09-07T15:43:33.032831+00:00
+- SR_Filename_Audit_20250907_154809_v0_1.json  ·  4129 bytes  ·  2025-09-07T15:48:09.659024+00:00
+- SR_Rename_Plan_20250907_154809_v0_1.json  ·  1589 bytes  ·  2025-09-07T15:48:09.659559+00:00
+- plan_build_4h_v0_1.json  ·  4397 bytes  ·  2025-09-07T15:48:09.660532+00:00
+- plan_audit_2h_v0_1.json  ·  2621 bytes  ·  2025-09-07T15:48:09.661208+00:00
+- ai_requests_queue_v0_1.zip  ·  3060 bytes  ·  2025-09-07T15:48:09.667707+00:00
+- sr_raster_loader_v0_1_0.html  ·  3301 bytes  ·  2025-09-07T15:53:33.533530+00:00
+- sr_path_profiler_v0_1_0.html  ·  3358 bytes  ·  2025-09-07T15:53:33.534251+00:00
+- sr_canopy_hist_v0_1_0.html  ·  3342 bytes  ·  2025-09-07T15:53:33.534627+00:00
+- sr_ai_bridge_v0_2_0.html  ·  6174 bytes  ·  2025-09-07T15:53:33.534980+00:00
+- sr_hub_v0_2_2.html  ·  3661 bytes  ·  2025-09-07T15:53:33.535435+00:00
+- sr_config_patch_add_raster_loader_010_v0_1.json  ·  303 bytes  ·  2025-09-07T15:53:33.536140+00:00
+- sr_config_patch_add_path_profiler_010_v0_1.json  ·  303 bytes  ·  2025-09-07T15:53:33.536577+00:00
+- sr_config_patch_add_canopy_hist_010_v0_1.json  ·  302 bytes  ·  2025-09-07T15:53:33.537031+00:00
+- sr_config_patch_add_ai_bridge_020_v0_1.json  ·  286 bytes  ·  2025-09-07T15:53:33.537533+00:00
+- sr_config_patch_add_hub_022_v0_1.json  ·  268 bytes  ·  2025-09-07T15:53:33.538164+00:00
+- assistant_return_v0_1.zip  ·  11793 bytes  ·  2025-09-07T15:53:33.543674+00:00
+- sr_zip_ticker_v0_1_0.html  ·  5414 bytes  ·  2025-09-07T15:58:25.724970+00:00
+- sr_hub_v0_2_3.html  ·  4593 bytes  ·  2025-09-07T15:58:25.725549+00:00
+- sr_config_patch_add_zip_ticker_010_v0_1.json  ·  289 bytes  ·  2025-09-07T15:58:25.726275+00:00
+- sr_config_patch_add_hub_023_v0_1.json  ·  268 bytes  ·  2025-09-07T15:58:25.726930+00:00
+- assistant_return_v0_2_20250907T155825Z.zip  ·  5378 bytes  ·  2025-09-07T15:58:25.730427+00:00
+- StaticRooster_Canon_v1_0.md  ·  3033 bytes  ·  2025-09-07T16:03:08.869207+00:00
+- StaticRooster_Canon_v1_1.md  ·  4482 bytes  ·  2025-09-07T16:05:09.982157+00:00
+- sr_watchlight_v0_1_1.html  ·  3285 bytes  ·  2025-09-07T16:07:06.137438+00:00
+- sr_config_patch_add_watchlight_011_v0_1.json  ·  289 bytes  ·  2025-09-07T16:07:06.138152+00:00
+- sr_watch_linter_v0_1_0.html  ·  4261 bytes  ·  2025-09-07T16:13:45.073462+00:00
+- sr_release_ledger_v0_1_0.html  ·  3701 bytes  ·  2025-09-07T16:13:45.074570+00:00
+- sr_watchlight_v0_1_2.html  ·  3719 bytes  ·  2025-09-07T16:13:45.117981+00:00
+- sr_config_patch_add_watch_linter_010_v0_1.json  ·  295 bytes  ·  2025-09-07T16:13:45.119351+00:00
+- sr_config_patch_add_release_ledger_010_v0_1.json  ·  301 bytes  ·  2025-09-07T16:13:45.120102+00:00
+- sr_config_patch_add_watchlight_012_v0_1.json  ·  289 bytes  ·  2025-09-07T16:13:45.120615+00:00
+- assistant_return_v0_3_20250907T161345Z.zip  ·  7196 bytes  ·  2025-09-07T16:13:45.124692+00:00
+- sr_rename_applier_v0_1_0.html  ·  3771 bytes  ·  2025-09-07T16:16:09.174313+00:00
+- sr_dossier_builder_v0_1_0.html  ·  6329 bytes  ·  2025-09-07T16:22:32.426028+00:00
+- StaticRooster_Dossier_Spec_v0_1.md  ·  1198 bytes  ·  2025-09-07T16:22:32.427133+00:00
+- sr_dossier_example_v0_1.zip  ·  976 bytes  ·  2025-09-07T16:22:32.429421+00:00
+- SR_PlanOfRecord_v0_1.json  ·  2530 bytes  ·  2025-09-07T16:36:58.457889+00:00
+- sr_dossier_builder_v0_1_1.html  ·  7264 bytes  ·  2025-09-07T16:43:42.274977+00:00
+- StaticRooster_Dossier_Spec_v0_1_1.md  ·  1357 bytes  ·  2025-09-07T16:43:42.317595+00:00
+- sr_usage_watcher_v0_1_0.html  ·  4227 bytes  ·  2025-09-07T16:49:32.610643+00:00
+- sr_sprint_planner_v0_1_0.html  ·  4404 bytes  ·  2025-09-07T16:55:21.617323+00:00
+- sr_dossier_builder_v0_1_2.html  ·  8393 bytes  ·  2025-09-07T16:55:21.618321+00:00
+- sr_plan_ledger_v0_1_0.html  ·  3800 bytes  ·  2025-09-07T16:55:21.618778+00:00
+- SR_Roadmap_v0_1.json  ·  4280 bytes  ·  2025-09-07T16:55:21.620266+00:00
+- sr_invocations_v0_1.md  ·  654 bytes  ·  2025-09-07T17:10:47.624315+00:00
+- sr_forge_v0_1_0.html  ·  10363 bytes  ·  2025-09-07T17:19:45.942194+00:00
+- sr_config_patch_add_forge_010_v0_1.json  ·  274 bytes  ·  2025-09-07T17:19:45.942973+00:00
+- sr_forge_kit_portable_v0_1.html  ·  8057 bytes  ·  2025-09-07T17:41:18.721146+00:00
+- forge_kit_v0_1_20250907T174129Z.zip  ·  3598 bytes  ·  2025-09-07T17:41:29.964374+00:00
+- sr_env_forge_drop_v0_1.zip  ·  675 bytes  ·  2025-09-07T17:41:30.549658+00:00
+- sr_env_probe_nano_v0_1.html  ·  2027 bytes  ·  2025-09-07T17:48:13.861758+00:00
+- sr_forge_lite_v0_1.html  ·  3143 bytes  ·  2025-09-07T17:48:13.862855+00:00
+- sr_env_forge_nano_v0_1.zip  ·  2913 bytes  ·  2025-09-07T17:48:13.865167+00:00
+- sr_dossier_uplink_v0_1_0.html  ·  3078 bytes  ·  2025-09-07T17:57:19.428303+00:00
+- sr_forge_v0_1_2.html  ·  11994 bytes  ·  2025-09-07T17:57:19.428863+00:00
+- uplink_inbox_flask_v0_1.py  ·  936 bytes  ·  2025-09-07T17:57:19.429404+00:00
+- uplink_inbox_node_v0_1.js  ·  1200 bytes  ·  2025-09-07T17:57:19.429916+00:00
+- assistant_return_uplink_forge_v0_1_20250907T175719Z.zip  ·  7533 bytes  ·  2025-09-07T17:57:19.432749+00:00
+- sr_bug_reporter_v0_1_0.html  ·  4533 bytes  ·  2025-09-07T18:13:51.840518+00:00
+- sr_self_test_v0_1_0.html  ·  4474 bytes  ·  2025-09-07T18:13:51.841300+00:00
+- sr_forge_v0_1_3.html  ·  11547 bytes  ·  2025-09-07T18:13:51.842067+00:00
+- StaticRooster_Bug_Test_Protocol_v0_1.md  ·  880 bytes  ·  2025-09-07T18:13:51.842457+00:00
+- assistant_return_parcel_mode_kit_v0_1_20250907T181351Z.zip  ·  9372 bytes  ·  2025-09-07T18:13:51.846281+00:00
+- sr_turkey_castle_field_post_v0_1_0.html  ·  12071 bytes  ·  2025-09-07T18:26:52.211880+00:00
+- field_post_quicklook_v0_1.json  ·  1041 bytes  ·  2025-09-07T18:37:09.122790+00:00
+- field_post_quicklook_v0_1.csv  ·  180 bytes  ·  2025-09-07T18:37:09.123461+00:00
+- sr_turkey_castle_field_post_v0_1_1.html  ·  15997 bytes  ·  2025-09-07T18:41:20.330951+00:00
+- field_post_quicklook_v0_1_b.json  ·  5519 bytes  ·  2025-09-07T18:50:59.836401+00:00
+- field_post_quicklook_v0_1_b.csv  ·  1770 bytes  ·  2025-09-07T18:50:59.837154+00:00
+- sr_turkey_castle_field_post_v0_1_2.html  ·  14931 bytes  ·  2025-09-07T18:53:31.644984+00:00
+- sr_dossier_20250907_192336_v0_1.zip  ·  4635 bytes  ·  2025-09-07T19:23:36.319367+00:00
+- sr_chain_emitter_v0_1_0.html  ·  868 bytes  ·  2025-09-07T19:34:58.544476+00:00
+- sr_canon_diff_v0_1_0.html  ·  1520 bytes  ·  2025-09-07T19:34:58.544780+00:00
+- sr_dossier_20250907_193458_v0_1.zip  ·  5470 bytes  ·  2025-09-07T19:34:58.549461+00:00
+- sr_dossier_timer_v0_1_0.html  ·  4534 bytes  ·  2025-09-07T19:43:16.742651+00:00
+- sr_dossier_20250907_190758_v0_1.zip  ·  4749 bytes  ·  2025-09-07T19:43:17.919007+00:00
+- sr_dossier_20250907_191507_v0_1.zip  ·  40918 bytes  ·  2025-09-07T19:43:18.117200+00:00
+- sr_dossier_20250907_193012_v0_1.zip  ·  4924 bytes  ·  2025-09-07T19:43:18.119232+00:00
+- sr_field_post_20250907_183414_v0_1.zip  ·  920996 bytes  ·  2025-09-07T19:43:18.218176+00:00
+- sr_dossier_20250907_192959_v0_1.zip  ·  6166 bytes  ·  2025-09-07T19:43:18.420598+00:00
+- sr_dossier_20250907_1710_v0_1.zip  ·  40250 bytes  ·  2025-09-07T19:43:18.420978+00:00
+- sr_env_probe_report_v0_1.json  ·  445 bytes  ·  2025-09-07T19:43:18.423254+00:00
+- eh1003006_dtm_clip.tif  ·  2006184 bytes  ·  2025-09-07T19:43:18.523342+00:00
+- eh1003006_slope_pct.tif  ·  2377312 bytes  ·  2025-09-07T19:43:18.525348+00:00
+- eh1003006_online_planner_v5_2_7.html  ·  41094 bytes  ·  2025-09-07T19:43:18.619090+00:00
+- eh1003006_aspect_deg.tif  ·  2301551 bytes  ·  2025-09-07T19:43:18.622316+00:00
+- eh1003006_chm.tif  ·  7480419 bytes  ·  2025-09-07T19:43:18.732908+00:00
+- eh1003006_combined_bands_v1_0.tif  ·  8499018 bytes  ·  2025-09-07T19:43:18.918201+00:00
+- EH1003006_All_PDFs_v1_1.pdf  ·  10575145 bytes  ·  2025-09-07T19:43:19.024884+00:00
+- eh1003006_online_planner_v5_2_8 (4).html  ·  41431 bytes  ·  2025-09-07T19:43:19.025749+00:00
+- EH1003006_PDRNavigator_v0_3_2 (1).html  ·  19446 bytes  ·  2025-09-07T19:43:19.217275+00:00
+- online_planner_v5_2_9_intake.html  ·  17340 bytes  ·  2025-09-07T19:43:19.217322+00:00
+- sr_field_post_20250907_184751_v0_1.zip  ·  14980108 bytes  ·  2025-09-07T19:43:19.225370+00:00
+- EH1003006_DecisionHub_index_v2_3_2.html  ·  247855 bytes  ·  2025-09-07T19:43:19.427523+00:00
+- EH1003006_DecisionHub_index_v2_2_9.html  ·  247855 bytes  ·  2025-09-07T19:43:19.429387+00:00
+- EH1003006_FieldIntake_v1_3_3 (1).html  ·  44948 bytes  ·  2025-09-07T19:43:19.436681+00:00
+- DecisionHub_Feature_Contract_v1_0.md  ·  4375 bytes  ·  2025-09-07T19:43:19.437098+00:00
+- DecisionHubConfig_Schema_v1_0.json  ·  1728 bytes  ·  2025-09-07T19:43:19.437414+00:00
+- EH1003006_DecisionHub_index_v3_2_1.html  ·  14307 bytes  ·  2025-09-07T19:43:19.539074+00:00
+- PipBoy_Tool_Skeleton_v1_0.html  ·  1730 bytes  ·  2025-09-07T19:43:19.560620+00:00
+- StaticRooster_UIKit_v1_0.md  ·  8853 bytes  ·  2025-09-07T19:43:19.560752+00:00
+
+## Narrative summary
+
+- Field Post tool advanced to v0.1.2 (EXIF + manual rel/dist, batch ZIP/folder ingest, drag&drop).
+- Quicklook parsers generate CSV/JSON and relative placement map from batches.
+- Dossier loop established: timer, linter, checkpoint, attachments_refs for large rasters.
+- Canon/Invocation/Memory Palace authored; append-only chain wired; canon-diff preflight added.
+- Obstacles addressed: mobile GPS permissions, filename drift, background-work assumptions, context scatter.
+- Next: wire chain+lint+checkpoint auto-emit into Forge; stand up Runner receipts; draft AI Bridge API.

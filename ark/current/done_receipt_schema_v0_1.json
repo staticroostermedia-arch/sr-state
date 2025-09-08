@@ -1,0 +1,23 @@
+{
+  "schema": "sr.done_receipt.v0_1",
+  "fields": {
+    "id": "string (ulid)",
+    "step_name": "string",
+    "started_at": "ISO8601",
+    "ended_at": "ISO8601",
+    "inputs": [
+      {
+        "path": "string",
+        "sha256": "hex"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "string",
+        "sha256": "hex"
+      }
+    ],
+    "status": "ok|warn|fail",
+    "notes": "string"
+  }
+}

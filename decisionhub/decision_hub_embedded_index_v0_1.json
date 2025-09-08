@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "path": "decisionhub/legacy_adapters/decisionhub_index_v3_2_1.html",
+      "sha256": "8be9db3d08d11e593f94ccde48bf6612ebef55a2e80c80010ca1e2bc878dc0be",
+      "size": 14307,
+      "source": "EH1003006_DecisionHub_index_v3_2_1.html"
+    },
+    {
+      "path": "decisionhub/legacy_adapters/decisionhub_index_v2_3_2.html",
+      "sha256": "19122461960f5f22701cf7c80dfe9df308585fe1e33db8dbcac4f9e1e6ce50cf",
+      "size": 247855,
+      "source": "EH1003006_DecisionHub_index_v2_3_2.html"
+    },
+    {
+      "path": "decisionhub/legacy_adapters/decisionhub_index_v2_2_9.html",
+      "sha256": "4eef31754d2f76294c20e751bbb2775b2ca5a71a41cf152bbfc501a7a5235686",
+      "size": 247855,
+      "source": "EH1003006_DecisionHub_index_v2_2_9.html"
+    },
+    {
+      "path": "decisionhub/legacy_adapters/pdr_navigator_v0_3_2.html",
+      "sha256": "e670e490199c2e161ecb9309d0f507991533918555d9821d3f739b3e785c8f88",
+      "size": 19446,
+      "source": "EH1003006_PDRNavigator_v0_3_2 (1).html"
+    },
+    {
+      "path": "decisionhub/legacy_adapters/field_intake_v1_3_3.html",
+      "sha256": "82ae488f62f30bfdf08bc3041d22716e00b9eda5c2c94769a6498473b2114987",
+      "size": 44948,
+      "source": "EH1003006_FieldIntake_v1_3_3 (1).html"
+    },
+    {
+      "path": "decisionhub/legacy_adapters/pipboy_tool_skeleton_v1_0.html",
+      "sha256": "3db30a99ab311d6a5485c8f353c4b9486cf5b07edece50bca0521aba61f559db",
+      "size": 1730,
+      "source": "PipBoy_Tool_Skeleton_v1_0.html"
+    },
+    {
+      "path": "decisionhub/legacy_adapters/static_rooster_uikit_v1_0.md",
+      "sha256": "865b1d1060371af01c2d1179b1e4f7776d352715319eab8da784c61533918fce",
+      "size": 8853,
+      "source": "StaticRooster_UIKit_v1_0.md"
+    },
+    {
+      "path": "decisionhub/contracts/decisionhub_config_schema_v1_0.json",
+      "sha256": "5e3be26a77304b0ca10740875441719546943852bae8d4ef627f9e28fd2e89e0",
+      "size": 1728,
+      "source": "DecisionHubConfig_Schema_v1_0.json"
+    },
+    {
+      "path": "decisionhub/contracts/decisionhub_feature_contract_v1_0.md",
+      "sha256": "9a5ea38c370b4a7aedbcdfd10ba7c9d756396dab08f4af9fb72c398d7d2c8102",
+      "size": 4375,
+      "source": "DecisionHub_Feature_Contract_v1_0.md"
+    }
+  ]
+}

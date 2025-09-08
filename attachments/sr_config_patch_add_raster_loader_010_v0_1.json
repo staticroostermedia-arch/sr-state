@@ -1,0 +1,12 @@
+{
+  "schema": "eh1003006.static_rooster.config.patch.v1",
+  "generatedAt": "2025-09-07T15:53:33.535852Z",
+  "add_tool": {
+    "key": "raster_loader_010",
+    "name": "Raster Loader",
+    "href": "sr_raster_loader_v0_1_0.html",
+    "badge": "v0.1.0",
+    "category": "analysis",
+    "enabled": true
+  }
+}

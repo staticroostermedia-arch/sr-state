@@ -1,0 +1,117 @@
+{
+  "schema": "sr.done_receipt.v0_1",
+  "id": "1757275348754_dossier_build_v0_3",
+  "step_name": "dossier_build_v0_3",
+  "started_at": "2025-09-07T20:02:28.537596+00:00",
+  "ended_at": "2025-09-07T20:02:28.754375+00:00",
+  "inputs": [
+    {
+      "path": "sr_dossier_20250907_194320_v0_2.zip",
+      "sha256": "ecbd26bb90147c0c564a6b3ad33ab647d27658e3a9fb87f4c60a52efbc486a86"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "sr_invocation_v0_1.md",
+      "sha256": "a42a01f17e12aa112d3a70a342af42c76717f98c8590eab3adeb0e1f523726d8",
+      "size": 273
+    },
+    {
+      "path": "sr_canon_v0_1.md",
+      "sha256": "8a75bc1d0e6702724cd9d5be30513a10c2f33ace94fad4d3999b401d2b959912",
+      "size": 426
+    },
+    {
+      "path": "sr_memory_palace_v0_1.md",
+      "sha256": "4d57329ab8048c901a3019be812eef070217f953fe0c8d8fc5abab6c20304436",
+      "size": 413
+    },
+    {
+      "path": "tripwires_v0_1.md",
+      "sha256": "70cf6b7e089b3aea9ecd4c488a8799434159667ece9223a1cb116b68af661fd8",
+      "size": 202
+    },
+    {
+      "path": "act_of_seal_note_v0_1.md",
+      "sha256": "3d22a02b87242888963d248304acbaae0efeef9906348670dd8538fc87833518",
+      "size": 226
+    },
+    {
+      "path": "canon_pin_v0_1.json",
+      "sha256": "9f37c85248e42af9e28146c70624dc6de85becbdef1fe326c987faf9f02722d1",
+      "size": 593
+    },
+    {
+      "path": "limits_v0_2.json",
+      "sha256": "990b984ff0dea515b98894dc9bd0a6f9a77542e06cd0ff8f3867dd413f3e7d33",
+      "size": 745
+    },
+    {
+      "path": "protocol_dossier_loop_v0_2.md",
+      "sha256": "abd551274ea5dc4bc631fd01115e706c31e73d18f12b1c23db0df2d6981fa8bd",
+      "size": 472
+    },
+    {
+      "path": "week_in_review_v0_2.md",
+      "sha256": "3d9be2d96f0011883565da9dfbe595ff546260128291dfa184f1e9bb0e091f24",
+      "size": 11029
+    },
+    {
+      "path": "sprint_roadmap_v0_2.md",
+      "sha256": "de99d7f85da0232e2c4ef7226de4f78b7b4ef9be65f5b3f0a87b1ee5b51ae292",
+      "size": 339
+    },
+    {
+      "path": "watch_lint_report_v0_2.json",
+      "sha256": "f6835e8ae87f10c5a26b716bf6476ac728ce92db8bf9ae3123dcea37250d1a69",
+      "size": 220
+    },
+    {
+      "path": "checkpoint/sr_checkpoint_emit_v0_1.json",
+      "sha256": "9b6c9ce7d0efe5b963efb9d88a6f0d766d2ca0f7a6f89436786f949d1d354b6b",
+      "size": 201
+    },
+    {
+      "path": "chain_v0_1.json",
+      "sha256": "daedbeeb48d0922457c7e2e4ad50021d4403e5700be4755ae8842db82ca5a757",
+      "size": 275
+    },
+    {
+      "path": "sr_canon_diff_report_v0_1.json",
+      "sha256": "0828a1198bb707022440c415b7a3afb39f986e7655871443a9277e92dcd6a81d",
+      "size": 183
+    },
+    {
+      "path": "attachments_refs_v0_2.json",
+      "sha256": "ef67f1850f12baf13e08b3601338d12205f84eed5cf4af85bf4e66482887574b",
+      "size": 2228
+    },
+    {
+      "path": "versions_v0_2.md",
+      "sha256": "5b3f5e002603242e74f4dcf522421e678be9b1c46b055bb7a8725262a9ac6965",
+      "size": 352
+    },
+    {
+      "path": "attachments/sr_dossier_timer_v0_1_0.html",
+      "sha256": "bbe1c71677ee976b842d862347937226ce1f62056e4f2777290e0d238465d988",
+      "size": 4534
+    },
+    {
+      "path": "attachments/sr_turkey_castle_field_post_v0_1_2.html",
+      "sha256": "3a5e1b5db609d9e14add83aee9d4742a5467972e5cfd082391778c2cc8a9ce56",
+      "size": 14931
+    },
+    {
+      "path": "attachments/sr_chain_emitter_v0_1_0.html",
+      "sha256": "91602f27f6ef3fb12a3f7f28b174af0f567921bea4494640c45482a733ea8a26",
+      "size": 868
+    },
+    {
+      "path": "attachments/sr_canon_diff_v0_1_0.html",
+      "sha256": "eceb5cdb5becaad1d16302a8e45857c11f8e7280574033e898a799ee2d73232b",
+      "size": 1520
+    }
+  ],
+  "status": "ok",
+  "notes": ""
+}

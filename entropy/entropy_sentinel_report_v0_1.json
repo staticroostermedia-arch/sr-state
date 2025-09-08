@@ -1,0 +1,435 @@
+{
+  "schema": "sr.entropy_sentinel_report.v0_1",
+  "generatedAt": "2025-09-07T20:15:27.020092+00:00",
+  "dossiers_found": 10,
+  "total_missing_components": 75,
+  "chain_breaks": 2,
+  "entropy_scores": [
+    {
+      "zip": "sr_dossier_20250907_190758_v0_1.zip",
+      "risk": 16
+    },
+    {
+      "zip": "sr_dossier_20250907_191507_v0_1.zip",
+      "risk": 13
+    },
+    {
+      "zip": "sr_dossier_20250907_192336_v0_1.zip",
+      "risk": 10
+    },
+    {
+      "zip": "sr_dossier_20250907_192959_v0_1.zip",
+      "risk": 5
+    },
+    {
+      "zip": "sr_dossier_20250907_193012_v0_1.zip",
+      "risk": 10
+    },
+    {
+      "zip": "sr_dossier_20250907_193458_v0_1.zip",
+      "risk": 10
+    },
+    {
+      "zip": "sr_dossier_20250907_194320_v0_2.zip",
+      "risk": 3
+    },
+    {
+      "zip": "sr_dossier_20250907_200228_v0_3.zip",
+      "risk": 0
+    },
+    {
+      "zip": "sr_dossier_20250907_200657_v0_4.zip",
+      "risk": 6
+    },
+    {
+      "zip": "sr_dossier_20250907_201141_v0_5.zip",
+      "risk": 6
+    }
+  ],
+  "chain": {
+    "sequence": [
+      {
+        "name": "sr_dossier_20250907_190758_v0_1.zip",
+        "sha256": "289998c50b2739296f839296778adf95f26f4fc48376deefc786ae9752dc993b",
+        "expects_prev": null
+      },
+      {
+        "name": "sr_dossier_20250907_191507_v0_1.zip",
+        "sha256": "782bfb55156a8914f0c1bdb25f0bbeb96f57cffd9638e649abe3ad2c82423dce",
+        "expects_prev": null
+      },
+      {
+        "name": "sr_dossier_20250907_192336_v0_1.zip",
+        "sha256": "34ddde7136134bbd67dd48c1512787e0b1a15d476fab3dcc29a2b24bfaff8f7d",
+        "expects_prev": null
+      },
+      {
+        "name": "sr_dossier_20250907_192959_v0_1.zip",
+        "sha256": "219b657bf93c31715055d3bfd7d55bad743b9c56ef78821a7182388803603349",
+        "expects_prev": "82fc69705f0edb8e1edf7274138f75bbff4bc4536017f12c7268252cc25d911b"
+      },
+      {
+        "name": "sr_dossier_20250907_193012_v0_1.zip",
+        "sha256": "82fc69705f0edb8e1edf7274138f75bbff4bc4536017f12c7268252cc25d911b",
+        "expects_prev": null
+      },
+      {
+        "name": "sr_dossier_20250907_193458_v0_1.zip",
+        "sha256": "4ec80a9b1e3706fb4abcb8a9c05a30ea237b87e4abe0da4a7cf8f0a4f632ed4b",
+        "expects_prev": "219b657bf93c31715055d3bfd7d55bad743b9c56ef78821a7182388803603349"
+      },
+      {
+        "name": "sr_dossier_20250907_194320_v0_2.zip",
+        "sha256": "ecbd26bb90147c0c564a6b3ad33ab647d27658e3a9fb87f4c60a52efbc486a86",
+        "expects_prev": "4ec80a9b1e3706fb4abcb8a9c05a30ea237b87e4abe0da4a7cf8f0a4f632ed4b"
+      },
+      {
+        "name": "sr_dossier_20250907_200228_v0_3.zip",
+        "sha256": "b2ac114b012a3ea207f773760cd454934087ed15268b0fba5bd8d11bdc84b0d5",
+        "expects_prev": "ecbd26bb90147c0c564a6b3ad33ab647d27658e3a9fb87f4c60a52efbc486a86"
+      },
+      {
+        "name": "sr_dossier_20250907_200657_v0_4.zip",
+        "sha256": "ba5271191d98b4e0c18d9c393358e9c82f5568f8a0d6f8edae928739dadb97e6",
+        "expects_prev": "b2ac114b012a3ea207f773760cd454934087ed15268b0fba5bd8d11bdc84b0d5"
+      },
+      {
+        "name": "sr_dossier_20250907_201141_v0_5.zip",
+        "sha256": "3b6a52954cf83919f4967b9e215d0baabb18ab2745e9ac49c030755cdcdace64",
+        "expects_prev": "ba5271191d98b4e0c18d9c393358e9c82f5568f8a0d6f8edae928739dadb97e6"
+      }
+    ],
+    "breaks": [
+      {
+        "at": "sr_dossier_20250907_192959_v0_1.zip",
+        "expected": "82fc69705f0edb8e1edf7274138f75bbff4bc4536017f12c7268252cc25d911b",
+        "actual_prev": "34ddde7136134bbd67dd48c1512787e0b1a15d476fab3dcc29a2b24bfaff8f7d"
+      },
+      {
+        "at": "sr_dossier_20250907_193458_v0_1.zip",
+        "expected": "219b657bf93c31715055d3bfd7d55bad743b9c56ef78821a7182388803603349",
+        "actual_prev": "82fc69705f0edb8e1edf7274138f75bbff4bc4536017f12c7268252cc25d911b"
+      }
+    ]
+  },
+  "details": [
+    {
+      "zip": "sr_dossier_20250907_190758_v0_1.zip",
+      "presence": {
+        "sr_invocation_": false,
+        "sr_canon_": false,
+        "sr_memory_palace_": false,
+        "canon_pin_": false,
+        "protocol_dossier_loop_": false,
+        "limits_": false,
+        "versions_": false,
+        "week_in_review_": false,
+        "sprint_roadmap_": false,
+        "sr_canon_diff_report_": false,
+        "watch_lint_report_": false,
+        "attachments_refs_": false,
+        "checkpoint/": false,
+        "chain_": false,
+        "receipts/": false
+      },
+      "errors": [
+        "missing:sr_invocation_",
+        "missing:sr_canon_",
+        "missing:sr_memory_palace_",
+        "missing:canon_pin_",
+        "missing:protocol_dossier_loop_",
+        "missing:limits_",
+        "missing:versions_",
+        "missing:week_in_review_",
+        "missing:sprint_roadmap_",
+        "missing:sr_canon_diff_report_",
+        "missing:watch_lint_report_",
+        "missing:attachments_refs_",
+        "missing:checkpoint/",
+        "missing:chain_",
+        "missing:receipts/",
+        "missing:chain_v0_1.json"
+      ],
+      "manifest_ok": true,
+      "chain_prev": null
+    },
+    {
+      "zip": "sr_dossier_20250907_191507_v0_1.zip",
+      "presence": {
+        "sr_invocation_": false,
+        "sr_canon_": false,
+        "sr_memory_palace_": false,
+        "canon_pin_": false,
+        "protocol_dossier_loop_": false,
+        "limits_": true,
+        "versions_": true,
+        "week_in_review_": false,
+        "sprint_roadmap_": false,
+        "sr_canon_diff_report_": false,
+        "watch_lint_report_": false,
+        "attachments_refs_": false,
+        "checkpoint/": false,
+        "chain_": false,
+        "receipts/": true
+      },
+      "errors": [
+        "missing:sr_invocation_",
+        "missing:sr_canon_",
+        "missing:sr_memory_palace_",
+        "missing:canon_pin_",
+        "missing:protocol_dossier_loop_",
+        "missing:week_in_review_",
+        "missing:sprint_roadmap_",
+        "missing:sr_canon_diff_report_",
+        "missing:watch_lint_report_",
+        "missing:attachments_refs_",
+        "missing:checkpoint/",
+        "missing:chain_",
+        "missing:chain_v0_1.json"
+      ],
+      "manifest_ok": true,
+      "chain_prev": null
+    },
+    {
+      "zip": "sr_dossier_20250907_192336_v0_1.zip",
+      "presence": {
+        "sr_invocation_": false,
+        "sr_canon_": false,
+        "sr_memory_palace_": false,
+        "canon_pin_": false,
+        "protocol_dossier_loop_": true,
+        "limits_": true,
+        "versions_": true,
+        "week_in_review_": false,
+        "sprint_roadmap_": false,
+        "sr_canon_diff_report_": false,
+        "watch_lint_report_": true,
+        "attachments_refs_": true,
+        "checkpoint/": true,
+        "chain_": false,
+        "receipts/": false
+      },
+      "errors": [
+        "missing:sr_invocation_",
+        "missing:sr_canon_",
+        "missing:sr_memory_palace_",
+        "missing:canon_pin_",
+        "missing:week_in_review_",
+        "missing:sprint_roadmap_",
+        "missing:sr_canon_diff_report_",
+        "missing:chain_",
+        "missing:receipts/",
+        "missing:chain_v0_1.json"
+      ],
+      "manifest_ok": true,
+      "chain_prev": null
+    },
+    {
+      "zip": "sr_dossier_20250907_192959_v0_1.zip",
+      "presence": {
+        "sr_invocation_": true,
+        "sr_canon_": true,
+        "sr_memory_palace_": true,
+        "canon_pin_": false,
+        "protocol_dossier_loop_": true,
+        "limits_": true,
+        "versions_": true,
+        "week_in_review_": false,
+        "sprint_roadmap_": false,
+        "sr_canon_diff_report_": false,
+        "watch_lint_report_": true,
+        "attachments_refs_": true,
+        "checkpoint/": true,
+        "chain_": true,
+        "receipts/": false
+      },
+      "errors": [
+        "missing:canon_pin_",
+        "missing:week_in_review_",
+        "missing:sprint_roadmap_",
+        "missing:sr_canon_diff_report_",
+        "missing:receipts/"
+      ],
+      "manifest_ok": true,
+      "chain_prev": "82fc69705f0edb8e1edf7274138f75bbff4bc4536017f12c7268252cc25d911b"
+    },
+    {
+      "zip": "sr_dossier_20250907_193012_v0_1.zip",
+      "presence": {
+        "sr_invocation_": false,
+        "sr_canon_": false,
+        "sr_memory_palace_": false,
+        "canon_pin_": false,
+        "protocol_dossier_loop_": true,
+        "limits_": true,
+        "versions_": true,
+        "week_in_review_": false,
+        "sprint_roadmap_": false,
+        "sr_canon_diff_report_": false,
+        "watch_lint_report_": true,
+        "attachments_refs_": true,
+        "checkpoint/": true,
+        "chain_": false,
+        "receipts/": false
+      },
+      "errors": [
+        "missing:sr_invocation_",
+        "missing:sr_canon_",
+        "missing:sr_memory_palace_",
+        "missing:canon_pin_",
+        "missing:week_in_review_",
+        "missing:sprint_roadmap_",
+        "missing:sr_canon_diff_report_",
+        "missing:chain_",
+        "missing:receipts/",
+        "missing:chain_v0_1.json"
+      ],
+      "manifest_ok": true,
+      "chain_prev": null
+    },
+    {
+      "zip": "sr_dossier_20250907_193458_v0_1.zip",
+      "presence": {
+        "sr_invocation_": true,
+        "sr_canon_": true,
+        "sr_memory_palace_": true,
+        "canon_pin_": false,
+        "protocol_dossier_loop_": false,
+        "limits_": false,
+        "versions_": false,
+        "week_in_review_": false,
+        "sprint_roadmap_": false,
+        "sr_canon_diff_report_": true,
+        "watch_lint_report_": false,
+        "attachments_refs_": false,
+        "checkpoint/": false,
+        "chain_": true,
+        "receipts/": false
+      },
+      "errors": [
+        "missing:canon_pin_",
+        "missing:protocol_dossier_loop_",
+        "missing:limits_",
+        "missing:versions_",
+        "missing:week_in_review_",
+        "missing:sprint_roadmap_",
+        "missing:watch_lint_report_",
+        "missing:attachments_refs_",
+        "missing:checkpoint/",
+        "missing:receipts/"
+      ],
+      "manifest_ok": true,
+      "chain_prev": "219b657bf93c31715055d3bfd7d55bad743b9c56ef78821a7182388803603349"
+    },
+    {
+      "zip": "sr_dossier_20250907_194320_v0_2.zip",
+      "presence": {
+        "sr_invocation_": true,
+        "sr_canon_": true,
+        "sr_memory_palace_": true,
+        "canon_pin_": false,
+        "protocol_dossier_loop_": true,
+        "limits_": true,
+        "versions_": true,
+        "week_in_review_": true,
+        "sprint_roadmap_": true,
+        "sr_canon_diff_report_": false,
+        "watch_lint_report_": true,
+        "attachments_refs_": false,
+        "checkpoint/": true,
+        "chain_": true,
+        "receipts/": true
+      },
+      "errors": [
+        "missing:canon_pin_",
+        "missing:sr_canon_diff_report_",
+        "missing:attachments_refs_"
+      ],
+      "manifest_ok": true,
+      "chain_prev": "4ec80a9b1e3706fb4abcb8a9c05a30ea237b87e4abe0da4a7cf8f0a4f632ed4b"
+    },
+    {
+      "zip": "sr_dossier_20250907_200228_v0_3.zip",
+      "presence": {
+        "sr_invocation_": true,
+        "sr_canon_": true,
+        "sr_memory_palace_": true,
+        "canon_pin_": true,
+        "protocol_dossier_loop_": true,
+        "limits_": true,
+        "versions_": true,
+        "week_in_review_": true,
+        "sprint_roadmap_": true,
+        "sr_canon_diff_report_": true,
+        "watch_lint_report_": true,
+        "attachments_refs_": true,
+        "checkpoint/": true,
+        "chain_": true,
+        "receipts/": true
+      },
+      "errors": [],
+      "manifest_ok": true,
+      "chain_prev": "ecbd26bb90147c0c564a6b3ad33ab647d27658e3a9fb87f4c60a52efbc486a86"
+    },
+    {
+      "zip": "sr_dossier_20250907_200657_v0_4.zip",
+      "presence": {
+        "sr_invocation_": true,
+        "sr_canon_": true,
+        "sr_memory_palace_": true,
+        "canon_pin_": true,
+        "protocol_dossier_loop_": true,
+        "limits_": true,
+        "versions_": true,
+        "week_in_review_": false,
+        "sprint_roadmap_": false,
+        "sr_canon_diff_report_": false,
+        "watch_lint_report_": false,
+        "attachments_refs_": false,
+        "checkpoint/": true,
+        "chain_": true,
+        "receipts/": false
+      },
+      "errors": [
+        "missing:week_in_review_",
+        "missing:sprint_roadmap_",
+        "missing:sr_canon_diff_report_",
+        "missing:watch_lint_report_",
+        "missing:attachments_refs_",
+        "missing:receipts/"
+      ],
+      "manifest_ok": true,
+      "chain_prev": "b2ac114b012a3ea207f773760cd454934087ed15268b0fba5bd8d11bdc84b0d5"
+    },
+    {
+      "zip": "sr_dossier_20250907_201141_v0_5.zip",
+      "presence": {
+        "sr_invocation_": true,
+        "sr_canon_": true,
+        "sr_memory_palace_": true,
+        "canon_pin_": true,
+        "protocol_dossier_loop_": true,
+        "limits_": true,
+        "versions_": true,
+        "week_in_review_": false,
+        "sprint_roadmap_": false,
+        "sr_canon_diff_report_": false,
+        "watch_lint_report_": false,
+        "attachments_refs_": false,
+        "checkpoint/": true,
+        "chain_": true,
+        "receipts/": false
+      },
+      "errors": [
+        "missing:week_in_review_",
+        "missing:sprint_roadmap_",
+        "missing:sr_canon_diff_report_",
+        "missing:watch_lint_report_",
+        "missing:attachments_refs_",
+        "missing:receipts/"
+      ],
+      "manifest_ok": true,
+      "chain_prev": "ba5271191d98b4e0c18d9c393358e9c82f5568f8a0d6f8edae928739dadb97e6"
+    }
+  ]
+}

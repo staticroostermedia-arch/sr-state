@@ -1,0 +1,74 @@
+<!doctype html><meta charset="utf-8">
+<title>sr_wholeness_verifier v0.1.0</title>
+<style>
+body{background:#0b0c06;color:#b4ffb4;font-family:ui-monospace,Consolas,monospace;margin:0;padding:12px}
+.card{border:1px solid #1a2b1a;border-radius:10px;background:#0f140f;padding:12px;margin:10px 0}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.35}
+.badge{display:inline-block;border:1px solid #2a3b2a;border-radius:999px;padding:2px 8px;margin-right:6px}
+.ok{color:#39ff14;border-color:#39ff14}.bad{color:#ff6b6b;border-color:#ff6b6b}.warn{color:#ffd166;border-color:#ffd166}
+</style>
+<body>
+<h3>sr_wholeness_verifier <span class="badge">v0.1.0</span></h3>
+<div class="card">
+  <input type="file" id="zip" accept=".zip"> dossier zip
+  <input type="file" id="prev" accept=".zip"> (optional) previous dossier zip (for chain validation)
+  <button id="run">Run</button>
+</div>
+<div class="card"><pre id="out">—</pre></div>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script>
+async function sha256(buf){const h=await crypto.subtle.digest('SHA-256',buf);return[...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('')}
+const must=[
+ 'dossier.json','manifest.json','versions_','sr_invocation_','sr_canon_','sr_memory_palace_',
+ 'canon_pin_','act_of_seal_note_','tripwires_','chain_','checkpoint/','watch_lint_report_',
+ 'sr_canon_diff_report_','attachments_refs_','week_in_review_','sprint_roadmap_','receipts/'
+];
+function lintName(n){const b=n.split('/').pop();let issues=[];if(!b)return issues;
+ if(b!==b.toLowerCase())issues.push('uppercase');
+ if(/\s/.test(b))issues.push('spaces');
+ if(/[.](html|json|md)$/.test(b)&&!/_v\d/.test(b)&&!/^dossier\.json$/.test(b)&&!/^manifest\.json$/.test(b))issues.push('missing_version_suffix');
+ return issues;}
+async function run(){
+ const out=document.getElementById('out'); out.textContent='working…';
+ const f=document.getElementById('zip').files[0]; if(!f){out.textContent='Select a dossier zip.';return;}
+ const buf=await f.arrayBuffer(); const z=await JSZip.loadAsync(buf);
+ const names=Object.keys(z.files);
+ const report={schema:'sr.wholeness_report.v0_1',generatedAt:new Date().toISOString(), zip:f.name, zip_sha256: await sha256(buf), checks:[], verdict:'ok', stats:{}}
+ // presence
+ for(const key of must){
+   const hit=names.find(n=>n.startsWith(key));
+   report.checks.push({check:'presence:'+key, status: !!hit ? 'ok':'missing', file: hit||null});
+   if(!hit) report.verdict='penitential required';
+ }
+ // manifest
+ if(z.files['manifest.json']){
+   const man=JSON.parse(await z.files['manifest.json'].async('text'));
+   let miss=[];let hashm=[];
+   for(const row of (man.files||[])){
+     if(!z.files[row.path]) miss.push(row.path);
+     else{
+       const data=await z.files[row.path].async('arraybuffer');
+       const h=await sha256(data);
+       if(h!==row.sha256) hashm.push({path:row.path,expected:row.sha256,actual:h});
+     }
+   }
+   report.stats.manifest_files=(man.files||[]).length;
+   if(miss.length){ report.checks.push({check:'manifest:missing', items:miss}); report.verdict='penitential required';}
+   if(hashm.length){ report.checks.push({check:'manifest:hash_mismatch', items:hashm}); report.verdict='penitential required';}
+ }
+ // lint
+ const lints=[]; for(const n of names){ if(z.files[n].dir) continue; const issues=lintName(n); if(issues.length) lints.push({path:n,issues}); }
+ report.stats.lint_count=lints.length;
+ if(lints.length) report.checks.push({check:'lint', items:lints});
+ // chain validation (optional)
+ const prev=document.getElementById('prev').files[0];
+ if(prev && z.files['chain_v0_1.json']){
+   const prevbuf=await prev.arrayBuffer(); const prevhash=await sha256(prevbuf);
+   const chain=JSON.parse(await z.files['chain_v0_1.json'].async('text'));
+   const exp=chain.prev?.sha256; report.checks.push({check:'chain.prev.sha256', expected:exp, actual:prevhash, status: exp===prevhash?'ok':'mismatch'});
+   if(exp!==prevhash) report.verdict='penitential required';
+ }
+ out.textContent=JSON.stringify(report,null,2);
+}
+document.getElementById('run').onclick=run;
+</script>

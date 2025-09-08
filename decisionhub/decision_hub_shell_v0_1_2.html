@@ -1,0 +1,64 @@
+<!doctype html><meta charset="utf-8"><title>DecisionHub Shell v0.1.2</title>
+<style>
+body{background:#0a0c10;color:#eaf2ff;font-family:system-ui,Segoe UI,Inter;margin:0}
+header{padding:12px 16px;border-bottom:1px solid #162131;background:#0e1420}
+main{display:grid;grid-template-columns:300px 1fr;gap:12px;padding:12px}
+aside,section{background:#10141b;border:1px solid #162131;border-radius:10px}
+aside{padding:12px} section{padding:12px}
+a{color:#7cc6ff;text-decoration:none}
+.badge{border:1px solid #2e3f5c;border-radius:999px;padding:2px 8px;font-size:11px;margin-left:6px;color:#9db3d1}
+pre{background:#0b111a;border:1px solid #1a2a42;border-radius:8px;padding:8px;overflow:auto;font-size:12px}
+iframe{width:100%;height:60vh;border:1px solid #182335;border-radius:8px;background:#0b111a}
+</style>
+<header>
+  <b>DecisionHub Shell</b> <span class="badge">v0.1.2</span>
+  <div style="margin-top:6px">
+    <input type="file" id="cfg" accept=".json"> <button id="load">Load config</button>
+    <input type="file" id="rcpts" accept=".json" multiple> <small style="color:#9db3d1">receipts</small>
+  </div>
+</header>
+<main>
+<aside>
+  <div id="meta">—</div>
+  <ul id="nav" style="list-style:none;padding:0;margin:8px 0"></ul>
+  <hr style="border-color:#182335">
+  <div><b>Receipts</b> <span class="badge" id="rcptCount">0</span></div>
+  <pre id="rcptTimeline">no receipts…</pre>
+</aside>
+<section>
+  <iframe id="panel"></iframe>
+  <pre id="raw">Load a config to begin…</pre>
+</section>
+</main>
+<script>
+let CFG=null; let RECEIPTS=[]; const $=s=>document.querySelector(s);
+function hashRoute(){ const h=location.hash||''; const m=h.match(/#\/feature\/(.+)$/); return m?m[1]:null; }
+function routeTo(key){ const f=(CFG.features||[]).find(x=>x.key===key); if(!f) return; const p=$("#panel"); if(f.route) p.src=f.route; location.hash = '#/feature/'+key; }
+function render(){
+  $("#meta").textContent = (CFG.meta?.name||'DecisionHub') + ' · features: ' + (CFG.features||[]).length;
+  const nav=$("#nav"); nav.innerHTML='';
+  for(const f of (CFG.features||[])){
+    const li=document.createElement('li'); li.style.padding='6px 8px'; li.style.borderRadius='8px';
+    li.innerHTML = `<a href="#/feature/${f.key}">${f.title||f.key}</a> <small class="badge">${f.version||''}</small>`;
+    li.onclick = ()=>routeTo(f.key);
+    nav.appendChild(li);
+  }
+  $("#raw").textContent = JSON.stringify(CFG,null,2);
+  const want=hashRoute(); if(want) routeTo(want);
+}
+function renderReceipts(){
+  $("#rcptCount").textContent = RECEIPTS.length;
+  const lines = RECEIPTS.map(r=>`${r.ended_at||r.started_at} · ${r.step_name} · ${r.status}`);
+  $("#rcptTimeline").textContent = lines.join('\n') || 'no receipts…';
+}
+document.getElementById('load').onclick = async()=>{
+  const f=$("#cfg").files[0]; if(!f){alert('Pick config');return;}
+  try{ CFG = JSON.parse(await f.text()); }catch(e){ alert('Bad JSON'); return; }
+  render();
+};
+document.getElementById('rcpts').onchange = async(e)=>{
+  RECEIPTS=[]; for(const f of e.target.files){ try{ RECEIPTS.push(JSON.parse(await f.text())); }catch{} }
+  renderReceipts();
+};
+window.addEventListener('hashchange', ()=>{ const want=hashRoute(); if(want) routeTo(want); });
+</script>

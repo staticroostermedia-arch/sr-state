@@ -1,0 +1,34 @@
+<!doctype html><meta charset="utf-8"><title>sr_canon_diff v0.1.0</title>
+<body style="font-family:ui-monospace;background:#0b0c06;color:#b4ffb4">
+<h3>sr_canon_diff v0.1.0</h3>
+<input type="file" id="zip" accept=".zip"> dossier zip
+<pre id="out">—</pre>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const golden={
+ inv:`# Static Rooster — Invocation v0.1`,
+ can:`# Static Rooster — Canon v0.1`,
+ mem:`# Static Rooster — Memory Palace v0.1`
+};
+function hasHeader(txt, h){ return txt.trim().startsWith(h); }
+document.getElementById('zip').addEventListener('change', async (e)=>{
+  const f=e.target.files[0]; if(!f) return;
+  const z=await JSZip.loadAsync(await f.arrayBuffer());
+  const need=['sr_invocation_','sr_canon_','sr_memory_palace_'];
+  const names=Object.keys(z.files);
+  const rep={zip:f.name, checks:[], verdict:'ok'};
+  async function check(prefix, head){
+    const name=names.find(n=>n.startsWith(prefix));
+    if(!name){rep.checks.push({name:null, status:'missing'}); rep.verdict='penitential required'; return;}
+    const txt=await z.files[name].async('text');
+    const ok=hasHeader(txt, head);
+    rep.checks.push({name, status: ok?'ok':'header mismatch'});
+    if(!ok) rep.verdict='penitential required';
+  }
+  await check('sr_invocation_', golden.inv);
+  await check('sr_canon_', golden.can);
+  await check('sr_memory_palace_', golden.mem);
+  $('#out').textContent=JSON.stringify(rep, null, 2);
+});
+</script>

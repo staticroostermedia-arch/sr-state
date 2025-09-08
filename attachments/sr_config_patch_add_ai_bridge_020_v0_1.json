@@ -1,0 +1,12 @@
+{
+  "schema": "eh1003006.static_rooster.config.patch.v1",
+  "generatedAt": "2025-09-07T15:53:33.537247Z",
+  "add_tool": {
+    "key": "ai_bridge_020",
+    "name": "AI Bridge",
+    "href": "sr_ai_bridge_v0_2_0.html",
+    "badge": "v0.2.0",
+    "category": "ops",
+    "enabled": true
+  }
+}

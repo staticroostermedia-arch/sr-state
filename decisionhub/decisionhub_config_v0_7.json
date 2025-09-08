@@ -1,0 +1,43 @@
+{
+  "schema": "sr.decisionhub.config.v0_1",
+  "meta": {
+    "name": "DecisionHub Config (integrated)",
+    "generatedAt": "2025-09-07T20:49:36.679054+00:00",
+    "site": "parcel",
+    "parcelId": "EH1003006"
+  },
+  "features": [
+    {
+      "key": "home",
+      "title": "DecisionHub Home (v3.2.1)",
+      "version": "v3_2_1",
+      "route": "../hub_registry/decisionhub_index_v3_2_1.html"
+    },
+    {
+      "key": "pdr",
+      "title": "PDR Navigator",
+      "version": "v0_3_2",
+      "route": "decisionhub/legacy_adapters/pdr_navigator_v0_3_2.html"
+    },
+    {
+      "key": "intake",
+      "title": "Field Intake",
+      "version": "v1_3_3",
+      "route": "../tools/legacy/field_intake_v1_3_3.html"
+    },
+    {
+      "key": "pipboy",
+      "title": "PipBoy Tool Skeleton",
+      "version": "v1_0",
+      "route": "decisionhub/legacy_adapters/pipboy_tool_skeleton_v1_0.html"
+    },
+    {
+      "key": "uikit",
+      "title": "Static Rooster UIKit",
+      "version": "v1_0",
+      "route": "decisionhub/legacy_adapters/static_rooster_uikit_v1_0.md"
+    }
+  ],
+  "active_plan": "forge_v0_1_4",
+  "receipts": []
+}

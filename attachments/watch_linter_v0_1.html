@@ -1,0 +1,17 @@
+<!doctype html><meta charset=utf-8><title>watch_linter v0.1</title>
+<body style="font-family:ui-monospace"><h3>watch_linter v0.1</h3>
+<input type=file id=f accept=".zip"><pre id=o>—</pre>
+<script>
+const o=document.getElementById('o');
+function lintName(n){const b=n.split('/').pop();let issues=[];
+ if(!b)return issues; if(b!==b.toLowerCase())issues.push('uppercase');
+ if(/\s/.test(b))issues.push('spaces');
+ if(/[.](html|json|md)$/.test(b)&&!/_v\d/.test(b)&&!/^dossier\.json$/.test(b)&&!/^manifest\.json$/.test(b))issues.push('missing_version_suffix');
+ return issues;}
+document.getElementById('f').onchange=async e=>{const f=e.target.files[0];const ab=await f.arrayBuffer();const z=await JSZip.loadAsync(ab);
+ const names=Object.keys(z.files); let out=[];
+ for(const n of names){ if(z.files[n].dir)continue; const issues=lintName(n); if(issues.length) out.push({path:n,issues}); }
+ o.textContent = JSON.stringify({lint_count:out.length, lint:out}, null, 2);
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>

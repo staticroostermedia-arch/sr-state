@@ -1,0 +1,21 @@
+<!doctype html><meta charset="utf-8"><title>Canon Parity Tool v0.1.0</title>
+<style>body{background:#0b0e12;color:#eaf2ff;font-family:ui-monospace,Consolas,monospace;margin:0;padding:12px}
+.card{border:1px solid #162131;background:#10141b;border-radius:10px;padding:12px;margin:10px 0}
+pre{background:#0b111a;border:1px solid #1a2a42;border-radius:8px;padding:8px;overflow:auto;font-size:12px}
+.badge{border:1px solid #2e3f5c;border-radius:999px;padding:2px 8px;font-size:11px;color:#9db3d1}
+.ok{color:#5eff9e}.bad{color:#ff6b6b}</style>
+<h3>Canon Parity Tool <span class="badge">v0.1.0</span></h3>
+<div class="card">
+  Baseline: <input type="file" id="base" accept=".pdf,.md,.txt"> Candidate: <input type="file" id="cand" accept=".pdf,.md,.txt">
+  <button id="run">Compare</button>
+</div>
+<pre id="out">—</pre>
+<script>
+async function sha256(buf){const h=await crypto.subtle.digest('SHA-256',buf);return[...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('')}
+document.getElementById('run').onclick=async()=>{
+  const out=document.getElementById('out'); const b=document.getElementById('base').files[0]; const c=document.getElementById('cand').files[0];
+  if(!b||!c){out.textContent='Select baseline and candidate';return;}
+  const bh=await sha256(await b.arrayBuffer()); const ch=await sha256(await c.arrayBuffer());
+  out.textContent = JSON.stringify({schema:'sr.canon_parity_receipt.v0_1',generatedAt:new Date().toISOString(),baseline:{name:b.name,sha256:bh},candidate:{name:c.name,sha256:ch},parity:bh===ch?'ok':'diverged'}, null, 2);
+};
+</script>

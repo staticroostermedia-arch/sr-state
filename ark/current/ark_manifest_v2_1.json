@@ -1,0 +1,148 @@
+{
+  "schema": "sr.ark.v2_1.manifest",
+  "generated_at": "20250908_190312",
+  "policy": {
+    "small_max_bytes": 12582912,
+    "embed_exts": [
+      ".html",
+      ".json",
+      ".md",
+      ".pdf",
+      ".txt",
+      ".zip"
+    ]
+  },
+  "items": [
+    {
+      "path": "decisionhub/decisionhub_config_v0_7.json",
+      "sha256": "431291e1df47babd9201127b6d10203dbb0be1f9dd6c2c89116a5eef2f09e557",
+      "bytes": 1116
+    },
+    {
+      "path": "hub_registry/tools_directory_v0_1_0.html",
+      "sha256": "439704ebc474f80e48c0bb56c6547dda1c7458a6bdc4a4d3c8b3f88ac1a967b0",
+      "bytes": 1876
+    },
+    {
+      "path": "decisionhub/decision_hub_shell_v0_1_2.html",
+      "sha256": "effc97b43828720110eacf533867c62ae92fda58cceb365b2b55f979e4ad488c",
+      "bytes": 3205
+    },
+    {
+      "path": "receipts/receipts_timeline_viewer_v0_1_0.html",
+      "sha256": "3dca30498bf4bce2b95478278eddaaa65c766b814291def20441451d03f0776b",
+      "bytes": 1661
+    },
+    {
+      "path": "forge/forge_autogate_v0_1_0.html",
+      "sha256": "f3e3be1cb244cf927373e3d01a2dcc5a303ff4b61085d95a63a5e11b28683b51",
+      "bytes": 3458
+    },
+    {
+      "path": "canon/canon_parity_tool_v0_1_0.html",
+      "sha256": "7356bc018789e37606ffeeff9cb6a2589a68faeaba308b1bdfaf41036e1b5291",
+      "bytes": 1570
+    },
+    {
+      "path": "project_atlas_v0_1.json",
+      "sha256": "cb0644450ca08e1cd85a9f3c496c932dd6f0cbf829b243e0223dc423fb024f8a",
+      "bytes": 27945
+    },
+    {
+      "path": "project_atlas_viewer_v0_1_0.html",
+      "sha256": "68b3371a0b3721377669fbef9b051eb2f298f70eb6e5f4f9fcfd8a1f9bb430b2",
+      "bytes": 1639
+    },
+    {
+      "path": "lost_stones_report_v0_3.json",
+      "sha256": "b8b82c85b83d9aaf426784a2e4a606b269223cd29b1dba65b797c22525feb2dc",
+      "bytes": 8048
+    },
+    {
+      "path": "tools/legacy/eh1003006_online_planner_v5_2_7.html",
+      "sha256": "0134ba1a53b23b2fa0fac6365de0943a54f0c13e5ebcd728d2e2f6a02059e319",
+      "bytes": 41094
+    },
+    {
+      "path": "tools/legacy/eh1003006_online_planner_v5_2_8_4.html",
+      "sha256": "c620890df1b9094cdce64b98c3e19a653b7ec1976dffb0c1629ec57f670b9d84",
+      "bytes": 41431
+    },
+    {
+      "path": "tools/legacy/online_planner_v5_2_9_intake.html",
+      "sha256": "123232d845063b5040182fddf7755b69eb0fe73ee82c872e15231628c30f8ec9",
+      "bytes": 17340
+    },
+    {
+      "path": "docs/decisionhub_feature_contract_v1_0.md",
+      "sha256": "9a5ea38c370b4a7aedbcdfd10ba7c9d756396dab08f4af9fb72c398d7d2c8102",
+      "bytes": 4375
+    },
+    {
+      "path": "docs/decisionhubconfig_schema_v1_0.json",
+      "sha256": "5e3be26a77304b0ca10740875441719546943852bae8d4ef627f9e28fd2e89e0",
+      "bytes": 1728
+    },
+    {
+      "path": "docs/staticrooster_uikit_v1_0.md",
+      "sha256": "865b1d1060371af01c2d1179b1e4f7776d352715319eab8da784c61533918fce",
+      "bytes": 8853
+    }
+  ],
+  "pins": [
+    {
+      "name": "eh1003006_dtm_clip.tif",
+      "sha256": "fc6642e8f760c79f417556233373552e34d0d398049effc64be9540b62978f7b",
+      "bytes": 2006184,
+      "disposition": "reference_only"
+    },
+    {
+      "name": "eh1003006_aspect_deg.tif",
+      "sha256": "d6898fa2e68c47dd7c0045df0a6eceec7ddd8e290bc677ae51e6da2a5030c309",
+      "bytes": 2301551,
+      "disposition": "reference_only"
+    },
+    {
+      "name": "eh1003006_slope_pct.tif",
+      "sha256": "874632889a2a7a0495e7c820502d5ce8e3cd1223d9d45f4acb806f31b51600a7",
+      "bytes": 2377312,
+      "disposition": "reference_only"
+    },
+    {
+      "name": "eh1003006_chm.tif",
+      "sha256": "fb95de065f643a5f168cdc47066d6621fc91967cccda56f0b42583f103f7d662",
+      "bytes": 7480419,
+      "disposition": "reference_only"
+    },
+    {
+      "name": "eh1003006_combined_bands_v1_0.tif",
+      "sha256": "a1060953ec240d14073c35598140b073e7abe5948aa7ee6e6b004083c6e544bc",
+      "bytes": 8499018,
+      "disposition": "reference_only"
+    },
+    {
+      "name": "EH1003006_All_PDFs_v1_1.pdf",
+      "sha256": "b4d571f74939362ccddc62defab8e9b63c045006dc56ce8a5ea8492dd3e09b3a",
+      "bytes": 10575145,
+      "disposition": "reference_only"
+    },
+    {
+      "name": "Missal_of_Static_Rooster.pdf",
+      "sha256": "a30dea37c63b1132e83d4c57c500675154d34ffaec10e98cca004822e7383643",
+      "bytes": 11843,
+      "disposition": "reference_only"
+    },
+    {
+      "name": "Missal_of_Static_Rooster_v1_1_2_Complete.pdf",
+      "sha256": "e06b35516fba6b590264e99752454902e01f6b45c7e9a600f41941a352f85bc1",
+      "bytes": 19534,
+      "disposition": "reference_only"
+    },
+    {
+      "name": "Missal_of_Static_Rooster_v1_1_3_Illuminated_FULL.pdf",
+      "sha256": "c18ade2a5f10d5ecd7c7e2e3a74d9bddab905245308966691dd2299a9c53c59d",
+      "bytes": 14266,
+      "disposition": "reference_only"
+    }
+  ]
+}

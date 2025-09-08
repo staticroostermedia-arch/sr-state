@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dossier Builder — v0.1.2</title>
+<style>
+:root{ --bg:#0b0c06; --grid:#1a2b1a; --text:#b4ffb4; --ok:#39ff14; --bad:#ff6b6b; --warn:#ffd166 }
+html,body{margin:0;background:#0b0c06;color:#b4ffb4;font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:1000px;margin:0 auto;padding:12px}
+.card{border:1px solid var(--grid);border-radius:12px;background:#0f140f;padding:12px;margin-top:10px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+input,button,label,textarea{border:1px solid var(--grid);background:#0a0f0a;color:#b4ffb4;border-radius:8px;padding:8px}
+button{cursor:pointer}
+.small{font-size:12px;color:#9ae89a}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.35;max-height:240px;overflow:auto}
+.bad{color:var(--bad)} .ok{color:var(--ok)} .warn{color:var(--warn)}
+.kv{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="kv"><div class="small">Static Rooster • Dossier Builder v0.1.2</div><div class="small" id="hint">POR + Sprint plan support</div></div>
+  <div class="card">
+    <div class="row">
+      <input type="file" id="files" multiple webkitdirectory directory>
+      <label><input type="checkbox" id="incAttach" checked> include attachments</label>
+      <label><input type="checkbox" id="normalize" checked> normalize names</label>
+    </div>
+    <div class="row">
+      <textarea id="notes" rows="2" placeholder="Operator notes for this 2-hour window (Executive Summary)"></textarea>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="small"><strong>Plan of Record (POR)</strong> — optional</div>
+    <div class="row">
+      <input type="file" id="porFile" accept=".json">
+      <button id="btnLoadPOR">Load POR from file</button>
+    </div>
+    <div class="row">
+      <textarea id="porText" rows="6" placeholder='Paste POR JSON here to embed as por.json'></textarea>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="small"><strong>Sprint plan</strong> — optional (exports from Sprint Planner)</div>
+    <div class="row">
+      <input type="file" id="sprFile" accept=".json">
+      <button id="btnLoadSPR">Load sprint_plan.json</button>
+    </div>
+    <div class="row">
+      <textarea id="sprText" rows="6" placeholder='Paste sprint_plan.json here; you may mark tasks by adding `"done": true` to items'></textarea>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <button id="btnBuild">Build Dossier ZIP</button>
+    </div>
+    <div class="small">Builder writes <code>dossier.json</code>, <code>dossier.md</code>, optional <code>por.json</code>, optional <code>sprint_plan.json</code>, and a manifest for attachments. Dossier includes a content hash of the sprint plan and of attachments.</div>
+  </div>
+
+  <div class="card">
+    <div class="small">Executive Summary (preview)</div>
+    <pre id="preview">—</pre>
+  </div>
+</div>
+<script>
+function norm(p){ return (p||'').replace(/\\/g,'/').toLowerCase(); }
+async function sha256(buf){ const hash = await crypto.subtle.digest('SHA-256', buf); return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join(''); }
+async function textHash(s){ return sha256(new TextEncoder().encode(s)); }
+document.getElementById('btnLoadPOR').onclick = async ()=>{ const f=document.getElementById('porFile').files[0]; if(!f) return alert('Choose a POR file'); document.getElementById('porText').value = await f.text(); };
+document.getElementById('btnLoadSPR').onclick = async ()=>{ const f=document.getElementById('sprFile').files[0]; if(!f) return alert('Choose a sprint plan file'); document.getElementById('sprText').value = await f.text(); };
+
+document.getElementById('btnBuild').onclick = async ()=>{
+  const list = document.getElementById('files').files; if(!list?.length) return alert('Pick a folder/files');
+  const normalize = document.getElementById('normalize').checked;
+  const incAttach = document.getElementById('incAttach').checked;
+  const rows=[];
+  for(const f of list){ const arc = normalize ? norm(f.webkitRelativePath||f.name) : (f.webkitRelativePath||f.name); const buf = new Uint8Array(await f.arrayBuffer()); const sha = await sha256(buf); rows.push({path:arc, sha256:sha, size:f.size, file:f}); }
+  // checkpoint
+  const chk = rows.filter(r=>/drop_.*checkpoint_emit.*\.json$/.test(r.path)).sort((a,b)=> a.path<b.path?-1:1).slice(-1)[0];
+  let checkpoint=null; if(chk){ try{ checkpoint = JSON.parse(await chk.file.text()); }catch(_ ){} }
+  const issues=[]; rows.forEach(r=>{ const name=r.path.split('/').pop(); if(name!==name.toLowerCase()) issues.push({path:r.path, issue:'uppercase'}); if(/\s/.test(name)) issues.push({path:r.path, issue:'spaces'}); if(/[.](html|json)$/.test(name) && !/[_-]v\d/.test(name)) issues.push({path:r.path, issue:'missing_version_suffix'}); });
+  const seal = checkpoint?.content?.foedus_intactum ? 'foedus intactum' : (checkpoint? 'penitential required' : '(no checkpoint found)');
+  const capCount = checkpoint?.content?.captures?.count || 0;
+  const added=(checkpoint?.content?.diffs?.added||[]).length, removed=(checkpoint?.content?.diffs?.removed||[]).length, changed=(checkpoint?.content?.diffs?.changed||[]).length;
+  const note = (document.getElementById('notes').value||'').trim();
+  const when = new Date().toISOString();
+
+  // POR
+  let porObj = null; const porTxt = (document.getElementById('porText').value||'').trim();
+  if(porTxt){ try{ porObj = JSON.parse(porTxt); }catch(e){ alert('POR JSON invalid, skipping.'); } }
+  // Sprint
+  let sprObj = null; const sprTxt = (document.getElementById('sprText').value||'').trim();
+  if(sprTxt){ try{ sprObj = JSON.parse(sprTxt); }catch(e){ alert('Sprint plan JSON invalid, skipping.'); } }
+  const sprHash = sprObj ? await textHash(JSON.stringify(sprObj)) : null;
+
+  // Attachment manifest + hash of manifest content
+  const manFiles = []; if(incAttach){ for(const r of rows){ manFiles.push({path:'attachments/'+r.path, sha256:r.sha256, size:r.size}); } }
+  const manJson = JSON.stringify({schema:'sr.manifest.v0_1', generatedAt: when, files:manFiles});
+  const manHash = await textHash(manJson);
+
+  const dossier = {
+    schema:'sr.dossier.v0_1',
+    generatedAt: when,
+    window: { span_minutes: 120 },
+    site: localStorage.getItem('dh_active_site')||'parcel',
+    parcelId: 'EH1003006',
+    seal, captures: capCount,
+    diffs: { added, removed, changed },
+    filename_issues: issues.length,
+    operator_note: note,
+    por_ref: porObj ? 'por.json' : null,
+    sprint_ref: sprObj ? 'sprint_plan.json' : null,
+    checksums: { attachments_manifest_sha256: manHash, sprint_sha256: sprHash },
+    includes: rows.map(r=>({path:r.path, sha256:r.sha256, size:r.size})),
+    next_steps: [
+      {kind:'plan', ref:'(attach plan_build_4h_v0_1.json if ready)'},
+      {kind:'handoff', ref:'assistant_return (awaited)'}
+    ]
+  };
+
+  const md = [
+    '# Static Rooster — Two-Hour Dossier',
+    `**Generated**: ${when}`,
+    `**Seal**: ${seal}`,
+    `**Captures**: ${capCount}  •  **Diffs**: +${added} / −${removed} / Δ${changed}  •  **Filename issues**: ${issues.length}`,
+    porObj ? '**POR attached:** `por.json`' : '',
+    sprObj ? '**Sprint plan attached:** `sprint_plan.json`' : '',
+    '',
+    '## Executive Summary',
+    note ? note : '_(no operator note)_',
+    '',
+    '## Next Steps',
+    '- Apply patches (if any), run checkpoint.',
+    '- Start 4h build or 2h audit plan, per seal status.',
+    ''
+  ].join('\n');
+
+  const zip = new JSZip();
+  if(incAttach){ for(const r of rows){ zip.file('attachments/'+r.path, new Uint8Array(await r.file.arrayBuffer())); } }
+  zip.file('manifest.json', manJson);
+  if(porObj) zip.file('por.json', JSON.stringify(porObj, null, 2));
+  if(sprObj) zip.file('sprint_plan.json', JSON.stringify(sprObj, null, 2));
+  zip.file('dossier.json', JSON.stringify(dossier, null, 2));
+  zip.file('dossier.md', md);
+  const blob = await zip.generateAsync({type:'blob'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='sr_dossier_'+Date.now()+'_v0_1.zip'; a.click();
+  document.getElementById('preview').textContent = md;
+};
+</script>
+</body>
+</html>

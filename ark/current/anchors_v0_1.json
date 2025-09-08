@@ -1,0 +1,14 @@
+{
+  "schema": "sr.anchors_v0_1",
+  "generatedAt": "2025-09-07T19:23:36.307512+00:00",
+  "parcel": {
+    "id": "EH1003006",
+    "coords_wgs84": {
+      "lat": 46.0201,
+      "lon": -122.5488
+    }
+  },
+  "cadence": {
+    "interval_minutes": 120
+  }
+}

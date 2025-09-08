@@ -1,0 +1,98 @@
+{
+  "schema": "sr.dossiers_timeline.v0_1",
+  "generatedAt": "2025-09-07T21:08:41.745956+00:00",
+  "sequence": [
+    {
+      "name": "sr_dossier_20250907_190758_v0_1.zip",
+      "sha256": "289998c50b2739296f839296778adf95f26f4fc48376deefc786ae9752dc993b",
+      "expect_prev": null
+    },
+    {
+      "name": "sr_dossier_20250907_191507_v0_1.zip",
+      "sha256": "782bfb55156a8914f0c1bdb25f0bbeb96f57cffd9638e649abe3ad2c82423dce",
+      "expect_prev": null
+    },
+    {
+      "name": "sr_dossier_20250907_192336_v0_1.zip",
+      "sha256": "34ddde7136134bbd67dd48c1512787e0b1a15d476fab3dcc29a2b24bfaff8f7d",
+      "expect_prev": null
+    },
+    {
+      "name": "sr_dossier_20250907_192959_v0_1.zip",
+      "sha256": "219b657bf93c31715055d3bfd7d55bad743b9c56ef78821a7182388803603349",
+      "expect_prev": "82fc69705f0edb8e1edf7274138f75bbff4bc4536017f12c7268252cc25d911b"
+    },
+    {
+      "name": "sr_dossier_20250907_193012_v0_1.zip",
+      "sha256": "82fc69705f0edb8e1edf7274138f75bbff4bc4536017f12c7268252cc25d911b",
+      "expect_prev": null
+    },
+    {
+      "name": "sr_dossier_20250907_193458_v0_1.zip",
+      "sha256": "4ec80a9b1e3706fb4abcb8a9c05a30ea237b87e4abe0da4a7cf8f0a4f632ed4b",
+      "expect_prev": "219b657bf93c31715055d3bfd7d55bad743b9c56ef78821a7182388803603349"
+    },
+    {
+      "name": "sr_dossier_20250907_194320_v0_2.zip",
+      "sha256": "ecbd26bb90147c0c564a6b3ad33ab647d27658e3a9fb87f4c60a52efbc486a86",
+      "expect_prev": "4ec80a9b1e3706fb4abcb8a9c05a30ea237b87e4abe0da4a7cf8f0a4f632ed4b"
+    },
+    {
+      "name": "sr_dossier_20250907_200228_v0_3.zip",
+      "sha256": "b2ac114b012a3ea207f773760cd454934087ed15268b0fba5bd8d11bdc84b0d5",
+      "expect_prev": "ecbd26bb90147c0c564a6b3ad33ab647d27658e3a9fb87f4c60a52efbc486a86"
+    },
+    {
+      "name": "sr_dossier_20250907_200657_v0_4.zip",
+      "sha256": "ba5271191d98b4e0c18d9c393358e9c82f5568f8a0d6f8edae928739dadb97e6",
+      "expect_prev": "b2ac114b012a3ea207f773760cd454934087ed15268b0fba5bd8d11bdc84b0d5"
+    },
+    {
+      "name": "sr_dossier_20250907_201141_v0_5.zip",
+      "sha256": "3b6a52954cf83919f4967b9e215d0baabb18ab2745e9ac49c030755cdcdace64",
+      "expect_prev": "ba5271191d98b4e0c18d9c393358e9c82f5568f8a0d6f8edae928739dadb97e6"
+    },
+    {
+      "name": "sr_dossier_20250907_202106_v0_6.zip",
+      "sha256": "e3d523fe598fe2a8ab7b2c84b3aa39e5943917c7ef93d34a7601dd661c3cd3ad",
+      "expect_prev": "ba5271191d98b4e0c18d9c393358e9c82f5568f8a0d6f8edae928739dadb97e6"
+    },
+    {
+      "name": "sr_dossier_20250907_202639_v0_7.zip",
+      "sha256": "188119b008f1b18d1905640dececd528767fe2cc691207a852ce74b065609823",
+      "expect_prev": "ba5271191d98b4e0c18d9c393358e9c82f5568f8a0d6f8edae928739dadb97e6"
+    },
+    {
+      "name": "sr_dossier_20250907_204936_v0_7.zip",
+      "sha256": "219db6665ec7c438f3adaad684e8f5968a8a6fcbd4146748f33056333859dbfc",
+      "expect_prev": "e3d523fe598fe2a8ab7b2c84b3aa39e5943917c7ef93d34a7601dd661c3cd3ad"
+    }
+  ],
+  "breaks": [
+    {
+      "at": "sr_dossier_20250907_192959_v0_1.zip",
+      "expected": "82fc69705f0edb8e1edf7274138f75bbff4bc4536017f12c7268252cc25d911b",
+      "actual_prev": "34ddde7136134bbd67dd48c1512787e0b1a15d476fab3dcc29a2b24bfaff8f7d"
+    },
+    {
+      "at": "sr_dossier_20250907_193458_v0_1.zip",
+      "expected": "219b657bf93c31715055d3bfd7d55bad743b9c56ef78821a7182388803603349",
+      "actual_prev": "82fc69705f0edb8e1edf7274138f75bbff4bc4536017f12c7268252cc25d911b"
+    },
+    {
+      "at": "sr_dossier_20250907_202106_v0_6.zip",
+      "expected": "ba5271191d98b4e0c18d9c393358e9c82f5568f8a0d6f8edae928739dadb97e6",
+      "actual_prev": "3b6a52954cf83919f4967b9e215d0baabb18ab2745e9ac49c030755cdcdace64"
+    },
+    {
+      "at": "sr_dossier_20250907_202639_v0_7.zip",
+      "expected": "ba5271191d98b4e0c18d9c393358e9c82f5568f8a0d6f8edae928739dadb97e6",
+      "actual_prev": "e3d523fe598fe2a8ab7b2c84b3aa39e5943917c7ef93d34a7601dd661c3cd3ad"
+    },
+    {
+      "at": "sr_dossier_20250907_204936_v0_7.zip",
+      "expected": "e3d523fe598fe2a8ab7b2c84b3aa39e5943917c7ef93d34a7601dd661c3cd3ad",
+      "actual_prev": "188119b008f1b18d1905640dececd528767fe2cc691207a852ce74b065609823"
+    }
+  ]
+}

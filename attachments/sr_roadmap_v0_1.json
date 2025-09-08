@@ -1,0 +1,218 @@
+{
+  "schema": "sr.roadmap.v0_1",
+  "generatedAt": "2025-09-07T16:55:21.619380Z",
+  "horizon_hours": 60,
+  "sprints": [
+    {
+      "id": "SPR-001",
+      "title": "Finalize current run bundle + checkpoint",
+      "depends": []
+    },
+    {
+      "id": "SPR-002",
+      "title": "Apply assistant-return v0.1\u2013v0.3 patches; checkpoint",
+      "depends": [
+        "SPR-001"
+      ]
+    },
+    {
+      "id": "SPR-003",
+      "title": "Switch to Runner v0.1.5; smoke test",
+      "depends": [
+        "SPR-002"
+      ]
+    },
+    {
+      "id": "SPR-004",
+      "title": "Kick off 4h build plan; mid-run dossier",
+      "depends": [
+        "SPR-003"
+      ]
+    },
+    {
+      "id": "SPR-005",
+      "title": "Integrate Raster Loader + Path Profiler into Hub",
+      "depends": [
+        "SPR-002"
+      ]
+    },
+    {
+      "id": "SPR-006",
+      "title": "Integrate Canopy Histogram + Watchlight into Hub",
+      "depends": [
+        "SPR-005"
+      ]
+    },
+    {
+      "id": "SPR-007",
+      "title": "Wire AI Bridge 0.2.0 (queue/API)",
+      "depends": [
+        "SPR-006"
+      ]
+    },
+    {
+      "id": "SPR-008",
+      "title": "Watch Linter + Release Ledger workflows",
+      "depends": [
+        "SPR-006"
+      ]
+    },
+    {
+      "id": "SPR-009",
+      "title": "Zip Ticker automation + Dossier Builder flow",
+      "depends": [
+        "SPR-004"
+      ]
+    },
+    {
+      "id": "SPR-010",
+      "title": "done_receipt mechanic across core steps",
+      "depends": [
+        "SPR-004"
+      ]
+    },
+    {
+      "id": "SPR-011",
+      "title": "raster-math worker (mask, hist, basic stats)",
+      "depends": [
+        "SPR-005"
+      ]
+    },
+    {
+      "id": "SPR-012",
+      "title": "por_emit in Runner; POR auto-refresh",
+      "depends": [
+        "SPR-003"
+      ]
+    },
+    {
+      "id": "SPR-013",
+      "title": "Config Merger polish; conflict handling",
+      "depends": [
+        "SPR-002"
+      ]
+    },
+    {
+      "id": "SPR-014",
+      "title": "Map canvas (draw ROI/paths) baseline",
+      "depends": [
+        "SPR-005"
+      ]
+    },
+    {
+      "id": "SPR-015",
+      "title": "Slope threshold mask tool",
+      "depends": [
+        "SPR-011",
+        "SPR-014"
+      ]
+    },
+    {
+      "id": "SPR-016",
+      "title": "Terrain profile v0.2 (distance + grade)",
+      "depends": [
+        "SPR-014"
+      ]
+    },
+    {
+      "id": "SPR-017",
+      "title": "Flowline sketch (rudimentary)",
+      "depends": [
+        "SPR-014"
+      ]
+    },
+    {
+      "id": "SPR-018",
+      "title": "Field capture forms v0.1 (generic)",
+      "depends": [
+        "SPR-007"
+      ]
+    },
+    {
+      "id": "SPR-019",
+      "title": "Hub 0.3: bundle browser + lineage view",
+      "depends": [
+        "SPR-008"
+      ]
+    },
+    {
+      "id": "SPR-020",
+      "title": "Offline packaging (PWA) baseline",
+      "depends": [
+        "SPR-019"
+      ]
+    },
+    {
+      "id": "SPR-021",
+      "title": "Updater channel (manual) + version check",
+      "depends": [
+        "SPR-020"
+      ]
+    },
+    {
+      "id": "SPR-022",
+      "title": "Security pass (permissions, local storage hygiene)",
+      "depends": [
+        "SPR-019"
+      ]
+    },
+    {
+      "id": "SPR-023",
+      "title": "Telemetry-lite (local-only) for tool usage",
+      "depends": [
+        "SPR-020"
+      ]
+    },
+    {
+      "id": "SPR-024",
+      "title": "Field test #1 (parcel) + fixes",
+      "depends": [
+        "SPR-018",
+        "SPR-021"
+      ]
+    },
+    {
+      "id": "SPR-025",
+      "title": "Field test #2 (canby) + fixes",
+      "depends": [
+        "SPR-024"
+      ]
+    },
+    {
+      "id": "SPR-026",
+      "title": "Docs pass: Canon v2, Ops Guide, Install Guide",
+      "depends": [
+        "SPR-021"
+      ]
+    },
+    {
+      "id": "SPR-027",
+      "title": "Performance tuning (raster read windows)",
+      "depends": [
+        "SPR-011"
+      ]
+    },
+    {
+      "id": "SPR-028",
+      "title": "Hardening + fail-safe rites",
+      "depends": [
+        "SPR-022"
+      ]
+    },
+    {
+      "id": "SPR-029",
+      "title": "Release Candidate build",
+      "depends": [
+        "SPR-028",
+        "SPR-026"
+      ]
+    },
+    {
+      "id": "SPR-030",
+      "title": "Launch + post-launch watch",
+      "depends": [
+        "SPR-029"
+      ]
+    }
+  ]
+}

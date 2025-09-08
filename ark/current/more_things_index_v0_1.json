@@ -1,0 +1,211 @@
+{
+  "schema": "sr.more_things_index.v0_1",
+  "generatedAt": "2025-09-07T21:29:57.736219+00:00",
+  "previous_dossier": "sr_dossier_20250907_212454_v0_10.zip",
+  "new_candidates": [
+    {
+      "name": "online_planner_v5_2_9_intake.html",
+      "path": "/mnt/data/online_planner_v5_2_9_intake.html",
+      "sha256": "123232d845063b5040182fddf7755b69eb0fe73ee82c872e15231628c30f8ec9",
+      "size": 17340
+    },
+    {
+      "name": "EH1003006_FieldIntake_v1_3_3 (1).html",
+      "path": "/mnt/data/EH1003006_FieldIntake_v1_3_3 (1).html",
+      "sha256": "82ae488f62f30bfdf08bc3041d22716e00b9eda5c2c94769a6498473b2114987",
+      "size": 44948
+    },
+    {
+      "name": "DecisionHubConfig_Schema_v1_0.json",
+      "path": "/mnt/data/DecisionHubConfig_Schema_v1_0.json",
+      "sha256": "5e3be26a77304b0ca10740875441719546943852bae8d4ef627f9e28fd2e89e0",
+      "size": 1728
+    },
+    {
+      "name": "EH1003006_DecisionHub_index_v2_3_2.html",
+      "path": "/mnt/data/EH1003006_DecisionHub_index_v2_3_2.html",
+      "sha256": "19122461960f5f22701cf7c80dfe9df308585fe1e33db8dbcac4f9e1e6ce50cf",
+      "size": 247855
+    },
+    {
+      "name": "eh1003006_online_planner_v5_2_8 (4).html",
+      "path": "/mnt/data/eh1003006_online_planner_v5_2_8 (4).html",
+      "sha256": "c620890df1b9094cdce64b98c3e19a653b7ec1976dffb0c1629ec57f670b9d84",
+      "size": 41431
+    },
+    {
+      "name": "DecisionHub_Feature_Contract_v1_0.md",
+      "path": "/mnt/data/DecisionHub_Feature_Contract_v1_0.md",
+      "sha256": "9a5ea38c370b4a7aedbcdfd10ba7c9d756396dab08f4af9fb72c398d7d2c8102",
+      "size": 4375
+    },
+    {
+      "name": "EH1003006_DecisionHub_index_v2_2_9.html",
+      "path": "/mnt/data/EH1003006_DecisionHub_index_v2_2_9.html",
+      "sha256": "4eef31754d2f76294c20e751bbb2775b2ca5a71a41cf152bbfc501a7a5235686",
+      "size": 247855
+    },
+    {
+      "name": "EH1003006_PDRNavigator_v0_3_2 (1).html",
+      "path": "/mnt/data/EH1003006_PDRNavigator_v0_3_2 (1).html",
+      "sha256": "e670e490199c2e161ecb9309d0f507991533918555d9821d3f739b3e785c8f88",
+      "size": 19446
+    },
+    {
+      "name": "eh1003006_online_planner_v5_2_7.html",
+      "path": "/mnt/data/eh1003006_online_planner_v5_2_7.html",
+      "sha256": "0134ba1a53b23b2fa0fac6365de0943a54f0c13e5ebcd728d2e2f6a02059e319",
+      "size": 41094
+    },
+    {
+      "name": "EH1003006_DecisionHub_index_v3_2_1.html",
+      "path": "/mnt/data/EH1003006_DecisionHub_index_v3_2_1.html",
+      "sha256": "8be9db3d08d11e593f94ccde48bf6612ebef55a2e80c80010ca1e2bc878dc0be",
+      "size": 14307
+    },
+    {
+      "name": "StaticRooster_UIKit_v1_0.md",
+      "path": "/mnt/data/StaticRooster_UIKit_v1_0.md",
+      "sha256": "865b1d1060371af01c2d1179b1e4f7776d352715319eab8da784c61533918fce",
+      "size": 8853
+    },
+    {
+      "name": "sr_config_v0_1.json",
+      "path": "/mnt/data/sr_config_v0_1.json",
+      "sha256": "5dfa292a317f0f2d2f6f127491caa8d4bea5f444c129bd69137f0e531868f56b",
+      "size": 2234
+    },
+    {
+      "name": "sr_config_patch_add_counter_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_counter_v0_1.json",
+      "sha256": "e11e1c551c6f1719c9296a4ab17ee0fe88de9da57004cc971bd1168c888c0d5a",
+      "size": 280
+    },
+    {
+      "name": "sr_hub_v0_2_2.html",
+      "path": "/mnt/data/sr_hub_v0_2_2.html",
+      "sha256": "f557c4ae7108ae2a8c8394b39223e222a4d1c6947e1e79dc8a04a0696c508bcc",
+      "size": 3661
+    },
+    {
+      "name": "sr_config_patch_add_raster_loader_010_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_raster_loader_010_v0_1.json",
+      "sha256": "5570eb1efd5580c629e099feaa04ce69013d03cff44bb7a904e928adb834a28d",
+      "size": 303
+    },
+    {
+      "name": "sr_config_patch_add_path_profiler_010_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_path_profiler_010_v0_1.json",
+      "sha256": "c5673bf54425150354dd15ab8fa7b7b056444de0ffbe480bc0a9f37dc88cbe8a",
+      "size": 303
+    },
+    {
+      "name": "sr_config_patch_add_canopy_hist_010_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_canopy_hist_010_v0_1.json",
+      "sha256": "af513e3f592d4e90c0cf6ecb1f3b1325e4944ced3de63eb082cc5802a608f270",
+      "size": 302
+    },
+    {
+      "name": "sr_config_patch_add_ai_bridge_020_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_ai_bridge_020_v0_1.json",
+      "sha256": "72aae0c1b67f7102ba9e173f40ee14867da6b46cbffb32de9ab85e86e5b5e1e1",
+      "size": 286
+    },
+    {
+      "name": "sr_config_patch_add_hub_022_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_hub_022_v0_1.json",
+      "sha256": "2bf704c2b26a28ea53f50070023844dfb27bdd0301f1b0d100f19530438724da",
+      "size": 268
+    },
+    {
+      "name": "sr_hub_v0_2_3.html",
+      "path": "/mnt/data/sr_hub_v0_2_3.html",
+      "sha256": "f85401c55b71d19361b65a30eb1c4931658a4b6dd3b03c0216983964e7e7d531",
+      "size": 4593
+    },
+    {
+      "name": "sr_config_patch_add_zip_ticker_010_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_zip_ticker_010_v0_1.json",
+      "sha256": "8ed8d01d10bbc89a03cffbbcd33f580e7d8ad44958a7956c2530093cd0c263aa",
+      "size": 289
+    },
+    {
+      "name": "sr_config_patch_add_hub_023_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_hub_023_v0_1.json",
+      "sha256": "e857f9b66f786a7b1cd7820818e2eadadc557175b81b4dba52272822438e1151",
+      "size": 268
+    },
+    {
+      "name": "sr_config_patch_add_watchlight_011_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_watchlight_011_v0_1.json",
+      "sha256": "c92c8fc4aea27e97018e6d657cfb26c73934da430a72fea928c9e1008b51116e",
+      "size": 289
+    },
+    {
+      "name": "sr_config_patch_add_watch_linter_010_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_watch_linter_010_v0_1.json",
+      "sha256": "4f81fc6fb2190908909a9b0ecc9ee65774b4df068c16e325387281c147a45b83",
+      "size": 295
+    },
+    {
+      "name": "sr_config_patch_add_release_ledger_010_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_release_ledger_010_v0_1.json",
+      "sha256": "e5a6e2279bc7aad4dc123bb3a5476f24459070f0dc670aac69947de6a05dac6e",
+      "size": 301
+    },
+    {
+      "name": "sr_config_patch_add_watchlight_012_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_watchlight_012_v0_1.json",
+      "sha256": "4d8bf59192085beb5dbac25c876fbd1b374e3ad7010a37367f1d59449dbb64fa",
+      "size": 289
+    },
+    {
+      "name": "sr_sprint_planner_v0_1_0.html",
+      "path": "/mnt/data/sr_sprint_planner_v0_1_0.html",
+      "sha256": "17923b4f98dc6929db11a8eddc36d421df70751c6243c36d61bddb8c1ff00fbf",
+      "size": 4404
+    },
+    {
+      "name": "sr_config_patch_add_forge_010_v0_1.json",
+      "path": "/mnt/data/sr_config_patch_add_forge_010_v0_1.json",
+      "sha256": "e4b57c93636f856ee3af48b3061c65be48a89348f20cdc2db84ba1b5cec7f196",
+      "size": 274
+    },
+    {
+      "name": "sr_dossier_timer_v0_1_0.html",
+      "path": "/mnt/data/sr_dossier_timer_v0_1_0.html",
+      "sha256": "bbe1c71677ee976b842d862347937226ce1f62056e4f2777290e0d238465d988",
+      "size": 4534
+    },
+    {
+      "name": "sr_chain_emitter_v0_1_0.html",
+      "path": "/mnt/data/sr_chain_emitter_v0_1_0.html",
+      "sha256": "91602f27f6ef3fb12a3f7f28b174af0f567921bea4494640c45482a733ea8a26",
+      "size": 868
+    },
+    {
+      "name": "sr_canon_diff_v0_1_0.html",
+      "path": "/mnt/data/sr_canon_diff_v0_1_0.html",
+      "sha256": "eceb5cdb5becaad1d16302a8e45857c11f8e7280574033e898a799ee2d73232b",
+      "size": 1520
+    },
+    {
+      "name": "sr_wholeness_verifier_v0_1_0.html",
+      "path": "/mnt/data/sr_wholeness_verifier_v0_1_0.html",
+      "sha256": "1207b948f6da4c20a45283fabba00239f7d14cfb588c4171f47b595acf5142b5",
+      "size": 4137
+    },
+    {
+      "name": "sr_reconstructor_v0_1_0.html",
+      "path": "/mnt/data/sr_reconstructor_v0_1_0.html",
+      "sha256": "34c0660a606b14600c255314b44cea2a9680650a535db19ccb51edff546d8204",
+      "size": 2370
+    },
+    {
+      "name": "DecisionHub_Recovery_Pack_20250907_204518_v0_1.zip",
+      "path": "/mnt/data/DecisionHub_Recovery_Pack_20250907_204518_v0_1.zip",
+      "sha256": "7dd142c57bf4760ac9a8c9e3c5eb4f891cd5b8694b436f4c47cfbfd739708c10",
+      "size": 5089
+    }
+  ]
+}

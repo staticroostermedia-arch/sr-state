@@ -1,0 +1,22 @@
+{
+  "version": "v0.7",
+  "title": "DecisionHub",
+  "tools": [
+    {
+      "key": "receipts_timeline",
+      "name": "Receipts Timeline",
+      "badge": "v0.1.0",
+      "href": "../receipts/auto_receipts_viewer_v0_1.html?index=/receipts/index_v0_1.json",
+      "category": "ops",
+      "enabled": true
+    },
+    {
+      "key": "gate_reports",
+      "name": "Gate Reports",
+      "badge": "v0.1.0",
+      "href": "../forge/gate_reports_viewer_v0_1.html?index=/forge/gate_reports/index_v0_1.json",
+      "category": "ops",
+      "enabled": true
+    }
+  ]
+}

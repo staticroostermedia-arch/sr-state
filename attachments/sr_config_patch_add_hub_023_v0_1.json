@@ -1,0 +1,12 @@
+{
+  "schema": "eh1003006.static_rooster.config.patch.v1",
+  "generatedAt": "2025-09-07T15:58:25.726769Z",
+  "add_tool": {
+    "key": "hub_023",
+    "name": "Hub",
+    "href": "sr_hub_v0_2_3.html",
+    "badge": "v0.2.3",
+    "category": "ops",
+    "enabled": true
+  }
+}

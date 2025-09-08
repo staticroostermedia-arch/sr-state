@@ -1,0 +1,37 @@
+{
+  "schema": "sr.limits.v0_2",
+  "generatedAt": "2025-09-07T20:02:28.537596+00:00",
+  "background": false,
+  "human_required": [
+    "start_scheduler",
+    "choose_folders",
+    "attach_dossier",
+    "approve_plan"
+  ],
+  "budgets": {
+    "per_drop": {
+      "max_files": 100,
+      "target_files": 40,
+      "max_zip_mb": 25
+    },
+    "per_doc": {
+      "max_kb": 512
+    },
+    "summary": {
+      "max_chars": 8000
+    }
+  },
+  "recursion": {
+    "allowed": true,
+    "pattern": "plan\u2192do\u2192receipt\u2192reflect\u2192plan",
+    "max_depth_per_drop": 3
+  },
+  "naming": {
+    "rule": "lower_snake_with_version_suffix"
+  },
+  "forbidden": [
+    "embedding huge rasters",
+    "unversioned code",
+    "spaces/uppercase in filenames"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "eh1003006.watch.v1",
+  "stamp": "2025-09-08T21:00:01Z",
+  "config": {
+    "version": "v?",
+    "tools": []
+  },
+  "tools": [
+    {
+      "file": "sr_chain_emitter_v0_1_0.html",
+      "bytes": 868
+    },
+    {
+      "file": "sr_wholeness_verifier_v0_1_0.html",
+      "bytes": 4137
+    },
+    {
+      "file": "sr_reconstructor_v0_1_0.html",
+      "bytes": 2370
+    },
+    {
+      "file": "sr_canon_diff_v0_1_0.html",
+      "bytes": 1520
+    }
+  ],
+  "filename_rule": {
+    "ok": true,
+    "bad": []
+  },
+  "foedus": "intactum"
+}

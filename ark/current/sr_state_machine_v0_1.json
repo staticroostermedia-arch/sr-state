@@ -1,0 +1,48 @@
+{
+  "schema": "sr.state_machine.v0_1",
+  "states": [
+    "wake",
+    "validate",
+    "penitential",
+    "plan",
+    "execute",
+    "drop"
+  ],
+  "transitions": [
+    {
+      "from": "wake",
+      "to": "validate",
+      "on": "wake_sequence_complete"
+    },
+    {
+      "from": "validate",
+      "to": "penitential",
+      "on": "invariant_failed"
+    },
+    {
+      "from": "validate",
+      "to": "plan",
+      "on": "clean"
+    },
+    {
+      "from": "penitential",
+      "to": "validate",
+      "on": "fixlist_applied"
+    },
+    {
+      "from": "plan",
+      "to": "execute",
+      "on": "plan_approved"
+    },
+    {
+      "from": "execute",
+      "to": "drop",
+      "on": "interval_elapsed"
+    },
+    {
+      "from": "drop",
+      "to": "wake",
+      "on": "next_interval"
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "schema": "sr.lost_stones.v0_2",
+  "generatedAt": "2025-09-07T21:16:19.679886+00:00",
+  "items": [
+    {
+      "name": "online_planner_v5_2_9_intake.html",
+      "path": "/mnt/data/online_planner_v5_2_9_intake.html",
+      "sha256": "123232d845063b5040182fddf7755b69eb0fe73ee82c872e15231628c30f8ec9",
+      "size": 17340
+    },
+    {
+      "name": "EH1003006_FieldIntake_v1_3_3 (1).html",
+      "path": "/mnt/data/EH1003006_FieldIntake_v1_3_3 (1).html",
+      "sha256": "82ae488f62f30bfdf08bc3041d22716e00b9eda5c2c94769a6498473b2114987",
+      "size": 44948
+    },
+    {
+      "name": "eh1003006_slope_pct.tif",
+      "path": "/mnt/data/eh1003006_slope_pct.tif",
+      "sha256": "874632889a2a7a0495e7c820502d5ce8e3cd1223d9d45f4acb806f31b51600a7",
+      "size": 2377312
+    },
+    {
+      "name": "eh1003006_combined_bands_v1_0.tif",
+      "path": "/mnt/data/eh1003006_combined_bands_v1_0.tif",
+      "sha256": "a1060953ec240d14073c35598140b073e7abe5948aa7ee6e6b004083c6e544bc",
+      "size": 8499018
+    },
+    {
+      "name": "DecisionHubConfig_Schema_v1_0.json",
+      "path": "/mnt/data/DecisionHubConfig_Schema_v1_0.json",
+      "sha256": "5e3be26a77304b0ca10740875441719546943852bae8d4ef627f9e28fd2e89e0",
+      "size": 1728
+    },
+    {
+      "name": "EH1003006_DecisionHub_index_v2_3_2.html",
+      "path": "/mnt/data/EH1003006_DecisionHub_index_v2_3_2.html",
+      "sha256": "19122461960f5f22701cf7c80dfe9df308585fe1e33db8dbcac4f9e1e6ce50cf",
+      "size": 247855
+    },
+    {
+      "name": "eh1003006_online_planner_v5_2_8 (4).html",
+      "path": "/mnt/data/eh1003006_online_planner_v5_2_8 (4).html",
+      "sha256": "c620890df1b9094cdce64b98c3e19a653b7ec1976dffb0c1629ec57f670b9d84",
+      "size": 41431
+    },
+    {
+      "name": "DecisionHub_Feature_Contract_v1_0.md",
+      "path": "/mnt/data/DecisionHub_Feature_Contract_v1_0.md",
+      "sha256": "9a5ea38c370b4a7aedbcdfd10ba7c9d756396dab08f4af9fb72c398d7d2c8102",
+      "size": 4375
+    },
+    {
+      "name": "eh1003006_aspect_deg.tif",
+      "path": "/mnt/data/eh1003006_aspect_deg.tif",
+      "sha256": "d6898fa2e68c47dd7c0045df0a6eceec7ddd8e290bc677ae51e6da2a5030c309",
+      "size": 2301551
+    },
+    {
+      "name": "EH1003006_All_PDFs_v1_1.pdf",
+      "path": "/mnt/data/EH1003006_All_PDFs_v1_1.pdf",
+      "sha256": "b4d571f74939362ccddc62defab8e9b63c045006dc56ce8a5ea8492dd3e09b3a",
+      "size": 10575145
+    },
+    {
+      "name": "eh1003006_dtm_clip.tif",
+      "path": "/mnt/data/eh1003006_dtm_clip.tif",
+      "sha256": "fc6642e8f760c79f417556233373552e34d0d398049effc64be9540b62978f7b",
+      "size": 2006184
+    },
+    {
+      "name": "EH1003006_DecisionHub_index_v2_2_9.html",
+      "path": "/mnt/data/EH1003006_DecisionHub_index_v2_2_9.html",
+      "sha256": "4eef31754d2f76294c20e751bbb2775b2ca5a71a41cf152bbfc501a7a5235686",
+      "size": 247855
+    },
+    {
+      "name": "eh1003006_chm.tif",
+      "path": "/mnt/data/eh1003006_chm.tif",
+      "sha256": "fb95de065f643a5f168cdc47066d6621fc91967cccda56f0b42583f103f7d662",
+      "size": 7480419
+    },
+    {
+      "name": "EH1003006_PDRNavigator_v0_3_2 (1).html",
+      "path": "/mnt/data/EH1003006_PDRNavigator_v0_3_2 (1).html",
+      "sha256": "e670e490199c2e161ecb9309d0f507991533918555d9821d3f739b3e785c8f88",
+      "size": 19446
+    },
+    {
+      "name": "PipBoy_Tool_Skeleton_v1_0.html",
+      "path": "/mnt/data/PipBoy_Tool_Skeleton_v1_0.html",
+      "sha256": "3db30a99ab311d6a5485c8f353c4b9486cf5b07edece50bca0521aba61f559db",
+      "size": 1730
+    },
+    {
+      "name": "eh1003006_online_planner_v5_2_7.html",
+      "path": "/mnt/data/eh1003006_online_planner_v5_2_7.html",
+      "sha256": "0134ba1a53b23b2fa0fac6365de0943a54f0c13e5ebcd728d2e2f6a02059e319",
+      "size": 41094
+    },
+    {
+      "name": "EH1003006_DecisionHub_index_v3_2_1.html",
+      "path": "/mnt/data/EH1003006_DecisionHub_index_v3_2_1.html",
+      "sha256": "8be9db3d08d11e593f94ccde48bf6612ebef55a2e80c80010ca1e2bc878dc0be",
+      "size": 14307
+    },
+    {
+      "name": "StaticRooster_UIKit_v1_0.md",
+      "path": "/mnt/data/StaticRooster_UIKit_v1_0.md",
+      "sha256": "865b1d1060371af01c2d1179b1e4f7776d352715319eab8da784c61533918fce",
+      "size": 8853
+    },
+    {
+      "name": "sr_sprint_planner_v0_1_0.html",
+      "path": "/mnt/data/sr_sprint_planner_v0_1_0.html",
+      "sha256": "17923b4f98dc6929db11a8eddc36d421df70751c6243c36d61bddb8c1ff00fbf",
+      "size": 4404
+    },
+    {
+      "name": "sr_turkey_castle_field_post_v0_1_0.html",
+      "path": "/mnt/data/sr_turkey_castle_field_post_v0_1_0.html",
+      "sha256": "324a29c380946180cd14e4a9aeab2279122a3733bf04b4061546f30e70e4db36",
+      "size": 12071
+    },
+    {
+      "name": "sr_field_post_20250907_183414_v0_1.zip",
+      "path": "/mnt/data/sr_field_post_20250907_183414_v0_1.zip",
+      "sha256": "25e715fcff0f08df0ef248364ce2dfe4df470a5260af6783e72d6da1b984b383",
+      "size": 920996
+    },
+    {
+      "name": "field_post_quicklook_v0_1.json",
+      "path": "/mnt/data/field_post_quicklook_v0_1.json",
+      "sha256": "3a771bdd138ff5cc8eb1f0a8d9efaa0ca9dc898192e7603d5f42b31a45fbcc33",
+      "size": 1041
+    },
+    {
+      "name": "field_post_quicklook_v0_1.csv",
+      "path": "/mnt/data/field_post_quicklook_v0_1.csv",
+      "sha256": "012c041321ec3ea2d3192cd9f8e7b8a6123a544f6fb62028011dbe8cc6aa78ce",
+      "size": 180
+    },
+    {
+      "name": "sr_turkey_castle_field_post_v0_1_1.html",
+      "path": "/mnt/data/sr_turkey_castle_field_post_v0_1_1.html",
+      "sha256": "50541565d5b73a4df578322187a3e9d4f77fd673bf6bccfb515c5043405905c7",
+      "size": 15997
+    },
+    {
+      "name": "sr_field_post_20250907_184751_v0_1.zip",
+      "path": "/mnt/data/sr_field_post_20250907_184751_v0_1.zip",
+      "sha256": "9a0e2d966d8aa09332ab1a91bed37d1ae0541c7a36294f84aa0ed81496bab091",
+      "size": 14980108
+    },
+    {
+      "name": "field_post_quicklook_v0_1_b.json",
+      "path": "/mnt/data/field_post_quicklook_v0_1_b.json",
+      "sha256": "e17807f05ab87658e55574ce9689c35c8f681fe5b057d54a152d31d9cb4e59e3",
+      "size": 5519
+    },
+    {
+      "name": "field_post_quicklook_v0_1_b.csv",
+      "path": "/mnt/data/field_post_quicklook_v0_1_b.csv",
+      "sha256": "b6fc2fc7ae6452d57822baf94c217d86f7b37adc49d83d479b3e4f9e831876e2",
+      "size": 1770
+    },
+    {
+      "name": "sr_turkey_castle_field_post_v0_1_2.html",
+      "path": "/mnt/data/sr_turkey_castle_field_post_v0_1_2.html",
+      "sha256": "3a5e1b5db609d9e14add83aee9d4742a5467972e5cfd082391778c2cc8a9ce56",
+      "size": 14931
+    },
+    {
+      "name": "DecisionHub_Recovery_Pack_20250907_204518_v0_1.zip",
+      "path": "/mnt/data/DecisionHub_Recovery_Pack_20250907_204518_v0_1.zip",
+      "sha256": "7dd142c57bf4760ac9a8c9e3c5eb4f891cd5b8694b436f4c47cfbfd739708c10",
+      "size": 5089
+    }
+  ]
+}

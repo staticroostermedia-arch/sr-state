@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rename Applier — v0.1.0</title>
+<style>
+:root{ --bg:#0b0c06; --grid:#1a2b1a; --text:#b4ffb4; --ok:#39ff14; --bad:#ff6b6b; --warn:#ffd166 }
+html,body{margin:0;background:#0b0c06;color:#b4ffb4;font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:1000px;margin:0 auto;padding:12px}
+.card{border:1px solid var(--grid);border-radius:12px;background:#0f140f;padding:12px;margin-top:10px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+input,button,label{border:1px solid var(--grid);background:#0a0f0a;color:#b4ffb4;border-radius:8px;padding:8px}
+button{cursor:pointer}
+.small{font-size:12px;color:#9ae89a}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.35}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px} th,td{border-bottom:1px solid var(--grid);padding:6px;vertical-align:top}
+.ok{color:var(--ok)} .bad{color:var(--bad)} .warn{color:var(--warn)}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="small">Static Rooster • Rename Applier v0.1.0</div>
+  <div class="card">
+    <div class="row">
+      <input type="file" id="plan" accept=".json">
+      <input type="file" id="zip" accept=".zip">
+      <button id="btnRun">Apply Plan → Emit New ZIP</button>
+    </div>
+    <div class="small">Takes <code>SR_Rename_Plan_*.json</code> + a bundle ZIP. Produces a fresh ZIP with files renamed and <code>manifest.json</code> updated (recomputed SHA-256).</div>
+  </div>
+  <div class="card">
+    <div class="small">Summary</div>
+    <pre id="sum">—</pre>
+    <table id="tbl"><thead><tr><th>From</th><th>To</th><th>Status</th></tr></thead><tbody></tbody></table>
+  </div>
+</div>
+<script>
+async function sha256(buf){ const h=await crypto.subtle.digest('SHA-256', buf); return Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join(''); }
+function byId(id){ return document.getElementById(id); }
+byId('btnRun').onclick = async ()=>{
+  const pf = byId('plan').files[0], zf = byId('zip').files[0]; if(!pf || !zf) return alert('Pick a plan and a zip');
+  const plan = JSON.parse(await pf.text()); const map = new Map((plan.items||[]).map(x=>[x.from, x.to]));
+  const src = await JSZip.loadAsync(zf); const out = new JSZip(); const rows=[]; const manRows=[];
+  // copy/rename files
+  for(const p in src.files){
+    const file = src.files[p];
+    if(file.dir) continue;
+    const buf = await file.async('uint8array');
+    const dest = map.get(p) || p;
+    out.file(dest, buf);
+  }
+  // build manifest
+  const entries = Object.keys(out.files).filter(p=>!out.files[p].dir);
+  for(const p of entries){
+    const buf = await out.file(p).async('uint8array'); const sha = await sha256(buf);
+    manRows.push({path:p, sha256:sha, size:buf.byteLength});
+  }
+  out.file('manifest.json', JSON.stringify({schema:'sr.manifest.v0_1', generatedAt:new Date().toISOString(), files:manRows}, null, 2));
+  const blob = await out.generateAsync({type:'blob'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='watch_bundle_renamed_'+Date.now()+'.zip'; a.click();
+  // table report
+  const tb=document.querySelector('#tbl tbody'); tb.innerHTML='';
+  (plan.items||[]).forEach(it=>{ const tr=document.createElement('tr'); const status = entries.includes(it.to) ? 'renamed' : 'not found in src'; tr.innerHTML=`<td>${it.from}</td><td>${it.to}</td><td>${status}</td>`; tb.appendChild(tr); });
+  byId('sum').textContent = `Emitted bundle with ${entries.length} files. Plan entries: ${(plan.items||[]).length}.`;
+};
+</script>
+</body>
+</html>

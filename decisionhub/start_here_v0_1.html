@@ -1,0 +1,26 @@
+<!doctype html><meta charset="utf-8"/>
+<title>Start Here · DecisionHub</title>
+<style>
+ body{background:#0f172a;color:#e2e8f0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0}
+ header{padding:14px 18px;border-bottom:1px solid #1f2937}
+ main{padding:16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+ a.card{display:block;padding:14px 16px;border:1px solid #1f2937;border-radius:12px;text-decoration:none;color:#e2e8f0;background:#0b1220}
+ a.card:hover{background:#0e1628}
+ .muted{color:#94a3b8;font-size:12px}
+ .pill{padding:2px 8px;border-radius:9999px;background:#111827;margin-left:8px;font-size:12px}
+</style>
+<header><strong>DecisionHub · Start Here</strong> <span class="muted" id="meta"></span></header>
+<main id="grid"></main>
+<script>
+(async () => {
+  const res = await fetch('/config/decisionhub.config.json'); const cfg = await res.json();
+  document.getElementById('meta').textContent = `— ${cfg.title||''} (${(cfg.tools||[]).length} tools)`;
+  const grid = document.getElementById('grid');
+  (cfg.tools||[]).filter(t=>t.enabled!==false).forEach(t=>{
+    const a=document.createElement('a'); a.className='card'; a.href=t.href; a.target='_blank';
+    a.innerHTML = `<div><strong>${t.name||t.key}</strong><span class="pill">${t.badge||''}</span></div>
+                   <div class="muted">${t.key||''}</div>`;
+    grid.appendChild(a);
+  });
+})();
+</script>

@@ -1,0 +1,50 @@
+<!doctype html><meta charset="utf-8">
+<title>sr_reconstructor v0.1.0</title>
+<style>
+body{background:#080b0f;color:#cde6ff;font-family:ui-monospace,Consolas,monospace;margin:0;padding:12px}
+.card{border:1px solid #1a2b3a;border-radius:10px;background:#0c121a;padding:12px;margin:10px 0}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.35}
+</style>
+<body>
+<h3>sr_reconstructor <span class="badge">v0.1.0</span></h3>
+<div class="card">
+  <input type="file" id="zip" accept=".zip"> dossier zip
+  <button id="run">Reconstruct</button>
+</div>
+<div class="card"><pre id="out">—</pre></div>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script>
+async function run(){
+  const out=document.getElementById('out'); out.textContent='working…';
+  const f=document.getElementById('zip').files[0]; if(!f){out.textContent='Select a dossier.';return;}
+  const z=await JSZip.loadAsync(await f.arrayBuffer());
+  async function read(name){return z.files[name]? await z.files[name].async('text') : null;}
+  const dossier = JSON.parse(await read('dossier.json') || '{}');
+  const manifest = JSON.parse(await read('manifest.json') || '{"files":[]}');
+  const canon_pin = JSON.parse(await read('canon_pin_v0_1.json') || '{}');
+  const limits = JSON.parse(await read('limits_v0_2.json') || '{}');
+  const protocol = await read('protocol_dossier_loop_v0_2.md');
+  const invocation = await read(Object.keys(z.files).find(n=>n.startsWith('sr_invocation_'))||'');
+  const canon = await read(Object.keys(z.files).find(n=>n.startsWith('sr_canon_'))||'');
+  const mp = await read(Object.keys(z.files).find(n=>n.startsWith('sr_memory_palace_'))||'');
+
+  const reconstruction_note = {
+    schema:'sr.reconstruction_note.v0_1',
+    when: new Date().toISOString(),
+    wake_sequence:[
+      'Read versions, anchors, limits, protocol',
+      'Run wholeness verifier; if fail -> penitential',
+      'Perform canon-diff; if drift -> penitential',
+      'Adopt next_plan; emit receipts; emit checkpoint'
+    ],
+    identity: {invocation, canon, memory_palace: mp},
+    canon_pin,
+    limits,
+    protocol_present: !!protocol,
+    manifest_count: (manifest.files||[]).length,
+    next_steps: dossier.next_steps || []
+  };
+  out.textContent=JSON.stringify(reconstruction_note,null,2);
+}
+document.getElementById('run').onclick=run;
+</script>

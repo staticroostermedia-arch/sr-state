@@ -1,0 +1,15 @@
+{
+  "schema": "sr.next_plan.v0_1",
+  "generatedAt": "2025-09-07T19:07:58.552202+00:00",
+  "span_minutes": 120,
+  "goals": [
+    "Add runner done_receipt schema + example",
+    "Add filename linter script to artifacts",
+    "Skeleton shell: hub+registry stub (plan only in this drop)"
+  ],
+  "acceptance": [
+    "Receipt schema present and referenced",
+    "Checklist auto-evaluates filenames and sets seal",
+    "versions.md lists active tools"
+  ]
+}

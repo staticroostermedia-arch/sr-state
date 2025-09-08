@@ -1,0 +1,15 @@
+{
+  "schema": "sr.schema_registry.v0_1",
+  "mappings": {
+    "dossier.json": "sr.dossier.v0_1",
+    "manifest.json": "sr.manifest.v0_1",
+    "chain_*.json": "sr.chain.v0_1",
+    "checkpoint/*.json": "sr.checkpoint.v0_1",
+    "canon_pin_*.json": "sr.canon_pin.v0_1",
+    "watch_lint_report_*.json": "sr.watch_lint_report.v0_2",
+    "sr_canon_diff_report_*.json": "sr.canon_diff_report.v0_1",
+    "limits_*.json": "sr.limits.v0_2",
+    "attachments_refs_*.json": "sr.attachments_refs.v0_2",
+    "receipts/*.json": "sr.done_receipt.v0_1"
+  }
+}

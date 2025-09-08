@@ -1,0 +1,12 @@
+{
+  "schema": "eh1003006.static_rooster.config.patch.v1",
+  "generatedAt": "2025-09-07T15:58:25.726137Z",
+  "add_tool": {
+    "key": "zip_ticker_010",
+    "name": "Zip Ticker",
+    "href": "sr_zip_ticker_v0_1_0.html",
+    "badge": "v0.1.0",
+    "category": "ops",
+    "enabled": true
+  }
+}
