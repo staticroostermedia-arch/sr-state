@@ -1,0 +1,57 @@
+<!doctype html><meta charset="utf-8">
+<title>Gate Reports v0.1</title>
+<style>
+:root{--bg:#0b0c06;--grid:#1a2b1a;--text:#b4ffb4;--glow:#39ff14;--danger:#ff6b6b}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:860px;margin:0 auto;padding:12px}
+.btn{border:1px solid var(--grid);background:#0f140f;color:var(--text);padding:8px 10px;border-radius:8px}
+.tile{border:1px solid var(--grid);border-radius:12px;background:#0f130f;padding:10px;margin:8px 0}
+.err{border-color:var(--danger);color:var(--danger);padding:10px;border-radius:8px;background:#170b0b}
+.row{display:flex;justify-content:space-between;gap:8px;align-items:center;border:1px solid var(--grid);border-radius:8px;padding:8px;margin:6px 0}
+.kv{display:grid;grid-template-columns:max-content 1fr;gap:6px 12px}
+.kv b{color:var(--glow)}
+</style>
+<div class="wrap">
+  <h1 style="margin:0;color:var(--glow)">Gate Reports</h1>
+  <div class="tile"><b>Index</b>: <code id="idx"></code> <button id="reload" class="btn">Reload</button></div>
+  <div id="summary" class="tile"><small>Waiting…</small></div>
+  <div id="list" class="tile"></div>
+  <div id="err" class="err" hidden></div>
+</div>
+<script>
+const qs=new URLSearchParams(location.search);
+const index=qs.get('index') || '/forge/gate_reports/index_v0_1.json';
+document.getElementById('idx').textContent=index;
+async function load(){
+  const err=document.getElementById('err'); err.hidden=true;
+  const list=document.getElementById('list');
+  const sum=document.getElementById('summary');
+  list.innerHTML=''; sum.innerHTML='<small>Loading…</small>';
+  try{
+    const r=await fetch(index,{cache:'no-store'});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const j=await r.json();
+    const items = Array.isArray(j.items)? j.items : (Array.isArray(j)? j : []);
+    sum.innerHTML = `<div class="kv">
+      <b>items</b><span>${items.length}</span>
+      <b>generated_at</b><span>${j.generated_at || j.generatedAt || '(unknown)'}</span>
+    </div>`;
+    if(items.length===0){ list.innerHTML='<small>No gate reports found.</small>'; return; }
+    list.innerHTML = items.map(it=>{
+      const href = it.href || it.url || '#';
+      const title = it.name || it.id || href.split('/').pop();
+      const badge = it.badge || it.ts || '';
+      return `<div class="row"><div>
+        <div><b>${title}</b></div>
+        <div><small>${href}</small></div>
+      </div>
+      <div><a class="btn" target="_blank" href="${href}">${badge?badge:'open'}</a></div></div>`;
+    }).join('');
+  }catch(e){
+    err.hidden=false; err.textContent='Load failed: '+e.message;
+    sum.innerHTML='<small>No data</small>'; list.innerHTML='';
+  }
+}
+document.getElementById('reload').onclick=load;
+load();
+</script>

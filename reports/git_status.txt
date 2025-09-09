@@ -1,0 +1,18 @@
+On branch sr-rebuild_20250908_2155
+Your branch and 'origin/sr-rebuild_20250908_2155' have diverged,
+and have 10 and 6 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	bin/sr_collect_theme_bundle.sh
+	bin/sr_theme_fix.sh
+	bin/sr_theme_inline_fix.sh
+	decisionhub/watch_checkpoint_viewer_v0_1.html.bak
+	docs/staticrooster_uikit_inline_v1.css
+	docs/ui_overrides_v1.css
+	forge/gate_reports/index_v0_1.html.bak
+	reports/
+	served/
+
+nothing added to commit but untracked files present (use "git add" to track)

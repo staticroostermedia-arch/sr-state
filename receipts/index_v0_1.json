@@ -1,18 +1,37 @@
 {
-  "schema": "sr.receipts.index.v0_1",
-  "generated_at": "2025-09-08T22:38:34Z",
+  "title": "Static Rooster Receipts Index",
+  "version": "v0_1",
+  "generated_at": "2025-09-09T02:08:05Z",
   "items": [
     {
-      "name": "sr.done_receipt_1757369016_v0_1.json",
-      "url": "/receipts/sr.done_receipt_1757369016_v0_1.json"
+      "name": "sr_watch_checkpoint_20250908_1908_v0_1.json",
+      "href": "/receipts/sr_watch_checkpoint_20250908_1908_v0_1.json",
+      "ts": "20250908_1908",
+      "badge": "file"
     },
     {
-      "name": "sr.done_receipt_1757365204_v0_1.json",
-      "url": "/receipts/sr.done_receipt_1757365204_v0_1.json"
+      "name": "sr_watch_checkpoint_20250908_1904_v0_1.json",
+      "href": "/receipts/sr_watch_checkpoint_20250908_1904_v0_1.json",
+      "ts": "20250908_1904",
+      "badge": "file"
     },
     {
-      "name": "sr.done_receipt_1757362760_v0_1.json",
-      "url": "/receipts/sr.done_receipt_1757362760_v0_1.json"
+      "name": "sr_receipt_note_20250908_1908_51f6a20e98_v0_1.json",
+      "href": "/receipts/sr_receipt_note_20250908_1908_51f6a20e98_v0_1.json",
+      "ts": "20250908_1908",
+      "badge": "file"
+    },
+    {
+      "name": "sr_penitential_rite_20250908_1908_v0_1.md",
+      "href": "/receipts/sr_penitential_rite_20250908_1908_v0_1.md",
+      "ts": "20250908_1908",
+      "badge": "file"
+    },
+    {
+      "name": "sr_penitential_rite_20250908_1904_v0_1.md",
+      "href": "/receipts/sr_penitential_rite_20250908_1904_v0_1.md",
+      "ts": "20250908_1904",
+      "badge": "file"
     }
   ]
 }

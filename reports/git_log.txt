@@ -1,0 +1,10 @@
+9795349 (HEAD -> sr-rebuild_20250908_2155) ui: unify theme via shared CSS; idempotent theme init; snapshot
+1f72161 tick: 2025-09-08T22:23:37Z · foedus=intactum
+dfd5128 tick: 2025-09-08T22:03:36Z · foedus=intactum
+4ec65d4 checkpoint: seed Static Rooster local baseline
+c6a4627 checkpoint: seed Static Rooster local baseline
+7d581ff Gold Baseline #1: StartHere + Receipts + GateReports wired
+72be3c7 Gold Baseline #1: Start Here + Receipts + Gate Reports wired
+030ee8d (tag: v1.0.0-beta1, origin/main) Beta payload + hub (dist + tools + configs)
+ddc1970 Beta payload + fixed build script
+65c7ab7 Initial commit: Static Rooster PipBoy EH1003006 beta

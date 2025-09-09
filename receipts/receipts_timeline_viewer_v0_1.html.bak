@@ -11,8 +11,6 @@
   .pill{border:1px solid #2a3b64;border-radius:999px;padding:2px 8px;font-size:12px}
   pre{white-space:pre-wrap;word-break:break-word;background:#0d162b;border:1px solid #1e2b4e;border-radius:8px;padding:12px}
 </style>
-<script>const K="sr_theme";if(!localStorage.getItem(K))localStorage.setItem(K,"bocazon");document.documentElement.dataset.theme=localStorage.getItem(K);</script>
-<link rel="stylesheet" href="/docs/staticrooster_ukit_v1_0.css">
 </head><body>
 <header>
   <strong>Receipts Timeline v0.1</strong>

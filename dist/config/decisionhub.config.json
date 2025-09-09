@@ -1,5 +1,5 @@
 {
-  "title": "DecisionHub · Start Here",
+  "title": "DecisionHub \u00b7 Start Here",
   "tools": [
     {
       "key": "reply_builder",
@@ -36,8 +36,5 @@
       "href": "http://localhost:8891/",
       "route": "http://localhost:8891/"
     }
-  ],
-  "ingest": {
-    "url": "http://localhost:8891/submit"
-  }
+  ]
 }

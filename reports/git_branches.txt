@@ -1,0 +1,3 @@
+  main                     e38a348 checkpoint: seed Static Rooster local baseline
+  sr-rebuild_20250908_2150 e38a348 checkpoint: seed Static Rooster local baseline
+* sr-rebuild_20250908_2155 9795349 [origin/sr-rebuild_20250908_2155: ahead 10, behind 6] ui: unify theme via shared CSS; idempotent theme init; snapshot

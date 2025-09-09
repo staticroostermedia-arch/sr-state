@@ -1,0 +1,2 @@
+origin	git@github.com:staticroostermedia-arch/decisionhub.git (fetch)
+origin	git@github.com:staticroostermedia-arch/decisionhub.git (push)

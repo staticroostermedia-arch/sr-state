@@ -1,0 +1,14 @@
+:root{
+  --bg:#0b0c06; --grid:#1a2b1a; --text:#b4ffb4; --glow:#39ff14; --accent:#9ae89a;
+  --warn:#ffd166; --danger:#ff6b6b; --rooster:#ff504a;
+  --fs-title:clamp(15px,1.9vw,18px); --fs-small:clamp(10px,1.7vw,13px);
+  --fs-chip:clamp(11px,2vw,15px); --fs-tile:clamp(13px,2.1vw,16px); --pad-tiles:clamp(8px,1.6vw,12px);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-monospace,Consolas,monospace}
+.pip-chip{border:1px solid var(--grid);background:#0f140f;color:var(--text);padding:6px 10px;border-radius:999px;font-size:var(--fs-small)}
+.pip-tile{border:1px solid var(--grid);border-radius:12px;background:#0f130f;padding:var(--pad-tiles)}
+.pip-title{color:var(--glow);font-size:var(--fs-title);margin:0}
+.pip-danger{color:var(--danger)} .pip-warn{color:var(--warn)}
+a.btn{border:1px solid var(--grid);padding:8px 10px;border-radius:8px;background:#101a10;color:var(--text);text-decoration:none;font-size:var(--fs-chip)}
+a.btn:hover{border-color:var(--glow);box-shadow:0 0 8px rgba(57,255,20,.2) inset}

@@ -1,0 +1,132 @@
+<!doctype html><meta charset="utf-8"/>
+<title>Reply Builder · v0.1</title>
+<style>
+  html,body{background:#0b1422;color:#e7eefc;font-family:system-ui,Segoe UI,Roboto,Ubuntu,Arial,sans-serif}
+  .wrap{max-width:980px;margin:24px auto;padding:16px}
+  h1{margin:0 0 16px 0;font-size:24px}
+  fieldset{border:1px solid #28405f;border-radius:12px;margin:12px 0;padding:12px}
+  legend{padding:0 6px;color:#9ec3ff}
+  label{display:block;margin:8px 0 4px}
+  input[type="text"],textarea{width:100%;background:#0f1c33;color:#e7eefc;border:1px solid #2c4a73;border-radius:8px;padding:8px}
+  input[type="file"]{margin-top:6px}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row>*{flex:1 1 300px}
+  button{background:#2a72ff;border:0;color:white;padding:10px 14px;border-radius:10px;cursor:pointer}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .muted{color:#9bb0c9;font-size:12px}
+  .pill{display:inline-block;background:#173055;border:1px solid #2d4d7b;color:#b9d3ff;padding:2px 8px;border-radius:999px}
+  .log{white-space:pre-wrap;background:#081122;border:1px solid #1a2c4b;border-radius:10px;padding:10px;min-height:90px}
+</style>
+<div class="wrap">
+  <h1>Reply Builder · v0.1</h1>
+  <div class="muted">Build a valid reply ZIP (manifest + checkpoint + optional config and attachments) and send to the ingest server.</div>
+
+  <fieldset>
+    <legend>Reply details</legend>
+    <label>Notes</label>
+    <textarea id="notes" rows="4" placeholder="Optional context for the manifest…"></textarea>
+
+    <div class="row">
+      <label><input type="checkbox" id="incCfg" checked> Include current DecisionHub config</label>
+      <label><input type="checkbox" id="applyNow" checked> Apply immediately after build</label>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Title suffix (optional patch)</label>
+        <input id="titleSuffix" type="text" placeholder="e.g. · demo or · field update">
+        <div class="muted">If set, we’ll append this to the DecisionHub title inside the reply config.</div>
+      </div>
+      <div>
+        <label>Attachments (optional, multiple allowed)</label>
+        <input id="files" type="file" multiple>
+        <div class="muted">Will be normalized and placed under <span class="pill">attachments/</span> in the ZIP.</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Ingest server URL</label>
+        <input id="ingUrl" type="text" value="http://localhost:8891/build" spellcheck="false">
+        <div class="muted">Change only if you customized the port or path.</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <button id="send">Build & Send</button>
+      <button id="save">Build & Download</button>
+      <span id="status" class="pill">idle</span>
+    </div>
+  </fieldset>
+
+  <div class="log" id="log"></div>
+</div>
+
+<script>
+const el = id => document.getElementById(id);
+const log = (m) => { el('log').textContent += m + "\n"; };
+const norm = name => name.toLowerCase().replace(/[^a-z0-9._-]+/g,'-').replace(/-+/g,'-');
+
+async function buildForm() {
+  const fd = new FormData();
+  fd.set('schema', 'sr.reply_build_request.v0_1');
+  fd.set('notes', el('notes').value || '');
+  fd.set('include_config', el('incCfg').checked ? '1':'0');
+  fd.set('apply_now', el('applyNow').checked ? '1':'0');
+  fd.set('title_suffix', el('titleSuffix').value || '');
+
+  const files = el('files').files;
+  for (let i=0;i<files.length;i++){
+    const f = files[i];
+    const alias = 'attachments/' + norm(f.name);
+    fd.append('attachments', new File([f], alias, {type: f.type}));
+  }
+  return fd;
+}
+
+async function send() {
+  try {
+    el('send').disabled = el('save').disabled = true;
+    el('status').textContent = 'building…';
+    const fd = await buildForm();
+    const url = el('ingUrl').value.trim();
+    log(`→ POST ${url}`);
+    const res = await fetch(url, { method:'POST', body: fd, mode:'cors' });
+    const txt = await res.text();
+    log(`← ${res.status} ${res.statusText}\n${txt}`);
+    el('status').textContent = res.ok ? 'sent' : 'error';
+  } catch (e) {
+    log('ERROR: '+ e);
+    el('status').textContent = 'error';
+  } finally {
+    el('send').disabled = el('save').disabled = false;
+  }
+}
+
+async function downloadZip() {
+  try {
+    el('send').disabled = el('save').disabled = true;
+    el('status').textContent = 'building…';
+    const fd = await buildForm();
+    const url = el('ingUrl').value.trim();
+
+    const res = await fetch(url + '?download=1', { method:'POST', body: fd, mode:'cors' });
+    if (!res.ok) { throw new Error('HTTP '+res.status); }
+    const blob = await res.blob();
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'sr_reply.zip';
+    a.click();
+    URL.revokeObjectURL(a.href);
+    el('status').textContent = 'downloaded';
+  } catch(e) {
+    log('ERROR: '+e);
+    el('status').textContent = 'error';
+  } finally {
+    el('send').disabled = el('save').disabled = false;
+  }
+}
+
+el('send').onclick = send;
+el('save').onclick = downloadZip;
+</script>

@@ -1,0 +1,80 @@
+# Penitential Rite · 20250908_1904
+
+- ingest /health: 200
+- offenders (73):
+  - [ ] fix name → /home/a/static-rooster/canon/canon_parity_tool_v0_1_0.html
+  - [ ] fix name → /home/a/static-rooster/config/DecisionHubConfig_Schema_v1_0.json
+  - [ ] fix name → /home/a/static-rooster/config/ark.sha256
+  - [ ] fix name → /home/a/static-rooster/config/attachments_refs.json
+  - [ ] fix name → /home/a/static-rooster/config/DecisionHub_Feature_Contract_v1_0.md
+  - [ ] fix name → /home/a/static-rooster/runner/runner.py
+  - [ ] fix name → /home/a/static-rooster/runner/runner.py.bak
+  - [ ] fix name → /home/a/static-rooster/attachments/watch_linter_v0_1.html
+  - [ ] fix name → /home/a/static-rooster/attachments/staticrooster_canon_v1_1.md
+  - [ ] fix name → /home/a/static-rooster/attachments/staticrooster_dossier_spec_v0_1_1.md
+  - [ ] fix name → /home/a/static-rooster/secrets/.env
+  - [ ] fix name → /home/a/static-rooster/decisionhub/decision_hub_config_v0_1.json
+  - [ ] fix name → /home/a/static-rooster/decisionhub/decision_hub_config_v0_2.json
+  - [ ] fix name → /home/a/static-rooster/decisionhub/decision_hub_config_v0_4.json
+  - [ ] fix name → /home/a/static-rooster/decisionhub/decision_hub_shell_v0_1_2.html
+  - [ ] fix name → /home/a/static-rooster/decisionhub/decision_hub_config_v0_3.json
+  - [ ] fix name → /home/a/static-rooster/decisionhub/decision_hub_shell_v0_1_1.html
+  - [ ] fix name → /home/a/static-rooster/decisionhub/decision_hub_embedded_index_v0_1.json
+  - [ ] fix name → /home/a/static-rooster/decisionhub/watch_checkpoint_viewer_v0_1.html
+  - [ ] fix name → /home/a/static-rooster/decisionhub/watch_checkpoint_viewer_v0_1.html.bak
+  - [ ] fix name → /home/a/static-rooster/README.md
+  - [ ] fix name → /home/a/static-rooster/logs/step10.1757360916.log
+  - [ ] fix name → /home/a/static-rooster/hub_registry/hub_registry_index_v0_1_1.html
+  - [ ] fix name → /home/a/static-rooster/hub_registry/tools_directory_v0_1_0.html
+  - [ ] fix name → /home/a/static-rooster/hub_registry/hub_patch_note_v0_1.md
+  - [ ] fix name → /home/a/static-rooster/hub_registry/hub_registry_index_v0_1_0.html
+  - [ ] fix name → /home/a/static-rooster/_test_reply/manifest.json
+  - [ ] fix name → /home/a/static-rooster/apps/PipBoy_Tool_Skeleton_v1_0.html
+  - [ ] fix name → /home/a/static-rooster/apps/EH1003006_FieldIntake_v1_3_3.html
+  - [ ] fix name → /home/a/static-rooster/apps/EH1003006_DecisionHub_index_v2_3_2.html
+  - [ ] fix name → /home/a/static-rooster/apps/EH1003006_DecisionHub_index_v2_2_9.html
+  - [ ] fix name → /home/a/static-rooster/apps/EH1003006_PDRNavigator_v0_3_2.html
+  - [ ] fix name → /home/a/static-rooster/apps/EH1003006_DecisionHub_index_v3_2_1.html
+  - [ ] fix name → /home/a/static-rooster/apps/online_planner_v5_2_9_intake.html
+  - [ ] fix name → /home/a/static-rooster/docs/staticrooster_uikit_inline_v1.css
+  - [ ] fix name → /home/a/static-rooster/docs/ui_overrides_v1.css
+  - [ ] fix name → /home/a/static-rooster/docs/staticrooster_uikit_v1_0.css
+  - [ ] fix name → /home/a/static-rooster/docs/staticrooster_uikit_v1_0.md
+  - [ ] fix name → /home/a/static-rooster/docs/staticrooster_ukit_v1_0.css
+  - [ ] fix name → /home/a/static-rooster/docs/EH1003006_All_PDFs_v1_1.pdf
+  - [ ] fix name → /home/a/static-rooster/docs/StaticRooster_UIKit_v1_0.md
+  - [ ] fix name → /home/a/static-rooster/reports/git_log.txt
+  - [ ] fix name → /home/a/static-rooster/reports/git_remotes.txt
+  - [ ] fix name → /home/a/static-rooster/reports/git_status.txt
+  - [ ] fix name → /home/a/static-rooster/reports/git_branches.txt
+  - [ ] fix name → /home/a/static-rooster/.venv/pyvenv.cfg
+  - [ ] fix name → /home/a/static-rooster/.git/ORIG_HEAD
+  - [ ] fix name → /home/a/static-rooster/.git/COMMIT_EDITMSG
+  - [ ] fix name → /home/a/static-rooster/.git/FETCH_HEAD
+  - [ ] fix name → /home/a/static-rooster/.git/HEAD
+  - [ ] fix name → /home/a/static-rooster/.git/description
+  - [ ] fix name → /home/a/static-rooster/scripts/serve.sh
+  - [ ] fix name → /home/a/static-rooster/scripts/build.sh
+  - [ ] fix name → /home/a/static-rooster/scripts/serve.ps1
+  - [ ] fix name → /home/a/static-rooster/receipts/auto_receipts_viewer_v0_1.html
+  - [ ] fix name → /home/a/static-rooster/receipts/done_01_v0_1.json
+  - [ ] fix name → /home/a/static-rooster/receipts/done_return_build_01_v0_1.json
+  - [ ] fix name → /home/a/static-rooster/served/watch_checkpoint_viewer_v0_1.served.html
+  - [ ] fix name → /home/a/static-rooster/served/gate_reports_index_v0_1.served.html
+  - [ ] fix name → /home/a/static-rooster/forge/reply_builder_v0_1.html
+  - [ ] fix name → /home/a/static-rooster/forge/reply_builder_v0_1.html.bak
+  - [ ] fix name → /home/a/static-rooster/forge/watch_checkpoints_viewer_v0_1.html
+  - [ ] fix name → /home/a/static-rooster/forge/gate_reports_viewer_v0_1.html
+  - [ ] fix name → /home/a/static-rooster/bin/10b_tick_on_safe.sh
+  - [ ] fix name → /home/a/static-rooster/bin/02_seed_ark.sh
+  - [ ] fix name → /home/a/static-rooster/bin/.sr_wifi_off.sh.swp
+  - [ ] fix name → /home/a/static-rooster/bin/07_snapshot.sh
+  - [ ] fix name → /home/a/static-rooster/bin/11_tick_now.sh
+  - [ ] fix name → /home/a/static-rooster/bin/08_hub_refresh.sh
+  - [ ] fix name → /home/a/static-rooster/state/last_checkpoint.json
+  - [ ] fix name → /home/a/static-rooster/.gitignore
+  - [ ] fix name → /home/a/static-rooster/entropy/entropy_sentinel_report_v0_1.json
+  - [ ] fix name → /home/a/static-rooster/cognition/cognitive_skeleton_map_v0_1.md
+- git dirty: 39 file(s)
+
+Rite: rename offenders to schema, ensure ingest up (systemctl --user restart sr-ingest.service), commit, re-run checkpoint.
