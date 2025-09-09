@@ -1,0 +1,22 @@
+{ "generated_at":"2025-09-08T20:00:17-07:00", "items":[
+  {"name":"sr_snapshot_20250908_200005.tgz","path":"snapshots/sr_snapshot_20250908_200005.tgz","size":226524938,"sha256":"f84e2c473157daef208605a5d79bb003723e4b118b0558f6893f6bb2bca4ccc0","ts":"20250908_200005"},
+  {"name":"sr_snapshot_20250908_195452.tgz","path":"snapshots/sr_snapshot_20250908_195452.tgz","size":226525522,"sha256":"6bb88a8db51a85ba8656ea316511147a23432047bb11eebd8f6ffcb4b6632456","ts":"20250908_195452"},
+  {"name":"sr_snapshot_20250908_195247.tgz","path":"snapshots/sr_snapshot_20250908_195247.tgz","size":226524374,"sha256":"161f01245772b489e5f7b42913643133adab120366bd7ac3c5ed4efda9c11f43","ts":"20250908_195247"},
+  {"name":"sr_snapshot_20250908_194744.tgz","path":"snapshots/sr_snapshot_20250908_194744.tgz","size":226524351,"sha256":"d53580ab5fd2a14acc8120ab19c7747e6b406e8fcc7bc9e12f48519961e619cc","ts":"20250908_194744"},
+  {"name":"sr_snapshot_20250908_193152.tgz","path":"snapshots/sr_snapshot_20250908_193152.tgz","size":226523724,"sha256":"054f46c8b57219e93db264715df59a6ac90b7c90562424e33e74c2b72e126326","ts":"20250908_193152"},
+  {"name":"sr_snapshot_20250908_192708.tgz","path":"snapshots/sr_snapshot_20250908_192708.tgz","size":1267990528,"sha256":"f59828235e76d9ed80d91a4759c0daca2646d33086c77494d7414fa83b8cf701","ts":"20250908_192708"},
+  {"name":"sr_snapshot_20250908_192550.tgz","path":"snapshots/sr_snapshot_20250908_192550.tgz","size":1098609756,"sha256":"cba75a7557c5cc635f0b17a30ed5c8f09c6c460316363698d98f633904104991","ts":"20250908_192550"},
+  {"name":"sr_dossier_20250908_1908_v0_1.tgz","path":"snapshots/sr_dossier_20250908_1908_v0_1.tgz","size":9401,"sha256":"13915c80dfa251f16605e023fe9ed150cf05744d64bae7bc873696c749b050d5","ts":""},
+  {"name":"sr_dossier_20250908_1904_v0_1.tgz","path":"snapshots/sr_dossier_20250908_1904_v0_1.tgz","size":9291,"sha256":"ee86ec2abfc95cd0bb7ed74597d986cfe54c7794f522937e982b56b499986d28","ts":""},
+  {"name":"sr_snapshot_20250908_190045.tgz","path":"snapshots/sr_snapshot_20250908_190045.tgz","size":5334,"sha256":"b58e7df580e391fe5a237bb1ec9c46661f574b422a9ba03d3bff3879fd3e93c8","ts":"20250908_190045"},
+  {"name":"sr_theme_bundle_20250908_184536.tgz","path":"snapshots/sr_theme_bundle_20250908_184536.tgz","size":7226,"sha256":"9d044f0ef9d445a8c8e3ad56e6d81b8ab4f938aeff7c5756920df91f54bf031f","ts":""},
+  {"name":"sr_theme_bundle_20250908_183744.tgz","path":"snapshots/sr_theme_bundle_20250908_183744.tgz","size":5769,"sha256":"554dc7c276e5c54d1b87bb69db74785ff51a901efab33e1809767626bc42b8ab","ts":""},
+  {"name":"sr_snapshot_20250908_141434.tgz","path":"snapshots/sr_snapshot_20250908_141434.tgz","size":257608,"sha256":"1a73b10089b48087e9781e9271ee204ed70b1b37421d8056abfaaae03febef59","ts":"20250908_141434"},
+  {"name":"sr_snapshot_20250908_142248.tgz","path":"snapshots/sr_snapshot_20250908_142248.tgz","size":257908,"sha256":"b1cfdfbe46a3a2aa2ab7e878834aad5cfce5e318a7fbdc1f069920be385e5ff6","ts":"20250908_142248"},
+  {"name":"sr_snapshot_20250908_124159.tgz","path":"snapshots/sr_snapshot_20250908_124159.tgz","size":256624,"sha256":"c4878e9e375964b81988f3952e561ff29a4d408197f19a62e348c87c27ba9567","ts":"20250908_124159"},
+  {"name":"sr_snapshot_20250908_135518.tgz","path":"snapshots/sr_snapshot_20250908_135518.tgz","size":257423,"sha256":"2334061d4a6bfbdc68745934393cb61260234a1d3b9124a4aac978caadb67ee6","ts":"20250908_135518"},
+  {"name":"sr_snapshot_20250908_182408.tgz","path":"snapshots/sr_snapshot_20250908_182408.tgz","size":217328372,"sha256":"7e2966b07304d90ce21a441206af596ea4e43213433e1dff2e39c6f26ffff784","ts":"20250908_182408"},
+  {"name":"sr_snapshot_20250908_181850.tgz","path":"snapshots/sr_snapshot_20250908_181850.tgz","size":217329098,"sha256":"5bf135565f391f13dbda52bc57f944c4f5a465f2072e82fd013541e04ac00374","ts":"20250908_181850"},
+  {"name":"sr_snapshot_20250908_152338.tgz","path":"snapshots/sr_snapshot_20250908_152338.tgz","size":262929,"sha256":"13a20c170ed4d1383d6fddc02088ee2c33906876a72553ba0898fff77cb13e95","ts":"20250908_152338"},
+  {"name":"sr_snapshot_20250908_150020.tgz","path":"snapshots/sr_snapshot_20250908_150020.tgz","size":261217,"sha256":"bb82c5431f5138764dff473d50c613d8d11a101c9f64c3c97a43c84c7a6687c3","ts":"20250908_150020"}
+]}
