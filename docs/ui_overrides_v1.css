@@ -1,0 +1,5 @@
+/* lightweight bridge so older viewers inherit the Start Here look */
+html[data-theme] body{background:var(--bg-body,#0b1020);color:var(--fg,#c9d1d9)}
+.wrap,.card{background:var(--bg-card,rgba(12,31,60,.6));border-radius:12px}
+a,.btn{color:var(--accent,#58a6ff)}
+.btn{border-color:var(--accent,#58a6ff);box-shadow:0 0 0 2px rgba(0,0,0,.15) inset}
