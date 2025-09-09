@@ -8,5 +8,5 @@ export SR_CFG="$SR_HOME/config/decisionhub.config.json"
 # git settings (leave push off until you want it)
 export SR_GIT_REMOTE=${SR_GIT_REMOTE:-origin}
 export SR_GIT_BRANCH=${SR_GIT_BRANCH:-main}
-export SR_GIT_PUSH=${SR_GIT_PUSH:-false}
+export SR_GIT_PUSH=${SR_GIT_PUSH:-true}
 mkdir -p "$SR_LOG_DIR" "$SR_SNAP_DIR"
