@@ -50,3 +50,10 @@ tar -C "$SR_HOME" \
   -czf "$OUT" .
 sha256sum "$OUT" | tee "${OUT}.sha256" >/dev/null
 log "OK"
+# ---- publish feed (auto) ----
+"$SR_HOME/bin/sr_feed.sh" || true
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  git add snapshots/feed_v0_1.json || true
+  git commit -m "runner: update feed $(date -Is)" || true
+  [[ "${SR_GIT_PUSH}" == "true" ]] && git push "$SR_GIT_REMOTE" HEAD:"$SR_GIT_BRANCH" || true
+fi
