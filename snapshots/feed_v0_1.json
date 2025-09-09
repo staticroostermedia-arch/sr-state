@@ -1,4 +1,5 @@
-{ "generated_at":"2025-09-08T20:21:59-07:00", "items":[
+{ "generated_at":"2025-09-08T20:27:29-07:00", "items":[
+  {"name":"sr_snapshot_20250908_202717.tgz","path":"snapshots/sr_snapshot_20250908_202717.tgz","size":226527297,"sha256":"d67b32dbdcc8375dc8d1ab65d9daf3a74510c7159ffff2cfaf603367febfff58","ts":"20250908_202717"},
   {"name":"sr_snapshot_20250908_202146.tgz","path":"snapshots/sr_snapshot_20250908_202146.tgz","size":226527031,"sha256":"e0862b0c79ce84d8afe5f6b82887a1f7b887e97316979abbd89f5fa773d6e9c5","ts":"20250908_202146"},
   {"name":"sr_snapshot_20250908_201617.tgz","path":"snapshots/sr_snapshot_20250908_201617.tgz","size":226526594,"sha256":"814c5c1200dff426bf028bd0dfc754daaf3320fe71ead1860c37a8ff9e8c9c6a","ts":"20250908_201617"},
   {"name":"sr_snapshot_20250908_201047.tgz","path":"snapshots/sr_snapshot_20250908_201047.tgz","size":226526580,"sha256":"b6e4624f92efd116eb51db3644e5942a948323500a305874753cf07901f8ba57","ts":"20250908_201047"},
