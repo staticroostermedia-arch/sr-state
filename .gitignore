@@ -19,3 +19,10 @@ snapshots/
 *.sha256
 /tmp/
 *.log
+
+# Static Rooster local
+snapshots/
+*.tgz
+*.sha256
+*.log
+/tmp/
