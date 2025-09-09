@@ -1,5 +1,5 @@
 {
-  "title": "DecisionHub · Start Here",
+  "title": "DecisionHub \u00b7 Start Here",
   "tools": [
     {
       "key": "reply_builder",
@@ -35,12 +35,6 @@
       "badge": "service",
       "href": "http://localhost:8891/",
       "route": "http://localhost:8891/"
-    },
-    {
-      "key": "runner feed",
-      "name": "Runner Feed",
-      "badge": "v0.1",
-      "route": "https://gist.githubusercontent.com/staticroostermedia-arch/1522551276fffb211a8002ba661317a4/raw"
     }
   ]
 }

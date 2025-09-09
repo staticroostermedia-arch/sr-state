@@ -41,27 +41,3 @@
   }
 })();
 </script>
-<script>
-(() => {
-  try {
-    const cfgUrl = new URLSearchParams(location.search).get('config') || '/config/decisionhub.config.json';
-    fetch(cfgUrl, {cache:'no-store'}).then(r=>r.json()).then(cfg => {
-      const tools = cfg.tools || [];
-      tools.forEach(t => {
-        const want = t.route || t.href || t.url;
-        if (!want) return;
-        const id1 = (t.key||'').toLowerCase();
-        const id2 = (t.name||'').toLowerCase();
-        document.querySelectorAll('a,button').forEach(el => {
-          const txt = (el.textContent||'').trim().toLowerCase();
-          if (!txt) return;
-          if (txt.includes(id1) || (id2 && txt.includes(id2))) {
-            if (el.tagName === 'A') { el.href = want; el.target = '_blank'; }
-            else { el.onclick = () => window.open(want, '_blank'); }
-          }
-        });
-      });
-    }).catch(console.warn);
-  } catch (e) { console.warn('tile route fixer failed', e); }
-})();
-</script>
