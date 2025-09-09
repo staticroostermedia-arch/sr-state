@@ -12,3 +12,10 @@ __pycache__/
 *.tgz
 ark/secrets/**
 secrets/**
+
+# Static Rooster local
+snapshots/
+*.tgz
+*.sha256
+/tmp/
+*.log
