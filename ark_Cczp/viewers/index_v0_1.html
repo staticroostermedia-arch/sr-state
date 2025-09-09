@@ -1,0 +1,12 @@
+<!doctype html><meta charset="utf-8"><title>Gate Reports v0.1</title>
+<style>body{font:14px system-ui;background:#0b1222;color:#cfe;} pre{white-space:pre-wrap}</style>
+<script>
+(async()=>{
+  const qs=new URLSearchParams(location.search);
+  const src=qs.get('index')||'/forge/gate_reports/index_v0_1.json';
+  const p=document.createElement('pre');document.body.append(p);
+  try{const r=await fetch(src); if(!r.ok) throw new Error('HTTP '+r.status);
+      p.textContent=JSON.stringify(await r.json(),null,2);}
+  catch(e){p.textContent='Load failed: '+e;}
+})();
+</script>

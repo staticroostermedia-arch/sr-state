@@ -1,42 +1,62 @@
-from http.server import HTTPServer, BaseHTTPRequestHandler
-import cgi, os, subprocess, pathlib, time
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import json, os, time
 
-ROOT = os.path.expanduser('~/static-rooster')
-INBOX = os.path.join(ROOT,'inbox','replies')
-os.makedirs(INBOX, exist_ok=True)
+PORT = int(os.getenv("SR_INGEST_PORT","8891"))
 
-PAGE = b"""<!doctype html><meta charset=utf-8>
-<title>Reply Dossier Ingest</title>
-<body style="background:#0f172a;color:#e2e8f0;font-family:system-ui">
-<h2>Upload Reply Dossier (.zip)</h2>
-<form method=POST enctype=multipart/form-data>
-<input type=file name=file accept=".zip">
-<button type=submit>Upload</button>
-</form>
-<hr>
-<pre>{msg}</pre>
-</body>"""
+HTML = f"""<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Reply Ingest · Static Rooster</title>
+<style>
+  :root {{ color-scheme: dark; }}
+  body {{ margin:0; background:#0f1a2b; color:#d7e2ff; font:16px/1.45 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto; }}
+  .wrap {{ max-width:960px; margin:8vh auto; padding:24px; }}
+  .card {{ background:#0b1322; border:1px solid #1e2a44; border-radius:16px; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,.25); }}
+  h1 {{ margin:0 0 6px; font-size:24px; letter-spacing:.3px; }}
+  .muted {{ color:#8aa2c4; font-size:14px; }}
+  .row {{ display:flex; gap:16px; margin-top:14px; }}
+  .kv {{ display:grid; grid-template-columns:160px 1fr; gap:8px 16px; margin-top:10px; }}
+  .pill {{ display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:#0d233d; border:1px solid #22406a; }}
+  a.btn {{ text-decoration:none; color:#d7e2ff; border:1px solid #2b4880; padding:8px 12px; border-radius:10px; background:#13284a; }}
+  a.btn:hover {{ border-color:#5a86ff; box-shadow:0 0 0 3px rgba(90,134,255,.2) inset; }}
+</style>
+</head><body><div class="wrap">
+  <div class="card">
+    <h1>Reply Ingest</h1>
+    <div class="muted">Minimal status endpoint served by the ingest service.</div>
+    <div class="row">
+      <div class="pill">port <b>{PORT}</b></div>
+      <div class="pill">state <b>ok</b></div>
+      <div class="pill">time <b>{time.strftime('%Y-%m-%d %H:%M:%S')}</b></div>
+      <a class="btn" href="/health">JSON /health</a>
+    </div>
+    <div class="kv">
+      <div>Spec:</div> <div>GET <code>/health</code> → <code>{{"ok": true}}</code></div>
+      <div>Root:</div> <div>GET <code>/</code> → this page</div>
+    </div>
+  </div>
+</div></body></html>"""
 
 class H(BaseHTTPRequestHandler):
+    def _json(self, obj, code=200):
+        self.send_response(code)
+        self.send_header("Content-Type","application/json")
+        self.end_headers()
+        self.wfile.write(json.dumps(obj).encode())
+
     def do_GET(self):
-        self.send_response(200); self.end_headers()
-        self.wfile.write(PAGE.replace(b"{msg}", b"ready"))
-    def do_POST(self):
-        ctype, pdict = cgi.parse_header(self.headers.get('content-type'))
-        if ctype != 'multipart/form-data':
-            self.send_response(400); self.end_headers(); self.wfile.write(b"bad form"); return
-        fs = cgi.FieldStorage(fp=self.rfile, headers=self.headers, environ={'REQUEST_METHOD':'POST','CONTENT_TYPE':self.headers['Content-Type']})
-        f = fs['file']
-        if not f.filename or not f.filename.endswith('.zip'):
-            self.send_response(400); self.end_headers(); self.wfile.write(b"need .zip"); return
-        name = f"reply_{int(time.time())}.zip"
-        dest = os.path.join(INBOX, name)
-        with open(dest, 'wb') as out: out.write(f.file.read())
-        # run apply
-        p = subprocess.run([os.path.join(ROOT,'bin','sr_reply_apply.sh'), dest], capture_output=True, text=True)
-        msg = (p.stdout + "\n" + p.stderr).strip().encode('utf-8', 'ignore')
-        self.send_response(200); self.end_headers()
-        self.wfile.write(PAGE.replace(b"{msg}", msg or b"ok"))
+        if self.path == "/health":
+            return self._json({"ok": True, "port": PORT})
+        if self.path == "/":
+            self.send_response(200)
+            self.send_header("Content-Type","text/html; charset=utf-8")
+            self.end_headers()
+            self.wfile.write(HTML.encode())
+            return
+        self.send_error(404)
+
+    def log_message(self, *a, **k): pass
 
 if __name__ == "__main__":
-    HTTPServer(('127.0.0.1', int(__import__('os').environ.get('SR_INGEST_PORT','8891'))), H).serve_forever()
+    HTTPServer(("127.0.0.1", PORT), H).serve_forever()

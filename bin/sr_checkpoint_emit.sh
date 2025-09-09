@@ -3,7 +3,7 @@ set -euo pipefail
 
 R="$HOME/static-rooster"
 TS="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-OUT="$R/receipts/sr_watch_checkpoint_$(date +%s)_v0_1.json"
+OUT="$HOME/static-rooster/receipts/sr_watch_checkpoint_$(date +%s)_v0_1.json"
 
 cfg="$R/config/decisionhub.config.json"
 cfg_sha="$(sha256sum "$cfg" 2>/dev/null | awk '{print $1}')"
@@ -64,3 +64,6 @@ jq -n \
 }' > "$OUT"
 
 echo "wrote $OUT"
+
+# keep a stable pointer
+cp "$OUT" "$HOME/static-rooster/receipts/sr_watch_checkpoint_v0_1.json" >/dev/null 2>&1 || true

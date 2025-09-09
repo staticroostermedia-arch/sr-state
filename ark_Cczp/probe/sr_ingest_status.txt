@@ -1,0 +1,8 @@
+○ sr-ingest.service - Static Rooster Reply Ingest (localhost:8891)
+     Loaded: loaded (/home/a/.config/systemd/user/sr-ingest.service; enabled; vendor preset: enabled)
+     Active: inactive (dead) since Mon 2025-09-08 17:00:19 PDT; 16min ago
+    Process: 7984 ExecStart=/usr/bin/python3 -u /home/a/static-rooster/bin/sr_ingest_server.py (code=exited, status=0/SUCCESS)
+   Main PID: 7984 (code=exited, status=0/SUCCESS)
+        CPU: 74ms
+
+Sep 08 17:00:19 eh1003006-dev systemd[945]: Started Static Rooster Reply Ingest (localhost:8891).

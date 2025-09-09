@@ -1,0 +1,60 @@
+<!doctype html><html><head>
+<meta charset="utf-8"/>
+<title>Receipts Timeline v0.1</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<style>
+  body{margin:0;background:#0b1220;color:#cfe3ff;font:14px/1.4 system-ui,Segoe UI,Roboto,Helvetica,Arial}
+  header{position:sticky;top:0;background:#0f1730;border-bottom:1px solid #223; padding:10px}
+  main{padding:16px}
+  input,button,select{background:#101a35;color:#cfe3ff;border:1px solid #2a3b64;border-radius:8px;padding:8px}
+  .row{display:flex;gap:12px;align-items:center;border-bottom:1px solid #1a2544;padding:10px 0}
+  .pill{border:1px solid #2a3b64;border-radius:999px;padding:2px 8px;font-size:12px}
+  pre{white-space:pre-wrap;word-break:break-word;background:#0d162b;border:1px solid #1e2b4e;border-radius:8px;padding:12px}
+</style>
+</head><body>
+<header>
+  <strong>Receipts Timeline v0.1</strong>
+  <span style="opacity:.7;margin-left:8px" id="status">idle</span>
+  <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+    <label>Index URL:
+      <input id="idx" size="60" value="/receipts/index_v0_1.json"/>
+    </label>
+    <button id="load">Load</button>
+  </div>
+</header>
+<main id="out"></main>
+<script>
+(async function(){
+  const $ = s=>document.querySelector(s);
+  const out = $("#out"), status=$("#status"), idx=$("#idx");
+  $("#load").onclick = load;
+  // auto-load if ?index=... present
+  const q = new URLSearchParams(location.search);
+  if(q.get("index")) idx.value = q.get("index");
+  load().catch(err=>console.error(err));
+  async function load(){
+    out.innerHTML=""; status.textContent="fetching…";
+    const r = await fetch(idx.value);
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const j = await r.json();
+    status.textContent = "ok ("+(j.items?.length||0)+" receipts)";
+    (j.items||[]).slice().reverse().forEach(it=>{
+      const row = document.createElement('div'); row.className='row';
+      row.innerHTML =
+        `<span class="pill">${new Date(it.generated_at||it.time||Date.now()).toLocaleString()}</span>
+         <span class="pill">${(it.name||it.url||'item').toString().split('/').pop()}</span>
+         <a class="pill" href="${it.url||'#'}" target="_blank">open</a>`;
+      row.onclick = async e=>{
+        if(e.target.tagName==='A') return;
+        const u = it.url||it.href; if(!u) return;
+        const r2 = await fetch(u); const j2 = await r2.json();
+        const pre = document.createElement('pre');
+        pre.textContent = JSON.stringify(j2,null,2);
+        row.after(pre);
+      };
+      out.appendChild(row);
+    });
+  }
+})();
+</script>
+</body></html>

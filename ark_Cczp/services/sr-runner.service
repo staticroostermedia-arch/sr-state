@@ -1,0 +1,13 @@
+[Unit]
+Description=Static Rooster Runner
+
+[Service]
+ExecStart=/bin/bash -lc "source $HOME/static-rooster/.venv/bin/activate && python $HOME/static-rooster/runner/runner.py"
+ExecStartPost=/bin/bash -lc "$HOME/static-rooster/bin/sr_after_tick.sh"
+Type=oneshot
+ExecStartPost=/bin/bash -lc "$HOME/static-rooster/bin/sr_receipts_index.sh"
+ExecStartPost=/bin/bash -lc "$HOME/static-rooster/bin/sr_receipts_index.sh"
+ExecStartPost=/bin/bash -lc "$HOME/static-rooster/bin/sr_receipts_index.sh"
+ExecStartPost=/bin/bash -lc "$HOME/static-rooster/bin/sr_receipts_index.sh"
+ExecStartPost=/bin/bash -lc "$HOME/static-rooster/bin/sr_receipts_index.sh"
+ExecStartPost=/bin/bash -lc "$HOME/static-rooster/bin/sr_receipts_index.sh"

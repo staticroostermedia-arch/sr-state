@@ -1,0 +1,19 @@
+[Unit]
+Description=Static Rooster Reply Ingest (localhost:8891)
+After=default.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/static-rooster
+Environment=PYTHONUNBUFFERED=1
+# If your server is a *bash script*:
+# ExecStart=%h/static-rooster/bin/sr_ingest_server.sh
+# If your server is a *python file*, use this line instead:
+ExecStart=/usr/bin/python3 -u %h/static-rooster/bin/sr_ingest_server.py
+Restart=on-failure
+RestartSec=2
+StandardOutput=append:%h/static-rooster/logs/sr-ingest.log
+StandardError=append:%h/static-rooster/logs/sr-ingest.log
+
+[Install]
+WantedBy=default.target

@@ -1,9 +1,15 @@
 {
   "schema": "eh1003006.watch.v1",
-  "stamp": "2025-09-08T21:00:01Z",
+  "stamp": "2025-09-09T01:00:01Z",
   "config": {
     "version": "v?",
-    "tools": []
+    "tools": [
+      "http://localhost:8888/forge/reply_builder_v0_1.html?config=/config/decisionhub.config.json",
+      "http://localhost:8888/receipts/receipts_timeline_viewer_v0_1.html?index=/receipts/index_v0_1.json",
+      "http://localhost:8888/forge/gate_reports/index_v0_1.html?index=/forge/gate_reports/index_v0_1.json",
+      "http://localhost:8888/decisionhub/watch_checkpoint_viewer_v0_1.html?src=/receipts/sr_watch_checkpoint_v0_1.json",
+      "http://localhost:8891/"
+    ]
   },
   "tools": [
     {

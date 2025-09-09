@@ -1,0 +1,47 @@
+Sep 08 15:04:08 eh1003006-dev systemd[951]: Started Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:04:08 eh1003006-dev bash[32376]: /bin/bash: -c: option requires an argument
+Sep 08 15:04:08 eh1003006-dev systemd[951]: sr-ingest.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Sep 08 15:04:08 eh1003006-dev systemd[951]: sr-ingest.service: Failed with result 'exit-code'.
+Sep 08 15:04:08 eh1003006-dev systemd[951]: sr-ingest.service: Scheduled restart job, restart counter is at 1.
+Sep 08 15:04:08 eh1003006-dev systemd[951]: Stopped Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:04:08 eh1003006-dev systemd[951]: Started Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:04:08 eh1003006-dev bash[32379]: /bin/bash: -c: option requires an argument
+Sep 08 15:04:08 eh1003006-dev systemd[951]: sr-ingest.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Sep 08 15:04:08 eh1003006-dev systemd[951]: sr-ingest.service: Failed with result 'exit-code'.
+Sep 08 15:04:08 eh1003006-dev systemd[951]: sr-ingest.service: Scheduled restart job, restart counter is at 2.
+Sep 08 15:04:08 eh1003006-dev systemd[951]: Stopped Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:04:08 eh1003006-dev systemd[951]: Started Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:04:08 eh1003006-dev bash[32380]: /bin/bash: -c: option requires an argument
+Sep 08 15:04:08 eh1003006-dev systemd[951]: sr-ingest.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Sep 08 15:04:08 eh1003006-dev systemd[951]: sr-ingest.service: Failed with result 'exit-code'.
+Sep 08 15:04:08 eh1003006-dev systemd[951]: sr-ingest.service: Scheduled restart job, restart counter is at 3.
+Sep 08 15:04:08 eh1003006-dev systemd[951]: Stopped Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:04:08 eh1003006-dev systemd[951]: Started Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:04:08 eh1003006-dev bash[32381]: /bin/bash: -c: option requires an argument
+Sep 08 15:04:08 eh1003006-dev systemd[951]: sr-ingest.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Sep 08 15:04:08 eh1003006-dev systemd[951]: sr-ingest.service: Failed with result 'exit-code'.
+Sep 08 15:04:09 eh1003006-dev systemd[951]: sr-ingest.service: Scheduled restart job, restart counter is at 4.
+Sep 08 15:04:09 eh1003006-dev systemd[951]: Stopped Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:04:09 eh1003006-dev systemd[951]: Started Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:04:09 eh1003006-dev bash[32382]: /bin/bash: -c: option requires an argument
+Sep 08 15:04:09 eh1003006-dev systemd[951]: sr-ingest.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Sep 08 15:04:09 eh1003006-dev systemd[951]: sr-ingest.service: Failed with result 'exit-code'.
+Sep 08 15:04:09 eh1003006-dev systemd[951]: sr-ingest.service: Scheduled restart job, restart counter is at 5.
+Sep 08 15:04:09 eh1003006-dev systemd[951]: Stopped Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:04:09 eh1003006-dev systemd[951]: sr-ingest.service: Start request repeated too quickly.
+Sep 08 15:04:09 eh1003006-dev systemd[951]: sr-ingest.service: Failed with result 'exit-code'.
+Sep 08 15:04:09 eh1003006-dev systemd[951]: Failed to start Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:08:28 eh1003006-dev systemd[951]: Started Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:08:58 eh1003006-dev systemd[951]: Stopping Static Rooster Reply Ingest (localhost:8890)...
+Sep 08 15:08:58 eh1003006-dev systemd[951]: Stopped Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:08:58 eh1003006-dev systemd[951]: Started Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:14:16 eh1003006-dev systemd[951]: Stopping Static Rooster Reply Ingest (localhost:8890)...
+Sep 08 15:14:16 eh1003006-dev systemd[951]: Stopped Static Rooster Reply Ingest (localhost:8890).
+-- Boot 8ccc91fa78b2478c9b8e75d9d0481cf6 --
+Sep 08 15:14:33 eh1003006-dev systemd[945]: Started Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:27:32 eh1003006-dev systemd[945]: Stopping Static Rooster Reply Ingest (localhost:8890)...
+Sep 08 15:27:32 eh1003006-dev systemd[945]: Stopped Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:27:32 eh1003006-dev systemd[945]: Started Static Rooster Reply Ingest (localhost:8890).
+Sep 08 15:39:30 eh1003006-dev systemd[945]: Started Static Rooster Reply Ingest (localhost:8890).
+Sep 08 16:50:17 eh1003006-dev systemd[945]: Started Static Rooster Reply Ingest (localhost:8890).
+Sep 08 17:00:19 eh1003006-dev systemd[945]: Started Static Rooster Reply Ingest (localhost:8891).

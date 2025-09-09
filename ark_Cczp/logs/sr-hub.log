@@ -1,0 +1,287 @@
+127.0.0.1 - - [08/Sep/2025 15:23:06] code 404, message File not found
+127.0.0.1 - - [08/Sep/2025 15:23:06] "GET /decisionhub/receipts_timeline_v0_1.html HTTP/1.1" 404 -
+127.0.0.1 - - [08/Sep/2025 15:23:06] "GET /decisionhub/start_here_v0_2.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:23:07] "GET /config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:01] code 404, message File not found
+127.0.0.1 - - [08/Sep/2025 15:24:01] "GET /decisionhub/undefined HTTP/1.1" 404 -
+127.0.0.1 - - [08/Sep/2025 15:24:03] "GET /forge/gate_reports_viewer_v0_1.html?index=/forge/gate_reports/index_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:24:04] "GET /forge/gate_reports/index_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:04] "GET /forge/gate_reports/sr_gate_report_1757370211_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:04] "GET /forge/gate_reports/sr_gate_report_1757370203_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:04] "GET /forge/gate_reports/sr_gate_report_1757370059_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:04] "GET /forge/gate_reports/sr_gate_report_1757369847_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:04] "GET /forge/gate_reports/sr_gate_report_1757369627_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:04] "GET /forge/gate_reports/sr_gate_report_1757369016_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:04] "GET /forge/gate_reports/sr_gate_report_1757367479_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:24:04] "GET /forge/gate_reports/sr_gate_report_1757367292_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:04] "GET /forge/gate_reports/sr_gate_report_1757367013_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:06] "GET /receipts/auto_receipts_viewer_v0_1.html?index=/receipts/index_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:06] "GET /receipts/index_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:06] "GET /receipts/sr.done_receipt_1757369016_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:07] "GET /receipts/sr.done_receipt_1757365204_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:24:07] "GET /receipts/sr.done_receipt_1757362760_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:27:45] "GET /config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:28:08] code 404, message File not found
+127.0.0.1 - - [08/Sep/2025 15:28:08] "GET /decisionhub/undefined HTTP/1.1" 404 -
+127.0.0.1 - - [08/Sep/2025 15:28:45] code 404, message File not found
+127.0.0.1 - - [08/Sep/2025 15:28:45] "GET /decisionhub/undefined HTTP/1.1" 404 -
+127.0.0.1 - - [08/Sep/2025 15:29:14] code 404, message File not found
+127.0.0.1 - - [08/Sep/2025 15:29:14] "GET /decisionhub/undefined HTTP/1.1" 404 -
+127.0.0.1 - - [08/Sep/2025 15:31:18] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:31:36] "GET /decisionhub/start_here_v0_2.html HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:31:36] "GET /config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:32:11] "GET /config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:32:47] code 404, message File not found
+127.0.0.1 - - [08/Sep/2025 15:32:47] "GET /decisionhub/undefined HTTP/1.1" 404 -
+127.0.0.1 - - [08/Sep/2025 15:33:15] "GET /decisionhub/start_here_v0_2.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:33:15] "GET /config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:34:44] "HEAD /config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:34:57] "GET /decisionhub/start_here_v0_2.html?config=/config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:34:57] "GET /config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:35:17] "GET /decisionhub/start_here_default_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:35:17] "GET /decisionhub/start_here_v0_2.html?config=%2Fconfig%2Fdecisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:35:17] "GET /config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:36:33] "GET /decisionhub/ HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:36:40] "GET /decisionhub/start_here_v0_1.html HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:36:40] "GET /config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:36:43] "GET /decisionhub/start_here_v0_2.html HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:38:18] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:38:34] "GET /decisionhub/start_here_v0_2.html HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:38:35] "GET /config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:41:02] "GET /decisionhub/start_here_v0_2.html?config=/config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:41:03] "GET /config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:41:25] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:41:52] code 404, message File not found
+127.0.0.1 - - [08/Sep/2025 15:41:52] "GET /receipts/receipts_timeline_v0_1.html?index=/receipts/index_v0_1.json HTTP/1.1" 404 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports_viewer_v0_1.html?index=/forge/gate_reports/index_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/index_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757371114_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757370731_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757370695_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757370464_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757370211_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757370203_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757370059_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757369847_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757369627_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757369016_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757367479_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757367292_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:41:55] "GET /forge/gate_reports/sr_gate_report_1757367013_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:45:19] "GET /decisionhub/start_here_v0_2.html?config=/config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:45:19] "GET /config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:46:20] "GET /decisionhub/start_here_v0_2.html?config=/config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:46:20] "GET /config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:49:29] "GET /decisionhub/start_here_v0_2.html?config=/config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:29] "GET /config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:49:32] "GET /forge/reply_builder_v0_1.html?ingest_url=http://localhost:8891 HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:49:35] code 404, message File not found
+127.0.0.1 - - [08/Sep/2025 15:49:35] "GET /receipts/receipts_timeline_viewer_v0_1.html?index=/receipts/index_v0_1.json HTTP/1.1" 404 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports_viewer_v0_1.html?index=/forge/gate_reports/index_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/index_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757371114_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757370731_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757370695_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757370464_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757370211_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757370203_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757370059_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757369847_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757369627_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757369016_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757367479_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757367292_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:40] "GET /forge/gate_reports/sr_gate_report_1757367013_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:49:43] "GET /forge/watch_checkpoints_viewer_v0_1.html?src=/receipts/sr_watch_checkpoint_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:49:43] "GET /receipts/sr_watch_checkpoint_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:49:47] code 404, message File not found
+127.0.0.1 - - [08/Sep/2025 15:49:47] "GET /receipts/receipts_timeline_viewer_v0_1.html?index=/receipts/index_v0_1.json HTTP/1.1" 404 -
+127.0.0.1 - - [08/Sep/2025 15:50:18] code 404, message File not found
+127.0.0.1 - - [08/Sep/2025 15:50:18] "GET /receipts/receipts_timeline_viewer_v0_1.html?index=/receipts/index_v0_1.json HTTP/1.1" 404 -
+127.0.0.1 - - [08/Sep/2025 15:51:11] "GET /forge/watch_checkpoints_viewer_v0_1.html?src=/receipts/sr_watch_checkpoint_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:51:11] "GET /receipts/sr_watch_checkpoint_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:54:10] "GET /forge/gate_reports/index_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:54:10] code 404, message File not found
+127.0.0.1 - - [08/Sep/2025 15:54:10] "GET /favicon.ico HTTP/1.1" 404 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 60022)
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/http/server.py", line 727, in send_head
+    f = open(path, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/home/a/static-rooster/favicon.ico'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.10/http/server.py", line 1304, in finish_request
+    self.RequestHandlerClass(request, client_address, self,
+  File "/usr/lib/python3.10/http/server.py", line 668, in __init__
+    super().__init__(*args, **kwargs)
+  File "/usr/lib/python3.10/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/usr/lib/python3.10/http/server.py", line 433, in handle
+    self.handle_one_request()
+  File "/usr/lib/python3.10/http/server.py", line 421, in handle_one_request
+    method()
+  File "/usr/lib/python3.10/http/server.py", line 672, in do_GET
+    f = self.send_head()
+  File "/usr/lib/python3.10/http/server.py", line 729, in send_head
+    self.send_error(HTTPStatus.NOT_FOUND, "File not found")
+  File "/usr/lib/python3.10/http/server.py", line 488, in send_error
+    self.wfile.write(body)
+  File "/usr/lib/python3.10/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+127.0.0.1 - - [08/Sep/2025 15:54:10] "GET /forge/gate_reports/sr_gate_report_1757371114_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:54:10] "GET /forge/gate_reports/sr_gate_report_1757370731_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:54:10] "GET /forge/gate_reports/sr_gate_report_1757370695_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:54:10] "GET /forge/gate_reports/sr_gate_report_1757370464_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:54:10] "GET /forge/gate_reports/sr_gate_report_1757370211_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:54:10] "GET /forge/gate_reports/sr_gate_report_1757370203_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:54:10] "GET /forge/gate_reports/sr_gate_report_1757370059_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:54:10] "GET /forge/gate_reports/sr_gate_report_1757369847_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:54:10] "GET /forge/gate_reports/sr_gate_report_1757369627_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:54:13] "GET /forge/watch_checkpoints_viewer_v0_1.html?src=/receipts/sr_watch_checkpoint_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:54:13] "GET /receipts/sr_watch_checkpoint_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:54:26] "GET /forge/reply_builder_v0_1.html?ingest_url=http://localhost:8891 HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:56:15] "GET /receipts/receipts_timeline_viewer_v0_1.html?index=/receipts/index_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:56:16] "GET /receipts/index_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:56:36] "GET /forge/gate_reports_viewer_v0_1.html?index=/forge/gate_reports/index_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:56:36] "GET /forge/gate_reports/index_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:56:37] "GET /forge/gate_reports/sr_gate_report_1757371114_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:56:37] "GET /forge/gate_reports/sr_gate_report_1757370731_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:56:37] "GET /forge/gate_reports/sr_gate_report_1757370695_v0_1.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:56:37] "GET /forge/gate_reports/sr_gate_report_1757369627_v0_1.json HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 55188)
+127.0.0.1 - - [08/Sep/2025 15:56:37] "GET /forge/gate_reports/sr_gate_report_1757369016_v0_1.json HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.10/http/server.py", line 1304, in finish_request
+    self.RequestHandlerClass(request, client_address, self,
+  File "/usr/lib/python3.10/http/server.py", line 668, in __init__
+    super().__init__(*args, **kwargs)
+  File "/usr/lib/python3.10/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/usr/lib/python3.10/http/server.py", line 433, in handle
+    self.handle_one_request()
+  File "/usr/lib/python3.10/http/server.py", line 421, in handle_one_request
+    method()
+  File "/usr/lib/python3.10/http/server.py", line 675, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/usr/lib/python3.10/http/server.py", line 875, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "/usr/lib/python3.10/shutil.py", line 198, in copyfileobj
+    fdst_write(buf)
+  File "/usr/lib/python3.10/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+127.0.0.1 - - [08/Sep/2025 15:56:37] "GET /forge/gate_reports/sr_gate_report_1757367479_v0_1.json HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 55212)
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.10/http/server.py", line 1304, in finish_request
+    self.RequestHandlerClass(request, client_address, self,
+  File "/usr/lib/python3.10/http/server.py", line 668, in __init__
+    super().__init__(*args, **kwargs)
+  File "/usr/lib/python3.10/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/usr/lib/python3.10/http/server.py", line 433, in handle
+    self.handle_one_request()
+  File "/usr/lib/python3.10/http/server.py", line 421, in handle_one_request
+    method()
+  File "/usr/lib/python3.10/http/server.py", line 675, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/usr/lib/python3.10/http/server.py", line 875, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "/usr/lib/python3.10/shutil.py", line 198, in copyfileobj
+    fdst_write(buf)
+  File "/usr/lib/python3.10/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+127.0.0.1 - - [08/Sep/2025 15:56:37] "GET /forge/gate_reports/sr_gate_report_1757367292_v0_1.json HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 55222)
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.10/http/server.py", line 1304, in finish_request
+    self.RequestHandlerClass(request, client_address, self,
+  File "/usr/lib/python3.10/http/server.py", line 668, in __init__
+    super().__init__(*args, **kwargs)
+  File "/usr/lib/python3.10/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/usr/lib/python3.10/http/server.py", line 433, in handle
+    self.handle_one_request()
+  File "/usr/lib/python3.10/http/server.py", line 421, in handle_one_request
+    method()
+  File "/usr/lib/python3.10/http/server.py", line 675, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/usr/lib/python3.10/http/server.py", line 875, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "/usr/lib/python3.10/shutil.py", line 198, in copyfileobj
+    fdst_write(buf)
+  File "/usr/lib/python3.10/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+127.0.0.1 - - [08/Sep/2025 15:56:53] "GET /receipts/receipts_timeline_viewer_v0_1.html?index=/receipts/index_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:57:09] "GET /decisionhub/start_here_v0_2.html?config=/config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:57:09] "GET /config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 15:57:13] "GET /decisionhub/start_here_v0_2.html?config=/config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:57:13] "GET /config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:57:20] "GET /decisionhub/start_here_v0_2.html?config=/config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 15:57:20] "GET /config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 16:00:32] "GET /decisionhub/start_here_v0_2.html?config=/config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 16:00:32] "GET /config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 16:00:33] "GET /receipts/receipts_timeline_viewer_v0_1.html?index=/receipts/index_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 16:00:33] "GET /receipts/index_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 16:04:45] "GET /decisionhub/start_here_v0_2.html?config=/config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 16:04:45] "GET /receipts/receipts_timeline_viewer_v0_1.html?index=/receipts/index_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 16:04:45] "GET /forge/reply_builder_v0_1.html?config=/config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 16:04:45] "GET /config/decisionhub.config.json HTTP/1.1" 200 -
+127.0.0.1 - - [08/Sep/2025 16:04:45] "GET /receipts/index_v0_1.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 16:04:46] code 404, message File not found
+127.0.0.1 - - [08/Sep/2025 16:04:46] "GET /favicon.ico HTTP/1.1" 404 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 57590)
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/http/server.py", line 727, in send_head
+    f = open(path, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/home/a/static-rooster/favicon.ico'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.10/http/server.py", line 1304, in finish_request
+    self.RequestHandlerClass(request, client_address, self,
+  File "/usr/lib/python3.10/http/server.py", line 668, in __init__
+    super().__init__(*args, **kwargs)
+  File "/usr/lib/python3.10/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/usr/lib/python3.10/http/server.py", line 433, in handle
+    self.handle_one_request()
+  File "/usr/lib/python3.10/http/server.py", line 421, in handle_one_request
+    method()
+  File "/usr/lib/python3.10/http/server.py", line 672, in do_GET
+    f = self.send_head()
+  File "/usr/lib/python3.10/http/server.py", line 729, in send_head
+    self.send_error(HTTPStatus.NOT_FOUND, "File not found")
+  File "/usr/lib/python3.10/http/server.py", line 488, in send_error
+    self.wfile.write(body)
+  File "/usr/lib/python3.10/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+127.0.0.1 - - [08/Sep/2025 16:04:52] "GET /decisionhub/start_here_v0_2.html?config=/config/decisionhub.config.json HTTP/1.1" 304 -
+127.0.0.1 - - [08/Sep/2025 16:04:52] "GET /config/decisionhub.config.json HTTP/1.1" 304 -

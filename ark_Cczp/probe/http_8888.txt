@@ -1,0 +1,12 @@
+# reply_builder page + cfg
+page=200
+json=200
+# receipts timeline page + index
+page=200
+json=200
+# gate reports page + index
+page=200
+json=200
+# watch checkpoint page + sample src
+page=200
+json=200

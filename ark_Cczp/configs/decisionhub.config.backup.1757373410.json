@@ -1,0 +1,67 @@
+{
+  "schema": "sr.decisionhub.config.v0_1",
+  "meta": {
+    "name": "DecisionHub Config (v0.4)",
+    "generatedAt": "2025-09-07T21:29:57.736219+00:00",
+    "site": "parcel",
+    "parcelId": "EH1003006"
+  },
+  "features": [
+    {
+      "key": "home",
+      "title": "DecisionHub Home (v3.2.1)",
+      "version": "v3_2_1",
+      "route": "legacy_adapters/decisionhub_index_v3_2_1.html"
+    },
+    {
+      "key": "pdr",
+      "title": "PDR Navigator",
+      "version": "v0_3_2",
+      "route": "legacy_adapters/pdr_navigator_v0_3_2.html"
+    },
+    {
+      "key": "intake",
+      "title": "Field Intake",
+      "version": "v1_3_3",
+      "route": "legacy_adapters/field_intake_v1_3_3.html"
+    },
+    {
+      "key": "planner_527",
+      "title": "Online Planner 5.2.7",
+      "version": "v5_2_7",
+      "route": "../tools/legacy/online_planner_v5_2_7.html"
+    },
+    {
+      "key": "planner_528",
+      "title": "Online Planner 5.2.8",
+      "version": "v5_2_8",
+      "route": "../tools/legacy/online_planner_v5_2_8.html"
+    },
+    {
+      "key": "planner_intake_529",
+      "title": "Planner Intake 5.2.9",
+      "version": "v5_2_9",
+      "route": "../tools/legacy/online_planner_v5_2_9_intake.html"
+    },
+    {
+      "key": "hub",
+      "title": "Hub/Registry",
+      "version": "v0_1_1",
+      "route": "../hub_registry/hub_registry_index_v0_1_1.html"
+    },
+    {
+      "key": "tools",
+      "title": "Tools Directory",
+      "version": "v0_1_0",
+      "route": "../hub_registry/tools_directory_v0_1_0.html"
+    },
+    {
+      "key": "receipts",
+      "title": "Receipts Timeline",
+      "version": "v0_1_0",
+      "route": "../receipts/receipts_timeline_viewer_v0_1_0.html"
+    }
+  ],
+  "active_plan": "forge_v0_1_4",
+  "receipts": []
+}
