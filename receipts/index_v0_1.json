@@ -1,8 +1,14 @@
 {
   "title": "Static Rooster Receipts Index",
   "version": "v0_1",
-  "generated_at": "2025-09-09T02:08:05Z",
+  "generated_at": "2025-09-16T02:39:57Z",
   "items": [
+    {
+      "name": "sr_watch_checkpoint_20250915_1939_v0_1.json",
+      "href": "/receipts/sr_watch_checkpoint_20250915_1939_v0_1.json",
+      "ts": "20250915_1939",
+      "badge": "file"
+    },
     {
       "name": "sr_watch_checkpoint_20250908_1908_v0_1.json",
       "href": "/receipts/sr_watch_checkpoint_20250908_1908_v0_1.json",
@@ -19,6 +25,12 @@
       "name": "sr_receipt_note_20250908_1908_51f6a20e98_v0_1.json",
       "href": "/receipts/sr_receipt_note_20250908_1908_51f6a20e98_v0_1.json",
       "ts": "20250908_1908",
+      "badge": "file"
+    },
+    {
+      "name": "sr_penitential_rite_20250915_1939_v0_1.md",
+      "href": "/receipts/sr_penitential_rite_20250915_1939_v0_1.md",
+      "ts": "20250915_1939",
       "badge": "file"
     },
     {

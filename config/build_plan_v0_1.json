@@ -1,0 +1,40 @@
+{
+  "schema": "eh1003006.build_plan.v0_1",
+  "modules": [
+    {
+      "key": "planner_527",
+      "title": "Online Planner v5.2.7",
+      "badge": "v5.2.7"
+    },
+    {
+      "key": "intake_console_01",
+      "title": "Intake Console v0.1",
+      "badge": "v0.1.0"
+    },
+    {
+      "key": "canon_diff_01",
+      "title": "Canon Diff Viewer v0.1",
+      "badge": "v0.1.0"
+    },
+    {
+      "key": "status_board_01",
+      "title": "Status Board v0.1",
+      "badge": "v0.1.0"
+    },
+    {
+      "key": "field_notes_01",
+      "title": "Field Notes v0.1",
+      "badge": "v0.1.0"
+    },
+    {
+      "key": "ops_checklist_01",
+      "title": "Ops Checklist v0.1",
+      "badge": "v0.1.0"
+    },
+    {
+      "key": "ops_dashboard_02",
+      "title": "Ops Dashboard v0.2",
+      "badge": "v0.2.0"
+    }
+  ]
+}

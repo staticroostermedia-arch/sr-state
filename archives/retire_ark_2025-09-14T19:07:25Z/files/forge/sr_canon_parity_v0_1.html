@@ -1,0 +1,8 @@
+<!doctype html><meta charset="utf-8"><title>Canon Parity v0.1</title>
+<h1>Canon Parity</h1><pre id="out">loading…</pre>
+<script>
+fetch("/receipts/sr_watch_checkpoint_v0_1.json").then(r=>r.json()).then(j=>{
+ const last=(j.items||[])[(j.items||[]).length-1]||{};
+ document.getElementById("out").textContent = JSON.stringify(last.canon_parity||last,null,2);
+}).catch(e=>{document.getElementById("out").textContent=String(e)});
+</script>

@@ -1,0 +1,8 @@
+{
+  "schema":"sr.receipt.v0_1",
+  "generated_at":"2025-09-14T05:45:45Z",
+  "tool_name":"sr_canon_pin_v0_1",
+  "status":"ok",
+  "summary":"canon pin pin",
+  "captures":{"canon":"/home/a/static-rooster/docs/identity/01_sr_canon.md","pin":"/home/a/static-rooster/docs/identity/canon_pin_v0_1.json","sha256":"b58fa198b6b676a96e9bf098ef4858c632bffb5a52423c24449da387f39ebe44","note":""}
+}

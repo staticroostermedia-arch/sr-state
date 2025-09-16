@@ -1,0 +1,1 @@
+{"schema":"sr.receipt.v0_1","tool":"sr_probe_bus_v0_1","generated_at":"2025-09-14T18:47:24Z","status":"ok","probes":[{"route":"/","status":"200"},{"route":"/decisionhub/eh1003006_decisionhub_index_v4_0_0.html","status":"200"},{"route":"/config/decisionhub_config.json","status":"200"},{"route":"/receipts/","status":"200"}],"verdict":"foedus_intactum"}

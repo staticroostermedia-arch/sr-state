@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turkey Castle • Field Post — v0.1.2</title>
+<style>
+:root{ --bg:#0b0c06; --ink:#b4ffb4; --grid:#1a2b1a; --mut:#8adf8a; --warn:#ffd166; --bad:#ff6b6b; --ok:#39ff14 }
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink);margin:0;font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:1100px;margin:0 auto;padding:14px}
+h1{font-size:18px;margin:0 0 10px 0}
+.card{border:1px solid var(--grid);border-radius:12px;background:#0f140f;padding:12px;margin:10px 0}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input,button,textarea,select{border:1px solid var(--grid);background:#0a0f0a;color:var(--ink);border-radius:10px;padding:8px}
+button{cursor:pointer}
+small{color:var(--mut)}
+.preview{display:grid;grid-template-columns:100px 1fr;gap:10px;align-items:start;border-bottom:1px dashed var(--grid);padding:8px 0}
+.preview img{width:100px;height:100px;object-fit:cover;border-radius:8px;border:1px solid var(--grid)}
+.note{width:100%;min-height:48px}
+.badge{display:inline-block;border:1px solid var(--grid);border-radius:999px;padding:3px 10px;margin-right:6px}
+.ok{color:var(--ok);border-color:var(--ok)} .bad{color:var(--bad);border-color:var(--bad)} .warn{color:var(--warn);border-color:var(--warn)}
+.kv{display:grid;grid-template-columns:160px 1fr;gap:6px;font-size:12px}
+.progress{height:8px;background:#091109;border-radius:6px;overflow:hidden}
+.progress>div{height:100%;background:linear-gradient(90deg,#2cff2c,#9bf79b)}
+.drop{border:2px dashed #335533;border-radius:12px;padding:14px;text-align:center;color:#9ae89a}
+.drop.drag{background:#0b160b}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/exifr/dist/lite.umd.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <h1>🦃 Turkey Castle • Field Post <span class="badge">v0.1.2</span></h1>
+
+  <div class="card">
+    <div class="row">
+      <label>Steward: <input id="steward" placeholder="A / L / name" style="min-width:140px"></label>
+      <label>Parcel ID: <input id="parcel" value="EH1003006" style="min-width:140px"></label>
+      <label>Starlink Anchor: lat <input id="anchLat" style="width:110px" value="46.0201"> lon <input id="anchLon" style="width:110px" value="-122.5488"></label>
+      <button id="btnUseGPS">Use current GPS as anchor</button>
+    </div>
+    <div class="row">
+      <button id="btnGPS">📍 Get GPS</button>
+      <button id="btnNet">🌐 Net Info</button>
+      <button id="btnPing">⚡ Quick Ping</button>
+    </div>
+    <div class="kv" id="kvInfo"></div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <input type="file" id="files" accept="image/*" multiple capture="environment">
+      <input type="file" id="folder" webkitdirectory multiple>
+      <input type="file" id="zipin" accept=".zip">
+      <label>Quality <input type="range" id="q" min="0.5" max="0.95" step="0.05" value="0.85"></label>
+      <label>Max W/H(px) <input type="number" id="maxwh" min="800" max="4096" step="128" value="2048" style="width:90px"></label>
+      <button id="btnClear">Clear</button>
+    </div>
+    <div class="row">
+      <label>Default distance (m) <input id="defDist" type="number" step="1" style="width:100px"></label>
+      <label>Default bearing (°) <input id="defBear" type="number" step="0.1" style="width:100px"></label>
+      <button id="btnApplyDefaults">Apply to photos missing coords</button>
+    </div>
+    <div class="drop" id="drop">Drop images or a ZIP here</div>
+    <div id="list"></div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <button id="btnZip">📦 Build Field Post ZIP</button>
+      <span id="zipStatus" class="badge warn">idle</span>
+      <div class="progress" style="flex:1;min-width:220px"><div id="bar" style="width:0%"></div></div>
+    </div>
+    <small>Each photo records <em>relative</em> distance/bearing from the Starlink anchor. If EXIF GPS is missing, set distance/bearing manually or batch-apply defaults.</small>
+  </div>
+</div>
+
+<script>
+const $ = sel => document.querySelector(sel);
+const kv = (k,v) => `<div>${k}</div><div>${v}</div>`;
+const S = { photos:[], meta:{}, gps:null, net:null, ping:null, anchor:{lat:46.0201, lon:-122.5488} };
+
+function toNum(v){ const x = parseFloat(v); return Number.isFinite(x) ? x : null; }
+function updateAnchor(){ const lat=toNum($('#anchLat').value), lon=toNum($('#anchLon').value); if(lat!=null && lon!=null){ S.anchor={lat,lon}; } }
+
+function logInfo(){
+  const u = navigator.userAgent;
+  const p = navigator.platform || (navigator.userAgentData?.platform) || 'unknown';
+  const mem = navigator.deviceMemory || 'n/a';
+  const cpu = navigator.hardwareConcurrency || 'n/a';
+  const lang = navigator.languages?.join(', ') || navigator.language || 'n/a';
+  const con = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const conn = con? `${con.effectiveType||'?'} • ${con.downlink||'?'}Mbps • rtt ${con.rtt||'?'}ms • save=${con.saveData||false}` : 'n/a';
+  $('#kvInfo').innerHTML = kv('UA', u) + kv('Platform', p) + kv('Langs', lang) + kv('Mem', mem+' GB') + kv('CPU', cpu) + kv('Conn', conn);
+}
+
+async function getGPS(){
+  try{
+    const pos = await new Promise((res,rej)=> navigator.geolocation.getCurrentPosition(res, rej, { enableHighAccuracy:true, maximumAge:10000, timeout:12000 }));
+    const {latitude, longitude, altitude, accuracy, altitudeAccuracy, heading, speed} = pos.coords;
+    S.gps = {latitude, longitude, altitude, accuracy, altitudeAccuracy, heading, speed, timestamp: new Date(pos.timestamp).toISOString()};
+    $('#kvInfo').insertAdjacentHTML('beforeend', kv('GPS', `${latitude.toFixed(6)}, ${longitude.toFixed(6)} ±${Math.round(accuracy)}m`));
+    $('#btnGPS').className='ok badge'; $('#btnGPS').textContent='📍 GPS OK';
+  }catch(e){
+    alert('GPS failed: '+e.message);
+    $('#btnGPS').className='bad badge';
+  }
+}
+async function useGPSasAnchor(){ await getGPS(); if(S.gps){ $('#anchLat').value=S.gps.latitude; $('#anchLon').value=S.gps.longitude; updateAnchor(); } }
+function getNet(){ try{ const c = navigator.connection || navigator.mozConnection || navigator.webkitConnection; if(!c){ alert('NetworkInformation API not supported'); return; } S.net = { effectiveType:c.effectiveType, downlink:c.downlink, rtt:c.rtt, saveData:c.saveData }; $('#kvInfo').insertAdjacentHTML('beforeend', kv('Net Info', `${c.effectiveType} • ${c.downlink}Mbps • rtt ${c.rtt}ms`)); }catch(e){} }
+async function ping(){ const url='https://www.google.com/generate_204', t0=performance.now(); try{ await fetch(url,{method:'GET',cache:'no-store',mode:'no-cors'}); const dt=Math.round(performance.now()-t0); S.ping={url,ms:dt}; $('#kvInfo').insertAdjacentHTML('beforeend', kv('Ping', dt+' ms')); }catch(e){ const dt=Math.round(performance.now()-t0); S.ping={url,ms:dt,note:'fetch error'}; $('#kvInfo').insertAdjacentHTML('beforeend', kv('Ping', dt+' ms (err)')); } }
+
+function clearList(){ S.photos=[]; $('#list').innerHTML=''; $('#zipStatus').textContent='idle'; $('#bar').style.width='0%'; }
+
+function addPhoto(blob, name, idx){
+  const row = document.createElement('div'); row.className='preview';
+  const id = 'p'+idx;
+  row.innerHTML = `<img id="${id}-img"><div>
+    <div class="row"><b>${name}</b><span class="badge" id="${id}-size"></span><span class="badge" id="${id}-rel">rel: —</span></div>
+    <div class="kv" id="${id}-meta"></div>
+    <div class="row">
+      <label>Dist (m) <input type="number" step="1" id="${id}-dist" style="width:100px"></label>
+      <label>Bear (°) <input type="number" step="0.1" id="${id}-bear" style="width:100px"></label>
+    </div>
+    <textarea class="note" id="${id}-note" placeholder="Note/caption (optional)"></textarea>
+  </div>`;
+  $('#list').appendChild(row);
+  const imgEl = $('#'+id+'-img'); const metaEl = $('#'+id+'-meta'); const sizeBadge = $('#'+id+'-size'); const relBadge = $('#'+id+'-rel');
+  const distEl = $('#'+id+'-dist'); const bearEl = $('#'+id+'-bear');
+  const reader = new FileReader();
+  const ph = { name, blob, dataUrl:null, exif:null, rel:null, noteEl: null, distEl, bearEl };
+  reader.onload = async e => {
+    imgEl.src = e.target.result; ph.dataUrl = e.target.result;
+    try{
+      const ex = await exifr.parse(blob, {tiff:true, ifd0:true, exif:true, gps:true});
+      const dt = ex?.DateTimeOriginal || ex?.CreateDate || null;
+      const dts = dt ? new Date(dt).toISOString() : null;
+      const gps = ex?.gps || {};
+      const loc = (gps?.latitude && gps?.longitude) ? `${gps.latitude.toFixed(6)}, ${gps.longitude.toFixed(6)}${gps.altitude? ' alt '+gps.altitude+'m':''}` : 'n/a';
+      metaEl.innerHTML = kv('EXIF time', dts || 'n/a') + kv('EXIF GPS', loc) + kv('Camera', (ex?.Make||'')+' '+(ex?.Model||''));
+      ph.exif = { time: dts, gps: {lat:gps.latitude, lon:gps.longitude, alt:gps.altitude}, make: ex?.Make, model: ex?.Model };
+      if(gps?.latitude!=null && gps?.longitude!=null){
+        relBadge.textContent='rel: (computed from EXIF)';
+      }
+    }catch(_){
+      metaEl.innerHTML = kv('EXIF', 'unavailable');
+    }
+    sizeBadge.textContent = Math.round(blob.size/1024)+' KB';
+  };
+  reader.readAsDataURL(blob);
+  ph.noteEl = document.getElementById(id+'-note');
+  function onChange(){ const d=toNum(distEl.value), b=toNum(bearEl.value); if(d!=null && b!=null){ ph.rel={distance_m:d, bearing_deg:b}; relBadge.textContent=`rel: ${d.toFixed(1)} m @ ${b.toFixed(1)}°`; } }
+  distEl.addEventListener('input', onChange); bearEl.addEventListener('input', onChange);
+  S.photos.push(ph);
+}
+
+function addFiles(files){
+  const imgs = [...files].filter(f=>/^image\//.test(f.type) || /\.(jpg|jpeg|png)$/i.test(f.name));
+  const start = S.photos.length;
+  imgs.forEach((f,i)=> addPhoto(f, f.name, start+i));
+}
+
+$('#files').addEventListener('change', e=> addFiles(e.target.files));
+$('#folder').addEventListener('change', e=> addFiles(e.target.files));
+$('#btnClear').onclick = clearList;
+
+const drop = document.getElementById('drop');
+drop.addEventListener('dragover', e=>{ e.preventDefault(); drop.classList.add('drag'); });
+drop.addEventListener('dragleave', ()=> drop.classList.remove('drag'));
+drop.addEventListener('drop', async e=>{
+  e.preventDefault(); drop.classList.remove('drag');
+  const files = [...e.dataTransfer.files];
+  if(files.length===1 && /\.zip$/i.test(files[0].name)){
+    await importZip(files[0]);
+  }else{
+    addFiles(files);
+  }
+});
+
+document.getElementById('zipin').addEventListener('change', e=>{
+  const f = e.target.files[0]; if(f) importZip(f);
+});
+
+async function importZip(file){
+  try{
+    const ab = await file.arrayBuffer(); const zip = await JSZip.loadAsync(ab);
+    const entries = Object.values(zip.files).filter(f=>!f.dir && /\.(jpg|jpeg|png)$/i.test(f.name));
+    let idx = S.photos.length;
+    for(const ent of entries){
+      const blob = await ent.async('blob');
+      addPhoto(blob, ent.name.split('/').pop(), idx++);
+    }
+  }catch(e){
+    alert('ZIP import failed: '+e.message);
+  }
+}
+
+document.getElementById('btnApplyDefaults').onclick = ()=>{
+  const d = toNum($('#defDist').value), b = toNum($('#defBear').value);
+  if(d==null || b==null){ alert('Enter default distance and bearing'); return; }
+  for(const ph of S.photos){
+    const hasGPS = ph?.exif?.gps?.lat!=null && ph?.exif?.gps?.lon!=null;
+    if(!hasGPS){
+      ph.rel = {distance_m:d, bearing_deg:b};
+      ph.distEl.value = d; ph.bearEl.value = b;
+      const relBadge = document.querySelector(`#${ph.distEl.id.replace('-dist','')}-rel`);
+      if(relBadge){ relBadge.textContent=`rel: ${d.toFixed(1)} m @ ${b.toFixed(1)}°`; }
+    }
+  }
+};
+
+$('#btnGPS').onclick = getGPS;
+$('#btnNet').onclick = getNet;
+$('#btnPing').onclick = ping;
+$('#btnUseGPS').onclick = useGPSasAnchor;
+$('#anchLat').addEventListener('change', updateAnchor);
+$('#anchLon').addEventListener('change', updateAnchor);
+
+async function sha256ArrayBuffer(buf){
+  const hash = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+function canvasFromDataUrl(dataUrl){
+  return new Promise((resolve, reject)=>{
+    const img = new Image();
+    img.onload = ()=>{
+      const maxwh = parseInt($('#maxwh').value||'2048',10);
+      const scale = Math.min(1, maxwh/Math.max(img.width, img.height));
+      const w = Math.round(img.width*scale), h = Math.round(img.height*scale);
+      const c = document.createElement('canvas'); c.width=w; c.height=h;
+      const ctx = c.getContext('2d'); ctx.drawImage(img,0,0,w,h);
+      resolve({canvas:c, w, h});
+    };
+    img.onerror = reject;
+    img.src = dataUrl;
+  });
+}
+
+async function buildZip(){
+  if(!S.photos.length){ alert('Add photos first'); return; }
+  updateAnchor();
+  $('#zipStatus').textContent='working…';
+  const zip = new JSZip();
+  const q = parseFloat($('#q').value||'0.85');
+  const parcel = $('#parcel').value.trim()||'EH1003006';
+  const steward = $('#steward').value.trim()||'A';
+  const meta = {
+    schema:'sr.field_post.v0_1',
+    tool:'turkey_castle.field_post.v0_1_2',
+    generatedAt: new Date().toISOString(),
+    parcelId: parcel,
+    steward,
+    anchor: S.anchor,
+    device:{
+      userAgent:navigator.userAgent,
+      platform: navigator.userAgentData?.platform || navigator.platform || null,
+      memory: navigator.deviceMemory || null,
+      cores: navigator.hardwareConcurrency || null,
+      languages: navigator.languages || [navigator.language]
+    },
+    gps: S.gps, net: S.net, ping: S.ping,
+    photos: []
+  };
+  const bar = document.getElementById('bar'); const N = S.photos.length;
+  for(let i=0;i<N;i++){
+    const p = S.photos[i];
+    if(!p.dataUrl){ continue; }
+    const cnv = await canvasFromDataUrl(p.dataUrl);
+    const blob = await new Promise(res=> cnv.canvas.toBlob(res, 'image/jpeg', q));
+    const buf = await blob.arrayBuffer();
+    const hash = await sha256ArrayBuffer(buf);
+    const nameBase = `photo_${String(i+1).padStart(2,'0')}`;
+    const path = `photos/${nameBase}_v0_1.jpg`;
+    zip.file(path, buf);
+    const rel = p.rel || null;
+    meta.photos.push({
+      name: path, width: cnv.w, height: cnv.h, sha256: hash, size: blob.size,
+      note: p.noteEl?.value || null, exif: p.exif, relative: rel
+    });
+    bar.style.width = Math.round(((i+1)/N)*100)+'%';
+  }
+  zip.file('field_post.json', JSON.stringify(meta, null, 2));
+  const blob = await zip.generateAsync({type:'blob'});
+  const ts = new Date().toISOString().replace(/[-:]/g,'').replace('T','_').slice(0,15);
+  const name = `sr_field_post_${ts}_v0_1.zip`;
+  const a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; a.click();
+  $('#zipStatus').textContent='done ✓';
+}
+
+document.getElementById('btnZip').onclick = buildZip;
+
+// init
+updateAnchor(); logInfo();
+</script>
+</body>
+</html>

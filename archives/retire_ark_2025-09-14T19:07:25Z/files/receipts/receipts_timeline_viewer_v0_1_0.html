@@ -1,0 +1,32 @@
+<!doctype html><meta charset="utf-8"><title>Receipts Timeline v0.1.0</title>
+<style>
+body{background:#0a0c10;color:#eaf2ff;font-family:system-ui,Segoe UI,Inter;margin:0;padding:12px}
+.card{border:1px solid #162131;background:#10141b;border-radius:10px;padding:12px;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:13px} th,td{border-bottom:1px solid #182335;padding:6px 8px;text-align:left}
+.badge{border:1px solid #2e3f5c;border-radius:999px;padding:2px 8px;font-size:11px;color:#9db3d1}
+</style>
+<h3>Runner Receipts Viewer <span class="badge">v0.1.0</span></h3>
+<div class="card">
+  <input type="file" id="files" accept=".json" multiple>
+  <button id="load">Load</button>
+  <select id="filter"><option value="">All</option><option value="ok">ok</option><option value="error">error</option></select>
+</div>
+<table><thead><tr><th>Ended</th><th>Step</th><th>Status</th><th>Notes</th></tr></thead><tbody id="rows"></tbody></table>
+<script>
+let DATA=[]; const $=s=>document.querySelector(s);
+function render(){
+  const f=$("#filter").value; const rows=$("#rows"); rows.innerHTML='';
+  const items=[...DATA].sort((a,b)=> (a.ended_at||'').localeCompare(b.ended_at||''));
+  for(const r of items){ if(f && (r.status||'')!==f) continue;
+    const tr=document.createElement('tr');
+    tr.innerHTML = `<td>${r.ended_at||''}</td><td>${r.step_name||''}</td><td>${r.status||''}</td><td>${(r.notes||'').slice(0,200)}</td>`;
+    rows.appendChild(tr);
+  }
+}
+$("#load").onclick=async()=>{
+  const fs=$("#files").files; DATA=[];
+  for(const f of fs){ try{ DATA.push(JSON.parse(await f.text())); }catch{} }
+  render();
+};
+$("#filter").onchange=render;
+</script>

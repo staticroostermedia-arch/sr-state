@@ -1,0 +1,5 @@
+{
+  "schema":"eh1003006.autopromote.v0_1",
+  "generated_at_utc":"2025-09-14T22:30:41Z",
+  "promoted":[{"key":"ops_dashboard_02","name":"ops dashboard 02","badge":"v0","route":"/forge/ops_dashboard_02.html"}]
+}

@@ -1,0 +1,8 @@
+{
+  "schema": "sr.env.v0_2",
+  "generated_at": "2025-09-12T22:02:00Z",
+  "host": "eh1003006-dev",
+  "kernel": "Linux 5.15.0-153-generic",
+  "iface": "wlp2s0",
+  "power": "unknown"
+}

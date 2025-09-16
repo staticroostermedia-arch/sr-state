@@ -1,0 +1,7 @@
+{
+  "schema": "sr.install.v0_2",
+  "generated_at": "2025-09-12T22:56:35Z",
+  "tool": "install_sr_dashboard",
+  "wrote": "forge/ops/sr_dashboard_v0_2.html",
+  "status": "OK"
+}

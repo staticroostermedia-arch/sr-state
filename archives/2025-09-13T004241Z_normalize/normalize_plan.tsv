@@ -1,0 +1,4 @@
+# normalize snapshot 2025-09-13T004241Z
+
+.venv/lib/python3.10/site-packages/setuptools/command/launcher manifest.xml	.venv/lib/python3.10/site-packages/setuptools/command/launcher_manifest.xml
+.venv/lib/python3.10/site-packages/setuptools/script (dev).tmpl	.venv/lib/python3.10/site-packages/setuptools/script_dev.tmpl

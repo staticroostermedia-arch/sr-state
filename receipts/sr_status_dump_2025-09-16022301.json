@@ -1,0 +1,14 @@
+{
+  "schema":"sr.status.dump.v0_3",
+  "generated_at":"2025-09-16T02:23:01Z",
+  "verdict":"penitential rite",
+  "snapshot_dir":"snapshots/2025-09-16T02:23:01Z",
+  "manifest":"sr_snapshot_2025-09-16022301.manifest.json",
+  "canon_parity":"",
+  "offenders":"",
+  "ark_map":"",
+  "ark_preview":"",
+  "env": {
+    "host":"eh1003006-dev","kernel":"Linux 5.15.0-153-generic","iface":"wlp2s0","power":"unknown"
+  }
+}

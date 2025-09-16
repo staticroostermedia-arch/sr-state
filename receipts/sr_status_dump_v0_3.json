@@ -1,0 +1,11 @@
+{
+  "schema": "sr_status_dump_v0_3",
+  "generated_at": "2025-09-16T02:37:11Z",
+  "verdict": "penitential rite",
+  "http_probe": { "/decisionhub": "unknown", "/forge": "unknown" },
+  "snapshot_dir": "snapshots/2025-09-16T02_37_11Z",
+  "manifest": "sr_snapshot_2025-09-16T02_37_11Z.manifest.json",
+  "offenders_file": "offenders_2025-09-16_023620_.json",
+  "offenders_count": 2,
+  "env": { "host": "eh1003006-dev", "kernel": "Linux 5.15.0-153-generic", "iface": "wlp2s0", "power": "unknown" }
+}

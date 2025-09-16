@@ -1,0 +1,15 @@
+{
+  "schema": "sr.git.hygiene.v0_1",
+  "generated_at_utc": "2025-09-16T01:45:34Z",
+  "root": "/home/a/static-rooster",
+  "remote_origin": "git@github.com:staticroostermedia-arch/decisionhub.git",
+  "branch": "stabilize_20250916",
+  "dirty": 13,
+  "untracked": 7,
+  "ahead": 0,
+  "behind": 0,
+  "has_workflow": 0,
+  "heartbeat_branches": [],
+  "cloud_latest_path": "",
+  "verdict": "needs-workflow"
+}

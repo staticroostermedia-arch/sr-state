@@ -1,0 +1,10 @@
+{
+  "schema": "sr.canon_parity.v0_5",
+  "generated_at": "2025-09-13T00:32:08Z",
+  "pin_file": "identity/canon_pin_v0_1.json",
+  "pin_version": "  "version": "1.0.0",",
+  "pin_sha256": "0f1df6e4f5da68aaeae9872afc72840459e1d6c639e6e764662461d154af0b46",
+  "canon_files_count": 2,
+  "canon_concat_sha256": "0f1df6e4f5da68aaeae9872afc72840459e1d6c639e6e764662461d154af0b46",
+  "parity": "OK"
+}

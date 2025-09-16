@@ -1,0 +1,4 @@
+# one URL per line; lines starting with # are ignored
+http://127.0.0.1:8888/                 # root
+http://127.0.0.1:8888/index.html       # index
+http://127.0.0.1:8888/watchlight/      # watchlight (if present)

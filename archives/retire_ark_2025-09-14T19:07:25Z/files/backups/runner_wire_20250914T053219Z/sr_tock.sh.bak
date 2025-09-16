@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+set -euo pipefail
+TOOL_NAME="sr_tock_v1_1"
+SR_ROOT="${SR_ROOT:-$HOME/static-rooster}"
+RECEIPTS="$SR_ROOT/receipts"
+STAMP="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+PORT="${STATIC_HTTP_PORT:-8888}"
+
+server="$SR_ROOT/support/sr_server.sh"
+
+probe() { # url -> http code or "fail"
+  local u="$1"
+  if command -v curl >/dev/null 2>&1; then curl -fsS -o /dev/null -w "%{http_code}" "$u" || true
+  else wget -q -O /dev/null "$u" >/dev/null 2>&1 && echo 200 || echo fail
+  fi
+}
+
+# --- autodetect DecisionHub index anywhere under SR_ROOT (depth 2) ----------
+hub_rel="$(find "$SR_ROOT" -maxdepth 2 -type f -iname 'eh1003006_decisionhub_index*.html' -printf '%P\n' | head -1)"
+# fallback: look for any *_index*.html at root/decisionhub
+if [[ -z "$hub_rel" ]]; then
+  hub_rel="$(find "$SR_ROOT" -maxdepth 2 -type f -iname '*_index*.html' -printf '%P\n' | head -1)"
+fi
+# final fallback: a path that will 404 but keeps the JSON shape stable
+[[ -z "$hub_rel" ]] && hub_rel="eh1003006_decisionhub_index_v3_2_1.html"
+
+# Ensure server
+"$server" start
+
+routes=(
+  "http://127.0.0.1:${PORT}/${hub_rel}"
+  "http://127.0.0.1:${PORT}/"
+)
+
+# Run probes
+failures=()
+for r in "${routes[@]}"; do
+  code="$(probe "$r")"
+  [[ "$code" == "200" ]] || failures+=("$r:$code")
+done
+verdict="foedus_intactum"; [[ ${#failures[@]} -gt 0 ]] && verdict="penitential_rite"
+
+# Write Watch checkpoint
+CKPT="$RECEIPTS/sr_watch_checkpoint_v0_1.json"
+{
+  printf '{\n'
+  printf '  "schema":"eh1003006.watch.v1",\n'
+  printf '  "generated_at":"%s",\n' "$STAMP"
+  printf '  "summary":"tock-probe",\n'
+  printf '  "verdict":"%s",\n' "$verdict"
+  printf '  "probes":[\n'
+  for i in "${!routes[@]}"; do r="${routes[$i]}"; code="$(probe "$r")"
+    printf '    {"route":"%s","status":"%s"}%s\n' "$r" "$code" $([[ $i -lt $((${#routes[@]}-1)) ]] && echo "," || echo "")
+  done
+  printf '  ],\n'
+  printf '  "detected_hub":"%s"\n' "$hub_rel"
+  printf '}\n'
+} > "$CKPT"
+
+# Tock receipt
+RECEIPT="$RECEIPTS/${TOOL_NAME}_$(date -u +"%Y%m%dT%H%M%SZ").json"
+{
+  printf '{\n'
+  printf '  "schema":"sr.receipt.v0_1",\n'
+  printf '  "generated_at":"%s",\n' "$STAMP"
+  printf '  "tool_name":"%s",\n' "$TOOL_NAME"
+  printf '  "status":"ok",\n'
+  printf '  "summary":"Tock: server ensured; autodetected hub; routes probed; checkpoint crystallized.",\n'
+  printf '  "captures":{"port":%s,"checkpoint":"%s","verdict":"%s","hub_rel":"%s"}\n' "$PORT" "$CKPT" "$verdict" "$hub_rel"
+  printf '}\n'
+} > "$RECEIPT"
+
+echo "[tock] checkpoint -> $CKPT ; verdict=$verdict ; hub=$hub_rel"

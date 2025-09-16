@@ -1,0 +1,43 @@
+<!doctype html><meta charset="utf-8"/>
+<title>Gate Reports</title>
+<style>
+ body{background:#0f172a;color:#e2e8f0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0}
+ header{padding:12px 16px;border-bottom:1px solid #1f2937}
+ main{display:grid;grid-template-columns:340px 1fr;gap:12px;padding:12px}
+ .list{border-right:1px solid #1f2937;overflow:auto;height:calc(100vh - 56px)}
+ .row{padding:8px 12px;border-bottom:1px solid #1f2937;cursor:pointer}
+ .row:hover{background:#111827}
+ .pill{padding:2px 6px;border-radius:9999px;background:#111827;margin-left:8px;font-size:12px}
+ pre{white-space:pre-wrap;background:#0b1220;border:1px solid #1f2937;border-radius:8px;padding:12px;overflow:auto;height:calc(100vh - 80px)}
+ .muted{color:#94a3b8}
+</style>
+<header>
+  <strong>Gate Reports</strong> <span class="muted" id="meta"></span>
+</header>
+<main>
+  <div class="list" id="list"></div>
+  <pre id="detail">{}</pre>
+</main>
+<script>
+async function run(){
+  const qs=new URLSearchParams(location.search); const indexUrl=qs.get('index');
+  const meta=document.getElementById('meta'),list=document.getElementById('list'),detail=document.getElementById('detail');
+  if(!indexUrl){ meta.textContent=" (no ?index=…)"; return; }
+  const idx=await fetch(indexUrl).then(r=>r.json()); meta.textContent=` — ${idx.items.length} reports`;
+  const rows=[];
+  for(const it of idx.items){
+    try{ const g=await fetch(it.url).then(r=>r.json()); g.__name=it.name; rows.push(g); }catch(e){}
+  }
+  rows.sort((a,b)=>String(b.generated_at||'').localeCompare(String(a.generated_at||'')));
+  rows.forEach(g=>{
+    const d=document.createElement('div'); d.className='row';
+    d.innerHTML=`<strong>${g.generated_at||'?'}</strong>
+                 <span class="pill">${g.verdict||'?'}</span>
+                 <div class="muted">${g.dossier||''}</div>`;
+    d.onclick=()=>{ detail.textContent=JSON.stringify(g,null,2); };
+    list.appendChild(d);
+  });
+  if(rows[0]) detail.textContent=JSON.stringify(rows[0],null,2);
+}
+run();
+</script>

@@ -1,0 +1,19 @@
+{
+  "schema":"sr.storage.status.v1",
+  "generated_at":"2025-09-14T16:40:26Z",
+  "root":"/home/a/static-rooster",
+  "disk": {"fs":"/dev/sda2","size_gb":456.9,"used_gb":165.8,"avail_gb":267.8,"use_pct":39},
+  "policy": {
+    "warn_pct": 80, "act_pct": 90,
+    "receipts_keep_n": 200, "receipts_keep_days": 14,
+    "logs_keep_days": 7,
+    "snapshots_keep_daily": 7, "snapshots_keep_weekly": 4, "snapshots_keep_monthly": 3
+  },
+  "candidates": {
+    "receipts": [""],
+    "logs": [""],
+    "snapshots": ["/home/a/static-rooster/snapshots/ark_2025-09-14T10_00_00Z","/home/a/static-rooster/snapshots/ark_2025-09-14T05_53_52Z"]
+  },
+  "action": "none",
+  "mode": "dry-run"
+}

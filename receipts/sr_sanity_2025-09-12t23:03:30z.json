@@ -1,0 +1,11 @@
+{
+  "schema": "sr.sanity.v0_1",
+  "generated_at": "2025-09-12T23:03:30Z",
+  "http": {"dashboard": 200, "receipts": 200, "watchlight": 200},
+  "units": {
+    "services": {"sr-httpd.service": false, "runner": false, "builderd": true},
+    "timers_present": false
+  },
+  "known_verdict": "unknown",
+  "latest_snapshot": "unknown"
+}

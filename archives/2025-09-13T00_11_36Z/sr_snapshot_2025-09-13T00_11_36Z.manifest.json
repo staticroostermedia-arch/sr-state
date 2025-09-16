@@ -1,0 +1,9 @@
+{
+  "schema": "sr.snapshot.v0_3",
+  "generated_at": "2025-09-13T00:11:36Z",
+  "host": {"name": "eh1003006-dev", "kernel": "Linux 5.15.0-153-generic", "iface": "wlp2s0", "power": ""},
+  "paths": ["bin","forge/tools","build","decisionhub","docs","receipts"],
+  "sha256_list": "sha256sums.txt",
+  "runner": {"invoked": "/home/a/static-rooster/bin/sr-runner-plus", "started": "2025-09-13T00:11:32Z", "finished": "2025-09-13T00:11:36Z"},
+  "status_receipt": "/home/a/static-rooster/receipts/sr_status_dump_2025-09-13001136.json"
+}

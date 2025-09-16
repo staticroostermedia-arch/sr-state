@@ -1,0 +1,10 @@
+{
+  "schema": "sr.offenders.v0_5",
+  "generated_at": "2025-09-13T00:16:15Z",
+  "count": 3,
+  "items": [
+    {"path":"receipts/sr_bootstrap_timer_20250912T202456Z.log","kind":"uppercase"},
+    {"path":"receipts/sr_bootstrap_timer_20250912T202635Z.log","kind":"uppercase"},
+    {"path":"docs/identity/02_SR_Parables.md","kind":"uppercase"}
+  ]
+}

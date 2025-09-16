@@ -1,0 +1,10 @@
+{
+  "schema":"sr.receipt.v0_1",
+  "generated_at_utc":"2025-09-15T03:29:47Z",
+  "tool_name":"sr.patch.planner_build",
+  "status":"ok",
+  "summary":"Planner built -> eh1003006_online_planner_v5_2_9_250915.html; tile wired; probe 200 in 15ms",
+  "snapshot_dir":"/home/a/static-rooster/snapshots/2025-09-15T03_29_46Z",
+  "used_sudo":false,
+  "probe":{"route":"/forge/eh1003006_online_planner_v5_2_9_250915.html","status":200,"ms":15}
+}

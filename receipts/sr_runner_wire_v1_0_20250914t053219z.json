@@ -1,0 +1,2 @@
+{
+ "schema":"sr.receipt.v0_1","generated_at":"2025-09-14T05:32:19Z","tool_name":"sr_runner_wire_v1_0","status":"ok","summary":"Runner wired: config/server/tick/tock/gui + systemd timer; smoke-tested.","captures":{"port":8888,"service":"sr-runner.service","timer":"sr-runner.timer","backup_dir":"/home/a/static-rooster/backups/runner_wire_20250914T053219Z","config_path":"/home/a/static-rooster/config/runner_config_v0_1.json"}}

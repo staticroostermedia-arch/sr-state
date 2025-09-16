@@ -1,0 +1,56 @@
+<!doctype html><meta charset="utf-8"/>
+<title>Receipts (auto)</title>
+<style>
+ body{background:#0f172a;color:#e2e8f0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0}
+ header{padding:12px 16px;border-bottom:1px solid #1f2937}
+ main{display:grid;grid-template-columns:340px 1fr;gap:12px;padding:12px}
+ .list{border-right:1px solid #1f2937;overflow:auto;height:calc(100vh - 56px)}
+ .row{padding:8px 12px;border-bottom:1px solid #1f2937;cursor:pointer}
+ .row:hover{background:#111827}
+ .pill{padding:2px 6px;border-radius:9999px;background:#111827;margin-left:8px;font-size:12px}
+ pre{white-space:pre-wrap;background:#0b1220;border:1px solid #1f2937;border-radius:8px;padding:12px;overflow:auto;height:calc(100vh - 80px)}
+ .muted{color:#94a3b8}
+</style>
+<header>
+  <strong>Runner Receipts Viewer</strong>
+  <span class="muted" id="meta"></span>
+</header>
+<main>
+  <div class="list" id="list"></div>
+  <pre id="detail">{  }</pre>
+</main>
+<script>
+async function run(){
+  const qs=new URLSearchParams(location.search);
+  const indexUrl=qs.get('index');
+  const meta=document.getElementById('meta');
+  const list=document.getElementById('list');
+  const detail=document.getElementById('detail');
+  if(!indexUrl){ meta.textContent=" (no ?index=… given)"; return; }
+  const idx=await fetch(indexUrl).then(r=>r.json());
+  meta.textContent=` — ${idx.items.length} receipts`;
+  const rows=[];
+  for(const it of idx.items){
+    try{
+      const rec=await fetch(it.url).then(r=>r.json());
+      rec.__name=it.name; rec.__url=it.url;
+      rows.push(rec);
+    }catch(e){ /* skip */ }
+  }
+  rows.sort((a,b)=>String(b.stamp||'').localeCompare(String(a.stamp||'')));
+  list.innerHTML='';
+  for(const r of rows){
+    const div=document.createElement('div');
+    div.className='row';
+    const t=document.createElement('div');
+    t.innerHTML = `<strong>${r.stamp||'?'}</strong>
+                   <span class="pill">${r.foedus||'?'}</span>
+                   <div class="muted">${r.__name}</div>`;
+    div.appendChild(t);
+    div.onclick=()=>{ detail.textContent = JSON.stringify(r,null,2); };
+    list.appendChild(div);
+  }
+  if(rows[0]) detail.textContent = JSON.stringify(rows[0], null, 2);
+}
+run();
+</script>

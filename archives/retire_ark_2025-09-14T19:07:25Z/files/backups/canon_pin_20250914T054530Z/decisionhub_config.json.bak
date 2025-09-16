@@ -1,0 +1,9 @@
+{
+  "title": "DecisionHub - Start Here",
+  "items": [
+    {"key": "reply_builder", "name": "Reply Builder", "badge": "v0.1.0", "route": "/forge/reply_builder_v0_1.html"},
+    {"key": "receipts_timeline_viewer", "name": "Receipts Timeline", "badge": "v0.1.0", "route": "/receipts/receipts_timeline_viewer_v0_1.html"},
+    {"key": "gate_reports", "name": "Gate Reports", "badge": "v0.1.0", "route": "/forge/gate_reports/index_v0_1.html"},
+    {"key": "watch_checkpoints", "name": "Watch Checkpoints", "badge": "v0.1.0", "route": "/decisionhub/watch_checkpoint_viewer_v0_1.html"}
+  ]
+}

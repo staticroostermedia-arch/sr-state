@@ -1,0 +1,24 @@
+#!/bin/sh
+# sr-runner-plus — call runner, normalize artifacts, then Ark-aware status dump
+set -eu
+ROOT="${HOME}/static-rooster"
+BIN="$ROOT/bin"
+TOOLS="$ROOT/forge/tools"
+
+# 1) Tick→Tock
+if [ -x "$BIN/sr-runner" ]; then
+  "$BIN/sr-runner" --once || true
+else
+  echo "WARN: $BIN/sr-runner not found" >&2
+fi
+
+# 2) Normalize multi-file outputs into snapshots/<UTC>/
+[ -x "$TOOLS/sr_snapshot_mover_v0_1.sh" ] && "$TOOLS/sr_snapshot_mover_v0_1.sh" || true
+[ -x \"$TOOLS/sr_build_plan_run_v0_1.sh\" ] && \"$TOOLS/sr_build_plan_run_v0_1.sh\" || true
+
+# 3) Ark-aware status receipt
+if [ -x "$TOOLS/sr_status_dump_v0_3.sh" ]; then
+  "$TOOLS/sr_status_dump_v0_3.sh" || true
+elif [ -x "$TOOLS/sr_status_dump_v0_2.sh" ]; then
+  "$TOOLS/sr_status_dump_v0_2.sh" || true
+fi

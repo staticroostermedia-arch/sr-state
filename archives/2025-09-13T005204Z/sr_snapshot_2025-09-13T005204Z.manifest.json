@@ -1,0 +1,6 @@
+{
+  "schema": "sr.snapshot.v0_3",
+  "generated_at": "2025-09-13T005204Z",
+  "snapshot_dir": "snapshots/2025-09-13T005204Z",
+  "files": { "tgz": "sr_snapshot_2025-09-13T005204Z.tgz", "sha256": "5d0b6314179190338cb6ea6cb46ea4c5057ed3c10e7bedd62d6d6d49e286161b" }
+}

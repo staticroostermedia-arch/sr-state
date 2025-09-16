@@ -1,0 +1,13 @@
+{
+  "schema": "sr.watch.config.v0_1",
+  "watch": [
+    {"path": "docs/identity", "recursive": true},
+    {"path": "config", "recursive": true},
+    {"path": "forge/tools", "recursive": false},
+    {"path": "_inbox", "recursive": true, "optional": true}
+  ],
+  "on_change": {
+    "emit_checkpoint": true,
+    "force_tick": true
+  }
+}

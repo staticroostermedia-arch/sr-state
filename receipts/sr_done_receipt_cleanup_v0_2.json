@@ -1,0 +1,14 @@
+{
+  "schema": "sr.cleanup.v0_2",
+  "generated_at_utc": "2025-09-16T01:29:30Z",
+  "root": "/home/a/static-rooster",
+  "apply": 0,
+  "purge": 1,
+  "quarantine_dir": "/home/a/static-rooster/quarantine/2025-09-16T01_29_30Z",
+  "counts": { "offenders": 0, "moved": 0 },
+  "offenders": {
+    "uppercase": [],
+    "spaces": [],
+    "bad_ext": []
+  }
+}

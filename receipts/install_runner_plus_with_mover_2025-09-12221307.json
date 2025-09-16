@@ -1,0 +1,6 @@
+{
+  "schema":"sr.install.runner.plus.v0_2",
+  "generated_at":"2025-09-12221307",
+  "shim":"/home/a/static-rooster/bin/sr-runner-plus",
+  "unit_changed": true
+}

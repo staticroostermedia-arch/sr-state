@@ -1,0 +1,4 @@
+{ "schema":"sr.pkg.v1_0", "title":"Hello Maps", "category":"apps",
+  "tiles":[{"src":"hello.html","dest":"/decisionhub/hello_maps_v1_0.html"}],
+  "tests":[{"route":"/decisionhub/hello_maps_v1_0.html","expect":200}]
+}

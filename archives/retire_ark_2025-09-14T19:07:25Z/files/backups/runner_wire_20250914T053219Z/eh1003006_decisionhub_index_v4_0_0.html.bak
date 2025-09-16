@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>EH1003006 · DecisionHub v4.0.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; background:#0b0f14; color:#e6edf3;}
+  h1 { font-size: 1.6rem; margin-bottom: 0.25rem;}
+  .grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(320px,1fr)); gap: 16px; margin-top: 1rem;}
+  .card { background:#111823; border:1px solid #1e2633; border-radius:14px; padding:16px; box-shadow:0 1px 12px rgba(0,0,0,.25);}
+  .card h2 { font-size:1.1rem; margin:0 0 8px;}
+  .muted { color:#9fb0c0; font-size:0.9rem;}
+  a.btn { display:inline-block; margin-top: 8px; padding:8px 12px; border-radius:10px; border:1px solid #2a3647; color:#e6edf3; text-decoration:none;}
+  code { background:#0c131d; padding:2px 6px; border-radius:8px; border:1px solid #1f2a38;}
+  pre { white-space: pre-wrap; word-break: break-word;}
+  .ok { color:#8cffc2 } .bad { color:#ff9aa2 }
+</style>
+</head>
+<body>
+  <h1>DecisionHub v4.0.0</h1>
+  <div class="muted">Static Rooster · EH1003006 · covenant: <em>foedus intactum</em></div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Checkpoint Viewer</h2>
+      <div class="muted">Shows <code>receipts/sr_watch_checkpoint_v0_1.json</code></div>
+      <pre id="ckpt">Loading…</pre>
+    </div>
+
+    <div class="card">
+      <h2>Receipts Timeline</h2>
+      <div class="muted">Recent receipts under <code>/receipts/</code></div>
+      <div id="timeline" class="muted">Loading…</div>
+      <a class="btn" href="/receipts/" target="_blank">Open receipts folder</a>
+    </div>
+
+    <div class="card">
+      <h2>Online Planner</h2>
+      <div class="muted">Launch the latest planner.</div>
+      <a class="btn" href="/online_planner_v5_2_9_intake.html" target="_blank">Open planner</a>
+    </div>
+
+    <div class="card">
+      <h2>PipBoy Tool Skeleton</h2>
+      <div class="muted">Barebones tool shell (for new tiles).</div>
+      <a class="btn" href="/pipboy_tool_skeleton_v1_0.html" target="_blank">Open skeleton</a>
+    </div>
+  </div>
+
+<script>
+(async function(){
+  const ckptEl = document.getElementById('ckpt');
+  const timelineEl = document.getElementById('timeline');
+
+  async function fetchJSON(url){
+    try{
+      const r = await fetch(url, {cache:'no-store'});
+      if(!r.ok) throw new Error(String(r.status));
+      return await r.json();
+    }catch(e){ return { error: String(e), url }; }
+  }
+
+  // Checkpoint viewer
+  const ckpt = await fetchJSON('/receipts/sr_watch_checkpoint_v0_1.json');
+  ckptEl.textContent = JSON.stringify(ckpt, null, 2);
+
+  // Receipts timeline (last 20 by mtime)
+  try{
+    const r = await fetch('/receipts/'); // directory listing from python http.server
+    const html = await r.text();
+    const items = [...html.matchAll(/href="([^"]+\.json)"/gi)].map(m=>m[1]);
+    const rows = items.slice(-20).map(x => `<div>• ${x}</div>`).join('');
+    timelineEl.innerHTML = rows || 'No receipts yet.';
+  }catch(e){
+    timelineEl.textContent = 'Unable to load receipts index: ' + e;
+  }
+})();
+</script>
+</body>
+</html>

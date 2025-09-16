@@ -1,0 +1,7 @@
+{
+  "schema":"sr.runner.run.v0_2",
+  "generated_at":"2025-09-14T05:08:00Z",
+  "note":"--once",
+  "snapshot_dir":"snapshots/2025-09-14_050803_",
+  "verdict":"foedus intactum"
+}

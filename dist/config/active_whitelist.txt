@@ -1,0 +1,6 @@
+# Paths to keep live; everything else under forge/config is considered rubble after Ark drop.
+forge/*.html
+forge/*.css
+forge/*.js
+forge/ui/*.css
+config/decisionhub_config.json

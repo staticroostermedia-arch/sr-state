@@ -1,0 +1,4 @@
+<!doctype html><meta charset="utf-8"><title>Receipts Timeline</title>
+<style>body{font-family:system-ui;margin:24px;background:#0b0f14;color:#e6edf3} .item{margin:.25rem 0}</style>
+<h1>Receipts Timeline</h1><div id="list">Loading…</div>
+<script>(async()=>{const c=document.getElementById('list');try{const r=await fetch('./');const html=await r.text();const items=[...html.matchAll(/href="([^"]+\.json)"/gi)].map(m=>m[1]).slice(-50);c.innerHTML=items.map(x=>`<div class=item>• <a href="${x}" target=_blank>${x}</a></div>`).join('')||'No receipts yet.';}catch(e){c.textContent='Error: '+e}})();</script>

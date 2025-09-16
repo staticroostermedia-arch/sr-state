@@ -1,0 +1,5 @@
+{
+  "schema":"eh1003006.autopromote.v0_1",
+  "generated_at_utc":"2025-09-14T22:15:25Z",
+  "promoted":[{"key":"demo_tool_v0_1","name":"demo tool v0 1","badge":"v0","route":"/forge/demo_tool_v0_1.html"}]
+}

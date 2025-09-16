@@ -1,0 +1,9 @@
+{
+  "schema": "eh1003006.decisionhub.config.v1",
+  "generated_by": "sr_hub_redirect_and_config_v1_0",
+  "tiles": [
+    { "title": "DecisionHub v4", "path": "/decisionhub/eh1003006_decisionhub_index_v4_0_0.html", "category": "core" },
+    { "title": "Online Planner v5.2.9", "path": "/online_planner_v5_2_9_intake.html", "category": "tools" },
+    { "title": "PipBoy Skeleton v1.0", "path": "/pipboy_tool_skeleton_v1_0.html", "category": "dev" }
+  ]
+}

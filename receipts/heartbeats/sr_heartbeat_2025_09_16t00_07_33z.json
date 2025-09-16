@@ -1,0 +1,10 @@
+{
+  "schema":"sr.heartbeat.v0_1",
+  "generated_at_utc":"2025-09-16T00:07:33Z",
+  "root_bytes": 146488489579,
+  "counts": {"docs": 69, "config": 13, "bin": 59, "forge": 36, "receipts": 4003, "snapshots": 3204},
+  "git_branch": "master",
+  "last_bundle": "",
+  "last_snapshot": "",
+  "webhook_status": "000error"
+}

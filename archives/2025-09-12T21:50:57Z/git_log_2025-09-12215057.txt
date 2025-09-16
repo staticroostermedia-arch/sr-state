@@ -1,0 +1,8 @@
+6bc679b 2025-09-12T14:32:01-07:00 Tick–Tock update: verdict=penitential rite; snapshot=snapshots/2025-09-12_212822_; 2025-09-12T21:32:01ZZ
+c85d619 2025-09-09T15:29:42-07:00 config: seed DecisionHub Start-Here with 4 core tiles
+b3c773d 2025-09-09T15:25:44-07:00 guard: solidify DecisionHub tile routes (reply/receipts/gate-reports/watch-checkpoints)
+7c0c3e3 2025-09-09T15:18:11-07:00 restore: Start-Here, config, and tool routes from
+b882b73 2025-09-08T20:39:10-07:00 runner: update feed 2025-09-08T20:39:10-07:00
+e38a348 2025-09-08T14:50:31-07:00 checkpoint: seed Static Rooster local baseline
+6666981 2025-09-08T14:45:27-07:00 Gold Baseline #1: StartHere + Receipts + GateReports wired
+fde0589 2025-09-08T14:38:40-07:00 Gold Baseline #1: Start Here + Receipts + Gate Reports wired

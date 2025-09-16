@@ -1,0 +1,13 @@
+{
+  "schema": "sr.offenders.v0_5",
+  "generated_at": "2025-09-12T23:42:10Z",
+  "count": 6,
+  "items": [
+    {"path":"receipts/sr_bootstrap_timer_20250912T202456Z.log","kind":"uppercase"},
+    {"path":"receipts/sr_bootstrap_timer_20250912T202635Z.log","kind":"uppercase"},
+    {"path":"docs/identity/99_sr_change_log.md","kind":"uppercase"},
+    {"path":"docs/identity/99_sr_change_log.md","kind":"space"},
+    {"path":"docs/identity/99_sr_change_log.md","kind":"uppercase"},
+    {"path":"docs/identity/02_SR_Parables.md","kind":"uppercase"}
+  ]
+}

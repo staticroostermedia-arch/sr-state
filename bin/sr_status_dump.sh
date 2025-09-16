@@ -1,0 +1,1 @@
+../tools/sr_status_dump_v0_3.sh

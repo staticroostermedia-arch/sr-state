@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Bridge — v0.2.0</title>
+<style>
+:root{ --bg:#0b0c06; --grid:#1a2b1a; --text:#b4ffb4; --glow:#39ff14; --accent:#9ae89a; --bad:#ff6b6b; --ok:#39ff14 }
+html,body{margin:0;background:#0b0c06;color:#b4ffb4;font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:980px;margin:0 auto;padding:10px}
+.badge{border:1px solid var(--grid);padding:2px 8px;border-radius:999px;background:#0f140f;margin-right:6px}
+.card{border:1px solid var(--grid);border-radius:10px;background:#0f140f;padding:10px;margin:10px 0}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{border:1px solid var(--grid);padding:6px 10px;border-radius:8px;background:#101a10;color:#b4ffb4;cursor:pointer}
+input,textarea{border:1px solid var(--grid);background:#0f140f;color:#b4ffb4;border-radius:6px;padding:6px;width:100%}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.35}
+.small{font-size:12px;color:#9ae89a}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div><span class="badge">AI Bridge v0.2.0</span><span class="small">Queue + API mode</span></div>
+
+  <div class="card">
+    <strong>API Settings (optional)</strong>
+    <div class="row"><input id="endpoint" placeholder="Endpoint URL (https://…/ask)"></div>
+    <div class="row"><input id="apikey" placeholder="API key (kept in browser storage)"></div>
+    <div class="row"><button class="btn" id="btnSave">Save</button><button class="btn" id="btnTest">Test Send</button></div>
+    <div class="small">If left blank, Bridge works in manual mode (Export Queue → paste responses).</div>
+  </div>
+
+  <div class="card">
+    <div class="row"><button id="btnExport" class="btn">Export Queue (zip)</button><button id="btnClear" class="btn">Clear Queue</button></div>
+    <div class="small">Runner emits <code>ai_request</code> events; they appear below.</div>
+  </div>
+
+  <div class="card">
+    <strong>Queue</strong>
+    <table id="tbl"><thead><tr><th>ID</th><th>When</th><th>Prompt</th><th>Goal</th><th>Actions</th></tr></thead><tbody></tbody></table>
+  </div>
+
+  <div class="card">
+    <strong>Paste Response (manual mode)</strong>
+    <div class="row"><input id="respId" placeholder="request id"><button id="btnAttach" class="btn">Attach</button></div>
+    <textarea id="respText" rows="8" placeholder='{"status":"ok","message":"…","artifacts":[{"name":"notes.md","text":"…"}]}'></textarea>
+  </div>
+
+  <div class="card"><strong>Log</strong><pre id="log"></pre></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script>
+const TOOL_KEY='ai_bridge_020', VERSION='0.2.0';
+let queue = [];
+function byId(id){ return document.getElementById(id); }
+function log(s){ byId('log').textContent = s + "\n" + byId('log').textContent; }
+function saveQ(){ localStorage.setItem('ai_bridge_queue_v020', JSON.stringify(queue)); }
+function loadQ(){ try{ queue = JSON.parse(localStorage.getItem('ai_bridge_queue_v020')||'[]'); }catch(_){ queue=[]; } render(); }
+function render(){
+  const tb = document.querySelector('#tbl tbody'); tb.innerHTML='';
+  queue.forEach(q=>{
+    const tr=document.createElement('tr'); tr.innerHTML=`<td>${q.id}</td><td>${q.when}</td><td><pre>${q.prompt}</pre></td><td>${q.goal}</td><td><button data-id="${q.id}" class="btn send">Send</button> <button data-id="${q.id}" class="btn exp">Export</button></td>`; tb.appendChild(tr);
+  });
+  tb.querySelectorAll('.send').forEach(b=> b.onclick = ()=> sendOne(b.getAttribute('data-id')) );
+  tb.querySelectorAll('.exp').forEach(b=> b.onclick = ()=> exportOne(b.getAttribute('data-id')) );
+}
+function exportOne(id){
+  const q = queue.find(x=>x.id===id); if(!q) return;
+  const blob = new Blob([JSON.stringify(q,null,2)], {type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`ask_${id}.json`; a.click();
+}
+async function exportAll(){
+  const zip = new JSZip(); queue.forEach(q=> zip.file(`ask_${q.id}.json`, JSON.stringify(q,null,2))); const blob = await zip.generateAsync({type:'blob'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='ai_requests_queue.zip'; a.click();
+}
+async function sendOne(id){
+  const ep = localStorage.getItem('ai_bridge_endpoint')||''; const key = localStorage.getItem('ai_bridge_apikey')||'';
+  if(!ep){ return alert('Set endpoint first or use manual export.'); }
+  const q = queue.find(x=>x.id===id); if(!q) return;
+  try{
+    const res = await fetch(ep, {method:'POST', headers:{'Content-Type':'application/json','Authorization': key?('Bearer '+key):undefined}, body: JSON.stringify(q)});
+    const txt = await res.text(); log('SEND '+id+': '+res.status+' '+txt.slice(0,120));
+  }catch(e){ log('SEND '+id+' error: '+e.message); }
+}
+byId('btnExport').onclick = exportAll;
+byId('btnClear').onclick = ()=>{ queue=[]; saveQ(); render(); };
+byId('btnAttach').onclick = ()=>{
+  const id = byId('respId').value.trim(); if(!id) return alert('enter id');
+  const txt = byId('respText').value.trim(); if(!txt) return alert('paste response JSON');
+  let obj=null; try{ obj=JSON.parse(txt); }catch(e){ return alert('bad json'); }
+  const drop = { schema:'eh1003006.drop.v1', when:new Date().toISOString(), kind:'assistant_response', ref:id, content:obj };
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(drop,null,2)],{type:'application/json'})); a.download=`drop_${id}_assistant_response.json`; a.click();
+};
+byId('btnSave').onclick = ()=>{ localStorage.setItem('ai_bridge_endpoint', byId('endpoint').value.trim()); localStorage.setItem('ai_bridge_apikey', byId('apikey').value.trim()); alert('Saved'); };
+byId('btnTest').onclick = ()=>{ const ep=localStorage.getItem('ai_bridge_endpoint')||'(not set)'; const key=localStorage.getItem('ai_bridge_apikey')||'(not set)'; alert('Endpoint='+ep+'\nKey='+key); };
+window.addEventListener('message', (e)=>{ const d=e.data||{}; if(d.type==='DH_TOOL_EVENT' && d.event==='ai_request'){ queue.push(d.payload); saveQ(); render(); } });
+loadQ();
+</script>
+</body>
+</html>

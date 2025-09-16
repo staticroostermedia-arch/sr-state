@@ -1,0 +1,78 @@
+# git status --porcelain=v1
+ T decisionhub/watchlight_v0_1.html
+ M identity/canon_pin_v0_1.json
+ D project_legacy/README.txt
+ M receipts/sr_runner_last.json
+ M receipts/sr_watch_checkpoint_v0_1.json
+?? bin/sr-runner-plus
+?? build/
+?? forge/tools/sr_build_plan_run_v0_1.sh
+?? forge/tools/sr_snapshot_mover_v0_1.sh
+?? forge/tools/sr_status_dump_v0_3.sh
+?? receipts/install_ark_runner_patch_2025-09-12221812.json
+?? receipts/install_runner_plus_2025-09-12220621.json
+?? receipts/install_runner_plus_with_mover_2025-09-12221307.json
+?? receipts/install_snapshot_mover_2025-09-12221034.json
+?? receipts/project_legacy/
+?? receipts/sr_runner_2025-09-12220402.json
+?? receipts/sr_runner_2025-09-12220608.json
+?? receipts/sr_runner_2025-09-12221108.json
+?? receipts/sr_runner_2025-09-12221250.json
+?? receipts/sr_runner_2025-09-12221304.json
+?? receipts/sr_runner_2025-09-12221750.json
+?? receipts/sr_runner_2025-09-12221807.json
+?? receipts/sr_runner_2025-09-12221810.json
+?? receipts/sr_snapshot_move_2025-09-12221034.json
+?? receipts/sr_snapshot_move_2025-09-12221104.json
+?? receipts/sr_snapshot_move_2025-09-12221304.json
+?? receipts/sr_snapshot_move_2025-09-12221307.json
+?? receipts/sr_snapshot_move_2025-09-12221804.json
+?? receipts/sr_snapshot_move_2025-09-12221810.json
+?? receipts/sr_snapshot_move_2025-09-12221812.json
+?? receipts/sr_status_dump_2025-09-12220621.json
+?? receipts/sr_status_dump_2025-09-12221122.json
+?? receipts/sr_status_dump_2025-09-12221304.json
+?? receipts/sr_status_dump_2025-09-12221307.json
+?? receipts/sr_status_dump_2025-09-12221804.json
+?? receipts/sr_status_dump_2025-09-12221810.json
+?? receipts/sr_status_dump_2025-09-12221812.json
+?? receipts/sr_watch_2025-09-12220416.json
+?? receipts/sr_watch_2025-09-12220621.json
+?? receipts/sr_watch_2025-09-12221122.json
+?? receipts/sr_watch_2025-09-12221304.json
+?? receipts/sr_watch_2025-09-12221307.json
+?? receipts/sr_watch_2025-09-12221804.json
+?? receipts/sr_watch_2025-09-12221810.json
+?? receipts/sr_watch_2025-09-12221812.json
+?? snapshots/2025-09-12T22:10:34Z/
+?? snapshots/2025-09-12T22:11:04Z/
+?? snapshots/2025-09-12T22:13:04Z/
+?? snapshots/2025-09-12T22:13:07Z/
+?? snapshots/2025-09-12T22:18:04Z/
+?? snapshots/2025-09-12T22:18:10Z/
+?? snapshots/2025-09-12T22:18:12Z/
+?? snapshots/2025-09-12_220403_/
+?? snapshots/2025-09-12_220609_/
+?? snapshots/2025-09-12_221109_/
+?? snapshots/2025-09-12_221250_/
+?? snapshots/2025-09-12_221305_/
+?? snapshots/2025-09-12_221751_/
+?? snapshots/2025-09-12_221808_/
+?? snapshots/2025-09-12_221810_/
+?? snapshots/2025-09-12_222308_/
+
+# branch + HEAD
+restore/tiles_ok
+a78b022
+
+# last 50 commits
+a78b022 2025-09-12 15:02:00 -0700 Static Rooster Status dump @ 2025-09-12T22:02:00Z verdict=penitential rite
+0d3107f 2025-09-12 14:50:57 -0700 Static Rooster Status dump @ 2025-09-12T21:50:57Z verdict=penitential rite
+6bc679b 2025-09-12 14:32:01 -0700 Static Rooster Tick–Tock update: verdict=penitential rite; snapshot=snapshots/2025-09-12_212822_; 2025-09-12T21:32:01ZZ
+c85d619 2025-09-09 15:29:42 -0700 Static Rooster config: seed DecisionHub Start-Here with 4 core tiles
+b3c773d 2025-09-09 15:25:44 -0700 Static Rooster guard: solidify DecisionHub tile routes (reply/receipts/gate-reports/watch-checkpoints)
+7c0c3e3 2025-09-09 15:18:11 -0700 Static Rooster restore: Start-Here, config, and tool routes from
+b882b73 2025-09-08 20:39:10 -0700 Static Rooster runner: update feed 2025-09-08T20:39:10-07:00
+e38a348 2025-09-08 14:50:31 -0700 A checkpoint: seed Static Rooster local baseline
+6666981 2025-09-08 14:45:27 -0700 A Gold Baseline #1: StartHere + Receipts + GateReports wired
+fde0589 2025-09-08 14:38:40 -0700 A Gold Baseline #1: Start Here + Receipts + Gate Reports wired

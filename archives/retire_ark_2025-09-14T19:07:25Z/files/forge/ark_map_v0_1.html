@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Ark Map v0.1</title>
+<style>
+  :root{--bg:#0b0f12;--fg:#dfe7ef;--mut:#8aa0b2;--card:#121820;--row:#1b232d}
+  body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.4 system-ui,Segoe UI,Roboto}
+  .wrap{max-width:1100px;margin:36px auto;padding:24px}
+  .card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+  .pill{display:inline-block;background:#1e2630;padding:6px 10px;border-radius:14px;color:var(--mut);font-size:12px}
+  input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #2b3642;background:#0f141a;color:#cfe3f5;margin:6px 0 14px}
+  table{width:100%;border-collapse:collapse}
+  th,td{padding:8px;border-bottom:1px solid #26303a}
+  tr:hover{background:var(--row)}
+  a{color:#8ecbff;text-decoration:none} a:hover{text-decoration:underline}
+</style>
+<div class="wrap">
+  <div class="card">
+    <div class="pill">Ark Map</div>
+    <h1 style="margin:6px 0 10px">Latest Snapshot Manifest</h1>
+    <div id="meta" style="margin-bottom:12px;color:#9fb4c7">Loading…</div>
+    <input id="q" placeholder="Filter by path (live search)"/>
+    <table id="tbl"><thead>
+      <tr><th align="left">Path</th><th align="right">Size</th><th align="left">SHA256</th></tr>
+    </thead><tbody></tbody></table>
+  </div>
+</div>
+<script>
+(async () => {
+  const wc = await (await fetch('/receipts/sr_watch_checkpoint_v0_1.json', {cache:'no-store'})).json();
+  const snap = (wc.summary?.snapshot_dir||'').replace(/^\.?\/?/,'');
+  const manifest = wc.artifacts?.manifest || '';
+  const meta = document.getElementById('meta');
+  if(!snap || !manifest){ meta.textContent='No snapshot/manifest found. Run Tick–Tock.'; return; }
+  const url = `/${snap}/${manifest}`;
+  const j = await (await fetch(url,{cache:'no-store'})).json();
+  meta.innerHTML = `Snapshot: <a href="/${snap}/">${snap}</a> • Files: ${j.files?.length||0} • Generated: ${j.generated_at||'—'}`;
+  const tbody = document.querySelector('#tbl tbody');
+  const rows = (j.files||[]).map(f => {
+    const p = f.path||''; const s = Number(f.size||0);
+    const size = (s>1e6)?(s/1e6).toFixed(2)+' MB': (s>1e3)?(s/1e3).toFixed(1)+' KB': s+' B';
+    const link = `<a href="/${p}">${p}</a>`;
+    return {p, html:`<tr><td>${link}</td><td align="right">${size}</td><td><code>${(f.sha256||'').slice(0,16)}…</code></td></tr>`};
+  });
+  const render = (q='')=>{
+    const qn = q.trim().toLowerCase();
+    tbody.innerHTML = rows.filter(r=>!qn||r.p.toLowerCase().includes(qn)).map(r=>r.html).join('');
+  };
+  render();
+  document.getElementById('q').addEventListener('input', e=>render(e.target.value));
+})();
+</script>

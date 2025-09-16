@@ -1,0 +1,3 @@
+{ "schema":"sr.pkg_v1_0", "title":"Hello Pkg",
+  "tiles":[{"src":"hello.html","dest":"/decisionhub/hello_pkg_v1_0.html"}],
+  "tests":[{"route":"/decisionhub/hello_pkg_v1_0.html","expect":200}] }

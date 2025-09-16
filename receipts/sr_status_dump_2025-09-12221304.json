@@ -1,0 +1,13 @@
+{
+  "schema": "sr.status.dump.v0_1",
+  "generated_at":"2025-09-12T22:13:04Z",
+  "host":"eh1003006-dev",
+  "kernel":"Linux 5.15.0-153-generic",
+  "git_head":"a78b0223072aa54ebf367f304bfe9a2e8599abc9 Status dump @ 2025-09-12T22:02:00Z verdict=penitential rite",
+  "power":"unknown",
+  "network_iface":"wlp2s0",
+  "latest_snapshot":"snapshots/2025-09-12_221250_",
+  "canon_parity_file":"canon_parity_2025-09-12_221250_.json",
+  "offenders_file":"offenders_2025-09-12_221250_.json",
+  "verdict":"penitential rite"
+}

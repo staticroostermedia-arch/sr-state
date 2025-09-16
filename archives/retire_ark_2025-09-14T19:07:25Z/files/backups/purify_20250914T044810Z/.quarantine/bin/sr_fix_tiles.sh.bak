@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd ~/static-rooster
+
+CFG=config/decisionhub.config.json
+mkdir -p config
+[[ -s "$CFG" ]] || printf '{"title":"DecisionHub - Start Here","items":[]}\n' > "$CFG"
+
+tmp="$(mktemp)"
+cat > "$tmp" <<'JSON'
+[
+ {"key":"reply builder","name":"Reply Builder","badge":"v0.1.0","route":"/forge/reply_builder_v0_1.html?config=/config/decisionhub.config.json"},
+ {"key":"receipts timeline","name":"Receipts Timeline","badge":"v0.1.0","route":"/receipts/receipts_timeline_viewer_v0_1.html?index=/receipts/index_v0_1.json"},
+ {"key":"gate reports","name":"Gate Reports","badge":"v0.1.0","route":"/forge/gate_reports/index_v0_1.html?index=/forge/gate_reports/index_v0_1.json"},
+ {"key":"watch checkpoints","name":"Watch Checkpoints","badge":"v0.1.0","route":"/decisionhub/watch_checkpoint_viewer_v0_1.html?src=/receipts/sr_watch_checkpoint_v0_1.json"},
+ {"key":"reply ingest (svc)","name":"Reply Ingest (status)","badge":"svc","route":"http://localhost:8891/health"}
+]
+JSON
+
+# If your runner wrote the feed URL somewhere and exported RUNNER_FEED_URL, add the tile.
+if [[ -n "${RUNNER_FEED_URL:-}" ]]; then
+  jq --arg url "$RUNNER_FEED_URL" '. += [{"key":"runner feed","name":"Runner Feed","badge":"v0.1","route":$url}]' "$tmp" > "$tmp.add" && mv "$tmp.add" "$tmp"
+fi
+
+jq --slurpfile want "$tmp" '
+  def bykey(a): reduce a[] as $t ({}; .[$t.key]=$t);
+  def merge_items(cur, want){
+    [ (want[]|.key) as $k |
+      ( (cur[]|select(.key==$k)) // (bykey(want)[$k]) )
+    ]
+  };
+  . as $cfg
+  | $cfg.items as $cur
+  | $want[0]      as $want
+  | .title = ($cfg.title // "DecisionHub - Start Here")
+  | .items = merge_items($cur; $want)
+' "$CFG" > "$CFG.tmp" && mv "$CFG.tmp" "$CFG"
+
+echo "Tiles now:"; jq -r '.items[].name' "$CFG"
+
+# restart tiny static server
+pkill -f "http.server 8888" >/dev/null 2>&1 || true
+python3 -m http.server 8888 --directory "$HOME/static-rooster" >/tmp/sr.http.log 2>&1 &
+echo "OPEN: http://localhost:8888/decisionhub/start_here_v0_2.html?config=/config/decisionhub.config.json"

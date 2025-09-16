@@ -1,0 +1,13 @@
+[Unit]
+Description=Static Rooster Runner (Tick→Tock)
+After=default.target
+
+[Service]
+Environment=SR_ROOT=%h/static-rooster
+Environment=STATIC_HTTP_PORT=8888
+ExecStart=%h/static-rooster/support/sr_runner.sh
+WorkingDirectory=%h/static-rooster
+Restart=always
+
+[Install]
+WantedBy=default.target

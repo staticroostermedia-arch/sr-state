@@ -1,0 +1,114 @@
+{
+  schema: sr.env.v0_3,
+  generated_at: 2025-09-12T03:53:40Z,
+  device: linuxmint,
+  site: parcel,
+  power: grid,
+  network_iface: wifi,
+  lan_ip: 192.168.1.31,
+  wifi_ssid: TriForce-5G,
+  os: Linux Mint 21.3,
+  uname: {sys:Linux,rel:5.15.0-153-generic},
+  shell: bash,
+  path_len: 11,
+  http_log_tail: 127.0.0.1 - - [11/Sep/2025 20:52:47] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:47] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:47] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:47] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:50] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:50] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:50] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:50] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:53] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:53] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:53] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:53] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:55] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:55] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:55] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:55] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:58] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:58] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:58] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:52:58] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:01] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:01] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:01] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:01] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:04] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:04] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:04] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:04] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:06] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:06] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:06] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:06] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:09] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:09] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:09] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:09] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:12] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:12] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:12] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:12] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:15] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:15] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:15] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:15] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:17] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:17] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:17] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:17] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:20] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:20] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:20] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:20] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:23] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:23] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:23] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:23] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:26] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:26] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:26] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:26] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:28] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:28] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:28] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:28] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:31] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:31] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:31] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:31] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:34] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:34] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:34] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:34] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:37] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:37] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:37] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:37] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:39] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:39] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:39] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:39] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:42] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:42] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:42] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:42] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:45] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:45] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:45] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:45] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:48] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:48] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:48] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:48] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:50] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:50] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:50] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:50] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:53] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:53] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:53] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:53:53] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+}

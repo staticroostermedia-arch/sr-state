@@ -1,0 +1,8 @@
+{
+  "schema":"sr.receipt.v0_1",
+  "generated_at":"2025-09-14T05:41:13Z",
+  "tool_name":"sr_runner_wire_upgrade_v1_1",
+  "status":"ok",
+  "summary":"Runner upgraded: enhanced Tock with Ark probes + Canon parity.",
+  "captures":{"backup_dir":"/home/a/static-rooster/backups/runner_wire_upgrade_20250914T054113Z","tock_path":"/home/a/static-rooster/support/sr_tock.sh"}
+}

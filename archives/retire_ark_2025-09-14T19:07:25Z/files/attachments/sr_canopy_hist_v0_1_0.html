@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Canopy Histogram — v0.1.0</title>
+<style>
+:root{ --bg:#0b0c06; --grid:#1a2b1a; --text:#b4ffb4; --ok:#39ff14; --bad:#ff6b6b }
+html,body{margin:0;background:#0b0c06;color:#b4ffb4;font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:980px;margin:0 auto;padding:12px}
+.card{border:1px solid var(--grid);border-radius:12px;background:#0f140f;padding:12px;margin-top:10px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+input,button{border:1px solid var(--grid);background:#0a0f0a;color:#b4ffb4;border-radius:8px;padding:8px}
+button{cursor:pointer}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.35}
+.small{font-size:12px;color:#9ae89a}
+canvas{width:100%;height:200px;background:#0a0f0a;border:1px solid var(--grid);border-radius:8px}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/geotiff@2.0.7/dist-browser/geotiff.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="small">Static Rooster • Canopy Histogram v0.1.0</div>
+  <div class="card">
+    <div class="row">
+      <input type="file" id="file" accept=".tif,.tiff">
+      <button id="btnOpen">Open CHM Raster</button>
+      <input id="bbox" placeholder="ROI window x1,y1,x2,y2 (pixels)" style="min-width:320px">
+      <button id="btnHist">Histogram</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="small">Histogram</div>
+    <canvas id="chart" width="800" height="200"></canvas>
+  </div>
+  <div class="card">
+    <div class="small">Stats</div>
+    <pre id="out">—</pre>
+  </div>
+</div>
+<script>
+let image=null;
+document.getElementById('btnOpen').onclick = async ()=>{
+  const f = document.getElementById('file').files[0]; if(!f) return alert('Choose a file');
+  const buf = await f.arrayBuffer(); const tiff = await GeoTIFF.fromArrayBuffer(buf); image = await tiff.getImage(); alert('CHM loaded: '+image.getWidth()+'×'+image.getHeight());
+};
+function parseWin(txt, img){ const parts=(txt||'').split(',').map(x=>parseInt(x,10)); if(parts.length===4) return parts; return [0,0,Math.min(512,img.getWidth()),Math.min(512,img.getHeight())]; }
+async function hist(){
+  if(!image) return alert('Load CHM first.');
+  const win = parseWin(document.getElementById('bbox').value, image);
+  const data = await image.readRasters({window:win,samples:[0]});
+  const arr = Array.from(data[0]||[]).filter(v=>Number.isFinite(v));
+  const bins=20, min=Math.min(...arr), max=Math.max(...arr), rng=(max-min)||1, hist=new Array(bins).fill(0);
+  arr.forEach(v=>{ let k=Math.floor((v-min)/rng*bins); if(k>=bins) k=bins-1; if(k<0) k=0; hist[k]++; });
+  draw(hist);
+  const sum = arr.reduce((a,b)=>a+b,0), avg=sum/(arr.length||1);
+  document.getElementById('out').textContent = JSON.stringify({count:arr.length,min,max,avg:Math.round(avg*100)/100,window:win}, null, 2);
+}
+function draw(vals){
+  const c=document.getElementById('chart'), g=c.getContext('2d'); g.clearRect(0,0,c.width,c.height);
+  const w=c.width, h=c.height, n=vals.length, maxv=Math.max(...vals,1);
+  for(let i=0;i<n;i++){ const x=i*(w/n); const bar=(vals[i]/maxv)*h; g.fillStyle='#39ff14'; g.fillRect(x, h-bar, (w/n)-2, bar); }
+}
+document.getElementById('btnHist').onclick = hist;
+</script>
+</body>
+</html>

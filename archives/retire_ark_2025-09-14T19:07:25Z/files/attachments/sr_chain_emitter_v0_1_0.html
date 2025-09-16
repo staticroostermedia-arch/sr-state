@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8"><title>sr_chain_emitter v0.1.0</title>
+<body style="font-family:ui-monospace;background:#0b0c06;color:#b4ffb4">
+<h3>sr_chain_emitter v0.1.0</h3>
+<input type="file" id="prev" accept=".zip"> previous dossier
+<pre id="out">—</pre>
+<script>
+const $=s=>document.querySelector(s);
+document.getElementById('prev').addEventListener('change', async (e)=>{
+  const f=e.target.files[0]; if(!f) return;
+  const buf=await f.arrayBuffer();
+  const dg=new TextEncoder().encode(''); // no-op
+  const hash=await crypto.subtle.digest('SHA-256', buf);
+  const hex=[...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,'0')).join('');
+  const chain={schema:'sr.chain.v0_1', generatedAt:new Date().toISOString(), prev:{path:f.name, sha256:hex, size:f.size}, append_only:true};
+  $('#out').textContent=JSON.stringify(chain,null,2);
+});
+</script>

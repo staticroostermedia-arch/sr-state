@@ -1,0 +1,2 @@
+{
+ "schema":"sr.receipt.v0_1","generated_at":"2025-09-14T05:45:51Z","tool_name":"sr_tick_v1_1","status":"ok","summary":"Tick: preflight + ledger.","captures":{"canon_path":"/home/a/static-rooster/docs/identity/01_sr_canon.md","canon_sha256":"b58fa198b6b676a96e9bf098ef4858c632bffb5a52423c24449da387f39ebe44"}}

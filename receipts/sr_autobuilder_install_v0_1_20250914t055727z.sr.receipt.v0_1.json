@@ -1,0 +1,4 @@
+{
+ "schema":"sr.receipt.v0_1","generated_at":"2025-09-14T05:57:27Z","tool_name":"sr_autobuilder_install_v0_1","status":"ok",
+ "summary":"Autobuilder installed (path-trigger) and baseline built.",
+ "captures":{"service":"sr-autobuilder.service","path_unit":"sr-autobuilder.path","config":"/home/a/static-rooster/config/decisionhub_config.json","hub_out":"/home/a/static-rooster/decisionhub/eh1003006_decisionhub_index_v4_0_0.html","backup_dir":"/home/a/static-rooster/backups/autobuilder_20250914T055727Z"}}

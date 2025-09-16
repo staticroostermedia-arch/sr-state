@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Raster Loader — v0.1.0</title>
+<style>
+:root{ --bg:#0b0c06; --grid:#1a2b1a; --text:#b4ffb4; --ok:#39ff14; --bad:#ff6b6b }
+html,body{margin:0;background:#0b0c06;color:#b4ffb4;font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:980px;margin:0 auto;padding:12px}
+.card{border:1px solid var(--grid);border-radius:12px;background:#0f140f;padding:12px;margin-top:10px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+input,button{border:1px solid var(--grid);background:#0a0f0a;color:#b4ffb4;border-radius:8px;padding:8px}
+button{cursor:pointer}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.35}
+.small{font-size:12px;color:#9ae89a}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/geotiff@2.0.7/dist-browser/geotiff.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="small">Static Rooster • Raster Loader v0.1.0</div>
+  <div class="card">
+    <div class="row">
+      <input id="url" placeholder="URL to GeoTIFF/COG (https://…)">
+      <button id="btnFetch">Fetch</button>
+      <input type="file" id="file" accept=".tif,.tiff">
+      <button id="btnOpen">Open File</button>
+    </div>
+    <div class="row">
+      <input id="win" placeholder="window x1,y1,x2,y2 (pixels)" style="min-width:320px">
+      <button id="btnRead">Read Window</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="small">Info</div>
+    <pre id="info">—</pre>
+  </div>
+  <div class="card">
+    <div class="small">Sample (first 100 values of band 1)</div>
+    <pre id="out">—</pre>
+  </div>
+</div>
+<script>
+let tiff=null, image=null;
+async function openFromArrayBuffer(buf){
+  tiff = await GeoTIFF.fromArrayBuffer(buf);
+  image = await tiff.getImage();
+  const w=image.getWidth(), h=image.getHeight(), samples=image.getSamplesPerPixel(), res=image.getResolution();
+  const bbox=image.getBoundingBox(); // [minX, minY, maxX, maxY] in raster space
+  const str = JSON.stringify({width:w, height:h, samples, resolution:res, bbox}, null, 2);
+  document.getElementById('info').textContent = str;
+}
+document.getElementById('btnOpen').onclick = async ()=>{
+  const f = document.getElementById('file').files[0]; if(!f) return alert('Choose a file');
+  const buf = await f.arrayBuffer(); await openFromArrayBuffer(buf);
+};
+document.getElementById('btnFetch').onclick = async ()=>{
+  try{
+    const u=document.getElementById('url').value.trim(); if(!u) return alert('Enter URL');
+    const res = await fetch(u); const buf = await res.arrayBuffer(); await openFromArrayBuffer(buf);
+  }catch(e){ alert('Fetch failed: '+e.message); }
+};
+document.getElementById('btnRead').onclick = async ()=>{
+  if(!image) return alert('Load a raster first.');
+  const parts = (document.getElementById('win').value||'').split(',').map(x=>parseInt(x.trim(),10));
+  const win = (parts.length===4) ? parts : [0,0,Math.min(256,image.getWidth()),Math.min(256,image.getHeight())];
+  const data = await image.readRasters({window: win, samples:[0]});
+  const arr = Array.from(data[0]||[]).slice(0,100);
+  document.getElementById('out').textContent = JSON.stringify({window:win, sample:arr}, null, 2);
+};
+</script>
+</body>
+</html>

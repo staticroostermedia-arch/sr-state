@@ -1,0 +1,12 @@
+{
+  "generated_at_utc": "2025-09-11T04:46:38Z",
+  "tool_name": "sr_httpd",
+  "status": "warn",
+  "summary": "httpd probes had failures on 192.168.1.31:8888\n",
+  "site": "parcel",
+  "device": "linuxmint",
+  "network_iface": "wifi",
+  "power": "grid",
+  "tool_version": "v0_1",
+  "extras": {route_:local:000000,lan:000000,route_EH1003006_DecisionHub_index_v3_2_1.html:local:000000,lan:000000,route_receipts/sr_watch_checkpoint_v0_1.json:local:000000,lan:000000}
+}

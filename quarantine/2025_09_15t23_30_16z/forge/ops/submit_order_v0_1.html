@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8"/>
+<title>Static Rooster — Submit Order</title>
+<style>body{font-family:system-ui;background:#0b0f14;color:#e8f0f6;margin:0}
+.wrap{max-width:900px;margin:24px auto;padding:16px}
+textarea{width:100%;height:240px;background:#111822;color:#e8f0f6;border:1px solid #223040;border-radius:10px;padding:12px}
+button{background:#1b2a3a;color:#e8f0f6;border:1px solid #2b4057;border-radius:10px;padding:10px 14px;cursor:pointer}
+.out{margin-top:10px;white-space:pre-wrap;background:#0e141b;border:1px solid #1d2a37;border-radius:10px;padding:10px}
+</style>
+<div class="wrap">
+  <h2>Submit Build Order</h2>
+  <p>Paste a short, constrained shell order. It will run under <code>~/static-rooster</code> with safety rails.</p>
+  <textarea id="t" placeholder="# example
+# write a file inside ~/static-rooster/docs/hello.md
+cat > docs/hello.md <<'EOF'
+hello world
+EOF
+
+# snapshot + status
+forge/tools/sr_runner_snapshot_wrap_v0_1.sh
+forge/tools/sr_status_dump_v0_2.sh
+"></textarea>
+  <div style="margin-top:8px">
+    <button id="b">Queue Order</button>
+    <a href="/forge/watchlight/watchlight_v0_2.html" style="margin-left:12px">Watchlight</a>
+  </div>
+  <div id="o" class="out">Ready.</div>
+</div>
+<script>
+document.getElementById('b').onclick = async () => {
+  const txt = document.getElementById('t').value;
+  const body = new URLSearchParams({order: txt});
+  const r = await fetch('/cgi-bin/ingest_v0_1.py', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body});
+  document.getElementById('o').textContent = await r.text();
+}
+</script>

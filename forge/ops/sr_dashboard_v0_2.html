@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Static Rooster — Status Dashboard v0.2</title>
+<style>
+  :root{--bg:#0b0f14;--panel:#121823;--accent:#7be0b0;--muted:#8aa0b3;--bad:#ff6363;--ok:#7be0b0;--warn:#ffd166;}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:#e6eef5;font-family:system-ui,Segoe UI,Roboto,Ubuntu,sans-serif}
+  header{padding:14px 18px;border-bottom:1px solid #223;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+  h1{margin:0;font-size:18px} small{color:var(--muted)}
+  main{padding:16px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{background:var(--panel);border:1px solid #223;border-radius:12px;padding:14px;min-height:110px}
+  .card h3{margin:0 0 8px 0;font-size:14px;color:#b7c4d1}
+  .pill{display:inline-block;border-radius:999px;padding:3px 10px;font-weight:700}
+  .pill.ok{background:rgba(123,224,176,.15);color:var(--ok);border:1px solid rgba(123,224,176,.35)}
+  .pill.bad{background:rgba(255,99,99,.12);color:var(--bad);border:1px solid rgba(255,99,99,.35)}
+  .pill.warn{background:rgba(255,209,102,.12);color:var(--warn);border:1px solid rgba(255,209,102,.35)}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  code{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px}
+  .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  button{background:#1d2430;color:#dbe7f2;border:1px solid #2a3545;border-radius:8px;padding:6px 10px;cursor:pointer}
+  button:hover{background:#223042}
+  .kv{display:grid;grid-template-columns:auto 1fr;gap:6px 10px}
+  .tiny{color:#92a6bb;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Static Rooster — Status Dashboard <small id="ts"></small></h1>
+  <div class="row">
+    <button id="refresh">Refresh</button>
+    <small class="tiny">Auto-refresh every <span id="freq">5</span>s</small>
+    <small class="tiny">Open: <a href="/receipts/" target="_blank">/receipts/</a> · <a href="/snapshots/" target="_blank">/snapshots/</a> · <a href="/forge/watchlight/watchlight_v0_2.html" target="_blank">Watchlight</a></small>
+  </div>
+</header>
+
+<main>
+  <section class="card" id="verdict_card">
+    <h3>Verdict</h3>
+    <div class="row"><span id="verdict" class="pill">—</span></div>
+    <div class="tiny" id="verdict_time"></div>
+  </section>
+
+  <section class="card">
+    <h3>Latest Snapshot</h3>
+    <div id="snap">—</div>
+    <div class="tiny" id="snap_when"></div>
+  </section>
+
+  <section class="card">
+    <h3>Canon Parity</h3>
+    <div id="parity">—</div>
+    <div class="tiny" id="parity_detail"></div>
+  </section>
+
+  <section class="card">
+    <h3>Runner</h3>
+    <div id="runner">—</div>
+    <div class="tiny" id="runner_time"></div>
+  </section>
+
+  <section class="card">
+    <h3>Recent Offenders</h3>
+    <div id="offenders"><code>{}</code></div>
+  </section>
+
+  <section class="card">
+    <h3>Env</h3>
+    <div id="env"><code>—</code></div>
+  </section>
+</main>
+
+<script>
+(async function(){
+  const $ = sel => document.querySelector(sel);
+  const set = (sel, v) => ($(sel).textContent = v);
+  const ts = () => new Date().toLocaleString();
+
+  async function listLinks(path, regex){
+    // Fetch python http.server index and parse links
+    const html = await fetch(path, {cache:'no-store'}).then(r=>r.text());
+    const rx = regex instanceof RegExp ? regex : new RegExp(regex,'g');
+    const matches = Array.from(html.matchAll(/href="([^"]+)"/g)).map(m=>m[1]);
+    return matches.filter(h => rx.test(h)).sort().reverse();
+  }
+
+  async function jsonOrNull(url){
+    try { return await fetch(url, {cache:'no-store'}).then(r=>r.ok?r.json():null); }
+    catch(e){ return null; }
+  }
+
+  async function refresh(){
+    set('#ts', ts());
+
+    // Verdict: latest sr_status_dump_*.json or sr_watch_checkpoint_*.json
+    let statusIdx = await listLinks('/receipts/', /sr_status_dump_.*\.json$/);
+    let verdict = 'unknown', vtime='—', env='—';
+    if(statusIdx.length){
+      const j = await jsonOrNull('/receipts/'+statusIdx[0]);
+      if(j){
+        verdict = j.verdict || verdict;
+        vtime   = j.generated_at || vtime;
+        env     = j.env ? JSON.stringify(j.env) :
+                 (j.host || j.kernel || j.iface) ? JSON.stringify({host:j.host,kernel:j.kernel,iface:j.iface,power:j.power}) : env;
+      }
+    }
+    const pill = $('#verdict'); pill.textContent = verdict;
+    pill.className = 'pill ' + (verdict==='foedus intactum'?'ok':(verdict==='penitential_rite'?'bad':'warn'));
+    set('#verdict_time', vtime);
+    set('#env', env);
+
+    // Runner heartbeat (sr_runner_last.json if present)
+    const rlast = await jsonOrNull('/receipts/sr_runner_last.json');
+    if(rlast){
+      set('#runner', (rlast.verdict||'—') + ' @ ' + (rlast.generated_at||''));
+      set('#runner_time', rlast.generated_at||'');
+    } else {
+      set('#runner', '—'); set('#runner_time','');
+    }
+
+    // Latest snapshot dir
+    const snaps = await listLinks('/snapshots/', /^\d{4}-\d{2}-\d{2}_\d{6}\/$/);
+    if(snaps.length){
+      const dir = snaps[0].replace(/\/$/,'');
+      set('#snap', dir);
+      // try to read its manifest
+      const man = await jsonOrNull('/snapshots/'+dir+'/sr_snapshot_'+dir+'.manifest.json') ||
+                  await jsonOrNull('/snapshots/'+dir+'/manifest.json');
+      set('#snap_when', man && man.generated_at ? man.generated_at : '');
+      // canon parity + offenders from snapshot
+      const cp = await jsonOrNull('/snapshots/'+dir+'/canon_parity_'+dir+'.json') ||
+                 await jsonOrNull('/snapshots/'+dir+'/canon_parity.json');
+      if(cp){
+        set('#parity', cp.parity || 'unknown');
+        set('#parity_detail', 'pin:'+ (cp.pin_shas256 || cp.pin_sha256 || '—'));
+      }
+      const off = await jsonOrNull('/snapshots/'+dir+'/offenders_'+dir+'.json') ||
+                  await jsonOrNull('/snapshots/'+dir+'/offenders.json');
+      if(off){
+        const items = (off.items || []).slice(0,6).map(o=>o.path||o).join('\n') || '{}';
+        $('#offenders').innerHTML = '<code>'+items.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</code>';
+      }
+    } else {
+      set('#snap','—'); set('#parity','—'); set('#offenders','{}');
+    }
+  }
+
+  $('#refresh').addEventListener('click', refresh);
+
+  // Auto-refresh loop
+  let freq = 5; set('#freq', String(freq));
+  refresh(); setInterval(refresh, freq*1000);
+})();
+</script>
+</body>
+</html>

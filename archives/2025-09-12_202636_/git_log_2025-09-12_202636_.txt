@@ -1,0 +1,137 @@
+# git status --porcelain=v1
+ M bin/sr_guard_static.sh
+ M bin/sr_watch_checkpoint.sh
+ M config/decisionhub_config.json
+ M receipts/index_v0_1.json
+?? .docroot_probe.txt
+?? bin/sr_canon_parity.sh
+?? bin/sr_fix_links.sh
+?? bin/sr_heal.sh
+?? bin/sr_httpd.sh
+?? bin/sr_make_ark.sh
+?? bin/sr_receipts_index_refresh.sh
+?? bin/sr_restore_tiles.sh
+?? bin/sr_runner.sh
+?? bin/sr_start_here.sh
+?? bin/sr_tokenscope_sentinel.sh
+?? cognition/README.txt
+?? cognition/sr_legacy_cognition_index.json
+?? config/decisionhub_config.json.tmp
+?? config/ml/
+?? configs/
+?? decisionhub/decisionhub_config_canonical_v0_3.md
+?? decisionhub/decisionhubconfig_schema_v1_0.json
+?? docs/20_rehydration_manifest.jsonl
+?? docs/60_sr_coherence_guardrails.md
+?? docs/61_sr_thread_starter_ritual.md
+?? docs/62_sr_rehydration_prompt.md
+?? docs/63_sr_instructions_evolution.md
+?? docs/64_sr_ml_notes.md
+?? docs/70_sr_ticktock_runner_spec.md
+?? docs/contracts/
+?? docs/decisionhub_config_canonical_v0_3.md
+?? docs/identity/
+?? docs/runbooks/
+?? docs/runner_config_canonical_v0_1.md
+?? docs/schemas/
+?? docs/sr_baseline_assembly_v0_1.md
+?? docs/sr_debugging_playbook_v0_1.md
+?? docs/sr_project_instructions_block.md
+?? docs/sr_rehydration_light_v0_1.md
+?? docs/watch_checkpoint_rite_v0_1.md
+?? forge/canon_parity_tool_v0_1_0.html
+?? forge/gate_reports/atlas_v0_1.json
+?? forge/sr_canon_diff_stub_v0_1.html
+?? forge/sr_canon_parity_v0_1.html
+?? forge/tools/
+?? identity/
+?? process/
+?? project_atlas_v0_1.json
+?? project_legacy/
+?? receipts/ark_align_1757561151.json
+?? receipts/baseline_runner_ok.json
+?? receipts/baseline_tokens_ok.json
+?? receipts/baseline_watch_ok.json
+?? receipts/code/
+?? receipts/contracts_align_1757561130.json
+?? receipts/dh_normalize_1757561068.json
+?? receipts/dh_normalize_1757561122.json
+?? receipts/dh_patch_href_1757561141.json
+?? receipts/ml_validate_receipt_1757559246.json
+?? receipts/ml_validate_receipt_1757559398.json
+?? receipts/orchestrator/
+?? receipts/runner_heartbeat_1757561151.json
+?? receipts/sentinel_tokenscope_1757561151.json
+?? receipts/sr_ark_build.forensics_20250912_034401_.json
+?? receipts/sr_ark_build.forensics_20250912_034403_.json
+?? receipts/sr_ark_build_20250912_035355_.json
+?? receipts/sr_ark_build_20250912_035357_.json
+?? receipts/sr_ark_build_20250912_043205_.json
+?? receipts/sr_ark_build_20250912_043207_.json
+?? receipts/sr_ark_build_20250912_045638_.json
+?? receipts/sr_bootstrap_timer_20250912T202456Z.log
+?? receipts/sr_bootstrap_timer_20250912t202456z.log
+?? receipts/sr_bootstrap_timer_20250912t202635z.log
+?? receipts/sr_bootstrap_timer_receipt_20250912t202511z.json
+?? receipts/sr_heal_20250912_045034_.json
+?? receipts/sr_heal_20250912_045035_.json
+?? receipts/sr_heal_20250912t044421z.log
+?? receipts/sr_heal_20250912t044532z.log
+?? receipts/sr_heal_20250912t045034z.log
+?? receipts/sr_heal_map_2025-09-12_044532_.csv
+?? receipts/sr_heal_map_2025-09-12_045034_.csv
+?? receipts/sr_httpd_20250911_044638_.json
+?? receipts/sr_runner_last.json
+?? receipts/sr_runner_smoke_20250912t193538z.log
+?? receipts/sr_seed_coherence_pack_v0_2.json
+?? receipts/sr_snapshot_marker_1757560754.json
+?? receipts/sr_tick_tock_enable.log
+?? receipts/sr_tick_tock_enable_debug.log
+?? receipts/sr_tokenscope_last.json
+?? receipts/sr_watch_checkpoint_v0_1.json
+?? receipts/watch_checkpoint_1757561151.json
+?? samples/
+?? scripts/
+?? sentinel/
+?? snapshots/2025-09-12_035340_/
+?? snapshots/2025-09-12_035355_/
+?? snapshots/2025-09-12_043150_/
+?? snapshots/2025-09-12_043205_/
+?? snapshots/2025-09-12_045623_/
+?? snapshots/2025-09-12_193538_/
+?? snapshots/2025-09-12_202457_/
+?? snapshots/2025-09-12_202636_/
+?? snapshots/env_20250912T034345Z.json
+?? snapshots/env_20250912T034401Z.json
+?? snapshots/git_log_20250912T034345Z.txt
+?? snapshots/git_log_20250912T034401Z.txt
+?? snapshots/offenders_20250912T034345Z.json
+?? snapshots/offenders_20250912T034401Z.json
+?? snapshots/sr_snapshot_20250912T034345Z.manifest.json
+?? snapshots/sr_snapshot_20250912T034345Z.tgz.sha256
+?? snapshots/sr_snapshot_20250912T034401Z.manifest.json
+?? snapshots/sr_snapshot_20250912T034401Z.tgz.sha256
+?? sr-ark
+?? sr-runner
+?? sr_ark_build_v0_3.sh
+?? sr_ark_build_v0_4.sh
+?? sr_bootstrap_timer_v0_2.sh
+?? sr_heal_v0_1.sh
+?? sr_heal_v0_2.sh
+?? sr_httpd.sh
+?? sr_receipt.sh
+?? sr_tick_tock_enable_debug.sh
+?? sr_tick_tock_enable_v0_1.sh
+
+# branch + HEAD
+restore/tiles_ok
+c85d619
+
+# last 50 commits
+c85d619 2025-09-09 15:29:42 -0700 Static Rooster config: seed DecisionHub Start-Here with 4 core tiles
+b3c773d 2025-09-09 15:25:44 -0700 Static Rooster guard: solidify DecisionHub tile routes (reply/receipts/gate-reports/watch-checkpoints)
+7c0c3e3 2025-09-09 15:18:11 -0700 Static Rooster restore: Start-Here, config, and tool routes from
+b882b73 2025-09-08 20:39:10 -0700 Static Rooster runner: update feed 2025-09-08T20:39:10-07:00
+e38a348 2025-09-08 14:50:31 -0700 A checkpoint: seed Static Rooster local baseline
+6666981 2025-09-08 14:45:27 -0700 A Gold Baseline #1: StartHere + Receipts + GateReports wired
+fde0589 2025-09-08 14:38:40 -0700 A Gold Baseline #1: Start Here + Receipts + Gate Reports wired

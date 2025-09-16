@@ -1,0 +1,8 @@
+{
+  "schema": "sr.cleanup.v0_2",
+  "generated_at": "2025-09-13T03:33:17Z",
+  "apply_mode": 1,
+  "keep_live": 8,
+  "tar_after_days": 30,
+  "trim_receipts_after_days": 60
+}

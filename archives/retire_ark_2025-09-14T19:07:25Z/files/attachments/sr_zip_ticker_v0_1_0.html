@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zip Ticker — v0.1.0</title>
+<style>
+:root{ --bg:#0b0c06; --grid:#1a2b1a; --text:#b4ffb4; --accent:#9ae89a; --ok:#39ff14; --warn:#ffd166 }
+html,body{margin:0;background:#0b0c06;color:#b4ffb4;font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:980px;margin:0 auto;padding:12px}
+.card{border:1px solid var(--grid);border-radius:12px;background:#0f140f;padding:12px;margin-top:10px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+input,button,label{border:1px solid var(--grid);background:#0a0f0a;color:#b4ffb4;border-radius:8px;padding:8px}
+label{display:inline-flex;align-items:center;gap:8px}
+button{cursor:pointer}
+.small{font-size:12px;color:#9ae89a}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;line-height:1.35}
+.badge{border:1px solid var(--grid);border-radius:999px;padding:4px 10px}
+.ok{color:#39ff14;border-color:#39ff14}
+.warn{color:#ffd166;border-color:#ffd166}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="row"><span class="badge">Zip Ticker v0.1.0</span><span class="small">Periodic bundles with manifest (folder handle if supported)</span></div>
+  <div class="card">
+    <div class="row">
+      <button id="btnPick">Choose Folder (FS Access)</button>
+      <input type="file" id="files" multiple webkitdirectory directory>
+      <label>Every <input id="mins" type="number" value="20" min="1" style="width:90px"> min</label>
+      <label><input id="auto" type="checkbox"> Auto-run</label>
+      <button id="btnOnce">Bundle Now</button>
+      <button id="btnStart">Start</button>
+      <button id="btnStop">Stop</button>
+    </div>
+    <div class="small">Tip: Folder mode (Chrome/Edge) will see new files each tick. File input mode bundles the selected set only.</div>
+  </div>
+  <div class="card">
+    <div class="small">Log</div>
+    <pre id="log"></pre>
+  </div>
+</div>
+<script>
+let handle=null, timer=null, bag=[];
+function log(s){ document.getElementById('log').textContent = `[${new Date().toLocaleTimeString()}] ${s}\n`+document.getElementById('log').textContent; }
+async function pickFolder(){
+  if(!window.showDirectoryPicker){ alert('This browser does not support folder picking; use the file input instead.'); return; }
+  try{ handle = await showDirectoryPicker(); log('Picked folder.'); }catch(e){ log('Pick cancelled.'); }
+}
+async function* walk(dirHandle, path=''){
+  for await (const [name, h] of dirHandle.entries()){
+    const p = path? path + '/' + name : name;
+    if(h.kind==='file'){ yield [p, h]; }
+    else if(h.kind==='directory'){ yield* walk(h, p); }
+  }
+}
+async function sha256(buf){ const hash = await crypto.subtle.digest('SHA-256', buf); return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join(''); }
+async function makeZipFromHandle(dirHandle){
+  const zip = new JSZip(); const rows=[];
+  for await (const [path, h] of walk(dirHandle)){
+    const file = await h.getFile(); const buf = new Uint8Array(await file.arrayBuffer());
+    const sha = await sha256(buf); const arc = path.toLowerCase();
+    zip.file(arc, buf); rows.push({path:arc, sha256:sha, size:file.size});
+  }
+  const man = {schema:'sr.manifest.v0_1', generatedAt:new Date().toISOString(), files:rows};
+  zip.file('manifest.json', JSON.stringify(man,null,2));
+  const blob = await zip.generateAsync({type:'blob'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='watch_bundle_'+Date.now()+'.zip'; a.click();
+  log(`Bundled ${rows.length} files from folder.`);
+}
+async function makeZipFromFiles(files){
+  const zip = new JSZip(); const rows=[];
+  for(const f of files){
+    const buf = new Uint8Array(await f.arrayBuffer()); const sha = await sha256(buf);
+    const arc = (f.webkitRelativePath||f.name).toLowerCase().replace(/\\/g,'/');
+    zip.file(arc, buf); rows.push({path:arc, sha256:sha, size:f.size});
+  }
+  const man = {schema:'sr.manifest.v0_1', generatedAt:new Date().toISOString(), files:rows};
+  zip.file('manifest.json', JSON.stringify(man,null,2));
+  const blob = await zip.generateAsync({type:'blob'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='watch_bundle_'+Date.now()+'.zip'; a.click();
+  log(`Bundled ${rows.length} files from FileList.`);
+}
+document.getElementById('btnPick').onclick = pickFolder;
+document.getElementById('files').onchange = (e)=>{ bag = Array.from(e.target.files||[]); log(`Selected ${bag.length} files.`); };
+document.getElementById('btnOnce').onclick = ()=>{ if(handle) makeZipFromHandle(handle); else if(bag.length) makeZipFromFiles(bag); else alert('Pick folder or files first.'); };
+document.getElementById('btnStart').onclick = ()=>{
+  const mins = Math.max(1, parseInt(document.getElementById('mins').value||'20',10));
+  if(timer) clearInterval(timer);
+  timer = setInterval(()=>{ if(handle) makeZipFromHandle(handle); else if(bag.length) makeZipFromFiles(bag); }, mins*60*1000);
+  log('Auto bundling started every '+mins+' min.'); if(document.getElementById('auto').checked){ document.getElementById('btnOnce').click(); }
+};
+document.getElementById('btnStop').onclick = ()=>{ if(timer){ clearInterval(timer); timer=null; log('Stopped.'); } };
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "schema": "sr.receipt.v0_1",
+  "generated_at": "2025-09-14T06:05:18Z",
+  "tool_name": "sr_autobuilder_v0_1",
+  "status": "ok",
+  "summary": "Hub rebuilt from config",
+  "captures": {
+    "config": "/home/a/static-rooster/config/decisionhub_config.json",
+    "hub_out": "/home/a/static-rooster/decisionhub/eh1003006_decisionhub_index_v4_0_0.html"
+  }
+}

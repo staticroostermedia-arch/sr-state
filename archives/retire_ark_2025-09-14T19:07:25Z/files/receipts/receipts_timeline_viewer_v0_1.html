@@ -1,0 +1,4 @@
+<!doctype html><meta charset="utf-8"><title>Receipts Timeline</title>
+<style>body{font-family:system-ui;margin:24px;background:#0b0f14;color:#e6edf3}.row{margin:.25rem 0}</style>
+<h1>Receipts Timeline</h1><div id="list">Loading…</div>
+<script>(async()=>{const m=document.getElementById('list');try{const h=await (await fetch('./',{cache:'no-store'})).text();const items=[...h.matchAll(/href="([^"]+\.json)"/gi)].map(m=>m[1]).slice(-50).reverse();m.innerHTML=items.map(x=>`<div class=row>• <a href="${x}" target=_blank>${x}</a></div>`).join('')||'No receipts yet.';}catch(e){m.textContent='Error: '+e}})();</script>

@@ -1,0 +1,10 @@
+{
+  "schema": "sr.offenders.v0_4",
+  "generated_at": "2025-09-12T04:56:23Z",
+  "count": 3,
+  "items": [
+    {"path":"receipts/sr_heal_20250912T044532Z.log","kind":"uppercase"},
+    {"path":"receipts/sr_heal_20250912T044421Z.log","kind":"uppercase"},
+    {"path":"receipts/sr_heal_20250912T045034Z.log","kind":"uppercase"}
+  ]
+}

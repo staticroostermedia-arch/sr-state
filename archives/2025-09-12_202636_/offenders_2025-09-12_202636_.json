@@ -1,0 +1,8 @@
+{
+  "schema": "sr.offenders.v0_5",
+  "generated_at": "2025-09-12T20:26:36Z",
+  "count": 1,
+  "items": [
+    {"path":"receipts/sr_bootstrap_timer_20250912T202456Z.log","kind":"uppercase"}
+  ]
+}

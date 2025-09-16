@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -euo pipefail
+TOOL_NAME="sr_tock_v1_2"
+SR_ROOT="${SR_ROOT:-$HOME/static-rooster}"
+RECEIPTS="$SR_ROOT/receipts"
+STAMP="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+PORT="${STATIC_HTTP_PORT:-8888}"
+server="$SR_ROOT/support/sr_server.sh"
+
+probe(){ local u="$1"; if command -v curl >/dev/null 2>&1; then curl -fsS -o /dev/null -w "%{http_code}" "$u" || true; else wget -q -O /dev/null "$u" >/dev/null 2>&1 && echo 200 || echo fail; fi; }
+
+# Autodetect hub (prefer v4)
+hub_rel="$(find "$SR_ROOT" -maxdepth 2 -type f -iname 'eh1003006_decisionhub_index_v4*.html' -printf '%P\n' | head -1)"
+[[ -z "$hub_rel" ]] && hub_rel="$(find "$SR_ROOT" -maxdepth 2 -type f -iname 'eh1003006_decisionhub_index*.html' -printf '%P\n' | head -1)"
+[[ -z "$hub_rel" ]] && hub_rel="eh1003006_decisionhub_index_v4_0_0.html"
+
+# Ensure server
+"$server" start
+
+routes=( "http://127.0.0.1:${PORT}/${hub_rel}" "http://127.0.0.1:${PORT}/" )
+fails=()
+for r in "${routes[@]}"; do code="$(probe "$r")"; [[ "$code" == "200" ]] || fails+=("$r:$code"); done
+verdict="foedus_intactum"; [[ ${#fails[@]} -gt 0 ]] && verdict="penitential_rite"
+
+CKPT="$RECEIPTS/sr_watch_checkpoint_v0_1.json"
+{
+  printf '{\n  "schema":"eh1003006.watch.v1",\n  "generated_at":"%s",\n  "summary":"tock-probe",\n  "verdict":"%s",\n  "probes":[\n' "$STAMP" "$verdict"
+  for i in "${!routes[@]}"; do r="${routes[$i]}"; code="$(probe "$r")"; printf '    {"route":"%s","status":"%s"}%s\n' "$r" "$code" $([[ $i -lt $((${#routes[@]}-1)) ]] && echo "," || echo ""); done
+  printf '  ],\n  "detected_hub":"%s"\n}\n' "$hub_rel"
+} > "$CKPT"
+
+REC="$RECEIPTS/${TOOL_NAME}_$(date -u +%Y%m%dT%H%M%SZ).json"
+printf '{\n "schema":"sr.receipt.v0_1","generated_at":"%s","tool_name":"%s","status":"ok","summary":"Tock: server ensured; autodetect hub; probes; checkpoint written.","captures":{"port":%s,"checkpoint":"%s","verdict":"%s","hub_rel":"%s"}}\n' "$STAMP" "$TOOL_NAME" "$PORT" "$CKPT" "$verdict" "$hub_rel" > "$REC"
+echo "[tock] $REC ; verdict=$verdict ; hub=$hub_rel"

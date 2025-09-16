@@ -1,0 +1,18 @@
+{
+  "schema": "sr_watch_checkpoint.v0_1",
+  "generated_at_utc": "2025-09-16T03:08:03Z",
+  "probes": [
+    {
+      "name": "cloud/head_sha",
+      "http": "n/a",
+      "code": 409,
+      "ok": false,
+      "root": "git",
+      "index": "cbaadc31fd5bd76b90c291d5f232ad14c05446de",
+      "watchLight": {
+        "present": true
+      }
+    }
+  ],
+  "verdict": "penitential_rite"
+}

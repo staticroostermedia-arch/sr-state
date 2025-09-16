@@ -1,0 +1,1 @@
+{ "schema":"sr.receipt.v0_1","generated_at":"2025-09-14T17:07:56Z","tool_name":"sr_patch_hub_events_v0_1","status":"warn","summary":"listener injected; skeleton tile ensured","captures":{"index_backup":"hub_index_20250914T170756Z.bak.html","listener":"decisionhub/dh_events_listener_v0_2.js","config":"config/decisionhub_config.json"}}

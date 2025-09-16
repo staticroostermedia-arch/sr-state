@@ -1,0 +1,24 @@
+{
+  schema: sr.env.v0_2,
+  generated_at: 2025-09-12T03:44:01Z,
+  device: linuxmint,
+  site: parcel,
+  power: grid,
+  network_iface: wifi,
+  lan_ip: 192.168.1.31,
+  wifi_ssid: TriForce-5G,
+  os: Linux Mint 21.3,
+  uname: {sys:Linux,rel:5.15.0-153-generic},
+  shell: bash,
+  path_len: 11,
+  http_log_tail: Serving HTTP on 0.0.0.0 port 8888 (http://0.0.0.0:8888/) ...
+127.0.0.1 - - [11/Sep/2025 20:44:01] "GET /.docroot_probe.txt HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:44:01] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:44:01] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:44:01] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:44:01] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:44:01] "GET /forge/gate_reports/index_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:44:01] "GET /forge/reply_builder_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:44:01] "GET /decisionhub/watch_checkpoint_viewer_v0_1.html HTTP/1.1" 200 -
+127.0.0.1 - - [11/Sep/2025 20:44:01] "GET /receipts/receipts_timeline_viewer_v0_1.html HTTP/1.1" 200 -
+}

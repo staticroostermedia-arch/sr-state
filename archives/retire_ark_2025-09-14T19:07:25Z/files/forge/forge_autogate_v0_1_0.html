@@ -1,0 +1,41 @@
+<!doctype html><meta charset="utf-8"><title>Forge Auto-Gates v0.1.0</title>
+<style>body{background:#0b0e12;color:#eaf2ff;font-family:ui-monospace,Consolas,monospace;margin:0;padding:12px}
+.card{border:1px solid #162131;background:#10141b;border-radius:10px;padding:12px;margin:10px 0}
+pre{background:#0b111a;border:1px solid #1a2a42;border-radius:8px;padding:8px;overflow:auto;font-size:12px}
+.ok{color:#5eff9e}.bad{color:#ff6b6b}.warn{color:#ffd166}</style>
+<h3>Forge Auto-Gates <span class="ok">v0.1.0</span></h3>
+<div class="card">
+  <input type="file" id="zip" accept=".zip"> dossier zip
+  <input type="file" id="prev" accept=".zip"> prev dossier zip (optional)
+  <button id="run">Gate</button>
+</div>
+<pre id="out">—</pre>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script>
+async function sha256(buf){const h=await crypto.subtle.digest('SHA-256',buf);return[...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('')}
+const must=['dossier.json','manifest.json','sr_invocation_','sr_canon_','sr_memory_palace_','canon_pin_','chain_','checkpoint/','watch_lint_report_','sr_canon_diff_report_','attachments_refs_'];
+function lintName(n){const b=n.split('/').pop();let issues=[];if(b!==b.toLowerCase())issues.push('uppercase');if(/\s/.test(b))issues.push('spaces');if(/[.](html|json|md)$/.test(b)&&!/_v\d/.test(b)&&!/^dossier\.json$/.test(b)&&!/^manifest\.json$/.test(b))issues.push('missing_version_suffix');return issues;}
+document.getElementById('run').onclick=async()=>{
+  const out=document.getElementById('out'); out.textContent='working…';
+  const f=document.getElementById('zip').files[0]; if(!f){out.textContent='Pick dossier zip';return;}
+  const buf=await f.arrayBuffer(); const z=await JSZip.loadAsync(buf); const names=Object.keys(z.files);
+  let verdict='ok'; const checks=[];
+  for(const key of must){ const hit=names.find(n=>n.startsWith(key)); checks.push({check:'presence:'+key,status:!!hit?'ok':'missing'}); if(!hit) verdict='penitential required'; }
+  // manifest
+  if(z.files['manifest.json']){ const man=JSON.parse(await z.files['manifest.json'].async('text')); const miss=[]; const hashm=[];
+    for(const row of (man.files||[])){
+      if(!z.files[row.path]) miss.push(row.path);
+      else{ const h=await sha256(await z.files[row.path].async('arraybuffer')); if(h!==row.sha256) hashm.push({path:row.path,expected:row.sha256,actual:h}); }
+    }
+    if(miss.length) { checks.push({check:'manifest:missing',items:miss}); verdict='penitential required';}
+    if(hashm.length){ checks.push({check:'manifest:hash_mismatch',items:hashm}); verdict='penitential required';}
+  }
+  // lint sweep
+  const lints=[]; for(const n of names){ if(z.files[n].dir) continue; const is=lintName(n); if(is.length) lints.push({path:n,issues:is}); }
+  if(lints.length) checks.push({check:'lint',items:lints});
+  // chain check
+  const prev=document.getElementById('prev').files[0];
+  if(prev && z.files['chain_v0_1.json']){ const prevhash=await sha256(await prev.arrayBuffer()); const chain=JSON.parse(await z.files['chain_v0_1.json'].async('text')); const exp=chain.prev?.sha256; checks.push({check:'chain.prev.sha256',expected:exp,actual:prevhash,status:exp===prevhash?'ok':'mismatch'}); if(exp!==prevhash) verdict='penitential required'; }
+  out.textContent = JSON.stringify({schema:'sr.autogate_report.v0_1',generatedAt:new Date().toISOString(),zip:f.name,verdict,checks}, null, 2);
+};
+</script>

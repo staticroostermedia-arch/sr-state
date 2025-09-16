@@ -1,0 +1,8 @@
+{
+  "schema":"sr.receipt.v0_1",
+  "generated_at_utc":"2025-09-15T22_27_38Z",
+  "tool_name":"sr.build.from_specs.v0_1",
+  "status":"ok",
+  "summary":"fail example_parcel_planner_v0_1.yaml",
+  "used_sudo":false
+}

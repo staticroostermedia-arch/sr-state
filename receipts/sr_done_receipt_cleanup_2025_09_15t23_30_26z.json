@@ -1,0 +1,8 @@
+{
+  "schema":"sr.receipt.v0_1",
+  "generated_at_utc":"2025-09-15T23:30:26Z",
+  "tool_name":"sr.clean.quarantine.v0_1",
+  "status":"ok",
+  "summary":"moved:0 deleted:0 compressed:0 reclaimed_bytes:0",
+  "used_sudo":false
+}
