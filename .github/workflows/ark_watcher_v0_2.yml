@@ -1,0 +1,46 @@
+name: Ark Watcher
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - ".github/workflows/ark_watcher_v0_*.yml"
+      - "receipts/**"
+      - "snapshots/**"
+      - "docs/**"
+      - "bin/**"
+      - "identity/**"
+      - "inbox/**"
+  schedule:
+    - cron: "*/15 * * * *"      # every 15 min
+  workflow_dispatch: {}
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Summarize repo tip
+        id: tip
+        run: |
+          git rev-parse --short HEAD > _git_sha.txt
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > _now.txt
+          jq -n --arg sha "$(cat _git_sha.txt)" --arg now "$(cat _now.txt)" \
+             '{schema:"sr.cloud_heartbeat.v0_1", generated_at_utc:$now, sha:$sha}' > cloud_latest.json
+
+      - name: Upload heartbeat artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloud_latest
+          path: cloud_latest.json
+
+      - name: Optional webhook to Rooster Relay
+        if: ${{ env.HEARTBEAT_WEBHOOK != '' }}
+        run: |
+          curl -sS -X POST "$HEARTBEAT_WEBHOOK" \
+               -H 'content-type: application/json' \
+               --data-binary @cloud_latest.json || true
+        env:
+          HEARTBEAT_WEBHOOK: ${{ secrets.HEARTBEAT_WEBHOOK }}
