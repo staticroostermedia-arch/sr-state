@@ -1,0 +1,8 @@
+{
+  "schema": "sr.watch_checkpoint.v0_1",
+  "id": "watch_checkpoint_20250919043606Z_v0_1",
+  "issued_at_utc": "2025-09-19T04:36:06Z",
+  "beacon_seq": 2,
+  "verdict": "foedus intactum",
+  "notes": "aqueduct 200; beacon present"
+}

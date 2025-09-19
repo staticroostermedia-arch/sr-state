@@ -1,0 +1,9 @@
+{
+  "schema": "sr.observe_probe.v0_1",
+  "issued_at_utc": "2025-09-19T04:33:45Z",
+  "beacon_seq": 2,
+  "aqueduct_200": "yes",
+  "git_remote": "git@github.com:staticroostermedia-arch/sr-state.git",
+  "verdict": "foedus intactum",
+  "notes": ""
+}
