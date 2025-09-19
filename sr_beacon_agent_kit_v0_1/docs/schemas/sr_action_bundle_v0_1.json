@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SR Action Bundle v0_1",
+  "type": "object",
+  "required": [
+    "schema",
+    "id",
+    "issued_at_utc",
+    "intent",
+    "commands",
+    "based_on",
+    "signature"
+  ],
+  "properties": {
+    "schema": {
+      "const": "sr.action_bundle.v0_1"
+    },
+    "id": {
+      "type": "string"
+    },
+    "issued_by": {
+      "type": "string"
+    },
+    "issued_at_utc": {
+      "type": "string"
+    },
+    "based_on": {
+      "type": "object",
+      "required": [
+        "beacon_seq"
+      ],
+      "properties": {
+        "beacon_seq": {
+          "type": "integer"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "intent": {
+      "type": "string"
+    },
+    "target_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "commands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "validate_json_schema",
+              "backup",
+              "move",
+              "run",
+              "restart_service"
+            ]
+          },
+          "path": {
+            "type": "string"
+          },
+          "schema": {
+            "type": "string"
+          },
+          "src": {
+            "type": "string"
+          },
+          "dst": {
+            "type": "string"
+          },
+          "cmd": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          },
+          "expected_sha256": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "outputs_expected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "policy": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+# agent/policy.yaml
+approval:
+  validate_json_schema: auto
+  backup: auto
+  move_noncritical: auto_if_expected_sha_matches
+  move: require_approval
+  run: require_approval
+  restart_service: require_approval
+
+whitelist:
+  run_cmd_prefixes:
+    - "$HOME/static-rooster/bin/"
+    - "/usr/bin/systemctl"

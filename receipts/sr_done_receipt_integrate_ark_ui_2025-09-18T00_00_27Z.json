@@ -1,0 +1,7 @@
+{
+  "schema":"sr.done_receipt.v0_1",
+  "tool_name":"sr_integrate_ark_into_ui",
+  "status":"ok",
+  "generated_at_utc":"2025-09-18T00_00_27Z",
+  "summary":"ark_api:200 manifest:200 tgz:200"
+}

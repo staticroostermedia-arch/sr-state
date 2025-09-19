@@ -1,0 +1,40 @@
+<!doctype html><meta charset="utf-8">
+<title>Static Rooster — Share Chat</title>
+<style>
+ body{background:#0b0c06;color:#b4ffb4;font-family:ui-monospace,Consolas,monospace;margin:0;padding:16px}
+ h1{color:#39ff14;margin:.2rem 0}
+ textarea{width:100%;height:140px;background:#101a10;color:#b4ffb4;border:1px solid #1a2b1a;border-radius:8px;padding:8px}
+ .row{display:flex;gap:8px;margin-top:8px}
+ button,input{background:#101a10;color:#b4ffb4;border:1px solid #1a2b1a;border-radius:8px;padding:8px 10px}
+ a{color:#9ae89a}
+ .log{white-space:pre-wrap;background:#0f130f;border:1px solid #1a2b1a;border-radius:8px;padding:8px;margin-top:12px;max-height:40vh;overflow:auto}
+</style>
+<h1>Static Rooster — Share Chat</h1>
+<p>Send context to <code>http://localhost:8891/chat</code> (saved under <code>receipts/chat/</code>).</p>
+<div>
+  <label>Message (JSON or text):</label>
+  <textarea id="msg" placeholder='{"note":"hello from share UI"}'></textarea>
+  <div class="row">
+    <button id="send">Send</button>
+    <button id="refresh">Refresh Latest</button>
+    <a href="../receipts/" target="_blank">Open receipts/</a>
+    <a href="./index.html" target="_blank">Open share index</a>
+  </div>
+</div>
+<div class="log" id="out">Ready.</div>
+<script>
+const out = s => (document.getElementById('out').textContent = s);
+document.getElementById('send').onclick = async ()=>{
+  const txt = document.getElementById('msg').value;
+  try{
+    const res = await fetch('http://127.0.0.1:8891/chat',{method:'POST',headers:{'content-type':'application/json'},body: txt});
+    out('POST /chat → ' + res.status + ' ' + (await res.text()));
+  }catch(e){ out('ERR: '+e); }
+};
+document.getElementById('refresh').onclick = async ()=>{
+  try{
+    const r = await fetch('../receipts/chat/latest_context.json?ts='+Date.now());
+    out(await r.text());
+  }catch(e){ out('ERR: '+e); }
+};
+</script>

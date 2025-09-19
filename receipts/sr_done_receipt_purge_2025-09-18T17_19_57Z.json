@@ -1,0 +1,14 @@
+{
+  "schema":"eh1003006.sr_done_receipt.v0_1",
+  "tool_name":"sr_purge_quarantine",
+  "tool_version":"0.1.0",
+  "generated_at_utc":"2025-09-18T17_19_57Z",
+  "root":"/home/a/static-rooster",
+  "quarantine_dir":"/home/a/static-rooster/quarantine",
+  "summary":"0 files purged; 0 bytes reclaimed",
+  "count":0,
+  "bytes_reclaimed":0,
+  "status":"ok",
+  "items":[
+  ]
+}

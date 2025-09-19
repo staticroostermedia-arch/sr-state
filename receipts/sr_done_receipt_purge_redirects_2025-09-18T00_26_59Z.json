@@ -1,0 +1,13 @@
+{
+  "schema":"sr.done_receipt.v0_1",
+  "tool_name":"sr_purge_v1_redirects",
+  "status":"ok",
+  "generated_at_utc":"2025-09-18T00_26_59Z",
+  "summary":"stripped client redirects; pinned start_here to v0_3",
+  "observations":{
+    "launcher_exec":"/usr/bin/google-chrome --app="http://127.0.0.1:8888/decisionhub/start_here.html?v=003" --user-data-dir="/home/a/.local/share/staticrooster_chromium_v4" --no-first-run --disable-sync --disable-translate --disable-background-networking --disk-cache-size=52428800 --class=StaticRooster --window-size=1200,800 --disable-features=ServiceWorkerOnUI,BlinkGenPropertyTrees",
+    "alias_target":"/home/a/static-rooster/decisionhub/start_here_v0_3.html",
+    "title_after_probe":"Static Rooster • Start (v0.3 pinned)",
+    "offenders_sample": ["/home/a/static-rooster/decisionhub/start_here_v0_3.html.bak.20250918002350:2:<meta http-equiv=\"refresh\" content=\"0; url=/forge/kiosk_chat_v0_1.html\">", "/home/a/static-rooster/decisionhub/start_here_default_v0_1.html:6:location.replace(u);"]
+  }
+}

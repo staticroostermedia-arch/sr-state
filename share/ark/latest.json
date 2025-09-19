@@ -1,0 +1,9 @@
+{
+  "schema": "sr.ark.latest.v0_1",
+  "generated_at_utc": "2025-09-18T00_44_43Z",
+  "mode": "lite",
+  "path": "/share/ark/latest.tgz",
+  "source": "/snapshots/2025-09-18T00_44_43Z/ark_lite.tgz",
+  "size_bytes": 8310162,
+  "size_mb": 7.93
+}

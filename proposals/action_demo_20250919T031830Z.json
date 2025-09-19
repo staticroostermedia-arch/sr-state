@@ -1,0 +1,25 @@
+{
+  "schema": "sr.action_bundle.v0_1",
+  "id": "action_demo_20250919T031830Z",
+  "issued_at_utc": "2025-09-19T03:18:30Z",
+  "intent": "validate_then_backup_config",
+  "based_on": {
+    "beacon_seq": 2
+  },
+  "commands": [
+    {
+      "type": "validate_json_schema",
+      "path": "config/decisionhub_config.json",
+      "schema": "docs/schemas/DecisionHubConfig_Schema_v1_0.json"
+    },
+    {
+      "type": "backup",
+      "path": "config/decisionhub_config.json",
+      "dest": "quarantine/backups/action_demo_20250919T031830Z_config.json"
+    }
+  ],
+  "outputs_expected": [
+    "receipts/sr_done_receipt_apply_*.json"
+  ],
+  "signature": "hmac-sha256:2zl7j9auyv84f7rJiICICJIGcaflMghdm7z+I3ARd0M="
+}

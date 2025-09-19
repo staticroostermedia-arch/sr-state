@@ -1,0 +1,8 @@
+{
+  "schema": "sr.done_receipt.v0_1",
+  "tool_name": "sr_ingest_echo",
+  "status": "ok",
+  "received_bytes": 5,
+  "path": "/chat",
+  "generated_at_utc": "2025-09-17T23_16_40Z"
+}

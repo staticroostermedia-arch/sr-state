@@ -1,0 +1,506 @@
+{
+  "schema": "sr.context.timeline.v0_1",
+  "generated_at_utc": "2025-09-18T00_03_40Z",
+  "items": [
+    {
+      "path": "/receipts/sr_watch_checkpoint_v0_1_2025-09-16T04:42:53Z.json",
+      "summary": "",
+      "generated_at_utc": "2025-09-16T04:42:53Z"
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_v0_1.json",
+      "summary": "",
+      "generated_at_utc": "2025-09-18T00:02:02Z"
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_20250917_1642_v0_1.json",
+      "summary": "",
+      "generated_at_utc": "2025-09-18T00:02:02Z"
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_20250917_1639_v0_1.json",
+      "summary": "",
+      "generated_at_utc": "2025-09-17T23:42:02Z"
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_20250916_1027_v0_1.json",
+      "summary": "",
+      "generated_at_utc": "2025-09-17T23:37:03Z"
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_20250916_0957_v0_1.json",
+      "summary": "",
+      "generated_at_utc": "2025-09-16T17:27:41Z"
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_20250915_2140_v0_1.json",
+      "summary": "",
+      "generated_at_utc": "2025-09-16T16:57:40Z"
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_20250915_2110_v0_1.json",
+      "summary": "",
+      "generated_at_utc": "2025-09-16T04:40:01Z"
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_20250915_2040_v0_1.json",
+      "summary": "",
+      "generated_at_utc": "2025-09-16T04:10:00Z"
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_20250915_2039_v0_1.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_20250915_2009_v0_1.json",
+      "summary": "",
+      "generated_at_utc": "2025-09-16T03:40:00Z"
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_20250915_1939_v0_1.json",
+      "summary": "",
+      "generated_at_utc": "2025-09-16T03:08:03Z"
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_20250908_1908_v0_1.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_20250908_1904_v0_1.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_1757372017_v0_1.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_1757371769_v0_1.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_1757371114_v0_1.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_1757370731_v0_1.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_1757370695_v0_1.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_1757370464_v0_1.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_1757370211_v0_1.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_1757370203_v0_1.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_checkpoint_1757370058_v0_1.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16023711.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16023505.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16023308.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16023105.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16022905.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16022703.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16022508.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16022301.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16022100.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16021858.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16021659.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16021502.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16021257.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16021055.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16020903.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16020656.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16020456.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16020253.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16020058.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16015904.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16015651.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16015450.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16015251.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16015048.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16014900.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16014649.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16014453.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16014245.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16014058.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16013845.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16013655.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16013447.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16013241.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16013040.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16012843.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16012640.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16012436.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16012240.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16012036.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16011837.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16011639.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16011434.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16011232.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16011033.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16010834.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16010631.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16010435.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16010227.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16010028.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16005833.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16005629.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16005436.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16005225.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16005025.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16004823.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16004628.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16004424.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16004221.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16004021.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16003824.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16003621.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16003421.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16003216.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16003016.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16002825.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16002616.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16002414.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16002219.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16002012.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16001816.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16001611.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16001410.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16001208.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16001010.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16000807.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16000614.json",
+      "summary": "",
+      "generated_at_utc": null
+    },
+    {
+      "path": "/receipts/sr_watch_2025-09-16000406.json",
+      "summary": "",
+      "generated_at_utc": null
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema":"sr.status.dump.v0_3",
+  "generated_at":"2025-09-16T17:28:54Z",
+  "verdict":"",
+  "snapshot_dir":"snapshots/2025-09-16T17:28:54Z",
+  "manifest":"sr_snapshot_2025-09-16172854.manifest.json",
+  "canon_parity":"",
+  "offenders":"",
+  "ark_map":"",
+  "ark_preview":"",
+  "env": {
+    "host":"eh1003006-dev","kernel":"Linux 5.15.0-153-generic","iface":"wlp2s0","power":"unknown"
+  }
+}

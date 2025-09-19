@@ -1,0 +1,66 @@
+<!doctype html>
+<meta charset="utf-8"/>
+<title>SR Kiosk Bridge v0.1</title>
+<style>
+  html,body{height:100%;margin:0;background:#0a0a0a;color:#b2f2bb;font-family:ui-monospace,Consolas,monospace}
+  header{padding:8px 12px;border-bottom:1px solid #16361e}
+  .ok{color:#7fff7f}.err{color:#ff8b8b}
+  iframe{width:100%;height:calc(100% - 46px);border:0}
+</style>
+<header>
+  SR Kiosk Bridge v0.1 — <span id="status" class="ok">ready</span>
+</header>
+
+<iframe id="tool" src="./pipboy_tool_skeleton_v1_0.html"></iframe>
+
+<script>
+const INGEST = "http://127.0.0.1:8891/build";
+
+function toSrMessage(e){
+  // Normalize the tool event into SR message schema
+  const now = new Date().toISOString();
+  const d = e.data || {};
+  return {
+    schema: "sr.message_v0_1",
+    when: now,
+    intent: d.intent || "ops",
+    text: (d.text || "").toString(),
+    attachments: Array.isArray(d.attachments) ? d.attachments : [],
+    meta: { source: "kiosk_bridge_v0_1", raw: d }
+  };
+}
+
+async function sendToIngest(msg){
+  const r = await fetch(INGEST, {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify(msg),
+  });
+  if(!r.ok){
+    const t = await r.text().catch(()=>String(r.status));
+    throw new Error("ingest "+r.status+": "+t);
+  }
+  return r.json().catch(()=>({ok:true}));
+}
+
+// Listen for tool events
+window.addEventListener("message", async (e)=>{
+  // Basic guard: accept only same-origin iframe
+  if (e.source !== document.getElementById("tool").contentWindow) return;
+  if (!e.data || e.data.type !== "DH_TOOL_EVENT") return;
+
+  const s = document.getElementById("status");
+  try{
+    s.textContent = "posting…";
+    s.className = "";
+    const msg = toSrMessage(e);
+    await sendToIngest(msg);
+    s.textContent = "posted ✔";
+    s.className = "ok";
+  }catch(err){
+    console.error(err);
+    s.textContent = "error: "+err.message;
+    s.className = "err";
+  }
+});
+</script>

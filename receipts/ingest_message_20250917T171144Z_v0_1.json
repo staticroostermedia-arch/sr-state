@@ -1,0 +1,5 @@
+{
+  "schema": "sr_message_v0_1",
+  "intent": "plan",
+  "text": "ping"
+}

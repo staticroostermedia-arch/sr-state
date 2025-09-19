@@ -1,0 +1,56 @@
+<!doctype html><meta charset="utf-8" />
+<title>Kiosk Chat v0.1</title>
+<style>
+  :root { --bg:#0a0a0f; --text:#9fef00; }
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:ui-monospace,Consolas,monospace}
+  .wrap{display:flex;flex-direction:column;height:100%;padding:8px;gap:8px}
+  textarea{width:100%;height:40vh;background:#111;color:var(--text);border:1px solid #2a2a2f;border-radius:8px;padding:8px}
+  button{background:#0f1a0f;color:var(--text);border:1px solid #2a2a2f;border-radius:8px;padding:10px 14px;cursor:pointer}
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .small{font-size:12px;opacity:.8}
+</style>
+<div class="wrap">
+  <div class="small">Ready. Messages will POST to <code>http://localhost:8891/build</code> and receipts go under <code>~/static-rooster/receipts/</code>.</div>
+  <div class="row">
+    <label><input id="attach" type="checkbox" /> attach full snapshot tarball</label>
+    <button id="share">Share Link</button>
+  </div>
+  <textarea id="msg" placeholder="Type a message. (Ctrl/Cmd+Enter to send)"></textarea>
+  <div class="row">
+    <button id="send">Send</button>
+    <span id="status" class="small"></span>
+  </div>
+</div>
+<script>
+async function build(payload){
+  const r = await fetch('http://127.0.0.1:8891/build', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(payload)
+  });
+  return await r.json();
+}
+async function refreshShare(){
+  try{
+    const r = await fetch('/share/index_latest.json');
+    if(!r.ok) return;
+    const j = await r.json();
+    if(j && j.latest){ console.log('Share index latest:', j.latest); }
+  }catch(e){}
+}
+async function send(){
+  const text = document.getElementById('msg').value.trim();
+  if(!text){ return; }
+  document.getElementById('status').textContent = 'sending...';
+  const payload = {schema:'sr.message_v0_1', when:new Date().toISOString(), intent:'plan', text, attachments:{full_snapshot:document.getElementById('attach').checked}};
+  try{
+    const res = await build(payload);
+    document.getElementById('status').textContent = res && res.ok ? 'ok' : ('error: ' + (res && res.error));
+  }catch(e){
+    document.getElementById('status').textContent = 'error: ' + e;
+  }
+}
+document.getElementById('send').onclick = send;
+document.getElementById('msg').addEventListener('keydown', (e)=>{ if((e.metaKey||e.ctrlKey) && e.key==='Enter'){ send(); }});
+document.getElementById('share').onclick = refreshShare;
+</script>

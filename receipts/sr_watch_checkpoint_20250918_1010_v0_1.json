@@ -1,0 +1,9 @@
+{
+  "schema": "sr.watch_checkpoint.v0_1",
+  "generated_at_utc": "2025-09-18T17:13:27Z",
+  "git_sha": "4f84d4d869a16e0ac325d5af3666b436975c2f8c",
+  "probes_total": 3,
+  "probes_ok": 0,
+  "verdict": "penitential_rite",
+  "results": [       { "url": "http://127.0.0.1:8888/                 # root", "http": "000000", "ok": false },      { "url": "http://127.0.0.1:8888/index.html       # index", "http": "000000", "ok": false },      { "url": "http://127.0.0.1:8888/watchlight/      # watchlight (if present)", "http": "000000", "ok": false } ]
+}

@@ -1,0 +1,75 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Backend Dev — Ark Sender v0.1</title>
+<style>
+:root{--bg:#0b0c06;--grid:#1a2b1a;--text:#b4ffb4;--glow:#39ff14;--accent:#9ae89a}
+*{box-sizing:border-box} html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:ui-monospace,Consolas,monospace;overflow:hidden}
+.wrap{max-width:860px;margin:0 auto;padding:16px}
+h1{color:var(--glow);margin:0 0 8px}
+small{opacity:.85}
+.btn{border:1px solid var(--grid);background:#101a10;color:var(--text);padding:8px 12px;border-radius:10px;cursor:pointer;margin-right:8px;margin-top:8px}
+.row{display:flex;flex-wrap:wrap;align-items:center}
+pre{white-space:pre-wrap;background:#0f130f;border:1px solid var(--grid);border-radius:10px;padding:10px;margin-top:10px;max-height:36vh;overflow:auto}
+a{color:var(--accent)}
+textarea{width:100%;height:110px;background:#101a10;border:1px solid var(--grid);border-radius:10px;color:var(--text);padding:10px;resize:none}
+</style>
+<div class="wrap">
+  <h1>Backend Dev — Ark Sender</h1>
+  <small>One click builds an Ark tarball and copies a public download link for pasting into ChatGPT. Canon-safe: artifacts + receipts.</small>
+  <div class="row">
+    <button class="btn" id="lite">Make Ark (Lite) & Copy Link</button>
+    <button class="btn" id="full">Make Ark (Full) & Copy Link</button>
+    <a class="btn" href="/share/ark/latest.json" target="_blank">Open Ark Manifest</a>
+    <a class="btn" href="/share/ark/latest.tgz" target="_blank">Download Ark</a>
+  </div>
+
+  <h3 style="margin-top:12px;color:var(--glow)">Attach a note (goes into receipts)</h3>
+  <textarea id="note" placeholder="Short note to include in /chat receipts…"></textarea>
+  <div class="row">
+    <button class="btn" id="post">Share Note (POST /chat) & Copy Share Block</button>
+    <a class="btn" href="/share/context/latest.json" target="_blank">Open Context (latest.json)</a>
+  </div>
+
+  <pre id="out" style="display:none"></pre>
+  <div id="status" style="margin-top:6px;opacity:.9"></div>
+</div>
+<script>
+async function base(){ try{ const r=await fetch('/share/public_url.txt?ts='+Date.now()); if(!r.ok) throw 0; return (await r.text()).trim(); } catch { return ''; } }
+async function makeArk(mode){
+  const r = await fetch('http://127.0.0.1:8891/make-ark', {method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({mode})});
+  if(!r.ok) return null;
+  return await r.json(); // {schema, generated_at_utc, mode, path, size_bytes}
+}
+async function postChat(txt){
+  try{ const r = await fetch('http://127.0.0.1:8891/chat', {method:'POST',headers:{'content-type':'text/plain'},body:txt});
+       return r.ok; } catch { return false; }
+}
+async function copy(txt){ try{ await navigator.clipboard.writeText(txt); } catch(e){}; const o=document.getElementById('out'); o.style.display='block'; o.textContent=txt; }
+function say(s){ document.getElementById('status').textContent=s; }
+
+async function doArk(mode){
+  say(`Building ${mode} Ark…`);
+  const res = await makeArk(mode);
+  if(!res){ say('Ark build failed.'); return; }
+  const baseURL = await base();
+  const link = baseURL ? (baseURL.replace(/\/+$/,'') + res.path) : res.path;
+  const msg = `SR Ark\nMode: ${res.mode}\nLink: ${link}\nSize(bytes): ${res.size_bytes || 'n/a'}`;
+  await copy(msg);
+  say('Ark link copied to clipboard.');
+  parent.postMessage({type:"DH_TOOL_EVENT",toolKey:"ark_sender",event:"capture",
+    payload:{schema:"eh1003006.capture.v1", tag:"ark-bundle", uri:link, mode:res.mode},
+    version:"0.1.0"}, "*");
+}
+document.getElementById('lite').onclick = ()=>doArk('lite');
+document.getElementById('full').onclick = ()=>doArk('full');
+
+document.getElementById('post').onclick = async ()=>{
+  const txt = (document.getElementById('note').value||'').trim();
+  say('Posting note…'); const ok = await postChat(txt);
+  const baseURL = await base();
+  const ctx = baseURL ? (baseURL.replace(/\/+$/,'') + '/context/latest.json') : '(tunnel not ready)';
+  const block = `SR Share\nNote: ${txt||'(none)'}\nLink: ${baseURL||'(missing)'}\nContext: ${ctx}`;
+  await copy(block);
+  say(ok ? 'Note saved and share block copied.' : 'Share block copied (but /chat failed).');
+};
+</script>

@@ -1,0 +1,19 @@
+{
+  "schema": "sr.ark.index.v0_1",
+  "items": [
+    {
+      "name": "ark_2025-09-18T01_12_07Z.tgz",
+      "size_bytes": 8310162,
+      "sha256": "f61e5aab4b0540c1b7221e31dabffe7fb2ac0e95db7a6cc3a4a488eccca6363a",
+      "ts": "2025-09-18T01_12_07Z",
+      "path": "/share/ark/ark_2025-09-18T01_12_07Z.tgz"
+    },
+    {
+      "name": "ark_2025-09-18T01_05_24Z.tgz",
+      "size_bytes": 8310162,
+      "sha256": "f61e5aab4b0540c1b7221e31dabffe7fb2ac0e95db7a6cc3a4a488eccca6363a",
+      "ts": "2025-09-18T01_05_24Z",
+      "path": "/share/ark/ark_2025-09-18T01_05_24Z.tgz"
+    }
+  ]
+}

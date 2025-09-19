@@ -1,0 +1,56 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SR Quick Share v0.3</title>
+<style>
+:root{--bg:#0b0c06;--grid:#1a2b1a;--text:#b4ffb4;--glow:#39ff14;--accent:#9ae89a}
+*{box-sizing:border-box} html,body{height:100%} body{margin:0;background:var(--bg);color:var(--text);font-family:ui-monospace,Consolas,monospace;overflow:hidden}
+.wrap{max-width:760px;margin:0 auto;padding:16px}
+h1{color:var(--glow);margin:0 0 8px}
+textarea{width:100%;height:120px;background:#101a10;border:1px solid var(--grid);border-radius:10px;color:var(--text);padding:10px;resize:none}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.btn{border:1px solid var(--grid);background:#101a10;color:var(--text);padding:8px 12px;border-radius:10px;cursor:pointer}
+.small{font-size:12px;opacity:.8}
+pre{white-space:pre-wrap;background:#0f130f;border:1px solid var(--grid);border-radius:10px;padding:10px;margin-top:10px;max-height:30vh;overflow:auto}
+a{color:var(--accent)}
+</style>
+<div class="wrap">
+  <h1>SR Quick Share</h1>
+  <div class="small">Posts your note to <code>/chat</code>, updates context, and copies a Share Block to clipboard.</div>
+  <textarea id="msg" placeholder="Short note to attach…"></textarea>
+  <div class="row">
+    <button class="btn" id="go">Share Now</button>
+    <button class="btn" id="cpyLink">Copy Link Only</button>
+    <button class="btn" id="cpyLatest">Copy Latest Only</button>
+    <a class="btn" href="./context/latest.json" target="_blank">Open Latest</a>
+  </div>
+  <div class="small" id="status" style="margin-top:6px"></div>
+  <pre id="out" style="display:none"></pre>
+</div>
+<script>
+async function publicURL(){
+  try{const r=await fetch('./public_url.txt?ts='+Date.now()); if(!r.ok) throw 0; return (await r.text()).trim();}
+  catch{ return ''; }
+}
+async function postChat(txt){
+  try{const r=await fetch('/ingest/chat',{method:'POST',headers:{'content-type':'text/plain'},body:txt}); return r.ok;}catch{ return false; }
+}
+function say(s){ document.getElementById('status').textContent = s; }
+async function copy(text){
+  try{ await navigator.clipboard.writeText(text); }catch(e){}
+  const o=document.getElementById('out'); o.style.display='block'; o.textContent=text;
+}
+document.getElementById('go').onclick = async ()=>{
+  const note=(document.getElementById('msg').value||'').trim();
+  say('Posting…'); const ok = await postChat(note); say(ok?'Saved. Building Share Block…':'/chat failed.');
+  const link = await publicURL();
+  const latest = link ? link.replace(/\/+$/,'') + '/context/latest.json' : '(tunnel not ready)';
+  const block = `SR Share\nNote: ${note||'(none)'}\nLink: ${link||'(missing)'}\nContext: ${latest}`;
+  await copy(block); say('Copied to clipboard. Paste into ChatGPT.');
+};
+document.getElementById('cpyLink').onclick = async ()=>{
+  const link = await publicURL(); await copy(link||'(missing public_url.txt)'); say(link?'Link copied.':'No link yet. Run refresh.');
+};
+document.getElementById('cpyLatest').onclick = async ()=>{
+  const link = await publicURL(); const latest = link? link.replace(/\/+$/,'') + '/context/latest.json' : '(tunnel not ready)';
+  await copy(latest); say(link?'Latest context copied.':'No link yet. Run refresh.');
+};
+</script>

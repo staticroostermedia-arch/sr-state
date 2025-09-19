@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SR State Beacon v0_1",
+  "type": "object",
+  "required": [
+    "schema",
+    "seq",
+    "generated_at_utc",
+    "project",
+    "latest_receipts",
+    "watch_checkpoint"
+  ],
+  "properties": {
+    "schema": {
+      "const": "sr.state_beacon.v0_1"
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "generated_at_utc": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "host": {
+      "type": "string"
+    },
+    "snapshot": {
+      "type": "object",
+      "required": [
+        "id",
+        "sha256"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        }
+      }
+    },
+    "watch_checkpoint": {
+      "type": "object",
+      "required": [
+        "verdict"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verdict": {
+          "type": "string"
+        }
+      }
+    },
+    "latest_receipts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "configs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "anchors": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "watched_files": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "sha256",
+          "size",
+          "mtime"
+        ],
+        "properties": {
+          "sha256": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "mtime": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "merkle_root": {
+      "type": "string"
+    }
+  }
+}

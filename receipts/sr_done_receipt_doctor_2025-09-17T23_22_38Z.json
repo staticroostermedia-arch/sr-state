@@ -1,0 +1,7 @@
+{
+  "schema": "sr.done_receipt.v0_1",
+  "tool_name": "sr_doctor",
+  "status": "ok",
+  "generated_at_utc": "2025-09-17T23_22_38Z",
+  "summary": "http:200 ingest:200 context:200 url:https://deals-ist-workstation-hist.trycloudflare.com/share/"
+}

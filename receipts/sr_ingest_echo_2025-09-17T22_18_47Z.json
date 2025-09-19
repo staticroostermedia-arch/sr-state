@@ -1,0 +1,8 @@
+{
+  "schema": "sr.done_receipt.v0_1",
+  "tool_name": "sr_ingest_echo",
+  "status": "ok",
+  "received_bytes": 0,
+  "path": "/build",
+  "generated_at_utc": "2025-09-17T22_18_47Z"
+}

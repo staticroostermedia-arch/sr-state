@@ -1,0 +1,48 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SR Quick Share v0.1</title>
+<style>
+:root{--bg:#0b0c06;--grid:#1a2b1a;--text:#b4ffb4;--glow:#39ff14;--accent:#9ae89a}
+body{margin:0;background:var(--bg);color:var(--text);font-family:ui-monospace,Consolas,monospace}
+.wrap{max-width:720px;margin:0 auto;padding:16px}
+h1{color:var(--glow);margin:0 0 8px}
+textarea{width:100%;height:120px;background:#101a10;border:1px solid var(--grid);border-radius:8px;color:var(--text);padding:8px}
+.btn{border:1px solid var(--grid);background:#101a10;color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
+.status{margin-top:8px;font-size:12px;opacity:.9}
+pre{white-space:pre-wrap;background:#0f130f;border:1px solid var(--grid);border-radius:8px;padding:8px;margin-top:8px}
+a{color:#9ae89a}
+</style>
+<div class="wrap">
+  <h1>SR Quick Share</h1>
+  <p>Type a note, click <b>Share Now</b> → it posts to <code>/chat</code>, updates context, and copies text for ChatGPT.</p>
+  <textarea id="msg" placeholder="Short note to attach…"></textarea>
+  <div style="display:flex;gap:8px;margin-top:8px">
+    <button class="btn" id="go">Share Now</button>
+    <a class="btn" href="./context/index.html" target="_blank">Open Context JSON</a>
+    <a class="btn" href="./index.html" target="_blank">Open Share Index</a>
+  </div>
+  <div class="status" id="st"></div>
+  <pre id="copied" style="display:none"></pre>
+</div>
+<script>
+async function readPublicURL(){
+  try{const r=await fetch('./public_url.txt?ts='+Date.now()); if(!r.ok) throw 0; return (await r.text()).trim();}
+  catch{ return ''; }
+}
+async function postChat(txt){
+  const r = await fetch('/ingest/chat',{method:'POST',headers:{'content-type':'text/plain'},body:txt});
+  return r.ok;
+}
+function setStatus(s){ document.getElementById('st').textContent = s; }
+document.getElementById('go').onclick = async ()=>{
+  const note=(document.getElementById('msg').value||'').trim();
+  setStatus('Posting to /chat …');
+  const ok = await postChat(note);
+  setStatus(ok?'Chat saved. Fetching public URL…':'/chat failed.');
+  const pub = await readPublicURL();
+  const ctx = pub ? (pub.replace(/\/+$/,'') + '/context/latest.json') : 'NO_PUBLIC_URL_YET';
+  const block = `[SR Share]\nNote: ${note||'(none)'}\nLink: ${pub||'(tunnel not ready)'}\nContext: ${ctx}`;
+  try{ await navigator.clipboard.writeText(block); }catch{}
+  const el=document.getElementById('copied'); el.textContent=block; el.style.display='block';
+  setStatus('Copied block to clipboard. Paste into ChatGPT.');
+};
+</script>

@@ -1,0 +1,9 @@
+{
+  "schema": "sr.message_v0_1",
+  "when": "2025-09-17T17:12:20.456Z",
+  "intent": "plan",
+  "text": "wefasf",
+  "attachments": {
+    "full_snapshot": false
+  }
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DecisionHub — start_here_v0_3</title>
+<style>
+  body{font:16px/1.4 system-ui,Segoe UI,Roboto,Helvetica,Arial}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+  .card{border:1px solid #ddd;border-radius:12px;padding:14px}
+  .muted{color:#666;font-size:14px}
+  a{color:#0366d6;text-decoration:none}
+</style>
+<h1>DecisionHub</h1>
+<p class="muted">Start page (v0.3). Beacon/receipts are under <code>/public/</code>.</p>
+<section class="grid">
+  <div class="card">
+    <h3>Watch Checkpoints</h3>
+    <p class="muted">Latest covenant verdicts.</p>
+    <a href="../receipts/" target="_self">Open receipts directory</a>
+  </div>
+  <div class="card">
+    <h3>Beacon (live state)</h3>
+    <p class="muted">Current sequence & basic facts.</p>
+    <a href="../state/state_beacon_v0_1.json" target="_self">Open beacon JSON</a>
+  </div>
+  <div class="card">
+    <h3>Heartbeats</h3>
+    <p class="muted">Liveness signals.</p>
+    <a href="../receipts/" target="_self">Browse heartbeats in receipts</a>
+  </div>
+  <div class="card">
+    <h3>Receipts Index</h3>
+    <p class="muted">Everything is logged or it didn’t happen.</p>
+    <a href="../receipts/index_v0_1.json" target="_self">Open index (if present)</a>
+  </div>
+</section>

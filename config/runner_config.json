@@ -1,0 +1,7 @@
+{
+  "runner": "sr-cycle",
+  "feed": {
+    "type": "git",
+    "raw_url": "git@github.com:StaticRoosterMediaArch/decisionhub.git"
+  }
+}

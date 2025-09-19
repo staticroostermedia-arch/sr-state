@@ -1,0 +1,39 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Static Rooster — Stack Shell v0.1</title>
+<style>
+:root{--bg:#0b0c06;--grid:#1a2b1a;--text:#b4ffb4;--glow:#39ff14;--accent:#9ae89a}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:ui-monospace,Consolas,monospace}
+.header{display:flex;align-items:center;gap:12px;padding:8px 12px;border-bottom:1px solid var(--grid)}
+.btn{border:1px solid var(--grid);background:#101a10;color:var(--text);padding:6px 10px;border-radius:8px;cursor:pointer}
+.wrap{display:flex;height:calc(100svh - 44px)}
+.col{flex:1;min-width:0;display:flex;flex-direction:column}
+iframe{border:0;flex:1;min-height:0;width:100%}
+.small{font-size:12px;opacity:.8}
+</style>
+<div class="header">
+  <span style="color:var(--glow);font-weight:bold">Static Rooster • Stack Shell v0.1</span>
+  <button class="btn" id="openChat">Open ChatGPT (App Window)</button>
+  <button class="btn" id="openShare">Open /share</button>
+  <a class="btn" href="/share/context/index.html" target="_blank">Context JSON</a>
+  <span class="small" id="puburl"></span>
+</div>
+<div class="wrap">
+  <div class="col">
+    <iframe id="left" src="/share/index.html" title="Share"></iframe>
+  </div>
+  <div class="col">
+    <iframe id="right" src="/decisionhub/start_here_v0_3.html" title="DecisionHub"></iframe>
+  </div>
+</div>
+<script>
+document.getElementById('openChat').onclick = ()=>{
+  window.open('https://chat.openai.com/', '_blank', 'noopener,noreferrer');
+};
+document.getElementById('openShare').onclick = ()=>{
+  window.open('/share/index.html','_blank');
+};
+// show public tunnel URL if present
+fetch('/share/public_url.txt').then(r=>r.ok?r.text():Promise.reject()).then(t=>{
+  document.getElementById('puburl').textContent = 'Public: '+t.trim();
+}).catch(()=>{});
+</script>

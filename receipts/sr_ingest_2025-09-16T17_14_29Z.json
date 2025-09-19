@@ -1,0 +1,13 @@
+{
+  "schema": "eh1003006.ingest.v0_1",
+  "generated_at_utc": "2025-09-16T17_14_29Z",
+  "snapshot_dir": "/home/a/static-rooster/snapshots/2025-09-16T17_14_29Z",
+  "files": [
+    {
+      "key": "message.json",
+      "path": "/home/a/static-rooster/snapshots/2025-09-16T17_14_29Z/message.json",
+      "size": 336
+    }
+  ],
+  "status": "ok"
+}
