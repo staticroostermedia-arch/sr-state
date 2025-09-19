@@ -1,0 +1,91 @@
+{
+  "schema": "sr.state_beacon.v0_1",
+  "seq": 2,
+  "generated_at_utc": "2025-09-19T03:08:41Z",
+  "project": "EH1003006",
+  "host": "eh1003006-dev",
+  "snapshot": {
+    "id": "unknown",
+    "sha256": "unknown"
+  },
+  "latest_receipts": [
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-19T03_01_23Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-19T03_01_23Z.json",
+      "sha256": "c70d6d4fc3a6ecb6df7cf4403098ff2cba82ab231d54db2b3c88f9f25183aa5e"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-19T02_51_23Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-19T02_51_23Z.json",
+      "sha256": "e9fb8c5c3e0f6a950c97af8f3d2e3f57073a4ca2b64c2ba87edf85204cd505e1"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-19T02_41_22Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-19T02_41_22Z.json",
+      "sha256": "77324a5672bba20e1ed83d070994a2ee013c13bf8daa3f6ed5b2341cafd9fa3a"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-19T02_31_21Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-19T02_31_21Z.json",
+      "sha256": "e326388f231a557123085c117a08710cec951e8f27c016f8086fcc8d21e87d3b"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-19T02_21_20Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-19T02_21_20Z.json",
+      "sha256": "2101c20b55fb719a8a9010a5b7fc8f1a8b0d0538b6e79da3372254e65674ac98"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-19T02_11_20Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-19T02_11_20Z.json",
+      "sha256": "5340dbfea298e6a5cd0dcc1d60720c3fea28187dab2a271b6aee2de028153ae4"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-19T02_01_19Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-19T02_01_19Z.json",
+      "sha256": "5d71271732ed173bf4d24164ef2237ef3f505a90c3aa0b7f731720cc9e19c840"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-19T01_51_18Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-19T01_51_18Z.json",
+      "sha256": "ce8554805e00ec61b8bcce33a1f81bc63f45a72afdd55dc7316fd4879155d5b6"
+    }
+  ],
+  "watch_checkpoint": {
+    "path": "/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json",
+    "sha256": "8fe14cf61dbfb8b6b6755408da37c41c4cf0ab50810b250062b730d67a78777d",
+    "verdict": "penitential_rite"
+  },
+  "configs": {
+    "decisionhub_config": {
+      "path": "/home/a/static-rooster/config/decisionhub_config.json",
+      "sha256": "26338ddb0d358c24ea585e27a49ad7ecbc71e6a05811493c10eb27117b7b9e7d"
+    }
+  },
+  "anchors": {
+    "canon": {
+      "path": "/home/a/static-rooster/docs/identity/01_SR_Canon.md",
+      "sha256": "null"
+    }
+  },
+  "watched_files": {
+    "config/decisionhub_config.json": {
+      "sha256": "26338ddb0d358c24ea585e27a49ad7ecbc71e6a05811493c10eb27117b7b9e7d",
+      "size": 1180,
+      "mtime": "2025-09-18T00:17:49Z"
+    },
+    "receipts/sr_watch_checkpoint_v0_1.json": {
+      "sha256": "8fe14cf61dbfb8b6b6755408da37c41c4cf0ab50810b250062b730d67a78777d",
+      "size": 43,
+      "mtime": "2025-09-19T02:40:57Z"
+    }
+  },
+  "merkle_root": "995f14e59f872fa4048028040a7f152b421ac59324096ac5a5ef03669283f6c4"
+}
