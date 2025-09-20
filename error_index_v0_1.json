@@ -1,6 +1,31 @@
 {
   "schema": "sr.error_index_v0_1",
-  "generated_at_utc": "2025-09-20T04:30:01Z",
-  "count": 0,
-  "recent": []
+  "generated_at_utc": "2025-09-20T04:54:35Z",
+  "count": 4,
+  "items": [
+    {
+      "path": "receipts/errors/sr_error_2025-09-20T04:51:26Z_v0_1.json",
+      "name": "intentional-404",
+      "component": "observe_cycle",
+      "exit_code": 7
+    },
+    {
+      "path": "receipts/errors/sr_error_2025-09-20T04:54:35Z_v0_1.json",
+      "name": "intentional-404",
+      "component": "observe_cycle",
+      "exit_code": 127
+    },
+    {
+      "path": "receipts/errors/sr_error_20250920T042124Z_v0_1.json",
+      "name": null,
+      "component": null,
+      "exit_code": null
+    },
+    {
+      "path": "receipts/errors/sr_error_20250920T042153Z_v0_1.json",
+      "name": null,
+      "component": null,
+      "exit_code": null
+    }
+  ]
 }

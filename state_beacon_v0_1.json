@@ -1,7 +1,7 @@
 {
   "schema": "sr.state_beacon.v0_1",
-  "seq": 6,
-  "generated_at_utc": "2025-09-20T04:30:02Z",
+  "seq": 7,
+  "generated_at_utc": "2025-09-20T04:45:01Z",
   "project": "EH1003006",
   "host": "eh1003006-dev",
   "snapshot": {
@@ -9,6 +9,36 @@
     "sha256": "unknown"
   },
   "latest_receipts": [
+    {
+      "id": "sr_done_receipt_observe_20250920T044103Z_v0_1",
+      "kind": "observe",
+      "path": "receipts/sr_done_receipt_observe_20250920T044103Z_v0_1.json",
+      "sha256": "493e62e733eb745259349f4681e920731da6b5c81f66cc2f8a5cb7730405b431"
+    },
+    {
+      "id": "sr_done_receipt_observe_2025-09-20T04:40:00Z_v0_1",
+      "kind": "observe",
+      "path": "receipts/sr_done_receipt_observe_2025-09-20T04:40:00Z_v0_1.json",
+      "sha256": "fc0e39eda8267da1baeb5922471fa1fa1e3ae4d4d84d45df2f19cdce8f20d9a0"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-20T04_36_37Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-20T04_36_37Z.json",
+      "sha256": "ca8f427e267583c801405d2c524f51601dceba6005e4835a9dc1a4d19d7cbd85"
+    },
+    {
+      "id": "sr_done_receipt_observe_2025-09-20T04:35:01Z_v0_1",
+      "kind": "observe",
+      "path": "receipts/sr_done_receipt_observe_2025-09-20T04:35:01Z_v0_1.json",
+      "sha256": "30bbb3d6f36108109f32ff584b63341f91187077763aad02e0994f2ce3cf3f23"
+    },
+    {
+      "id": "sr_done_receipt_observe_2025-09-20T04:30:01Z_v0_1",
+      "kind": "observe",
+      "path": "receipts/sr_done_receipt_observe_2025-09-20T04:30:01Z_v0_1.json",
+      "sha256": "11ff1f5a8be72aa5497b67aeb63342f5d105306801b9959726e2e198985da094"
+    },
     {
       "id": "sr_done_receipt_observe_20250920T042826Z_v0_2",
       "kind": "observe",
@@ -26,41 +56,11 @@
       "kind": "observe",
       "path": "receipts/sr_done_receipt_observe_20250920T042603Z_v0_1.json",
       "sha256": "3bb483570b830d9ef95be5daefe1a79e163789efb97d675c0fb6fc425d4f27b3"
-    },
-    {
-      "id": "sr_done_receipt_observe_2025-09-20T04:25:00Z_v0_1",
-      "kind": "observe",
-      "path": "receipts/sr_done_receipt_observe_2025-09-20T04:25:00Z_v0_1.json",
-      "sha256": "f6647b7ff5555e0024461437390fc5cee983097e8ffc5d0fea3efb0f4eca6c71"
-    },
-    {
-      "id": "sr_done_receipt_observe_2025-09-20T04:20:01Z_v0_1",
-      "kind": "observe",
-      "path": "receipts/sr_done_receipt_observe_2025-09-20T04:20:01Z_v0_1.json",
-      "sha256": "c60d9eaad6b522c448ccacaf56c16cde674731f389d05a00125c5f605d7af973"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-20T04_16_35Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-20T04_16_35Z.json",
-      "sha256": "00db1e9d35bcec2bff867f44ec9e40aaf7bbec89d47c575bc16d64a97c4d8151"
-    },
-    {
-      "id": "sr_done_receipt_observe_2025-09-20T04:15:01Z_v0_1",
-      "kind": "observe",
-      "path": "receipts/sr_done_receipt_observe_2025-09-20T04:15:01Z_v0_1.json",
-      "sha256": "257ff22f6af145197c6013572ad19c0d30fc704566dc6441d9330ffc2a4b0575"
-    },
-    {
-      "id": "sr_done_receipt_observe_20250920T041103Z_v0_1",
-      "kind": "observe",
-      "path": "receipts/sr_done_receipt_observe_20250920T041103Z_v0_1.json",
-      "sha256": "7b63d30bb093e47ce608f4d5f3a4b8df65ff4b77bcbf6bb522a8772bfd57a1ef"
     }
   ],
   "watch_checkpoint": {
     "path": "/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json",
-    "sha256": "5b811b6749a5c0fa234b301000ef435cfef26e6bab35b6de0a9089e79ed1f244",
+    "sha256": "587d005226fb4db505fb833425c62d82d4f9a416eea450006625909d870702c9",
     "verdict": "penitential_rite"
   },
   "configs": {
@@ -82,10 +82,10 @@
       "mtime": "2025-09-19T03:09:53Z"
     },
     "receipts/sr_watch_checkpoint_v0_1.json": {
-      "sha256": "5b811b6749a5c0fa234b301000ef435cfef26e6bab35b6de0a9089e79ed1f244",
+      "sha256": "587d005226fb4db505fb833425c62d82d4f9a416eea450006625909d870702c9",
       "size": 43,
       "mtime": "2025-09-20T04:15:53Z"
     }
   },
-  "merkle_root": "19fcbe6943ea9e9d8a9e7513c56661e53b86186d7050b1ebe2947dc161c10906"
+  "merkle_root": "0f5900e6d8c071952b5ac478b274a519ffb3937c7c3fdaf445ec9a0f615381cc"
 }
