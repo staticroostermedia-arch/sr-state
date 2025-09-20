@@ -87,5 +87,22 @@
       "mtime": "2025-09-19T02:40:57Z"
     }
   },
-  "merkle_root": "995f14e59f872fa4048028040a7f152b421ac59324096ac5a5ef03669283f6c4"
+  "merkle_root": "995f14e59f872fa4048028040a7f152b421ac59324096ac5a5ef03669283f6c4",
+  "feedback": {
+    "digest_path": "public/state/feedback_digest_v0_1.json",
+    "digest_issued_at_utc": "2025-09-20T03:28:50Z",
+    "totals": {
+      "failures": 2,
+      "clusters": 1
+    },
+    "top3": [
+      {
+        "kind": "path_missing",
+        "count": 2,
+        "common_head": "bash: line 1: /home/a/static-rooster/bin/sr_build_site_v0_1.sh: No such file or directory",
+        "example_cmd": "/home/a/static-rooster/bin/sr_build_site_v0_1.sh",
+        "suggested_fix": "verify $PWD; use absolute paths; quote variables; ensure file exists"
+      }
+    ]
+  }
 }

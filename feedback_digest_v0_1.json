@@ -1,0 +1,17 @@
+{
+  "schema": "sr.feedback.digest.v0_1",
+  "issued_at_utc": "2025-09-20T03:28:50Z",
+  "totals": {
+    "failures": 2,
+    "clusters": 1
+  },
+  "top3": [
+    {
+      "kind": "path_missing",
+      "count": 2,
+      "common_head": "bash: line 1: /home/a/static-rooster/bin/sr_build_site_v0_1.sh: No such file or directory",
+      "example_cmd": "/home/a/static-rooster/bin/sr_build_site_v0_1.sh",
+      "suggested_fix": "verify $PWD; use absolute paths; quote variables; ensure file exists"
+    }
+  ]
+}
