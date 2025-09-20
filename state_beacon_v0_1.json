@@ -1,7 +1,7 @@
 {
   "schema": "sr.state_beacon.v0_1",
-  "seq": 4,
-  "generated_at_utc": "2025-09-20T04:01:00Z",
+  "seq": 5,
+  "generated_at_utc": "2025-09-20T04:15:03Z",
   "project": "EH1003006",
   "host": "eh1003006-dev",
   "snapshot": {
@@ -9,6 +9,36 @@
     "sha256": "unknown"
   },
   "latest_receipts": [
+    {
+      "id": "sr_done_receipt_observe_2025-09-20T04:15:01Z_v0_1",
+      "kind": "observe",
+      "path": "receipts/sr_done_receipt_observe_2025-09-20T04:15:01Z_v0_1.json",
+      "sha256": "257ff22f6af145197c6013572ad19c0d30fc704566dc6441d9330ffc2a4b0575"
+    },
+    {
+      "id": "sr_done_receipt_observe_20250920T041103Z_v0_1",
+      "kind": "observe",
+      "path": "receipts/sr_done_receipt_observe_20250920T041103Z_v0_1.json",
+      "sha256": "7b63d30bb093e47ce608f4d5f3a4b8df65ff4b77bcbf6bb522a8772bfd57a1ef"
+    },
+    {
+      "id": "sr_done_receipt_observe_2025-09-20T04:10:00Z_v0_1",
+      "kind": "observe",
+      "path": "receipts/sr_done_receipt_observe_2025-09-20T04:10:00Z_v0_1.json",
+      "sha256": "e06027306d66acfcc8781a512d99d38cfa8a8f5348fe67abb1096c26cfc1840f"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-20T04_06_35Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-20T04_06_35Z.json",
+      "sha256": "0723a65dd931d8d077254e706322e63849ba1ec8de5f3922bde12c51d27ed809"
+    },
+    {
+      "id": "sr_done_receipt_observe_2025-09-20T04:05:00Z_v0_1",
+      "kind": "observe",
+      "path": "receipts/sr_done_receipt_observe_2025-09-20T04:05:00Z_v0_1.json",
+      "sha256": "bcedd428dbeb0298806e7005fb76899f357befbea3a06b7e804a592c47874cab"
+    },
     {
       "id": "sr_done_receipt_observe_2025-09-20T04:00:01Z_v0_1",
       "kind": "observe",
@@ -26,41 +56,11 @@
       "kind": "observe",
       "path": "receipts/sr_done_receipt_observe_20250920T035603Z_v0_1.json",
       "sha256": "16b19fcbd282094185c1fdc287e0818259742155a152d02a77512d283af8bb8b"
-    },
-    {
-      "id": "sr_done_receipt_observe_2025-09-20T03:55:00Z_v0_1",
-      "kind": "observe",
-      "path": "receipts/sr_done_receipt_observe_2025-09-20T03:55:00Z_v0_1.json",
-      "sha256": "7cb899cd9c2559fe6a27e852b4d221af622832049ff1d966bff6f14ad9c8a746"
-    },
-    {
-      "id": "sr_done_receipt_observe_2025-09-20T03:50:01Z_v0_1",
-      "kind": "observe",
-      "path": "receipts/sr_done_receipt_observe_2025-09-20T03:50:01Z_v0_1.json",
-      "sha256": "82d33328d12ea9915505cb1993e95b8205b9cefb8b8daed3dec29d912075f6de"
-    },
-    {
-      "id": "sr_done_receipt_core_snapshot_2025_09_20t03_48_17z",
-      "kind": "core",
-      "path": "receipts/sr_done_receipt_core_snapshot_2025_09_20t03_48_17z.json",
-      "sha256": "a99a96a0007b9c8e20c9b2183b38b5e40fc72b51f3e8bc3a8bb597485186466f"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-20T03_46_34Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-20T03_46_34Z.json",
-      "sha256": "c4b216a5a243cbe2db23c303d2780835615c3f2f9f3befaf2709f0362f3ef5fe"
-    },
-    {
-      "id": "sr_done_receipt_observe_2025-09-20T03:45:00Z_v0_1",
-      "kind": "observe",
-      "path": "receipts/sr_done_receipt_observe_2025-09-20T03:45:00Z_v0_1.json",
-      "sha256": "b35572dc1fc54b8dd46664da8ab5ae011a1f5a584adfa7c04e51c8a13348f7d3"
     }
   ],
   "watch_checkpoint": {
     "path": "/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json",
-    "sha256": "816eff339404bf650e728db3948a11bbea9239888dbd7a3391f444554ded99e9",
+    "sha256": "277fe1e02f19318d9de48b1c97e6c378efb0365ea29773960c07dbaae211f366",
     "verdict": "penitential_rite"
   },
   "configs": {
@@ -82,10 +82,10 @@
       "mtime": "2025-09-19T03:09:53Z"
     },
     "receipts/sr_watch_checkpoint_v0_1.json": {
-      "sha256": "816eff339404bf650e728db3948a11bbea9239888dbd7a3391f444554ded99e9",
+      "sha256": "277fe1e02f19318d9de48b1c97e6c378efb0365ea29773960c07dbaae211f366",
       "size": 43,
       "mtime": "2025-09-20T03:48:30Z"
     }
   },
-  "merkle_root": "afcfd20991d427e2a195b76432e5e820c1dd524cc120a8acd413d19a515dfa0f"
+  "merkle_root": "16ebc5e9da08c2b8cd383758d5dfadbf53f73262f044a595759e75c3593b0b4f"
 }
