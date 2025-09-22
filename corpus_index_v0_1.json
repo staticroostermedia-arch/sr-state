@@ -1,6 +1,6 @@
 {
   "schema": "sr.corpus_index_v0_1",
-  "generated_at_utc": "2025-09-22T17:15:01Z",
+  "generated_at_utc": "2025-09-22T17:30:01Z",
   "paths": [
     "corpus/text/ingest_20250922T030001Z.jsonl",
     "corpus/text/ingest_20250922T040000Z.jsonl",
@@ -10,7 +10,6 @@
     "corpus/text/ingest_20250920T050001Z.jsonl",
     "corpus/text/ingest_20250922T154555Z.jsonl",
     "corpus/text/ingest_20250922T160000Z.jsonl",
-    "corpus/text/ingest_20250920T040001Z.jsonl",
-    "corpus/text/ingest_20250922T170000Z.jsonl"
+    "corpus/text/ingest_20250920T040001Z.jsonl"
   ]
 }
