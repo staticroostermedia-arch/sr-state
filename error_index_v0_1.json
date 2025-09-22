@@ -1,7 +1,7 @@
 {
   "schema": "sr.error_index_v0_1",
-  "generated_at_utc": "2025-09-20T04:54:35Z",
-  "count": 4,
+  "generated_at_utc": "2025-09-22T02:24:27Z",
+  "count": 5,
   "items": [
     {
       "path": "receipts/errors/sr_error_2025-09-20T04:51:26Z_v0_1.json",
@@ -11,6 +11,12 @@
     },
     {
       "path": "receipts/errors/sr_error_2025-09-20T04:54:35Z_v0_1.json",
+      "name": "intentional-404",
+      "component": "observe_cycle",
+      "exit_code": 127
+    },
+    {
+      "path": "receipts/errors/sr_error_2025-09-20T05:03:14Z_v0_1.json",
       "name": "intentional-404",
       "component": "observe_cycle",
       "exit_code": 127
