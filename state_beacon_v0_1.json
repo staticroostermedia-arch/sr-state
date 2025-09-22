@@ -1,91 +1,14 @@
 {
-  "schema": "sr.state_beacon.v0_1",
-  "seq": 22,
-  "generated_at_utc": "2025-09-22T17:00:01Z",
-  "project": "EH1003006",
-  "host": "eh1003006-dev",
-  "snapshot": {
-    "id": "unknown",
-    "sha256": "unknown"
+  "schema":"sr.state_beacon.v0_1",
+  "generated_at_utc":"2025-09-22T17:01:22Z",
+  "paths":{
+    "watch_checkpoint":"receipts/sr_watch_checkpoint_v0_1.json",
+    "receipts_dir":"receipts/"
   },
-  "latest_receipts": [
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-22T16_52_56Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T16_52_56Z.json",
-      "sha256": "c579a11ffc145d9b14e1f39baf3f24cf11c5aa7815776aa65c21ce2890cf028d"
-    },
-    {
-      "id": "sr_done_receipt_go_operational_v2_2025_09_22T16_48_36Z",
-      "kind": "go",
-      "path": "receipts/sr_done_receipt_go_operational_v2_2025_09_22T16_48_36Z.json",
-      "sha256": "d19dbed2d263d1a4a597e0f8fbf2bbdff386956d0c3502108a336ca70ccf4fd4"
-    },
-    {
-      "id": "sr_done_receipt_observe_2025_09_22T16_48_35Z",
-      "kind": "observe",
-      "path": "receipts/sr_done_receipt_observe_2025_09_22T16_48_35Z.json",
-      "sha256": "0b6f42f57a295c2fe5c70bdcd9b15fedf948773b9999f76df691844eae54ecf5"
-    },
-    {
-      "id": "sr_done_receipt_c00_checkpoint_emit_2025_09_22T16_48_33Z",
-      "kind": "c00",
-      "path": "receipts/sr_done_receipt_c00_checkpoint_emit_2025_09_22T16_48_33Z.json",
-      "sha256": "4350217e3a3b8b2db62511c5053056124a44822a12d11bc536215d1ea66b2487"
-    },
-    {
-      "id": "sr_done_receipt_probe_core_2025_09_22T16_48_33Z",
-      "kind": "probe",
-      "path": "receipts/sr_done_receipt_probe_core_2025_09_22T16_48_33Z.json",
-      "sha256": "7c1c9d5b09b615a0a54f7ab3dffc96fe704f844917c1cd998ac90d9f849e2c07"
-    },
-    {
-      "id": "sr_done_receipt_observe_2025_09_22T16_48_31Z",
-      "kind": "observe",
-      "path": "receipts/sr_done_receipt_observe_2025_09_22T16_48_31Z.json",
-      "sha256": "43c7134d9b7f28a7b4543a727a81094b0b15b8c8afe25f861ba1d65c571d0285"
-    },
-    {
-      "id": "sr_done_receipt_c01_s03_checkpoint_emit_2025_09_22T16_48_31Z",
-      "kind": "c01",
-      "path": "receipts/sr_done_receipt_c01_s03_checkpoint_emit_2025_09_22T16_48_31Z.json",
-      "sha256": "53ddd634b526499e97e553ebacab0331102bf85cc317b339026f3a33547f6c7a"
-    },
-    {
-      "id": "sr_done_receipt_git_beacon_init_v2_2025_09_22T16_47_12Z",
-      "kind": "git",
-      "path": "receipts/sr_done_receipt_git_beacon_init_v2_2025_09_22T16_47_12Z.json",
-      "sha256": "854760167e0371c30a41f77bf80ba550b6c13ee5ac5c301c09aef4c44a6588a4"
-    }
-  ],
-  "watch_checkpoint": {
-    "path": "/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json",
-    "sha256": "575fa28828e8523b24543e7c0d2ba3ee6f5031ffa6196d58ccd97d48f4188c2c",
-    "verdict": "penitential_rite"
+  "stats":{
+    "done_receipt_count": 299,
+    "error_receipt_count": 0,
+    "watch_checkpoint_present": true
   },
-  "configs": {
-    "decisionhub_config": {
-      "path": "/home/a/static-rooster/config/decisionhub_config.json",
-      "sha256": "3cd490e167cb1fa1dd4e4a5c8cc4c0d23d145cf0433b1d14f16308eff5a34cc9"
-    }
-  },
-  "anchors": {
-    "canon": {
-      "path": "/home/a/static-rooster/docs/identity/01_SR_Canon.md",
-      "sha256": "null"
-    }
-  },
-  "watched_files": {
-    "config/decisionhub_config.json": {
-      "sha256": "3cd490e167cb1fa1dd4e4a5c8cc4c0d23d145cf0433b1d14f16308eff5a34cc9",
-      "size": 55,
-      "mtime": "2025-09-22T16:47:11Z"
-    },
-    "receipts/sr_watch_checkpoint_v0_1.json": {
-      "sha256": "575fa28828e8523b24543e7c0d2ba3ee6f5031ffa6196d58ccd97d48f4188c2c",
-      "size": 43,
-      "mtime": "2025-09-22T16:47:11Z"
-    }
-  },
-  "merkle_root": "63ec3385e7495111a5ece5152aa6557c7afe492ebc00655790442378e0da1c89"
+  "note":"observation; includes error receipts in git"
 }
