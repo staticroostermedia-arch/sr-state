@@ -1,7 +1,7 @@
 {
   "schema": "sr.state_beacon.v0_1",
-  "seq": 30,
-  "generated_at_utc": "2025-09-22T19:00:02Z",
+  "seq": 31,
+  "generated_at_utc": "2025-09-22T19:15:02Z",
   "project": "EH1003006",
   "host": "eh1003006-dev",
   "snapshot": {
@@ -9,6 +9,18 @@
     "sha256": "unknown"
   },
   "latest_receipts": [
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-22T19_13_08Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T19_13_08Z.json",
+      "sha256": "ac9c66f3e53099cad07a547f2e6850a14f19b1a69701d69e72a4654be8fc4ba5"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-22T19_03_08Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T19_03_08Z.json",
+      "sha256": "336fa2d7c96716921673462d344a745575a8ff42b71e86fe04754c22dbe8fa9b"
+    },
     {
       "id": "sr_done_receipt_heartbeat_2025-09-22T18_53_07Z",
       "kind": "heartbeat",
@@ -44,23 +56,11 @@
       "kind": "heartbeat",
       "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T18_13_04Z.json",
       "sha256": "88efbe1c0b9aef8077ef4dfad66e6740a2052f7c9992ad9f46098f232b09e922"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-22T18_03_03Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T18_03_03Z.json",
-      "sha256": "6a0d086663e04fa248b5d7da9bf1605ad1779dacf6b2037ce49d3ff9e408ff5b"
-    },
-    {
-      "id": "sr_done_receipt_c01_s02_config_patch_emit_2025_09_22T17_53_51Z",
-      "kind": "c01",
-      "path": "receipts/sr_done_receipt_c01_s02_config_patch_emit_2025_09_22T17_53_51Z.json",
-      "sha256": "bc93219d51c687ff63083683bc7a33d6151ad6755d75bd92f0e10eec3e8d892d"
     }
   ],
   "watch_checkpoint": {
     "path": "/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json",
-    "sha256": "7988ea37d5bd64bc892df81f32a143844dfa38447ebdc3233227fe161f0aa75e",
+    "sha256": "454c1d39a56b79148ec6f643cb5e2e4d989513d69819df27c5fe1c6bcf53148a",
     "verdict": "penitential_rite"
   },
   "configs": {
@@ -82,10 +82,10 @@
       "mtime": "2025-09-22T17:53:51Z"
     },
     "receipts/sr_watch_checkpoint_v0_1.json": {
-      "sha256": "7988ea37d5bd64bc892df81f32a143844dfa38447ebdc3233227fe161f0aa75e",
+      "sha256": "454c1d39a56b79148ec6f643cb5e2e4d989513d69819df27c5fe1c6bcf53148a",
       "size": 43,
-      "mtime": "2025-09-22T18:44:37Z"
+      "mtime": "2025-09-22T19:12:02Z"
     }
   },
-  "merkle_root": "10b5e35fbc745c60f529e96a2ddc789fdbfeb0237106519bd7ec303f846e0421"
+  "merkle_root": "eb109891d3ac894023221a717e6bb319d2a2d96986acdd7309b0458775cfdbbf"
 }
