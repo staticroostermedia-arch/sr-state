@@ -1,7 +1,7 @@
 {
   "schema": "sr.state_beacon.v0_1",
-  "seq": 29,
-  "generated_at_utc": "2025-09-22T18:45:02Z",
+  "seq": 30,
+  "generated_at_utc": "2025-09-22T19:00:02Z",
   "project": "EH1003006",
   "host": "eh1003006-dev",
   "snapshot": {
@@ -9,6 +9,12 @@
     "sha256": "unknown"
   },
   "latest_receipts": [
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-22T18_53_07Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T18_53_07Z.json",
+      "sha256": "939fa060bb8f03c17c12416a7d2f30b43a248ea5f999d8c06ee87c7db11fa120"
+    },
     {
       "id": "sr_done_receipt_core_snapshot_2025_09_22t18_44_20z",
       "kind": "core",
@@ -50,18 +56,12 @@
       "kind": "c01",
       "path": "receipts/sr_done_receipt_c01_s02_config_patch_emit_2025_09_22T17_53_51Z.json",
       "sha256": "bc93219d51c687ff63083683bc7a33d6151ad6755d75bd92f0e10eec3e8d892d"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-22T17_53_02Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T17_53_02Z.json",
-      "sha256": "5329b9a37354997b169fcf210e42c435634cd039eab0484c728338a5f23be974"
     }
   ],
   "watch_checkpoint": {
     "path": "/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json",
-    "sha256": "d64412c703c0ba1ac9a205bfd564600fe4d7c87f99a864fac11e5b575e3bd581",
-    "verdict": "unknown"
+    "sha256": "7988ea37d5bd64bc892df81f32a143844dfa38447ebdc3233227fe161f0aa75e",
+    "verdict": "penitential_rite"
   },
   "configs": {
     "decisionhub_config": {
@@ -82,10 +82,10 @@
       "mtime": "2025-09-22T17:53:51Z"
     },
     "receipts/sr_watch_checkpoint_v0_1.json": {
-      "sha256": "d64412c703c0ba1ac9a205bfd564600fe4d7c87f99a864fac11e5b575e3bd581",
+      "sha256": "7988ea37d5bd64bc892df81f32a143844dfa38447ebdc3233227fe161f0aa75e",
       "size": 43,
       "mtime": "2025-09-22T18:44:37Z"
     }
   },
-  "merkle_root": "5c8aba8aa74af2181c1da8ee359a5b3dc74a88256c7a318c0a2fe6b5461a5c83"
+  "merkle_root": "10b5e35fbc745c60f529e96a2ddc789fdbfeb0237106519bd7ec303f846e0421"
 }
