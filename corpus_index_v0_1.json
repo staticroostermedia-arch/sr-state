@@ -1,6 +1,6 @@
 {
   "schema": "sr.corpus_index_v0_1",
-  "generated_at_utc": "2025-09-22T23:15:02Z",
+  "generated_at_utc": "2025-09-22T23:30:02Z",
   "paths": [
     "corpus/text/ingest_20250922T230000Z.jsonl",
     "corpus/text/ingest_20250922T030001Z.jsonl",
