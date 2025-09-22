@@ -1,7 +1,7 @@
 {
   "schema": "sr.state_beacon.v0_1",
-  "seq": 14,
-  "generated_at_utc": "2025-09-22T03:30:03Z",
+  "seq": 15,
+  "generated_at_utc": "2025-09-22T03:45:01Z",
   "project": "EH1003006",
   "host": "eh1003006-dev",
   "snapshot": {
@@ -10,10 +10,16 @@
   },
   "latest_receipts": [
     {
-      "id": "sr_done_receipt_observe_2025-09-22T03:30:01Z_v0_1",
-      "kind": "observe",
-      "path": "receipts/sr_done_receipt_observe_2025-09-22T03:30:01Z_v0_1.json",
-      "sha256": "0c7a793946e3bb3bbf06029ba45bbc0e871a402b2f656095a1cfd3ca71ac774c"
+      "id": "sr_done_receipt_heartbeat_2025-09-22T03_43_18Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T03_43_18Z.json",
+      "sha256": "e1a08b93bd01ce520ec53d8ed9489e9961fceb9bbe9cede77faa731b96cf5e60"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-22T03_33_18Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T03_33_18Z.json",
+      "sha256": "038794f79f825e6e5f0386a9f696dc60c3260584eefd11f8e2529e42066d4607"
     },
     {
       "id": "sr_done_receipt_watch_refresh_2025-09-22T03:28:49Z",
@@ -50,23 +56,17 @@
       "kind": "heartbeat",
       "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T02_53_14Z.json",
       "sha256": "4b52a343b3233febf5e4ce69a334f7db63e02a037aeb079f383a7bbc88ac546e"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-22T02_43_13Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T02_43_13Z.json",
-      "sha256": "4ec42171520f2e5781be0ef84de06c3203dbc522f0df9761a001ad2af2536cb7"
     }
   ],
   "watch_checkpoint": {
     "path": "/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json",
-    "sha256": "a8b82d5f63ab0d36926cf45852e4327151ca1083778aaf2a72bbf0d4c2b7cf6d",
+    "sha256": "143a2b62f219be49a716900579f8a91d6f1b36b371c5086bf19e93d8072e6d29",
     "verdict": "penitential_rite"
   },
   "configs": {
     "decisionhub_config": {
       "path": "/home/a/static-rooster/config/decisionhub_config.json",
-      "sha256": "be5fa120b5bafbf04d4230849a7546c2f9f11c052bc6660f40530fd50b9295d7"
+      "sha256": "9a0d6822284a2d46ed5cf16561bec186ff4fb73288357ca57bea701f97053e3a"
     }
   },
   "anchors": {
@@ -77,15 +77,15 @@
   },
   "watched_files": {
     "config/decisionhub_config.json": {
-      "sha256": "be5fa120b5bafbf04d4230849a7546c2f9f11c052bc6660f40530fd50b9295d7",
-      "size": 32,
-      "mtime": "2025-09-22T03:23:12Z"
+      "sha256": "9a0d6822284a2d46ed5cf16561bec186ff4fb73288357ca57bea701f97053e3a",
+      "size": 44,
+      "mtime": "2025-09-22T03:44:43Z"
     },
     "receipts/sr_watch_checkpoint_v0_1.json": {
-      "sha256": "a8b82d5f63ab0d36926cf45852e4327151ca1083778aaf2a72bbf0d4c2b7cf6d",
+      "sha256": "143a2b62f219be49a716900579f8a91d6f1b36b371c5086bf19e93d8072e6d29",
       "size": 43,
-      "mtime": "2025-09-22T03:05:03Z"
+      "mtime": "2025-09-22T03:32:28Z"
     }
   },
-  "merkle_root": "73e8f590c2c6b22a1e1b2ae33e48dc5e3fd8854ea62f7705be5cf5487b76a782"
+  "merkle_root": "e388619b32291b7d9cd81da481823d7867e3c69fe819fb913cb0971c76337264"
 }
