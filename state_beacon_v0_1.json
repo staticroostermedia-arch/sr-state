@@ -1,7 +1,7 @@
 {
   "schema": "sr.state_beacon.v0_1",
-  "seq": 36,
-  "generated_at_utc": "2025-09-22T20:30:02Z",
+  "seq": 37,
+  "generated_at_utc": "2025-09-22T20:45:02Z",
   "project": "EH1003006",
   "host": "eh1003006-dev",
   "snapshot": {
@@ -9,6 +9,24 @@
     "sha256": "unknown"
   },
   "latest_receipts": [
+    {
+      "id": "sr_done_receipt_observe_2025-09-22T20:45:01Z_v0_1",
+      "kind": "observe",
+      "path": "receipts/sr_done_receipt_observe_2025-09-22T20:45:01Z_v0_1.json",
+      "sha256": "ea4de794e513d89f5d4059152fe9b54a67c14abba0d836961042c1432037472d"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-22T20_43_16Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T20_43_16Z.json",
+      "sha256": "24f6ef71ba98cb87fed5cb4964291e5aa97392602e2b301a28aba22d053939af"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-22T20_33_15Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T20_33_15Z.json",
+      "sha256": "1c0234b88a27abc32492f52150cf650b6fb93e0e1c4af5b3f145f852c232f3df"
+    },
     {
       "id": "sr_done_receipt_heartbeat_2025-09-22T20_23_14Z",
       "kind": "heartbeat",
@@ -38,30 +56,12 @@
       "kind": "heartbeat",
       "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T19_43_11Z.json",
       "sha256": "ed3302a546e6bc7e117b3aafc08ac057231380ef75be6af4c238cc18fd25e68a"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-22T19_33_10Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T19_33_10Z.json",
-      "sha256": "e041cbbabc829b4f95e155eeeb975b50c347bf43d0fa59a8bb4f66f941d813f7"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-22T19_23_09Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T19_23_09Z.json",
-      "sha256": "58395d4ded1675d70dc50734f276a2e6bcef88f17813c37eb27131ef05ee581e"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-22T19_13_08Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T19_13_08Z.json",
-      "sha256": "ac9c66f3e53099cad07a547f2e6850a14f19b1a69701d69e72a4654be8fc4ba5"
     }
   ],
   "watch_checkpoint": {
     "path": "/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json",
-    "sha256": "438973387fab7c30b309c1370c5a93a15ca1a90745daf0fe354028172c0369fc",
-    "verdict": "penitential_rite"
+    "sha256": "37a74bce2bc3a29c519197a45703b30b6e33ba63985ab3ca6832b4b149b63259",
+    "verdict": "unknown"
   },
   "configs": {
     "decisionhub_config": {
@@ -82,10 +82,10 @@
       "mtime": "2025-09-22T17:53:51Z"
     },
     "receipts/sr_watch_checkpoint_v0_1.json": {
-      "sha256": "438973387fab7c30b309c1370c5a93a15ca1a90745daf0fe354028172c0369fc",
+      "sha256": "37a74bce2bc3a29c519197a45703b30b6e33ba63985ab3ca6832b4b149b63259",
       "size": 43,
-      "mtime": "2025-09-22T20:12:02Z"
+      "mtime": "2025-09-22T20:44:37Z"
     }
   },
-  "merkle_root": "574f1e65a3552c87a88487cf252ab88b67dcfa37c83f26ef0575615939d2ffb6"
+  "merkle_root": "9fd2bb66df7133ee38bd035b95a66501b3afba873ebb7b307f72c8c3f7135946"
 }
