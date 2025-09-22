@@ -1,7 +1,7 @@
 {
   "schema": "sr.state_beacon.v0_1",
-  "seq": 27,
-  "generated_at_utc": "2025-09-22T18:15:02Z",
+  "seq": 28,
+  "generated_at_utc": "2025-09-22T18:30:02Z",
   "project": "EH1003006",
   "host": "eh1003006-dev",
   "snapshot": {
@@ -9,6 +9,12 @@
     "sha256": "unknown"
   },
   "latest_receipts": [
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-22T18_23_04Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T18_23_04Z.json",
+      "sha256": "514843c89ae065e9da37b8f0ad62bfda26f9066965cfac519eecd04d93171807"
+    },
     {
       "id": "sr_done_receipt_heartbeat_2025-09-22T18_13_04Z",
       "kind": "heartbeat",
@@ -50,17 +56,11 @@
       "kind": "heartbeat",
       "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T17_43_01Z.json",
       "sha256": "52c3395eada056daf30ad8b45f30e88a865ed09e71fa0920a485603fbd8e2c1e"
-    },
-    {
-      "id": "sr_done_receipt_c01_s02_config_patch_emit_2025_09_22T17_34_17Z",
-      "kind": "c01",
-      "path": "receipts/sr_done_receipt_c01_s02_config_patch_emit_2025_09_22T17_34_17Z.json",
-      "sha256": "4c33cff69d7abf788cda55ff18403fcc5442308a4b3171038832eb1d906e6c25"
     }
   ],
   "watch_checkpoint": {
     "path": "/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json",
-    "sha256": "8a3a1287a7306b3677d413206eae7764fdf50dfe37a9e69cd3e7852879a95b5e",
+    "sha256": "b8bb5fb01964cc232dc180a7e7b328452dbbbf8b98fa3c581c1b81aec050e97b",
     "verdict": "penitential_rite"
   },
   "configs": {
@@ -82,10 +82,10 @@
       "mtime": "2025-09-22T17:53:51Z"
     },
     "receipts/sr_watch_checkpoint_v0_1.json": {
-      "sha256": "8a3a1287a7306b3677d413206eae7764fdf50dfe37a9e69cd3e7852879a95b5e",
+      "sha256": "b8bb5fb01964cc232dc180a7e7b328452dbbbf8b98fa3c581c1b81aec050e97b",
       "size": 43,
       "mtime": "2025-09-22T18:12:01Z"
     }
   },
-  "merkle_root": "2e11949e846222ed4a47618070e51dff4d47e5bbf9bdd64b9e759f5911400661"
+  "merkle_root": "248679b8aa132dd5d1d2df5dcb67d69667e5424a9531cc89e593d97790690b20"
 }
