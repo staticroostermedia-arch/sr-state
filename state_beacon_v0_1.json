@@ -1,7 +1,7 @@
 {
   "schema": "sr.state_beacon.v0_1",
-  "seq": 44,
-  "generated_at_utc": "2025-09-22T22:30:02Z",
+  "seq": 45,
+  "generated_at_utc": "2025-09-22T22:45:02Z",
   "project": "EH1003006",
   "host": "eh1003006-dev",
   "snapshot": {
@@ -9,6 +9,18 @@
     "sha256": "unknown"
   },
   "latest_receipts": [
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-22T22_43_25Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T22_43_25Z.json",
+      "sha256": "586bdb4240d7e542a57ef6d32bc338b952c693b708fe2084e06fe260022c7105"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-22T22_33_24Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T22_33_24Z.json",
+      "sha256": "b09a5d5aa9bfbaa4f148f276ce3e203e841f20214633357187387157c2693961"
+    },
     {
       "id": "sr_done_receipt_heartbeat_2025-09-22T22_23_23Z",
       "kind": "heartbeat",
@@ -44,24 +56,12 @@
       "kind": "heartbeat",
       "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T21_33_19Z.json",
       "sha256": "bebc06646ab7ffd45ede9fc9f636b4d2e69d362520a08f207e44feafffc1dde3"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-22T21_23_18Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T21_23_18Z.json",
-      "sha256": "df50b287b92f8a76eb32661cc3d0e247565cebc859966622113f3df31fedc9f1"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-22T21_13_18Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T21_13_18Z.json",
-      "sha256": "ff690aff4a73c8e24daa1e1e050fe355f2e3938fd7568bcc9fdd8be345c98295"
     }
   ],
   "watch_checkpoint": {
     "path": "/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json",
-    "sha256": "3f10c2857b8518b8223662c53b68a67bc7424da9ffe134762649aa48b636627a",
-    "verdict": "penitential_rite"
+    "sha256": "4d55d78ebda2fbf0bb954ab8c6709c677863adb410d9d87fcbf80cb894d209df",
+    "verdict": "unknown"
   },
   "configs": {
     "decisionhub_config": {
@@ -82,10 +82,10 @@
       "mtime": "2025-09-22T17:53:51Z"
     },
     "receipts/sr_watch_checkpoint_v0_1.json": {
-      "sha256": "3f10c2857b8518b8223662c53b68a67bc7424da9ffe134762649aa48b636627a",
+      "sha256": "4d55d78ebda2fbf0bb954ab8c6709c677863adb410d9d87fcbf80cb894d209df",
       "size": 43,
-      "mtime": "2025-09-22T22:12:04Z"
+      "mtime": "2025-09-22T22:44:37Z"
     }
   },
-  "merkle_root": "b5bd1914c1f2d3839de494998560f571040748b64385439c942793ad2e38d3eb"
+  "merkle_root": "81261c3604b61cdc885b9be2c55ea68ee773b75733fb03c13cdd9cc4c6cefe56"
 }
