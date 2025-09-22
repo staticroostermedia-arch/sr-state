@@ -1,7 +1,7 @@
 {
   "schema": "sr.state_beacon.v0_1",
-  "seq": 13,
-  "generated_at_utc": "2025-09-22T03:15:02Z",
+  "seq": 14,
+  "generated_at_utc": "2025-09-22T03:30:03Z",
   "project": "EH1003006",
   "host": "eh1003006-dev",
   "snapshot": {
@@ -9,6 +9,30 @@
     "sha256": "unknown"
   },
   "latest_receipts": [
+    {
+      "id": "sr_done_receipt_observe_2025-09-22T03:30:01Z_v0_1",
+      "kind": "observe",
+      "path": "receipts/sr_done_receipt_observe_2025-09-22T03:30:01Z_v0_1.json",
+      "sha256": "0c7a793946e3bb3bbf06029ba45bbc0e871a402b2f656095a1cfd3ca71ac774c"
+    },
+    {
+      "id": "sr_done_receipt_watch_refresh_2025-09-22T03:28:49Z",
+      "kind": "watch",
+      "path": "receipts/sr_done_receipt_watch_refresh_2025-09-22T03:28:49Z.json",
+      "sha256": "903dd285a212e7cba8858f0125070514559b3ea08c7aa6fca6d16f5f3d953ae1"
+    },
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-22T03_23_16Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T03_23_16Z.json",
+      "sha256": "33161a88ba990514f020bd2f59f6ccba86766eeb7220b63c5bdf12d9bb8923e3"
+    },
+    {
+      "id": "sr_done_receipt_sync_2025-09-22T03:22:50Z",
+      "kind": "sync",
+      "path": "receipts/sr_done_receipt_sync_2025-09-22T03:22:50Z.json",
+      "sha256": "043909308924b15d3d71aff9df54a18fddd27cd33bf1c8c1b5ba10f62114b122"
+    },
     {
       "id": "sr_done_receipt_heartbeat_2025-09-22T03_13_16Z",
       "kind": "heartbeat",
@@ -32,41 +56,17 @@
       "kind": "heartbeat",
       "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T02_43_13Z.json",
       "sha256": "4ec42171520f2e5781be0ef84de06c3203dbc522f0df9761a001ad2af2536cb7"
-    },
-    {
-      "id": "sr_done_receipt_ack_SR-012_2025-09-22T02:42:11Z",
-      "kind": "ack",
-      "path": "receipts/sr_done_receipt_ack_SR-012_2025-09-22T02:42:11Z.json",
-      "sha256": "784d3400a7275aac69a1dcfe374a667e07423271ec6fd72faeb59fe6aa208fe5"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-22T02_33_11Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T02_33_11Z.json",
-      "sha256": "5a828384f2506b03a363ed95d3a26f6a6ee1817616c350cba31fc1c24f6b5825"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-20T05_06_39Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-20T05_06_39Z.json",
-      "sha256": "c0b1690448f9d8573c161d36ddd146b3b242622b55fb081ea4de4f52876cd566"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-20T04_56_38Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-20T04_56_38Z.json",
-      "sha256": "f4f65693571d5f4356e9c2e3312e7b103ad1af3c71a90d7b26088cfa11158663"
     }
   ],
   "watch_checkpoint": {
     "path": "/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json",
-    "sha256": "f01bbefa94131a5c20788003362f601e245de87bbb045ce20ab345b99cd359ec",
+    "sha256": "a8b82d5f63ab0d36926cf45852e4327151ca1083778aaf2a72bbf0d4c2b7cf6d",
     "verdict": "penitential_rite"
   },
   "configs": {
     "decisionhub_config": {
       "path": "/home/a/static-rooster/config/decisionhub_config.json",
-      "sha256": "e5f1eb4d806641698a35efe20e098efd20d7d57a9b90ee69079d5bb650920726"
+      "sha256": "be5fa120b5bafbf04d4230849a7546c2f9f11c052bc6660f40530fd50b9295d7"
     }
   },
   "anchors": {
@@ -77,15 +77,15 @@
   },
   "watched_files": {
     "config/decisionhub_config.json": {
-      "sha256": "e5f1eb4d806641698a35efe20e098efd20d7d57a9b90ee69079d5bb650920726",
-      "size": 12,
-      "mtime": "2025-09-19T03:09:53Z"
+      "sha256": "be5fa120b5bafbf04d4230849a7546c2f9f11c052bc6660f40530fd50b9295d7",
+      "size": 32,
+      "mtime": "2025-09-22T03:23:12Z"
     },
     "receipts/sr_watch_checkpoint_v0_1.json": {
-      "sha256": "f01bbefa94131a5c20788003362f601e245de87bbb045ce20ab345b99cd359ec",
+      "sha256": "a8b82d5f63ab0d36926cf45852e4327151ca1083778aaf2a72bbf0d4c2b7cf6d",
       "size": 43,
       "mtime": "2025-09-22T03:05:03Z"
     }
   },
-  "merkle_root": "237fc82567911aa9ad0cabf27f31ada5c754d0ee006b474f4639298076ab33f1"
+  "merkle_root": "73e8f590c2c6b22a1e1b2ae33e48dc5e3fd8854ea62f7705be5cf5487b76a782"
 }
