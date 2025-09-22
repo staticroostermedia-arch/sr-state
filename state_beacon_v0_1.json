@@ -1,7 +1,7 @@
 {
   "schema": "sr.state_beacon.v0_1",
-  "seq": 33,
-  "generated_at_utc": "2025-09-22T19:45:02Z",
+  "seq": 34,
+  "generated_at_utc": "2025-09-22T20:00:02Z",
   "project": "EH1003006",
   "host": "eh1003006-dev",
   "snapshot": {
@@ -9,6 +9,12 @@
     "sha256": "unknown"
   },
   "latest_receipts": [
+    {
+      "id": "sr_done_receipt_heartbeat_2025-09-22T19_53_11Z",
+      "kind": "heartbeat",
+      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T19_53_11Z.json",
+      "sha256": "76a185aec486e6c231b92220d3a2267d9dd4ab083b560f65b84ce46b07f2517e"
+    },
     {
       "id": "sr_done_receipt_heartbeat_2025-09-22T19_43_11Z",
       "kind": "heartbeat",
@@ -50,17 +56,11 @@
       "kind": "core",
       "path": "receipts/sr_done_receipt_core_snapshot_2025_09_22t18_44_20z.json",
       "sha256": "5a76cf41d31d8c627ad046c0438b22dc081a972038d738709f0c39362e6c30a1"
-    },
-    {
-      "id": "sr_done_receipt_heartbeat_2025-09-22T18_43_06Z",
-      "kind": "heartbeat",
-      "path": "receipts/sr_done_receipt_heartbeat_2025-09-22T18_43_06Z.json",
-      "sha256": "c7640a8faf11fd7078f39d52e62e78bed7cfd15464be24bcc2e4f853e416ab0a"
     }
   ],
   "watch_checkpoint": {
     "path": "/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json",
-    "sha256": "7727430ffe64e459bd1c69ecc7be335c6a49beb0f3ba7ddc7a521a25fd33dcb8",
+    "sha256": "911dfa016f400fbf5e3a469135182672c653c2b36555333ee95fab097f232499",
     "verdict": "penitential_rite"
   },
   "configs": {
@@ -82,10 +82,10 @@
       "mtime": "2025-09-22T17:53:51Z"
     },
     "receipts/sr_watch_checkpoint_v0_1.json": {
-      "sha256": "7727430ffe64e459bd1c69ecc7be335c6a49beb0f3ba7ddc7a521a25fd33dcb8",
+      "sha256": "911dfa016f400fbf5e3a469135182672c653c2b36555333ee95fab097f232499",
       "size": 43,
       "mtime": "2025-09-22T19:42:02Z"
     }
   },
-  "merkle_root": "798afad1db19bf911b51b42ee643caa4f607ad9bac6bb18c7a2eaed186726e58"
+  "merkle_root": "68c8d0e0877f0c6446d58123c396a3452fbc85a6a2148a62688b954b4dcfd3da"
 }
