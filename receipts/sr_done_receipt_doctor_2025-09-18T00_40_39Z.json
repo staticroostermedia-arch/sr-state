@@ -1,2 +1,0 @@
-{"schema":"sr.done_receipt.v0_1","tool_name":"sr_doctor","status":"ok","generated_at_utc":"2025-09-18T00_40_39Z",
- "summary":"doctor ran","observations":{"title":"Static Rooster • Start (v0.3 pinned)","ingest":"18891 /usr/bin/python3 /home/a/static-rooster/bin/sr_ingest_echo_v0_6.py","public_url":"https://deals-ist-workstation-hist.trycloudflare.com/share/","share_nav":"no"}}

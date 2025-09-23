@@ -1,8 +1,0 @@
-{
-  "schema":"sr.receipt.v0_1",
-  "generated_at_utc":"2025-09-15T22_26_00Z",
-  "tool_name":"sr.install.self_build_kit.v0_1",
-  "status":"ok",
-  "summary":"installed kit",
-  "used_sudo":false
-}

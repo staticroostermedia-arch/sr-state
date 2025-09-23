@@ -1,7 +1,0 @@
-{
-  "schema": "sr.cloud_heartbeat.compare.v0_1",
-  "cloud": "4f84d4d",
-  "local": "4f84d4d869a16e0ac325d5af3666b436975c2f8c",
-  "verdict": "mismatch",
-  "generated_at_utc": "2025-09-16T04:31:57Z"
-}

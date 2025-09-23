@@ -1,1 +1,0 @@
-{"generated_at":"20250916T171311Z","tool":"sr_kiosk_upgrade_v0_2.sh","status":"ok","note":"kiosk installed/updated; start_here shim, full minimal shell, launcher, snapshot+checkpoint ready.", "launchers": {"kiosk":"bin/sr_kiosk_launch_v0_1.sh","ingest":"bin/sr_ingest_server_v0_1.sh"}, "urls": ["/decisionhub/start_here_v0_3.html","/decisionhub/minimal_shell_v0_1.html"]}

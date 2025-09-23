@@ -1,3 +1,0 @@
-{ "schema":"sr.done_receipt.v0_1","tool_name":"install_sr_ark_backend","status":"ok",
-  "generated_at_utc":"2025:09:18t02:01:27Z",
-  "observations":{"service":"sr-ark.service","port":8892,"bin":"/home/a/static-rooster/bin","support":"/home/a/static-rooster/support"} }

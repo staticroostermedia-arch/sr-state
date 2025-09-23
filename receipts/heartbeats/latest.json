@@ -1,7 +1,0 @@
-{
-  "schema":"sr.heartbeat.v0_2",
-  "generated_at_utc":"2025-09-19T04:41:32Z",
-  "root_bytes": 149810261638,
-  "counts": { "docs": 44, "bin": 114, "receipts": 5651, "snapshots": 4772 },
-  "git_branch":"main"
-}

@@ -1,6 +1,0 @@
-{
-  "schema": "sr.rename.done.v0_1",
-  "generated_at_utc": "2025-09-16T01:40:17Z",
-  "counts": { "planned": 0, "applied": 0, "skipped": 0 },
-  "plan": "/home/a/static-rooster/receipts/renames/sr_rename_plan_v0_1_2025-09-16T01_40_17Z.json"
-}

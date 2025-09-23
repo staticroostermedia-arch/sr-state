@@ -1,2 +1,0 @@
-{
- "schema":"sr.receipt.v0_1","generated_at":"2025-09-14T10:18:39Z","tool_name":"sr_ark_bundle_v1_1","status":"ok","summary":"Daily Ark bundle created.","captures":{"snapshot_dir":"/home/a/static-rooster/snapshots/ark_2025-09-14T10_00_00Z","bundle":"/home/a/static-rooster/snapshots/ark_2025-09-14T10_00_00Z/ark_bundle.tgz","sha256":"020035ca0aa58d96e7268a5bfb6dabc6c716a4146406a0012004e53affaf8631"}}

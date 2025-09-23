@@ -1,8 +1,0 @@
-{
-  "schema":"sr.receipt.v0_1",
-  "generated_at":"2025-09-14T05:05:55Z",
-  "tool_name":"sr_runner_install_v1_0",
-  "status":"ok",
-  "summary":"Runner scaffold installed: server/tick/tock/scripts + systemd units.",
-  "captures":{"port":8888,"units":["sr-runner.service","sr-runner.timer"]}
-}

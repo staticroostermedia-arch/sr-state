@@ -1,5 +1,0 @@
-{
-  "schema":"eh1003006.autopromote.v0_1",
-  "generated_at_utc":"2025-09-14T22:22:35Z",
-  "promoted":[{"key":"canon_diff_viewer_v0_1","name":"canon diff viewer v0 1","badge":"v0","route":"/forge/canon_diff_viewer_v0_1.html"},{"key":"eh1003006_online_planner_v5_2_7","name":"eh1003006 online planner v5 2 7","badge":"v5","route":"/forge/eh1003006_online_planner_v5_2_7.html"},{"key":"field_notes_v0_1","name":"field notes v0 1","badge":"v0","route":"/forge/field_notes_v0_1.html"},{"key":"intake_console_v0_1","name":"intake console v0 1","badge":"v0","route":"/forge/intake_console_v0_1.html"},{"key":"ops_checklist_v0_1","name":"ops checklist v0 1","badge":"v0","route":"/forge/ops_checklist_v0_1.html"},{"key":"status_board_v0_1","name":"status board v0 1","badge":"v0","route":"/forge/status_board_v0_1.html"}]
-}

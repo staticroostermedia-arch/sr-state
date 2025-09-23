@@ -1,8 +1,0 @@
-{
-  "schema":"sr.receipt.v0_1",
-  "generated_at":"2025-09-14T05:09:46Z",
-  "tool_name":"sr_tock_v1_0",
-  "status":"ok",
-  "summary":"Tock: server ensured; routes probed; checkpoint crystallized.",
-  "captures":{"port":8888,"checkpoint":"/home/a/static-rooster/receipts/sr_watch_checkpoint_v0_1.json","verdict":"penitential_rite"}
-}

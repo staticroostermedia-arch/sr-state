@@ -1,8 +1,0 @@
-{
-  "schema":"sr.snapshot.move.v0_1",
-  "generated_at":"2025-09-13T05:17:23Z",
-  "snapshot_dir":"snapshots/2025-09-13T05:17:23Z",
-  "moved_count":0,
-  "moved_files": [
-  ]
-}

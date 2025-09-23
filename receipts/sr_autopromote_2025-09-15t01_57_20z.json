@@ -1,5 +1,0 @@
-{
-  "schema":"eh1003006.autopromote.v0_1",
-  "generated_at_utc":"2025-09-15T01:57:20Z",
-  "promoted":[{"key":"auto_canon_diff_01","name":"auto canon diff 01","badge":"v0","route":"/forge/auto_canon_diff_01.html"},{"key":"auto_field_notes_01","name":"auto field notes 01","badge":"v0","route":"/forge/auto_field_notes_01.html"},{"key":"auto_intake_console_01","name":"auto intake console 01","badge":"v0","route":"/forge/auto_intake_console_01.html"},{"key":"auto_ops_checklist_01","name":"auto ops checklist 01","badge":"v0","route":"/forge/auto_ops_checklist_01.html"},{"key":"auto_ops_dashboard_02","name":"auto ops dashboard 02","badge":"v0","route":"/forge/auto_ops_dashboard_02.html"},{"key":"auto_status_board_01","name":"auto status board 01","badge":"v0","route":"/forge/auto_status_board_01.html"}]
-}

@@ -1,8 +1,0 @@
-{
-  "schema": "sr.runner.snapshot.receipt.v0_1",
-  "generated_at": "2025-09-14T03:34:05Z",
-  "snapshot_dir": "/home/a/static-rooster/snapshots/2025-09-14T03_34_05Z",
-  "manifest": "/home/a/static-rooster/snapshots/2025-09-14T03_34_05Z/sr_snapshot_2025-09-14T03_34_05Z.manifest.json",
-  "sha256s": "/home/a/static-rooster/snapshots/2025-09-14T03_34_05Z/sha256sums.txt",
-  "host": {"name": "eh1003006-dev", "kernel": "Linux 5.15.0-153-generic", "iface": "wlp2s0", "power": ""}
-}

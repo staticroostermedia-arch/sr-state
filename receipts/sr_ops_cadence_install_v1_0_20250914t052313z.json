@@ -1,2 +1,0 @@
-{
- "schema":"sr.receipt.v0_1","generated_at":"2025-09-14T05:23:13Z","tool_name":"sr_ops_cadence_install_v1_0","status":"ok","summary":"Installed Ark (daily) and Parity (weekly) timers.","captures":{"units":["sr-ark.timer","sr-parity.timer"]}}

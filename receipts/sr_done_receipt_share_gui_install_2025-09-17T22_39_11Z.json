@@ -1,7 +1,0 @@
-{
-  "schema": "sr.done_receipt.v0_1",
-  "tool_name": "sr_share_gui_install",
-  "status": "ok",
-  "generated_at_utc": "2025-09-17T22_39_11Z",
-  "summary": "chat_ui_v0_1 + ingest v0_2"
-}

@@ -1,1 +1,0 @@
-{"generated_at":"20250916T172132Z","tool":"sr_kiosk_chat_enable_v0_1.sh","status":"ok","note":"kiosk tool installed; tile ensured; ingest+snapshot scripts present; probe /forge/kiosk_chat_v0_1.html=200", "http_status": 200, "tile": "/forge/kiosk_chat_v0_1.html", "launchers": {"kiosk":"bin/sr_kiosk_launch_v0_1.sh","ingest":"bin/sr_ingest_server_v0_1.sh"}}

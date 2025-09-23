@@ -1,9 +1,0 @@
-{
-  "generated_at_utc": "2025-09-14T04-58-08Z",
-  "tool_name": "sr_housekeeping_purge",
-  "status": "ok",
-  "summary": {
-    "deleted": [""],
-    "kept_identity": true
-  }
-}

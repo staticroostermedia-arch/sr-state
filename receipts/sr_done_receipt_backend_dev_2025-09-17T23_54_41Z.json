@@ -1,8 +1,0 @@
-{
-  "schema":"sr.done_receipt.v0_1",
-  "tool_name":"sr_install_backend_dev_tab",
-  "status":"ok",
-  "generated_at_utc":"2025-09-17T23_54_41Z",
-  "summary":"tool:200 ark_api:000 manifest:000 tgz:000",
-  "observations": { "ark_probe": "" }
-}
