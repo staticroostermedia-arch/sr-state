@@ -1,12 +1,13 @@
 {
   "schema": "sr.corpus_index_v0_1",
-  "generated_at_utc": "2025-09-22T23:45:02Z",
+  "generated_at_utc": "2025-09-23T00:00:02Z",
   "paths": [
     "corpus/text/ingest_20250922T230000Z.jsonl",
     "corpus/text/ingest_20250922T030001Z.jsonl",
     "corpus/text/ingest_20250922T220000Z.jsonl",
     "corpus/text/ingest_20250922T040000Z.jsonl",
     "corpus/text/ingest_20250920T021915Z.jsonl",
+    "corpus/text/ingest_20250923T000001Z.jsonl",
     "corpus/text/ingest_20250920T030001Z.jsonl",
     "corpus/text/ingest_20250922T022427Z.jsonl",
     "corpus/text/ingest_20250920T050001Z.jsonl",
