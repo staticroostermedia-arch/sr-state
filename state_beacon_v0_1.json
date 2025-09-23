@@ -1,7 +1,7 @@
 {
   "schema": "sr.state_beacon.v0_1",
   "seq": 53,
-  "generated_at_utc": "2025-09-23T00:45:02Z",
+  "generated_at_utc": "2025-09-23T00:47:50Z",
   "project": "EH1003006",
   "host": "eh1003006-dev",
   "snapshot": {
@@ -87,5 +87,23 @@
       "mtime": "2025-09-23T00:44:38Z"
     }
   },
-  "merkle_root": "a7150177c841c6ac861582b535049a63e524816aa38904c0a8d817a0ee79490d"
+  "merkle_root": "a7150177c841c6ac861582b535049a63e524816aa38904c0a8d817a0ee79490d",
+  "last_watch_verdict": "",
+  "latest_probe_results": [
+    {
+      "route": "/forge/reply_builder_v0_1.html",
+      "status": 200,
+      "ms": 0
+    },
+    {
+      "route": "/receipts/receipts_timeline_viewer_v0_1.html",
+      "status": 200,
+      "ms": 0
+    },
+    {
+      "route": "/decisionhub/watch_checkpoint_viewer_v0_1.html",
+      "status": 200,
+      "ms": 0
+    }
+  ]
 }
